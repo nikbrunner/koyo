@@ -24,3 +24,14 @@
 - [ ] Visual Layout Representations
 - [ ] Integration with QMK
 - [ ] Integration with ZMK
+
+## Resources
+
+- [urob](https://github.com/urob/zmk-config): timeless home row mods
+- [infused-kim](https://github.com/infused-kim/zmk-config)
+- [miryoku_zmk](https://github.com/manna-harbour/miryoku_zmk)
+- [ZMK Docs](https://zmk.dev/docs)
+- [Designing a Symbol Layer](https://getreuer.info/posts/keyboards/symbol-layer/index.html)
+- [A guide to home row mods](https://precondition.github.io/home-row-mods#shift-thumb-keys)
+- [Callum Mods](https://github.com/callum-oakley/qmk_firmware/tree/master/users/callum)
+- [Jonas Hietala: I designed my own keyboard layout. Was it worth it?](https://www.jonashietala.se/blog/2023/11/02/i_designed_my_own_keyboard_layout_was_it_worth_it/)
