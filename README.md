@@ -19,10 +19,15 @@
 - **Functional Key Pad**: Direct access to function keys.
 - **Hyper Key Convenience**: Simplifying complex key combinations.
 
+## Layout
+
+![](./assets/images/koyo.svg)
+
 ## Upcoming Enhancements
 
-- [ ] Visual Layout Representations
-- [ ] Integration with QMK
+- [x] Visual Layout Representations
+- [x] Integration with QMK
+- [ ] Connect this Repo with QMK Firmware Clone Repo
 - [ ] Integration with ZMK
 
 ## Resources
