@@ -1,6 +1,6 @@
 # kōyō
 
-![](./assets/images/banner.png)
+![](./assets/banner.png)
 
 ## Introduction
 
@@ -21,14 +21,28 @@
 
 ## Layout
 
-![](./assets/images/koyo.svg)
+![](./assets/layout.svg)
 
-## Upcoming Enhancements
+## TODO
 
-- [x] Visual Layout Representations
-- [x] Integration with QMK
-- [ ] Connect this Repo with QMK Firmware Clone Repo
-- [ ] Integration with ZMK
+- [x] Fix Media Keys
+- [x] Change default tapping term to 165
+- [x] HRM on a Dev Branch ^211d48
+- [x] media: Horizontal hierachal order for both sides ^10f058
+- [x] scripts: Update qmk script
+- [x] sym: Send `~/` on tab
+- [ ] scripts(qmk): Update `layout.svg` programmatically
+- [ ] source: Use real layer names
+- [ ] extend: tabdance
+  - tab: a,s,d,f,g -> Cmd(a,s,d,f,g)
+- [ ] base: tabdance
+  - tab+hold-enter -> hyper
+  - tab+hold-backspace -> meh
+- [ ] build: compile & flash from here
+- [ ] base?: Switch MO(1) & MO(5)
+- [ ] media: Screen Brightness
+- [ ] Better Umlaute
+  - [How do you master umlauts on a 3x5 keyboard? : r/ErgoMechKeyboards](https://www.reddit.com/r/ErgoMechKeyboards/comments/1cmh8ej/how_do_you_master_umlauts_on_a_3x5_keyboard/)
 
 ## Resources
 
