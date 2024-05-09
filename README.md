@@ -17,7 +17,6 @@
 - **Dedicated Symbol Layers**: Two dedicated layers for symbols for each hand, which are semantically arranged for easy remembrance.
 - **Integrated Num Pad**: Enables quick numerical inputs.
 - **Functional Key Pad**: Direct access to function keys.
-- **Hyper Key Convenience**: Simplifying complex key combinations.
 
 ## Layout
 
@@ -31,7 +30,7 @@
 - [x] media: Horizontal hierachal order for both sides ^10f058
 - [x] scripts: Update qmk script
 - [x] sym: Send `~/` on tab
-- [ ] scripts(qmk): Update `layout.svg` programmatically
+- [x] scripts(qmk): Update `layout.svg` programmatically
 - [ ] source: Use real layer names
 - [ ] extend: tabdance
   - tab: a,s,d,f,g -> Cmd(a,s,d,f,g)

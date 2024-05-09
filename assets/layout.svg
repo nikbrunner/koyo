@@ -111,20 +111,7 @@ path.combo {
     visibility: hidden;
 }
 /* End Tabler Icons Cleanup */
-
-@media (prefers-color-scheme: dark) {
-svg.keymap { fill: #d1d6db; }
-rect.key { fill: #3f4750; }
-rect.key, rect.combo { stroke: #60666c; }
-rect.combo, rect.combo-separate { fill: #1f3d7a; }
-rect.held, rect.combo.held { fill: #854747; }
-text.label, text.footer { stroke: black; }
-text.trans { fill: #7e8184; }
-path.combo { stroke: #7f7f7f; }
-
-}
-
-svg.keymap { background-color: #000000; }</style>
+</style>
 <g transform="translate(30, 0)" class="layer-L0">
 <text x="0" y="28" class="label">L0:</text>
 <g transform="translate(0, 56)">
@@ -554,6 +541,10 @@ svg.keymap { background-color: #000000; }</style>
 </g>
 <g transform="translate(252, 154)" class="key keypos-24">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-1.2em">SS</tspan><tspan x="0" dy="1.2em">TILD</tspan>
+<tspan x="0" dy="1.2em">SLSH</tspan>
+</text>
 </g>
 <g transform="translate(476, 154)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1018,4 +1009,4 @@ svg.keymap { background-color: #000000; }</style>
 </g>
 </g>
 </g>
-<text x="758.0" y="2012.0" class="footer">Created with <a href="https://github.com/caksoylar/keymap-drawer">keymap-drawer</a></text></svg>
+</svg>

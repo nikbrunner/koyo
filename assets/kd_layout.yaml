@@ -1,0 +1,224 @@
+layout: {qmk_keyboard: crkbd/rev1, qmk_layout: LAYOUT_split_3x5_3}
+layers:
+  L0:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - A
+  - S
+  - D
+  - F
+  - G
+  - H
+  - J
+  - K
+  - L
+  - ;
+  - {t: Z, h: LGUI}
+  - {t: X, h: LALT}
+  - {t: C, h: LCTL}
+  - {t: V, h: LSFT}
+  - B
+  - N
+  - {t: M, h: RSFT}
+  - {t: ',', h: RCTL}
+  - {t: ., h: LALT}
+  - {t: /, h: RGUI}
+  - {h: L3}
+  - {t: ESC, h: L2}
+  - {t: SPC, h: L1}
+  - {t: BSPC, h: L5}
+  - {t: ENT, h: L2}
+  - {h: L4}
+  L1:
+  - Gui+ Q
+  - Gui+ W
+  - Gui+ E
+  - Gui+ R
+  - Gui+ T
+  - ''
+  - Alt+Gui+ I
+  - Gui+ `
+  - Gui+ TAB
+  - ''
+  - LGUI
+  - LALT
+  - LCTL
+  - LSFT
+  - ''
+  - LEFT
+  - DOWN
+  - UP
+  - RGHT
+  - ''
+  - Gui+ Z
+  - Gui+ X
+  - Gui+ C
+  - Gui+ V
+  - Gui+ B
+  - ''
+  - ''
+  - Sft+ TAB
+  - TAB
+  - ''
+  - ''
+  - ''
+  - {t: L0, h: toggle, type: held}
+  - DEL
+  - ''
+  - ''
+  L2:
+  - ^
+  - +
+  - '#'
+  - '%'
+  - $
+  - <
+  - '{'
+  - '"'
+  - '}'
+  - '>'
+  - '!'
+  - '-'
+  - '&'
+  - '?'
+  - '|'
+  - '='
+  - '['
+  - ''''
+  - ']'
+  - ':'
+  - '~'
+  - _
+  - '*'
+  - '@'
+  - SS TILD SLSH
+  - \
+  - (
+  - '`'
+  - )
+  - /
+  - {t: ▽, type: trans}
+  - {t: L0, h: toggle, type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: L0, h: toggle}
+  - {t: ▽, type: trans}
+  L3:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - PPLS
+  - P7
+  - P8
+  - P9
+  - PAST
+  - LGUI
+  - LALT
+  - LCTL
+  - LSFT
+  - ''
+  - PEQL
+  - P4
+  - P5
+  - P6
+  - ':'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - PMNS
+  - P1
+  - P2
+  - P3
+  - PSLS
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - P0
+  - {t: ▽, type: trans}
+  L4:
+  - ''
+  - F7
+  - F8
+  - F9
+  - F12
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - F4
+  - F5
+  - F6
+  - F11
+  - ''
+  - RSFT
+  - RCTL
+  - LALT
+  - RGUI
+  - ''
+  - F1
+  - F2
+  - F3
+  - F10
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  L5:
+  - ''
+  - VOLD
+  - MUTE
+  - VOLU
+  - ''
+  - ''
+  - RGB HUD
+  - RGB TOG
+  - RGB HUI
+  - ''
+  - ''
+  - MPRV
+  - MPLY
+  - MNXT
+  - Meh+ K
+  - ''
+  - Gui+ -
+  - Gui+ 0
+  - Gui+ =
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - DT DOWN
+  - DT PRNT
+  - DT UP
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  - ''
+  - ''

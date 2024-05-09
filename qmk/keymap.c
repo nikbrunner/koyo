@@ -22,20 +22,6 @@ enum custom_keycodes {
     SS_TILD_SLSH = SAFE_RANGE,
 };
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case SS_TILD_SLSH:
-            if (record->event.pressed) {
-                SEND_STRING("~/");
-            } else {
-                // when keycode is released
-            }
-            break;
-    }
-
-    return true;
-}
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ┌───────────┬───────────┬───────────┬────────────┬────────────┐   ┌─────────────┬────────────┬───────────┬───────────┬───────────┐
 //    │     q     │     w     │     e     │     r      │     t      │   │      y      │     u      │     i     │     o     │     p     │
@@ -144,3 +130,16 @@ combo_t key_combos[] = {
     COMBO(togg_caps_word_combo, CW_TOGG),
 };
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SS_TILD_SLSH:
+            if (record->event.pressed) {
+                SEND_STRING("~/");
+            } else {
+                // when keycode is released
+            }
+            break;
+    }
+
+    return true;
+}
