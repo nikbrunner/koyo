@@ -31,8 +31,8 @@ draw_config:
   svg_extra_style: ""
   footer_text: ""
   shrink_wide_legends: 7
-  glyph_tap_size: 14
-  glyph_hold_size: 12
+  glyph_tap_size: 11
+  glyph_hold_size: 11
   glyph_shifted_size: 10
   glyphs: {}
 parse_config:

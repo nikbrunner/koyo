@@ -31,12 +31,9 @@
 - [x] scripts: Update qmk script
 - [x] sym: Send `~/` on tab
 - [x] scripts(qmk): Update `layout.svg` programmatically
-- [ ] source: Use real layer names
-- [ ] extend: tabdance
+- [x] source: Use real layer names
+- [x] extend: tabdance
   - tab: a,s,d,f,g -> Cmd(a,s,d,f,g)
-- [ ] base: tabdance
-  - tab+hold-enter -> hyper
-  - tab+hold-backspace -> meh
 - [ ] build: compile & flash from here
 - [ ] base?: Switch MO(1) & MO(5)
 - [ ] media: Screen Brightness
