@@ -29,7 +29,12 @@ enum layers {
 };
 
 enum custom_keycodes {
+    //
     SS_TILD_SLSH = SAFE_RANGE,
+    SS_VIM_WQA,
+    SS_VIM_WQ,
+    SS_VIM_WA,
+    SS_VIM_ENTER,
 };
 
 enum tap_dance_codes {
@@ -142,15 +147,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // clang-format on
 
 // COMBO ================================================================================
-const uint16_t PROGMEM togg_layer_ext_combo[] = {LT(LY_EXT, KC_SPC), LT(LY_MED, KC_BSPC), COMBO_END};
-const uint16_t PROGMEM togg_layer_sym_combo[] = {LT(LY_SYM, KC_ESC), LT(LY_SYM, KC_ENT), COMBO_END};
-const uint16_t PROGMEM togg_caps_word_combo[] = {LSFT_T(KC_V), RSFT_T(KC_M), COMBO_END};
+// LY_BAS: Left & Right
+const uint16_t PROGMEM togg_layer_ext[] = {LT(LY_EXT, KC_SPC), LT(LY_MED, KC_BSPC), COMBO_END};
+const uint16_t PROGMEM togg_layer_sym[] = {LT(LY_SYM, KC_ESC), LT(LY_SYM, KC_ENT), COMBO_END};
 
+const uint16_t PROGMEM caps_word[] = {LSFT_T(KC_V), RSFT_T(KC_M), COMBO_END};
+
+const uint16_t PROGMEM gui_scln[] = {KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM hypr_r[]   = {KC_D, KC_K, COMBO_END};
+
+// LY_BAS: Left
+const uint16_t PROGMEM vim_wqa[] = {KC_S, KC_D, KC_F, COMBO_END};
+
+// LY_BAS: Right Side
+const uint16_t PROGMEM bracket_left[]  = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM bracket_right[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM vim_enter[]     = {KC_J, KC_K, KC_L, COMBO_END};
+
+// LY_NUM: Right
+const uint16_t PROGMEM num_dot[]   = {KC_P2, KC_P3, COMBO_END};
+const uint16_t PROGMEM num_comma[] = {KC_P1, KC_P2, COMBO_END};
+
+// clang-format off
 combo_t key_combos[] = {
-    COMBO(togg_layer_ext_combo, TO(LY_EXT)),
-    COMBO(togg_layer_sym_combo, TO(LY_SYM)),
-    COMBO(togg_caps_word_combo, CW_TOGG),
+    // LY_BAS: Left & Right
+    COMBO(togg_layer_ext, TO(LY_EXT)),
+    COMBO(togg_layer_sym, TO(LY_SYM)),
+
+    COMBO(caps_word, CW_TOGG),
+
+    COMBO(gui_scln, LGUI(KC_SCLN)),
+    COMBO(hypr_r, HYPR(KC_R)),
+
+    // LY_BAS: Left
+    COMBO(vim_wqa, SS_VIM_WQA),
+
+    // LY_BAS: Right
+    COMBO(bracket_left, KC_LBRC),
+    COMBO(bracket_right, KC_RBRC),
+    COMBO(vim_enter, SS_VIM_ENTER),
+
+    // LY_NUM: Right
+    COMBO(num_comma, KC_COMMA),
+    COMBO(num_dot, KC_DOT),
 };
+// clang-format on
 
 // SEND STRING ==========================================================================
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -158,8 +199,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case SS_TILD_SLSH:
             if (record->event.pressed) {
                 SEND_STRING("~/");
-            } else {
-                // when keycode is released
+            }
+            break;
+        case SS_VIM_WQA:
+            if (record->event.pressed) {
+                SEND_STRING(":wqa!");
+                tap_code(KC_ENT);
+            }
+            break;
+        case SS_VIM_WA:
+            if (record->event.pressed) {
+                tap_code(KC_ESC);
+                SEND_STRING(":wa");
+                tap_code(KC_ENT);
+            }
+            break;
+        case SS_VIM_ENTER:
+            if (record->event.pressed) {
+                SEND_STRING("nvim .");
+                tap_code(KC_ENT);
             }
             break;
     }

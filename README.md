@@ -22,24 +22,6 @@
 
 ![](./assets/layout.svg)
 
-## TODO
-
-- [x] Fix Media Keys
-- [x] Change default tapping term to 165
-- [x] HRM on a Dev Branch ^211d48
-- [x] media: Horizontal hierachal order for both sides ^10f058
-- [x] scripts: Update qmk script
-- [x] sym: Send `~/` on tab
-- [x] scripts(qmk): Update `layout.svg` programmatically
-- [x] source: Use real layer names
-- [x] extend: tabdance
-  - tab: a,s,d,f,g -> Cmd(a,s,d,f,g)
-- [ ] build: compile & flash from here
-- [ ] base?: Switch MO(1) & MO(5)
-- [ ] media: Screen Brightness
-- [ ] Better Umlaute
-  - [How do you master umlauts on a 3x5 keyboard? : r/ErgoMechKeyboards](https://www.reddit.com/r/ErgoMechKeyboards/comments/1cmh8ej/how_do_you_master_umlauts_on_a_3x5_keyboard/)
-
 ## Resources
 
 - [urob](https://github.com/urob/zmk-config): timeless home row mods
