@@ -1,12 +1,12 @@
 draw_config:
-  key_w: 60.0
-  key_h: 56.0
+  key_w: 90.0
+  key_h: 90.0
   split_gap: 30.0
   combo_w: 28.0
   combo_h: 26.0
   key_rx: 6.0
   key_ry: 6.0
-  dark_mode: false
+  dark_mode: true
   n_columns: 1
   separate_combo_diagrams: false
   combo_diagrams_scale: 2
@@ -64,6 +64,7 @@ parse_config:
     - KC_
   qmk_keycode_map:
     XXXXXXX: ""
+    "SS TILD SLSH": "~/"
     "NO": ""
     MINUS: "-"
     MINS: "-"

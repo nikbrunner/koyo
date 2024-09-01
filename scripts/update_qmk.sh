@@ -14,20 +14,20 @@ LAYOUT_SVG_PATH=$KOYO_ASSETS_DIR/layout.svg
 
 # Function to copy keymaps to koyo/qmk folder
 copy_keymaps() {
-	echo "Copying keymaps..."
-	cp "${CRKBD_KEYMAPS_DIR}"/* "${KOYO_QMK_DIR}"
+    echo "Copying keymaps..."
+    cp -r "${CRKBD_KEYMAPS_DIR}"/* "${KOYO_QMK_DIR}"
 }
 
 # Function to update keymap yaml from keymap.c
 update_layout_yaml() {
-	echo "Updating layout to YAML..."
-	qmk c2json "${CRKBD_KEYMAPS_DIR}/${KEYMAP_NAME}" | keymap --config "${KD_CONFIG_PATH}" parse -q - >"${KD_LAYOUT_PATH}"
+    echo "Updating layout to YAML..."
+    qmk c2json --no-cpp "${CRKBD_KEYMAPS_DIR}/${KEYMAP_NAME}" | keymap --config "${KD_CONFIG_PATH}" parse -q - >"${KD_LAYOUT_PATH}"
 }
 
 # Function to generate layout.svg from layout yaml
 update_svg_layout() {
-	echo "Updating SVG layout..."
-	keymap --config "${KD_CONFIG_PATH}" draw "${KD_LAYOUT_PATH}" >"${LAYOUT_SVG_PATH}"
+    echo "Updating SVG layout..."
+    keymap --config "${KD_CONFIG_PATH}" draw "${KD_LAYOUT_PATH}" >"${LAYOUT_SVG_PATH}"
 }
 
 copy_keymaps
@@ -35,8 +35,8 @@ update_layout_yaml
 update_svg_layout
 
 if [[ $(git -C "${KOYO_REPO}" diff --exit-code) ]]; then
-	echo "Update complete. Changes detected. 🧑‍🔧"
-	lazygit
+    echo "Update complete. Changes detected. 🧑‍🔧"
+    lazygit
 else
-	echo "No changes detected. ✅"
+    echo "No changes detected. ✅"
 fi

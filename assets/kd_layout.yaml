@@ -13,12 +13,12 @@ layers:
   - P
   - A
   - S
-  - D
+  - LT(LY SYM, D)
   - F
   - G
   - H
   - J
-  - K
+  - LT(LY SYM, K)
   - L
   - ;
   - {t: Z, h: LGUI}
@@ -31,57 +31,22 @@ layers:
   - {t: ',', h: RCTL}
   - {t: ., h: LALT}
   - {t: /, h: RGUI}
-  - LT(LY NUM, NO)
-  - LT(LY SYM, ESC)
-  - LT(LY EXT, SPC)
-  - LT(LY MED, BSPC)
-  - LT(LY SYM, ENT)
   - LT(LY FUN, NO)
-  L1: [Gui+ Q, Gui+ W, Gui+ E, Gui+ R, Gui+ T, '', Alt+Gui+ I, Gui+ `, Gui+ TAB, '', TD(TD EXT GUI A), TD(TD EXT GUI S), TD(TD EXT GUI D), TD(TD EXT GUI F), Gui+
-      G, LEFT, DOWN, UP, RGHT, '', Gui+ Z, Gui+ X, Gui+ C, Gui+ V, Gui+ B, '', '', Sft+ TAB, TAB, '', '', '', TO(LY BAS), DEL, '', '']
-  L2:
-  - ^
-  - +
-  - '#'
-  - '%'
-  - $
-  - <
-  - '{'
-  - '"'
-  - '}'
-  - '>'
-  - '!'
-  - '-'
-  - '&'
-  - '?'
-  - '|'
-  - '='
-  - '['
-  - ''''
-  - ']'
-  - ':'
-  - '~'
-  - _
-  - '*'
-  - '@'
-  - SS TILD SLSH
-  - \
-  - (
-  - '`'
-  - )
-  - /
-  - {t: ▽, type: trans}
-  - TO(LY BAS)
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - TO(LY BAS)
-  - {t: ▽, type: trans}
+  - LT(LY NUM, ESC)
+  - LT(LY EXT, SPC)
+  - LT(LY MED, TAB)
+  - {t: ENT, h: HYPR}
+  - {h: MEH}
+  L1: [Gui+ Q, Gui+ W, Gui+ E, Gui+ R, Gui+ T, Gui+Ctl+ C, Gui+Sft+ C, Gui+ BSPC, Alt+ BSPC, '', TD(TD EXT GUI A), TD(TD EXT GUI S), TD(TD EXT GUI D), TD(TD EXT GUI
+      F), Gui+ G, LEFT, DOWN, UP, RGHT, Hyper+ R, Gui+ Z, Gui+ X, Gui+ C, Gui+ V, Gui+ B, '', CW TOGG, '', '', '', '', '', '', Gui+ TAB, Gui+ `, Alt+Gui+ I]
+  L2: [^, +, '#', '%', $, <, '{', '"', '}', '>', '!', '-', '&', '?', '|', '=', '[', '''', ']', ':', '~', _, '*', '@', SS TILD SLSH, \, (, '`', ), /, '', '', '', '',
+    '', '']
   L3:
   - ''
   - ''
   - ''
   - ''
-  - ''
+  - SS TODO
   - PPLS
   - P7
   - P8
@@ -101,7 +66,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - SS BCD
   - PMNS
   - P1
   - P2
@@ -110,9 +75,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - P0
-  - {t: ▽, type: trans}
-  L4: ['', F7, F8, F9, F12, '', '', '', '', '', '', F4, F5, F6, F11, '', RSFT, RCTL, LALT, RGUI, '', F1, F2, F3, F10, '', '', '', '', '', '', '', '', '', '', '']
-  L5: ['', VOLD, MUTE, VOLU, '', '', RGB HUD, RGB TOG, RGB HUI, '', '', MPRV, MPLY, MNXT, Meh+ K, '', Gui+ -, Gui+ 0, Gui+ =, '', '', '', '', '', '', '', DT DOWN,
-    DT PRNT, DT UP, '', '', '', '', '', '', '']
+  - .
+  - ','
+  L4: ['', '', '', '', '', '', F9, F10, F11, F12, RGUI, LALT, RCTL, RSFT, '', '', F5, F6, F7, F8, '', '', '', '', '', '', F1, F2, F3, F4, '', '', '', '', '', '']
+  L5: [Ctl+Gui+ Q, VOLD, MUTE, VOLU, '', '', RGB HUD, RGB TOG, RGB HUI, '', '', MPRV, MPLY, MNXT, Meh+ K, '', Gui+ -, Gui+ 0, Gui+ =, '', '', '', '', '', '', '',
+    DT DOWN, DT PRNT, DT UP, '', '', '', '', '', '', '']

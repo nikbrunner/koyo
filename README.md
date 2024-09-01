@@ -1,6 +1,6 @@
 # kōyō
 
-![](./assets/banner.png)
+![banner](./assets/banner.png)
 
 ## Introduction
 
@@ -20,7 +20,7 @@
 
 ## Layout
 
-![](./assets/layout.svg)
+![layout graphic](./assets/layout.svg)
 
 ## Resources
 
