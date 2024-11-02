@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├───┼───┼───┼───┼───┼────┼───┤   ├───┼───┼────┼───┼───┼───┼───┤
 //    │   │ ! │ - │ & │ ? │ |  │   │   │   │ = │ [  │ ' │ ] │ : │   │
 //    ├───┼───┼───┼───┼───┼────┼───┘   └───┼───┼────┼───┼───┼───┼───┤
-//    │   │ ~ │ _ │ * │ @ │ => │           │ \ │ (  │ ` │ ) │ / │   │
+//    │   │ ~ │ _ │ * │ @ │ ~/ │           │ \ │ (  │ ` │ ) │ / │   │
 //    ├───┼───┼───┼───┼───┼────┤           ├───┼────┼───┼───┼───┼───┤
 //    │   │   │   │   │   │    │           │   │ => │   │   │   │   │
 //    └───┴───┴───┴───┼───┼────┼───┐   ┌───┼───┼────┼───┴───┴───┴───┘
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_CIRC        , KC_PLUS        , KC_HASH        , KC_PERC        , KC_DLR         , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_LABK        , KC_LCBR        , KC_DQUO        , KC_RCBR        , KC_RABK        , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_EXLM        , KC_MINUS       , KC_AMPR        , KC_QUES        , KC_PIPE        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_EQUAL       , KC_LBRC        , KC_QUOTE       , KC_RBRC        , KC_COLN        , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TILD        , KC_UNDS        , KC_ASTR        , KC_AT          , SS_FATARROW    ,                                       KC_BSLS        , KC_LPRN        , KC_GRAVE       , KC_RPRN        , KC_SLASH       , KC_TRANSPARENT,
+  KC_TRANSPARENT , KC_TILD        , KC_UNDS        , KC_ASTR        , KC_AT          , SS_TILD_SLSH   ,                                       KC_BSLS        , KC_LPRN        , KC_GRAVE       , KC_RPRN        , KC_SLASH       , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,                                       KC_TRANSPARENT , SS_FATARROW    , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
                                                                       KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
 ),
