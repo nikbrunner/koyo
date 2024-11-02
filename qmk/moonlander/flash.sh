@@ -1,23 +1,30 @@
 #!/bin/bash
 
+# Get the directory of this script and the project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
+# Source utilities using absolute path
+source "$PROJECT_DIR/utils.sh"
+
 # Enable strict mode
 set -euo pipefail
 
-debug_log() {
-    echo -e "${BLUE}$1${NC}"
-}
+# Get paths from config
+QMK_DIR=$(eval echo "$(get_config '.paths.qmk_dir')")
+# Combine QMK_DIR with the keymap path
+KEYMAP_DIR="$QMK_DIR/$(get_config '.paths.keymap_dirs.moonlander')"
 
-prompt_log() {
-    echo -e "${CYAN}$1${NC}"
-}
+# Create the keymap directory if it doesn't exist
+mkdir -p "$(dirname "$KEYMAP_DIR")"
 
-warning_log() {
-    echo -e "${YELLOW}$1${NC}"
-}
-
-success_log() {
-    echo -e "${GREEN}$1${NC}"
-}
+if [[ "$DEBUG" == "true" ]]; then
+    debug_log "Paths:"
+    debug_log "  SCRIPT_DIR: $SCRIPT_DIR"
+    debug_log "  PROJECT_DIR: $PROJECT_DIR"
+    debug_log "  QMK_DIR: $QMK_DIR"
+    debug_log "  KEYMAP_DIR: $KEYMAP_DIR"
+fi
 
 verify_files() {
     local dir=$1
@@ -43,11 +50,6 @@ cleanup() {
     fi
 }
 
-# Set up paths
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-QMK_DIR=~/repos/nikbrunner/qmk_firmware
-KEYMAP_DIR="$QMK_DIR/keyboards/zsa/moonlander/keymaps/koyo"
-
 debug_log "Script directory: $SCRIPT_DIR"
 debug_log "QMK directory: $QMK_DIR"
 debug_log "Keymap directory: $KEYMAP_DIR"
@@ -55,7 +57,6 @@ debug_log "Keymap directory: $KEYMAP_DIR"
 # Ensure cleanup happens on script exit
 trap cleanup EXIT
 
-# Main process
 main() {
     # Verify QMK directory exists
     if [[ ! -d "$QMK_DIR" ]]; then

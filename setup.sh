@@ -1,34 +1,37 @@
 #!/bin/bash
 
+# Get the directory of this script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Enable strict mode
 set -euo pipefail
 
 # Flags
 DRY_RUN=${DRY_RUN:-false}
+DEBUG=${DEBUG:-false}
 
-# Paths
-QMK_DIR=~/repos/nikbrunner/qmk_firmware
-REPO_DIR=~/repos/nikbrunner/koyo
-SCRIPT_FILES=(
-    "./koyo"
-    "./qmk/moonlander/flash.sh"
-    "./qmk/crkbd/flash.sh"
-)
+# Source utilities using absolute path
+source "$SCRIPT_DIR/utils.sh"
 
-debug_log() {
-    echo -e "${BLUE}DRY-RUN:${NC} $1"
-}
+# Get paths from config with debug output
+debug_log "Reading config from: $SCRIPT_DIR/config.yml"
 
-prompt_log() {
-    echo -e "${CYAN}$1${NC}"
-}
+# Get and expand paths
+QMK_DIR=$(eval echo "$(get_config '.paths.qmk_dir')")
+REPO_DIR=$(eval echo "$(get_config '.paths.repo_dir')")
 
-warning_log() {
-    echo -e "${YELLOW}$1${NC}"
-}
+# Handle script files with proper quoting and expansion
+# shellcheck disable=SC2207
+SCRIPT_FILES=($(get_config '.paths.script_files[]' | sed "s|^|$SCRIPT_DIR/|"))
 
-success_log() {
-    echo -e "${GREEN}$1${NC}"
-}
+# Debug output
+if [[ "$DEBUG" == "true" ]]; then
+    debug_log "Paths from config:"
+    debug_log "  QMK_DIR: $QMK_DIR"
+    debug_log "  REPO_DIR: $REPO_DIR"
+    debug_log "  SCRIPT_FILES:"
+    printf '    - %s\n' "${SCRIPT_FILES[@]}"
+fi
 
 check_qmk() {
     debug_log "Checking QMK installation..."
