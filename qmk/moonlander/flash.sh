@@ -3,15 +3,14 @@
 # Enable strict mode
 set -euo pipefail
 
-# Functions
 debug_log() {
     if [[ "${DEBUG:-false}" == "true" ]]; then
-        echo "DEBUG: $1"
+        echo -e "${YELLOW}DEBUG:${NC} $1"
     fi
 }
 
 error_log() {
-    echo "ERROR: $1" >&2
+    echo -e "${RED}ERROR:${NC} $1" >&2
 }
 
 verify_files() {
