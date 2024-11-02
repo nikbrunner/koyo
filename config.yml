@@ -1,5 +1,5 @@
 paths:
-  qmk_dir: "$HOME/repos/nikbrunner/qmk_firmware"
+  qmk_dir: "$HOME/repos/qmk/qmk_firmware"
   repo_dir: "$HOME/repos/nikbrunner/koyo"
   oryx_url: "https://configure.zsa.io/moonlander/layouts/EM5en/latest/0"
   script_files:
