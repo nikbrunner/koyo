@@ -79,6 +79,19 @@ case $KEYBOARD in
     "$PROJECT_DIR/setup.sh"
     ;;
 
+"update")
+    case $COMMAND in
+    "svg")
+        "$PROJECT_DIR/update_svg.sh"
+        ;;
+    *)
+        error_log "Unknown command: $COMMAND"
+        show_help
+        exit 1
+        ;;
+    esac
+    ;;
+
 "moonlander")
     case $COMMAND in
     "flash")

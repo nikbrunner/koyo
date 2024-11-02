@@ -34,6 +34,8 @@ show_help() {
     log_command "help" "Show this help message"
     log_command "setup" "Setup Koyo environment"
     log_subcommand "--dry-run" "Show what would be done without making changes"
+    log_command "update" "Command to update various related aspects"
+    log_subcommand "svg" "Update the layout svg image"
     echo ""
 
     log_header "Keyboard Commands"
