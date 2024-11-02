@@ -34,11 +34,11 @@ layers:
   - LT(LY FUN, NO)
   - LT(LY NUM, ESC)
   - LT(LY EXT, SPC)
-  - LT(LY MED, TAB)
   - {t: ENT, h: HYPR}
-  - {h: MEH}
+  - {t: TAB, h: MEH}
+  - LT(LY MED, NO)
   L1: [Gui+ Q, Gui+ W, Gui+ E, Gui+ R, Gui+ T, Gui+Ctl+ C, Gui+Sft+ C, Gui+ BSPC, Alt+ BSPC, '', TD(TD EXT GUI A), TD(TD EXT GUI S), TD(TD EXT GUI D), TD(TD EXT GUI
-      F), Gui+ G, LEFT, DOWN, UP, RGHT, Hyper+ R, Gui+ Z, Gui+ X, Gui+ C, Gui+ V, Gui+ B, '', CW TOGG, '', '', '', '', '', '', Gui+ TAB, Gui+ `, Alt+Gui+ I]
+      F), Gui+ G, LEFT, DOWN, UP, RGHT, ':', Gui+ Z, Gui+ X, Gui+ C, Gui+ V, Gui+ B, '', CW TOGG, '', '', Alt+Gui+ I, '', '', '', Gui+ TAB, Sft+ TAB, Gui+ `]
   L2: [^, +, '#', '%', $, <, '{', '"', '}', '>', '!', '-', '&', '?', '|', '=', '[', '''', ']', ':', '~', _, '*', '@', SS TILD SLSH, \, (, '`', ), /, '', '', '', '',
     '', '']
   L3:
@@ -75,9 +75,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - ','
   - P0
   - .
-  - ','
   L4: ['', '', '', '', '', '', F9, F10, F11, F12, RGUI, LALT, RCTL, RSFT, '', '', F5, F6, F7, F8, '', '', '', '', '', '', F1, F2, F3, F4, '', '', '', '', '', '']
   L5: [Ctl+Gui+ Q, VOLD, MUTE, VOLU, '', '', RGB HUD, RGB TOG, RGB HUI, '', '', MPRV, MPLY, MNXT, Meh+ K, '', Gui+ -, Gui+ 0, Gui+ =, '', '', '', '', '', '', '',
     DT DOWN, DT PRNT, DT UP, '', '', '', '', '', '', '']

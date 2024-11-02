@@ -4,7 +4,7 @@ QMK_FIRMWARE_REPO=~/repos/nikbrunner/qmk_firmware
 KOYO_REPO=~/repos/nikbrunner/koyo
 
 CRKBD_KEYMAPS_DIR=$QMK_FIRMWARE_REPO/keyboards/crkbd/keymaps/koyo
-KOYO_QMK_DIR=$KOYO_REPO/qmk
+KOYO_QMK_DIR=$KOYO_REPO/qmk/crkbd/src
 KOYO_ASSETS_DIR=$KOYO_REPO/assets
 
 KEYMAP_NAME=keymap.c

@@ -8,4 +8,4 @@ paths:
     - qmk/crkbd/flash.sh
   keymap_dirs:
     moonlander: keyboards/zsa/moonlander/keymaps/koyo
-    crkbd: keyboards/crkbd/keymaps/koyo
+    crkbd: keyboards/crkbd/rev1/keymaps/koyo
