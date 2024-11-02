@@ -38,7 +38,8 @@ layers:
   - {t: TAB, h: MEH}
   - LT(LY MED, NO)
   L1: [Gui+ Q, Gui+ W, Gui+ E, Gui+ R, Gui+ T, Gui+Ctl+ C, Gui+Sft+ C, Gui+ BSPC, Alt+ BSPC, '', TD(TD EXT GUI A), TD(TD EXT GUI S), TD(TD EXT GUI D), TD(TD EXT GUI
-      F), Gui+ G, LEFT, DOWN, UP, RGHT, ':', Gui+ Z, Gui+ X, Gui+ C, Gui+ V, Gui+ B, '', CW TOGG, '', '', Alt+Gui+ I, '', '', '', Gui+ TAB, Sft+ TAB, Gui+ `]
+      F), Gui+ G, LEFT, DOWN, UP, RGHT, ':', Gui+ Z, Gui+ X, Gui+ C, Gui+ V, Gui+ B, '', CW TOGG, Sft+ TAB, TAB, Alt+Gui+ I, '', '', '', Gui+ TAB, Sft+ TAB, Gui+
+      `]
   L2: [^, +, '#', '%', $, <, '{', '"', '}', '>', '!', '-', '&', '?', '|', '=', '[', '''', ']', ':', '~', _, '*', '@', SS TILD SLSH, \, (, '`', ), /, '', '', '', '',
     '', '']
   L3:
