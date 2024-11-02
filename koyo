@@ -8,6 +8,7 @@ source "$PROJECT_DIR/help.sh"
 source "$PROJECT_DIR/utils.sh"
 
 ORYX_URL=$(eval echo "$(get_config '.paths.oryx_url')")
+QMK_DIR=$(eval echo "$(get_config '.paths.qmk_dir')")
 
 # Debug flag handling
 DEBUG=${DEBUG:-false}
@@ -83,6 +84,14 @@ case $KEYBOARD in
     case $COMMAND in
     "svg")
         "$PROJECT_DIR/update_svg.sh"
+        ;;
+    "qmk")
+        # fetch latest version of QMK
+        git -C "$QMK_DIR" fetch
+        # pull latest version of QMK
+        git -C "$QMK_DIR" pull
+        # reset to origin/master
+        git -C "$QMK_DIR" reset --hard origin/master
         ;;
     *)
         error_log "Unknown command: $COMMAND"
