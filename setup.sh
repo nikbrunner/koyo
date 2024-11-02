@@ -5,12 +5,6 @@ set -euo pipefail
 # Flags
 DRY_RUN=${DRY_RUN:-false}
 
-# Colors for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
-
 # Paths
 QMK_DIR=~/repos/nikbrunner/qmk_firmware
 REPO_DIR=~/repos/nikbrunner/koyo
@@ -21,75 +15,90 @@ SCRIPT_FILES=(
 )
 
 debug_log() {
-    if [[ "$DRY_RUN" == "true" ]]; then
-        echo -e "${YELLOW}DRY-RUN:${NC} $1"
-    else
-        echo "$1"
-    fi
+    echo -e "${BLUE}DRY-RUN:${NC} $1"
+}
+
+prompt_log() {
+    echo -e "${CYAN}$1${NC}"
+}
+
+warning_log() {
+    echo -e "${YELLOW}$1${NC}"
+}
+
+success_log() {
+    echo -e "${GREEN}$1${NC}"
 }
 
 check_qmk() {
     debug_log "Checking QMK installation..."
     if [[ ! -d "$QMK_DIR" ]]; then
-        echo -e "${YELLOW}Warning: QMK firmware not found at $QMK_DIR${NC}"
+        debug_log "Warning: QMK firmware not found at $QMK_DIR"
+
         if [[ "$DRY_RUN" == "true" ]]; then
             debug_log "Would prompt to clone QMK firmware"
             return
         fi
-        echo "Would you like to clone it now? (y/n)"
+
+        prompt_log "Would you like to clone it now? (y/n)"
         read -r response
+
         if [[ "$response" =~ ^[Yy]$ ]]; then
             git clone https://github.com/qmk/qmk_firmware.git "$QMK_DIR"
-            echo -e "${GREEN}QMK firmware cloned successfully${NC}"
+            success_log "QMK firmware cloned successfully"
         else
-            echo -e "${YELLOW}Please clone QMK firmware manually before flashing${NC}"
+            warning_log "Please clone QMK firmware manually before flashing"
+            exit 1
         fi
     else
-        echo -e "${GREEN}QMK firmware found${NC}"
+        success_log "QMK firmware found"
     fi
 }
 
 setup_permissions() {
     debug_log "Setting up script permissions..."
+
     for script in "${SCRIPT_FILES[@]}"; do
         if [[ -f "$script" ]]; then
             if [[ "$DRY_RUN" == "true" ]]; then
                 debug_log "Would make $script executable"
             else
                 chmod +x "$script"
-                echo -e "${GREEN}Made $script executable${NC}"
+                success_log "Made $script executable"
             fi
         else
-            echo -e "${RED}Warning: $script not found${NC}"
+            warning_log "$script not found"
         fi
     done
 }
 
 setup_symlink() {
     debug_log "Setting up command symlink..."
+
     if [[ -L "/usr/local/bin/koyo" ]]; then
         if [[ "$DRY_RUN" == "true" ]]; then
             debug_log "Would remove existing symlink"
         else
             sudo rm "/usr/local/bin/koyo"
-            echo "Removed existing symlink"
+            success_log "Removed existing symlink"
         fi
     fi
+
     if [[ "$DRY_RUN" == "true" ]]; then
         debug_log "Would create symlink: $REPO_DIR/koyo -> /usr/local/bin/koyo"
     else
         sudo ln -s "$REPO_DIR/koyo" "/usr/local/bin/koyo"
-        echo -e "${GREEN}Created symlink for koyo command${NC}"
+        success_log "Created symlink for koyo command"
     fi
 }
 
 check_zsh() {
     debug_log "Checking ZSH configuration..."
     if [[ ! -f ~/.zshrc ]]; then
-        echo -e "${RED}Error: ~/.zshrc not found${NC}"
+        error_log "Error: ~/.zshrc not found"
         exit 1
     fi
-    echo -e "${GREEN}ZSH configuration found${NC}"
+    success_log "ZSH configuration found"
 }
 
 show_help() {
@@ -121,23 +130,23 @@ done
 
 main() {
     if [[ "$DRY_RUN" == "true" ]]; then
-        echo -e "${YELLOW}Running in dry-run mode - no changes will be made${NC}"
+        warning_log "Running in dry-run mode - no changes will be made"
     fi
 
-    echo "Starting Koyo keyboard setup..."
+    debug_log "Starting Koyo keyboard setup..."
 
-    # Run checks
     check_zsh
     check_qmk
     setup_permissions
     setup_symlink
 
     if [[ "$DRY_RUN" == "true" ]]; then
-        echo -e "\n${YELLOW}Dry run completed - no changes were made${NC}"
+        # echo -e "\n${YELLOW}Dry run completed - no changes were made${NC}"
+        success_log "Dry run completed - no changes were made"
     else
-        echo -e "\n${GREEN}Setup completed successfully!${NC}"
+        success_log "Setup completed successfully!"
     fi
-    echo "You can now use the 'koyo' command."
+    success_log "You can now use the 'koyo' command."
 }
 
 main

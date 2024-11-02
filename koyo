@@ -8,9 +8,19 @@ export CYAN='\033[0;36m'
 export NC='\033[0m' # No Color
 
 debug_log() {
-    if [[ "${DEBUG:-false}" == "true" ]]; then
-        echo -e "${YELLOW}DEBUG:${NC} $1"
-    fi
+    echo -e "${BLUE}DRY-RUN:${NC} $1"
+}
+
+prompt_log() {
+    echo -e "${CYAN}$1${NC}"
+}
+
+warning_log() {
+    echo -e "${YELLOW}$1${NC}"
+}
+
+success_log() {
+    echo -e "${GREEN}$1${NC}"
 }
 
 # Enable strict mode
@@ -25,20 +35,24 @@ REAL_SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
 PROJECT_DIR="$(dirname "$REAL_SCRIPT_PATH")"
 
 show_help() {
-    echo -e "${CYAN}Usage:${NC} koyo [-d|--debug] <keyboard> <command>"
+    echo -e "${CYAN}Usage:${NC} koyo [-d|--debug] <command> [options]"
     echo ""
     echo -e "${CYAN}Options:${NC}"
     echo -e "  ${GREEN}-d, --debug${NC}     Enable debug output"
     echo ""
-    echo -e "${CYAN}Keyboards:${NC}"
+    echo -e "${CYAN}Commands:${NC}"
+    echo -e "  ${GREEN}setup${NC}         - Setup Koyo environment"
+    echo -e "    ${BLUE}--dry-run${NC}    Show what would be done without making changes"
+    echo ""
+    echo -e "${CYAN}Keyboard Commands:${NC}"
     echo -e "  ${GREEN}moonlander${NC}    - ZSA Moonlander commands"
     echo -e "  ${GREEN}crkbd${NC}         - Corne keyboard commands"
-    echo ""
-    echo -e "${CYAN}Commands:${NC}"
-    echo -e "  ${GREEN}flash${NC}         - Flash the keyboard with current configuration"
-    echo -e "  ${GREEN}help${NC}          - Show this help message"
+    echo -e "    ${BLUE}flash${NC}        - Flash the keyboard with current configuration"
+    echo -e "    ${BLUE}help${NC}         - Show this help message"
     echo ""
     echo -e "${CYAN}Examples:${NC}"
+    echo -e "  ${BLUE}koyo setup${NC}"
+    echo -e "  ${BLUE}koyo setup --dry-run${NC}"
     echo -e "  ${BLUE}koyo moonlander flash${NC}"
     echo -e "  ${BLUE}koyo --debug moonlander flash${NC}"
     echo -e "  ${BLUE}koyo crkbd flash${NC}"
@@ -90,6 +104,23 @@ if [[ "$DEBUG" == "true" ]]; then
 fi
 
 case $KEYBOARD in
+"setup")
+    if [ -n "$COMMAND" ] && [ "$COMMAND" != "--dry-run" ]; then
+        error_log "Unknown option for setup: $COMMAND"
+        show_help
+        exit 1
+    fi
+
+    # Set DRY_RUN if --dry-run option is provided
+    if [ "$COMMAND" = "--dry-run" ]; then
+        export DRY_RUN=true
+    else
+        export DRY_RUN=false
+    fi
+
+    "$PROJECT_DIR/setup.sh"
+    ;;
+
 "moonlander")
     case $COMMAND in
     "flash")
@@ -99,12 +130,13 @@ case $KEYBOARD in
         show_help
         ;;
     *)
-        echo "Unknown command: $COMMAND"
+        error_log "Unknown command: $COMMAND"
         show_help
         exit 1
         ;;
     esac
     ;;
+
 "crkbd")
     case $COMMAND in
     "flash")
@@ -114,17 +146,18 @@ case $KEYBOARD in
         show_help
         ;;
     *)
-        echo "Unknown command: $COMMAND"
+        error_log "Unknown command: $COMMAND"
         show_help
         exit 1
         ;;
     esac
     ;;
+
 "help")
     show_help
     ;;
 *)
-    echo "Unknown keyboard: $KEYBOARD"
+    error_log "Unknown keyboard: $KEYBOARD"
     show_help
     exit 1
     ;;

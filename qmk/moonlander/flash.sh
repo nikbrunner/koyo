@@ -4,13 +4,19 @@
 set -euo pipefail
 
 debug_log() {
-    if [[ "${DEBUG:-false}" == "true" ]]; then
-        echo -e "${YELLOW}DEBUG:${NC} $1"
-    fi
+    echo -e "${BLUE}$1${NC}"
 }
 
-error_log() {
-    echo -e "${RED}ERROR:${NC} $1" >&2
+prompt_log() {
+    echo -e "${CYAN}$1${NC}"
+}
+
+warning_log() {
+    echo -e "${YELLOW}$1${NC}"
+}
+
+success_log() {
+    echo -e "${GREEN}$1${NC}"
 }
 
 verify_files() {
@@ -21,14 +27,19 @@ verify_files() {
         if [[ ! -f "$dir/$file" ]]; then
             error_log "Required file $file not found in $dir"
             return 1
+        else
+            success_log "Found $file in $dir"
         fi
     done
+
 }
 
 cleanup() {
     debug_log "Cleaning up..."
+
     if [[ -e "$KEYMAP_DIR" ]]; then
         rm -rf "$KEYMAP_DIR"
+        success_log "Removed existing keymap directory"
     fi
 }
 
@@ -37,8 +48,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 QMK_DIR=~/repos/nikbrunner/qmk_firmware
 KEYMAP_DIR="$QMK_DIR/keyboards/zsa/moonlander/keymaps/koyo"
 
-# Enable debug logging if needed
-# DEBUG=true ./flash.sh
 debug_log "Script directory: $SCRIPT_DIR"
 debug_log "QMK directory: $QMK_DIR"
 debug_log "Keymap directory: $KEYMAP_DIR"
@@ -78,8 +87,7 @@ main() {
         exit 1
     fi
 
-    echo "Successfully flashed firmware!"
+    success_log "Successfully flashed firmware!"
 }
 
-# Run main function
 main
