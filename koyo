@@ -1,0 +1,120 @@
+#!/bin/bash
+
+# Enable strict mode
+set -euo pipefail
+
+# Debug flag handling
+DEBUG=${DEBUG:-false}
+export DEBUG # Export so child scripts can access it
+
+# Get the real path to the script, following symlinks
+REAL_SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+PROJECT_DIR="$(dirname "$REAL_SCRIPT_PATH")"
+
+# Help function
+show_help() {
+    echo "Usage: koyo [-d|--debug] <keyboard> <command>"
+    echo ""
+    echo "Options:"
+    echo "  -d, --debug     Enable debug output"
+    echo ""
+    echo "Keyboards:"
+    echo "  moonlander    - ZSA Moonlander commands"
+    echo "  crkbd         - Corne keyboard commands"
+    echo ""
+    echo "Commands:"
+    echo "  flash         - Flash the keyboard with current configuration"
+    echo "  help          - Show this help message"
+    echo ""
+    echo "Examples:"
+    echo "  koyo moonlander flash"
+    echo "  koyo --debug moonlander flash"
+    echo "  koyo crkbd flash"
+}
+
+# Parse arguments
+POSITIONAL_ARGS=()
+while [[ $# -gt 0 ]]; do
+    case $1 in
+    -d | --debug)
+        DEBUG=true
+        shift
+        ;;
+    -h | --help)
+        show_help
+        exit 0
+        ;;
+    *)
+        POSITIONAL_ARGS+=("$1")
+        shift
+        ;;
+    esac
+done
+
+# Restore positional arguments
+set -- "${POSITIONAL_ARGS[@]}"
+
+# Check if we have enough arguments
+if [ $# -lt 1 ]; then
+    show_help
+    exit 1
+fi
+
+# Get the keyboard
+KEYBOARD=$1
+COMMAND=""
+
+# Check and get the command if provided
+if [ $# -gt 1 ]; then
+    COMMAND=$2
+fi
+
+# Debug output
+if [[ "$DEBUG" == "true" ]]; then
+    echo "Debug mode enabled"
+    echo "DEBUG: Project directory: $PROJECT_DIR"
+    echo "DEBUG: Keyboard: $KEYBOARD"
+    echo "DEBUG: Command: $COMMAND"
+fi
+
+# Handle different keyboards and commands
+case $KEYBOARD in
+"moonlander")
+    case $COMMAND in
+    "flash")
+        "$PROJECT_DIR/qmk/moonlander/flash.sh"
+        ;;
+    "help")
+        show_help
+        ;;
+    *)
+        echo "Unknown command: $COMMAND"
+        show_help
+        exit 1
+        ;;
+    esac
+    ;;
+"crkbd")
+    case $COMMAND in
+    "flash")
+        "$PROJECT_DIR/qmk/crkbd/flash.sh"
+        ;;
+    "help")
+        show_help
+        ;;
+    *)
+        echo "Unknown command: $COMMAND"
+        show_help
+        exit 1
+        ;;
+    esac
+    ;;
+"help")
+    show_help
+    ;;
+*)
+    echo "Unknown keyboard: $KEYBOARD"
+    show_help
+    exit 1
+    ;;
+esac
