@@ -34,7 +34,6 @@ get_config() {
     yq eval "$key" "$(dirname "${BASH_SOURCE[0]}")/config.yml"
 }
 
-# Export all functions
 export -f debug_log
 export -f prompt_log
 export -f warning_log

@@ -4,8 +4,10 @@
 REAL_SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
 PROJECT_DIR="$(dirname "$REAL_SCRIPT_PATH")"
 
-# Source utilities using the real project path
+source "$PROJECT_DIR/help.sh"
 source "$PROJECT_DIR/utils.sh"
+
+ORYX_URL=$(eval echo "$(get_config '.paths.oryx_url')")
 
 # Debug flag handling
 DEBUG=${DEBUG:-false}
@@ -13,30 +15,6 @@ export DEBUG # Export so child scripts can access it
 
 # Enable strict mode
 set -euo pipefail
-
-show_help() {
-    echo -e "${CYAN}Usage:${NC} koyo [-d|--debug] <command> [options]"
-    echo ""
-    echo -e "${CYAN}Options:${NC}"
-    echo -e "  ${GREEN}-d, --debug${NC}     Enable debug output"
-    echo ""
-    echo -e "${CYAN}Commands:${NC}"
-    echo -e "  ${GREEN}setup${NC}         - Setup Koyo environment"
-    echo -e "    ${BLUE}--dry-run${NC}    Show what would be done without making changes"
-    echo ""
-    echo -e "${CYAN}Keyboard Commands:${NC}"
-    echo -e "  ${GREEN}moonlander${NC}    - ZSA Moonlander commands"
-    echo -e "  ${GREEN}crkbd${NC}         - Corne keyboard commands"
-    echo -e "    ${BLUE}flash${NC}        - Flash the keyboard with current configuration"
-    echo -e "    ${BLUE}help${NC}         - Show this help message"
-    echo ""
-    echo -e "${CYAN}Examples:${NC}"
-    echo -e "  ${BLUE}koyo setup${NC}"
-    echo -e "  ${BLUE}koyo setup --dry-run${NC}"
-    echo -e "  ${BLUE}koyo moonlander flash${NC}"
-    echo -e "  ${BLUE}koyo --debug moonlander flash${NC}"
-    echo -e "  ${BLUE}koyo crkbd flash${NC}"
-}
 
 # Parse arguments
 POSITIONAL_ARGS=()
@@ -105,6 +83,9 @@ case $KEYBOARD in
     case $COMMAND in
     "flash")
         "$PROJECT_DIR/qmk/moonlander/flash.sh"
+        ;;
+    "oryx")
+        open "$ORYX_URL"
         ;;
     "help")
         show_help
