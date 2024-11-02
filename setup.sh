@@ -16,6 +16,45 @@ source "$SCRIPT_DIR/utils.sh"
 # Get paths from config with debug output
 debug_log "Reading config from: $SCRIPT_DIR/config.yml"
 
+# Before continuing reading from config, check for yq
+check_yq() {
+    debug_log "Checking yq installation..."
+
+    if ! command -v yq &>/dev/null; then
+        debug_log "Warning: yq not found"
+
+        if [[ "$DRY_RUN" == "true" ]]; then
+            debug_log "Would prompt to install yq"
+            return
+        fi
+
+        prompt_log "Would you like to install yq now? (y/n)"
+        read -r response
+
+        if [[ "$response" =~ ^[Yy]$ ]]; then
+            if command -v brew &>/dev/null; then
+                brew install yq
+                success_log "yq installed successfully via Homebrew"
+            elif command -v apt-get &>/dev/null; then
+                sudo apt-get update && sudo apt-get install -y yq
+                success_log "yq installed successfully via apt"
+            else
+                error_log "No supported package manager found. Please install yq manually:"
+                error_log "Homebrew: brew install yq"
+                error_log "Apt: sudo apt-get install yq"
+                exit 1
+            fi
+        else
+            warning_log "Please install yq manually before continuing"
+            exit 1
+        fi
+    else
+        success_log "yq found"
+    fi
+}
+
+check_yq
+
 # Get and expand paths
 QMK_DIR=$(eval echo "$(get_config '.paths.qmk_dir')")
 REPO_DIR=$(eval echo "$(get_config '.paths.repo_dir')")
@@ -144,11 +183,11 @@ main() {
     setup_symlink
 
     if [[ "$DRY_RUN" == "true" ]]; then
-        # echo -e "\n${YELLOW}Dry run completed - no changes were made${NC}"
         success_log "Dry run completed - no changes were made"
     else
         success_log "Setup completed successfully!"
     fi
+
     success_log "You can now use the 'koyo' command."
 }
 
