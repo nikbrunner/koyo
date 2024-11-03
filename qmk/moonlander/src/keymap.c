@@ -31,25 +31,25 @@ enum tap_dance_codes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LY_BAS] = LAYOUT_moonlander(
-//    ┌───┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────┬───┐   ┌───┬───────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬───┐
-//    │   │                 │                 │                 │                 │     │   │   │   │           │                 │                 │                 │                 │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────┼───┤   ├───┼───────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │        q        │        w        │        e        │        r        │  t  │   │   │   │     y     │        u        │        i        │        o        │        p        │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────┼───┤   ├───┼───────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │        a        │        s        │  LT(LY_SYM, d)  │        f        │  g  │   │   │   │     h     │        j        │  LT(LY_SYM, k)  │        l        │        ;        │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────┼───┘   └───┼───────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │  b  │           │     n     │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────┤           ├───────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │                 │                 │   MO(LY_FUN)    │ LT(LY_NUM, esc) │     │           │           │   MO(LY_MED)    │                 │                 │                 │   │
-//    └───┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼─────┼───┐   ┌───┼───────────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴───┘
-//                                                              │ LT(LY_EXT, spc) │ tab │   │   │   │ LSFT(tab) │   ALL_T(ent)    │
-//                                                              └─────────────────┴─────┴───┘   └───┴───────────┴─────────────────┘
-  KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT        , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT         , KC_TRANSPARENT       , KC_TRANSPARENT         , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_Q               , KC_W               , KC_E               , KC_R                  , KC_T           , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_Y           , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F                  , KC_G           , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_H           , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_TRANSPARENT,
-  KC_TRANSPARENT , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V)    , KC_B           ,                                       KC_N           , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT     , MO(LY_FUN)         , LT(LY_NUM, KC_ESCAPE) , KC_TRANSPARENT ,                                       KC_TRANSPARENT , MO(LY_MED)         , KC_TRANSPARENT         , KC_TRANSPARENT       , KC_TRANSPARENT         , KC_TRANSPARENT,
-                                                                                  LT(LY_EXT, KC_SPACE)  , KC_TAB         , KC_TRANSPARENT ,     KC_TRANSPARENT , LSFT(KC_TAB)   , ALL_T(KC_ENTER)
+//    ┌───┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬───┬───┐   ┌───┬────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬───┐
+//    │   │                 │                 │                 │                 │   │   │   │   │            │                 │                 │                 │                 │   │
+//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┤   ├───┼────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
+//    │   │        q        │        w        │        e        │        r        │ t │   │   │   │     y      │        u        │        i        │        o        │        p        │   │
+//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┤   ├───┼────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
+//    │   │        a        │        s        │  LT(LY_SYM, d)  │        f        │ g │   │   │   │     h      │        j        │  LT(LY_SYM, k)  │        l        │        ;        │   │
+//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┘   └───┼────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
+//    │   │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │ b │           │     n      │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │   │
+//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤           ├────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
+//    │   │                 │                 │   MO(LY_FUN)    │ LT(LY_NUM, esc) │   │           │            │   MEH_T(tab)    │                 │                 │                 │   │
+//    └───┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼───┼───┐   ┌───┼────────────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴───┘
+//                                                              │ LT(LY_EXT, spc) │   │   │   │   │ MO(LY_MED) │   HYPR_T(ent)   │
+//                                                              └─────────────────┴───┴───┘   └───┴────────────┴─────────────────┘
+  KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT         , KC_TRANSPARENT       , KC_TRANSPARENT         , KC_TRANSPARENT,
+  KC_TRANSPARENT , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T           , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_Y           , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_TRANSPARENT,
+  KC_TRANSPARENT , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G           , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_H           , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_TRANSPARENT,
+  KC_TRANSPARENT , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B           ,                                       KC_N           , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , KC_TRANSPARENT,
+  KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT     , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_TRANSPARENT ,                                       KC_TRANSPARENT , MEH_T(KC_TAB)      , KC_TRANSPARENT         , KC_TRANSPARENT       , KC_TRANSPARENT         , KC_TRANSPARENT,
+                                                                                  LT(LY_EXT, KC_SPC) , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , MO(LY_MED)     , HYPR_T(KC_ENT)
 ),
 
 [LY_EXT] = LAYOUT_moonlander(
@@ -62,38 +62,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├───┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┼───┘   └───┼───────────────┼───────────────┼────────────┼────────────┼───────────────┼───┤
 //    │   │     LGUI(z)      │     LGUI(x)      │     LGUI(c)      │     LGUI(v)      │ LGUI(b) │           │               │    CW_TOGG    │ LSFT(tab)  │    tab     │ LALT(LGUI(i)) │   │
 //    ├───┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤           ├───────────────┼───────────────┼────────────┼────────────┼───────────────┼───┤
-//    │   │                  │                  │                  │                  │         │           │               │    LGUI(`)    │            │            │               │   │
+//    │   │                  │                  │                  │                  │         │           │               │   LSFT(tab)   │            │            │               │   │
 //    └───┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼─────────┼───┐   ┌───┼───────────────┼───────────────┼────────────┴────────────┴───────────────┴───┘
-//                                                                 │                  │         │   │   │   │               │   LGUI(tab)   │
+//                                                                 │                  │         │   │   │   │    LGUI(`)    │   LGUI(tab)   │
 //                                                                 └──────────────────┴─────────┴───┘   └───┴───────────────┴───────────────┘
   KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT,
   KC_TRANSPARENT , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T)     , KC_TRANSPARENT ,     KC_TRANSPARENT , LGUI(LCTL(KC_C)) , LGUI(LSFT(KC_C)) , LGUI(KC_BSPC)  , LALT(KC_BSPC)  , KC_TRANSPARENT   , KC_TRANSPARENT,
   KC_TRANSPARENT , TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G)     , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_LEFT          , KC_DOWN          , KC_UP          , KC_RIGHT       , KC_COLN          , KC_TRANSPARENT,
   KC_TRANSPARENT , LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B)     ,                                       KC_TRANSPARENT   , CW_TOGG          , LSFT(KC_TAB)   , KC_TAB         , LALT(LGUI(KC_I)) , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT ,                                       KC_TRANSPARENT   , LGUI(KC_GRAVE)   , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT,
-                                                                            KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT   , LGUI(KC_TAB)
+  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT ,                                       KC_TRANSPARENT   , LSFT(KC_TAB)     , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT,
+                                                                            KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , LGUI(KC_GRAVE)   , LGUI(KC_TAB)
 ),
 
 [LY_SYM] = LAYOUT_moonlander(
-//    ┌───┬───┬───┬───┬───┬────┬───┐   ┌───┬───┬────┬───┬───┬───┬───┐
-//    │   │   │   │   │   │    │   │   │   │   │    │   │   │   │   │
-//    ├───┼───┼───┼───┼───┼────┼───┤   ├───┼───┼────┼───┼───┼───┼───┤
-//    │   │ ^ │ + │ # │ % │ $  │   │   │   │ < │ {  │ " │ } │ > │   │
-//    ├───┼───┼───┼───┼───┼────┼───┤   ├───┼───┼────┼───┼───┼───┼───┤
-//    │   │ ! │ - │ & │ ? │ |  │   │   │   │ = │ [  │ ' │ ] │ : │   │
-//    ├───┼───┼───┼───┼───┼────┼───┘   └───┼───┼────┼───┼───┼───┼───┤
-//    │   │ ~ │ _ │ * │ @ │ ~/ │           │ \ │ (  │ ` │ ) │ / │   │
-//    ├───┼───┼───┼───┼───┼────┤           ├───┼────┼───┼───┼───┼───┤
-//    │   │   │   │   │   │    │           │   │ => │   │   │   │   │
-//    └───┴───┴───┴───┼───┼────┼───┐   ┌───┼───┼────┼───┴───┴───┴───┘
-//                    │   │    │   │   │   │   │    │
-//                    └───┴────┴───┘   └───┴───┴────┘
+//    ┌───┬───┬───┬───┬──────────┬──────────┬───┐   ┌───┬───┬────┬───┬───┬───┬───┐
+//    │   │   │   │   │          │          │   │   │   │   │    │   │   │   │   │
+//    ├───┼───┼───┼───┼──────────┼──────────┼───┤   ├───┼───┼────┼───┼───┼───┼───┤
+//    │   │ ^ │ + │ # │    %     │    $     │   │   │   │ < │ {  │ " │ } │ > │   │
+//    ├───┼───┼───┼───┼──────────┼──────────┼───┤   ├───┼───┼────┼───┼───┼───┼───┤
+//    │   │ ! │ - │ & │    ?     │    |     │   │   │   │ = │ [  │ ' │ ] │ : │   │
+//    ├───┼───┼───┼───┼──────────┼──────────┼───┘   └───┼───┼────┼───┼───┼───┼───┤
+//    │   │ ~ │ _ │ * │    @     │    ~/    │           │ \ │ (  │ ` │ ) │ / │   │
+//    ├───┼───┼───┼───┼──────────┼──────────┤           ├───┼────┼───┼───┼───┼───┤
+//    │   │   │   │   │ LALT(no) │          │           │   │ => │   │   │   │   │
+//    └───┴───┴───┴───┼──────────┼──────────┼───┐   ┌───┼───┼────┼───┴───┴───┴───┘
+//                    │ LCTL(no) │ LGUI(no) │   │   │   │   │    │
+//                    └──────────┴──────────┴───┘   └───┴───┴────┘
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_CIRC        , KC_PLUS        , KC_HASH        , KC_PERC        , KC_DLR         , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_LABK        , KC_LCBR        , KC_DQUO        , KC_RCBR        , KC_RABK        , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_EXLM        , KC_MINUS       , KC_AMPR        , KC_QUES        , KC_PIPE        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_EQUAL       , KC_LBRC        , KC_QUOTE       , KC_RBRC        , KC_COLN        , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_TILD        , KC_UNDS        , KC_ASTR        , KC_AT          , SS_TILD_SLSH   ,                                       KC_BSLS        , KC_LPRN        , KC_GRAVE       , KC_RPRN        , KC_SLASH       , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,                                       KC_TRANSPARENT , SS_FATARROW    , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                      KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
+  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , LALT(KC_NO)    , KC_TRANSPARENT ,                                       KC_TRANSPARENT , SS_FATARROW    , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
+                                                                      LCTL(KC_NO)    , LGUI(KC_NO)    , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
 ),
 
 [LY_NUM] = LAYOUT_moonlander(
@@ -108,14 +108,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├───┼──────────┼──────────┼───────────┼────────────┼──────┤           ├───┼───┼───┼───┼───┼───┤
 //    │   │          │          │           │            │      │           │   │ 0 │   │   │   │   │
 //    └───┴──────────┴──────────┴───────────┼────────────┼──────┼───┐   ┌───┼───┼───┼───┴───┴───┴───┘
-//                                          │            │      │   │   │   │   │   │
+//                                          │            │      │   │   │ , │ . │   │
 //                                          └────────────┴──────┴───┘   └───┴───┴───┘
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , SS_TODO        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_PLUS        , KC_7           , KC_8           , KC_9           , KC_ASTR        , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_LEFT_GUI    , KC_LEFT_ALT    , KC_LEFT_CTRL   , KC_LEFT_SHIFT  , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_EQUAL       , KC_4           , KC_5           , KC_6           , KC_COLN        , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , SS_BCD         ,                                       KC_MINUS       , KC_1           , KC_2           , KC_3           , KC_SLASH       , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,                                       KC_TRANSPARENT , KC_0           , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                      KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
+                                                                      KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_COMMA       , KC_DOT         , KC_TRANSPARENT
 ),
 
 [LY_FUN] = LAYOUT_moonlander(
@@ -141,25 +141,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [LY_MED] = LAYOUT_moonlander(
-//    ┌───┬───────────────┬──────┬──────┬──────┬─────────────────────┬───┐   ┌───┬───┬──────────────────────────────┬───────────────────────────────┬────────────────────────────┬───┬───┐
-//    │   │               │      │      │      │                     │   │   │   │   │                              │                               │                            │   │   │
-//    ├───┼───────────────┼──────┼──────┼──────┼─────────────────────┼───┤   ├───┼───┼──────────────────────────────┼───────────────────────────────┼────────────────────────────┼───┼───┤
-//    │   │ LGUI(LCTL(q)) │ vold │ mute │ volu │       QK_BOOT       │   │   │   │   │           RGB_HUD            │            RGB_TOG            │          RGB_HUI           │   │   │
-//    ├───┼───────────────┼──────┼──────┼──────┼─────────────────────┼───┤   ├───┼───┼──────────────────────────────┼───────────────────────────────┼────────────────────────────┼───┼───┤
-//    │   │               │ mprv │ mply │ mnxt │ LALT(LCTL(LSFT(k))) │   │   │   │   │           LGUI(-)            │            LGUI(0)            │          LGUI(=)           │   │   │
-//    ├───┼───────────────┼──────┼──────┼──────┼─────────────────────┼───┘   └───┼───┼──────────────────────────────┼───────────────────────────────┼────────────────────────────┼───┼───┤
-//    │   │               │      │      │      │                     │           │   │ QK_DYNAMIC_TAPPING_TERM_DOWN │ QK_DYNAMIC_TAPPING_TERM_PRINT │ QK_DYNAMIC_TAPPING_TERM_UP │   │   │
-//    ├───┼───────────────┼──────┼──────┼──────┼─────────────────────┤           ├───┼──────────────────────────────┼───────────────────────────────┼────────────────────────────┼───┼───┤
-//    │   │               │      │      │      │                     │           │   │                              │                               │                            │   │   │
-//    └───┴───────────────┴──────┴──────┼──────┼─────────────────────┼───┐   ┌───┼───┼──────────────────────────────┼───────────────────────────────┴────────────────────────────┴───┴───┘
-//                                      │      │                     │   │   │   │   │                              │
-//                                      └──────┴─────────────────────┴───┘   └───┴───┴──────────────────────────────┘
-  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT         , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT               , KC_TRANSPARENT                , KC_TRANSPARENT             , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , LGUI(LCTL(KC_Q)) , KC_AUDIO_VOL_DOWN   , KC_AUDIO_MUTE       , KC_AUDIO_VOL_UP     , QK_BOOT                , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , RGB_HUD                      , RGB_TOG                       , RGB_HUI                    , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT   , KC_MEDIA_PREV_TRACK , KC_MEDIA_PLAY_PAUSE , KC_MEDIA_NEXT_TRACK , LALT(LCTL(LSFT(KC_K))) , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , LGUI(KC_MINUS)               , LGUI(KC_0)                    , LGUI(KC_EQUAL)             , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT         ,                                       KC_TRANSPARENT , QK_DYNAMIC_TAPPING_TERM_DOWN , QK_DYNAMIC_TAPPING_TERM_PRINT , QK_DYNAMIC_TAPPING_TERM_UP , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT         ,                                       KC_TRANSPARENT , KC_TRANSPARENT               , KC_TRANSPARENT                , KC_TRANSPARENT             , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                                  KC_TRANSPARENT      , KC_TRANSPARENT         , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
+//    ┌───┬───────────────┬──────┬──────┬──────┬─────────┬───┐   ┌───┬───┬──────────────────────────────┬───────────────────────────────┬────────────────────────────┬───┬───┐
+//    │   │               │      │      │      │         │   │   │   │   │                              │                               │                            │   │   │
+//    ├───┼───────────────┼──────┼──────┼──────┼─────────┼───┤   ├───┼───┼──────────────────────────────┼───────────────────────────────┼────────────────────────────┼───┼───┤
+//    │   │ LGUI(LCTL(q)) │ vold │ mute │ volu │ QK_BOOT │   │   │   │   │           RGB_HUD            │            RGB_TOG            │          RGB_HUI           │   │   │
+//    ├───┼───────────────┼──────┼──────┼──────┼─────────┼───┤   ├───┼───┼──────────────────────────────┼───────────────────────────────┼────────────────────────────┼───┼───┤
+//    │   │               │ mprv │ mply │ mnxt │ MEH(k)  │   │   │   │   │           LGUI(-)            │            LGUI(0)            │          LGUI(=)           │   │   │
+//    ├───┼───────────────┼──────┼──────┼──────┼─────────┼───┘   └───┼───┼──────────────────────────────┼───────────────────────────────┼────────────────────────────┼───┼───┤
+//    │   │               │      │      │      │         │           │   │ QK_DYNAMIC_TAPPING_TERM_DOWN │ QK_DYNAMIC_TAPPING_TERM_PRINT │ QK_DYNAMIC_TAPPING_TERM_UP │   │   │
+//    ├───┼───────────────┼──────┼──────┼──────┼─────────┤           ├───┼──────────────────────────────┼───────────────────────────────┼────────────────────────────┼───┼───┤
+//    │   │               │      │      │      │         │           │   │                              │                               │                            │   │   │
+//    └───┴───────────────┴──────┴──────┼──────┼─────────┼───┐   ┌───┼───┼──────────────────────────────┼───────────────────────────────┴────────────────────────────┴───┴───┘
+//                                      │      │         │   │   │   │   │                              │
+//                                      └──────┴─────────┴───┘   └───┴───┴──────────────────────────────┘
+  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT               , KC_TRANSPARENT                , KC_TRANSPARENT             , KC_TRANSPARENT , KC_TRANSPARENT,
+  KC_TRANSPARENT , LGUI(LCTL(KC_Q)) , KC_AUDIO_VOL_DOWN   , KC_AUDIO_MUTE       , KC_AUDIO_VOL_UP     , QK_BOOT        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , RGB_HUD                      , RGB_TOG                       , RGB_HUI                    , KC_TRANSPARENT , KC_TRANSPARENT,
+  KC_TRANSPARENT , KC_TRANSPARENT   , KC_MEDIA_PREV_TRACK , KC_MEDIA_PLAY_PAUSE , KC_MEDIA_NEXT_TRACK , MEH(KC_K)      , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , LGUI(KC_MINUS)               , LGUI(KC_0)                    , LGUI(KC_EQUAL)             , KC_TRANSPARENT , KC_TRANSPARENT,
+  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT ,                                       KC_TRANSPARENT , QK_DYNAMIC_TAPPING_TERM_DOWN , QK_DYNAMIC_TAPPING_TERM_PRINT , QK_DYNAMIC_TAPPING_TERM_UP , KC_TRANSPARENT , KC_TRANSPARENT,
+  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT ,                                       KC_TRANSPARENT , KC_TRANSPARENT               , KC_TRANSPARENT                , KC_TRANSPARENT             , KC_TRANSPARENT , KC_TRANSPARENT,
+                                                                                  KC_TRANSPARENT      , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
 )
 };
 
