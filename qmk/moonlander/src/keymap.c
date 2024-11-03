@@ -108,14 +108,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├───┼──────────┼──────────┼───────────┼────────────┼──────┤           ├───┼───┼───┼───┼───┼───┤
 //    │   │          │          │           │            │      │           │   │ 0 │   │   │   │   │
 //    └───┴──────────┴──────────┴───────────┼────────────┼──────┼───┐   ┌───┼───┼───┼───┴───┴───┴───┘
-//                                          │            │      │   │   │ , │ . │   │
+//                                          │            │      │   │   │   │ , │ . │
 //                                          └────────────┴──────┴───┘   └───┴───┴───┘
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , SS_TODO        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_PLUS        , KC_7           , KC_8           , KC_9           , KC_ASTR        , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_LEFT_GUI    , KC_LEFT_ALT    , KC_LEFT_CTRL   , KC_LEFT_SHIFT  , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_EQUAL       , KC_4           , KC_5           , KC_6           , KC_COLN        , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , SS_BCD         ,                                       KC_MINUS       , KC_1           , KC_2           , KC_3           , KC_SLASH       , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,                                       KC_TRANSPARENT , KC_0           , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                      KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_COMMA       , KC_DOT         , KC_TRANSPARENT
+                                                                      KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_COMMA       , KC_DOT
 ),
 
 [LY_FUN] = LAYOUT_moonlander(
