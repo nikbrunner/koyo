@@ -10,23 +10,23 @@ export NC='\033[0m' # No Color
 
 # Logging functions
 debug_log() {
-    echo -e "${BLUE}DRY-RUN:${NC} $1"
+    echo -e "${BLUE} $1${NC}"
 }
 
 prompt_log() {
-    echo -e "${CYAN}$1${NC}"
+    echo -e "${CYAN} $1${NC}"
 }
 
 warning_log() {
-    echo -e "${YELLOW}$1${NC}"
+    echo -e "${YELLOW} $1${NC}"
 }
 
 success_log() {
-    echo -e "${GREEN}$1${NC}"
+    echo -e "${GREEN}󰗡 $1${NC}"
 }
 
 error_log() {
-    echo -e "${RED}ERROR:${NC} $1"
+    echo -e "${RED} $1${NC}"
 }
 
 get_config() {
