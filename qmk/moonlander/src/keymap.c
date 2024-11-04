@@ -166,15 +166,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // COMBOS
 // ============================================================================
 const uint16_t PROGMEM LY_BAS_CMB_BACKSPACE[]     = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM LY_NUM_CMB_BACKSPACE[]     = {KC_P8, KC_P9, COMBO_END};
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_LEFT[]  = {KC_J, LT(LY_SYM, KC_K), COMBO_END};
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {LT(LY_SYM, KC_K), KC_L, COMBO_END};
 
-combo_t key_combos[COMBO_COUNT] = {
+const uint16_t PROGMEM LY_NUM_CMB_BACKSPACE[]     = {KC_8, KC_9, COMBO_END};
+const uint16_t PROGMEM LY_NUM_CMB_DOT[]     = {KC_2, KC_3, COMBO_END};
+const uint16_t PROGMEM LY_NUM_CMB_COMMA[]     = {KC_1, KC_2, COMBO_END};
+
+combo_t key_combos[] = {
     COMBO(LY_BAS_CMB_BACKSPACE, KC_BSPC),
-    COMBO(LY_NUM_CMB_BACKSPACE, KC_BSPC),
     COMBO(LY_BAS_CMB_BRACKET_LEFT, KC_LBRC),
     COMBO(LY_BAS_CMB_BRACKET_RIGHT, KC_RBRC),
+
+    COMBO(LY_NUM_CMB_BACKSPACE, KC_BSPC),
+    COMBO(LY_NUM_CMB_DOT, KC_DOT),
+    COMBO(LY_NUM_CMB_COMMA, KC_COMMA)
 };
 
 void matrix_scan_user(void) {
