@@ -35,12 +35,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
 //    │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │        b        │   │      n      │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │
 //    └─────────────────┴─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┴─────────────────┘
-//                                        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ LT(LY_EXT, spc) │   │ HYPR_T(ent) │   MEH_T(tab)    │   MO(LY_MED)    │
+//                                        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ LT(LY_EXT, spc) │   │ HYPR_T(ent) │ LT(LY_MED, tab) │                 │
 //                                        └─────────────────┴─────────────────┴─────────────────┘   └─────────────┴─────────────────┴─────────────────┘
   KC_Q               , KC_W               , KC_E               , KC_R               , KC_T               ,     KC_Y           , KC_U               , KC_I                   , KC_O                 , KC_P                  ,
   KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G               ,     KC_H           , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN               ,
   MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B               ,     KC_N           , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH),
-                                            MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , LT(LY_EXT, KC_SPC) ,     HYPR_T(KC_ENT) , MEH_T(KC_TAB)      , MO(LY_MED)
+                                            MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , LT(LY_EXT, KC_SPC) ,     HYPR_T(KC_ENT) , LT(LY_MED, KC_TAB) , KC_TRANSPARENT
 ),
 
 [LY_EXT] = LAYOUT_split_3x5_3(
@@ -76,19 +76,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [LY_NUM] = LAYOUT_split_3x5_3(
-//    ┌──────┬──────┬──────┬──────┬──────┐   ┌───┬───┬───┬───┬───┐
-//    │  no  │  no  │  no  │  no  │ TODO │   │ + │ 7 │ 8 │ 9 │ * │
-//    ├──────┼──────┼──────┼──────┼──────┤   ├───┼───┼───┼───┼───┤
-//    │ lgui │ lalt │ lctl │ lsft │  no  │   │ = │ 4 │ 5 │ 6 │ : │
-//    ├──────┼──────┼──────┼──────┼──────┤   ├───┼───┼───┼───┼───┤
-//    │  no  │  no  │  no  │  no  │ BCD- │   │ - │ 1 │ 2 │ 3 │ / │
-//    └──────┴──────┼──────┼──────┼──────┤   ├───┼───┼───┼───┴───┘
-//                  │      │      │      │   │ . │ 0 │ , │
-//                  └──────┴──────┴──────┘   └───┴───┴───┘
-  KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_TODO ,     KC_PLUS  , KC_7 , KC_8     , KC_9 , KC_ASTR ,
-  KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   ,     KC_EQUAL , KC_4 , KC_5     , KC_6 , KC_COLN ,
-  KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_BCD  ,     KC_MINUS , KC_1 , KC_2     , KC_3 , KC_SLASH,
-                      KC_TRNS , KC_TRNS , KC_TRNS ,     KC_DOT   , KC_0 , KC_COMMA
+//    ┌────────────┬──────┬──────┬──────┬──────┐   ┌───┬───┬───┬───┬───┐
+//    │     no     │  no  │  no  │  no  │ TODO │   │ + │ 7 │ 8 │ 9 │ * │
+//    ├────────────┼──────┼──────┼──────┼──────┤   ├───┼───┼───┼───┼───┤
+//    │    lgui    │ lalt │ lctl │ lsft │  no  │   │ = │ 4 │ 5 │ 6 │ : │
+//    ├────────────┼──────┼──────┼──────┼──────┤   ├───┼───┼───┼───┼───┤
+//    │ HYPR_T(no) │  no  │  no  │  no  │ BCD- │   │ - │ 1 │ 2 │ 3 │ / │
+//    └────────────┴──────┼──────┼──────┼──────┤   ├───┼───┼───┼───┴───┘
+//                        │      │      │      │   │ . │ 0 │ , │
+//                        └──────┴──────┴──────┘   └───┴───┴───┘
+  KC_NO         , KC_NO   , KC_NO   , KC_NO   , SS_TODO ,     KC_PLUS  , KC_7 , KC_8     , KC_9 , KC_ASTR ,
+  KC_LGUI       , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   ,     KC_EQUAL , KC_4 , KC_5     , KC_6 , KC_COLN ,
+  HYPR_T(KC_NO) , KC_NO   , KC_NO   , KC_NO   , SS_BCD  ,     KC_MINUS , KC_1 , KC_2     , KC_3 , KC_SLASH,
+                            KC_TRNS , KC_TRNS , KC_TRNS ,     KC_DOT   , KC_0 , KC_COMMA
 ),
 
 [LY_FUN] = LAYOUT_split_3x5_3(
@@ -173,8 +173,7 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, ui
         case LT(LY_NUM, KC_ESC):
         case LT(LY_EXT, KC_SPC):
         case HYPR_T(KC_ENT):
-        case MEH_T(KC_TAB):
-        case LT(LY_MED, KC_NO):
+        case LT(LY_MED, KC_TAB):
             return true;
     }
 

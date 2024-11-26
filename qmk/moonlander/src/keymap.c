@@ -31,25 +31,25 @@ enum tap_dance_codes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LY_BAS] = LAYOUT_moonlander(
-//    ┌───┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬───┬───┐   ┌───┬────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬───┐
-//    │   │                 │                 │                 │                 │   │   │   │   │            │                 │                 │                 │                 │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┤   ├───┼────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │        q        │        w        │        e        │        r        │ t │   │   │   │     y      │        u        │        i        │        o        │        p        │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┤   ├───┼────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │        a        │        s        │  LT(LY_SYM, d)  │        f        │ g │   │   │   │     h      │        j        │  LT(LY_SYM, k)  │        l        │        ;        │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┘   └───┼────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │ b │           │     n      │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤           ├────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │                 │                 │   MO(LY_FUN)    │ LT(LY_NUM, esc) │   │           │            │   MEH_T(tab)    │                 │                 │                 │   │
-//    └───┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼───┼───┐   ┌───┼────────────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴───┘
-//                                                              │ LT(LY_EXT, spc) │   │   │   │   │ MO(LY_MED) │   HYPR_T(ent)   │
-//                                                              └─────────────────┴───┴───┘   └───┴────────────┴─────────────────┘
+//    ┌───┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬───┬───┐   ┌───┬───┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬───┐
+//    │   │                 │                 │                 │                 │   │   │   │   │   │                 │                 │                 │                 │   │
+//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┤   ├───┼───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
+//    │   │        q        │        w        │        e        │        r        │ t │   │   │   │ y │        u        │        i        │        o        │        p        │   │
+//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┤   ├───┼───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
+//    │   │        a        │        s        │  LT(LY_SYM, d)  │        f        │ g │   │   │   │ h │        j        │  LT(LY_SYM, k)  │        l        │        ;        │   │
+//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┘   └───┼───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
+//    │   │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │ b │           │ n │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │   │
+//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤           ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
+//    │   │                 │                 │   MO(LY_FUN)    │ LT(LY_NUM, esc) │   │           │   │ LT(LY_MED, tab) │                 │                 │                 │   │
+//    └───┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼───┼───┐   ┌───┼───┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴───┘
+//                                                              │ LT(LY_EXT, spc) │   │   │   │   │   │   HYPR_T(ent)   │
+//                                                              └─────────────────┴───┴───┘   └───┴───┴─────────────────┘
   KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT         , KC_TRANSPARENT       , KC_TRANSPARENT         , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T           , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_Y           , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G           , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_H           , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_TRANSPARENT,
   KC_TRANSPARENT , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B           ,                                       KC_N           , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT     , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_TRANSPARENT ,                                       KC_TRANSPARENT , MEH_T(KC_TAB)      , KC_TRANSPARENT         , KC_TRANSPARENT       , KC_TRANSPARENT         , KC_TRANSPARENT,
-                                                                                  LT(LY_EXT, KC_SPC) , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , MO(LY_MED)     , HYPR_T(KC_ENT)
+  KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT     , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_TRANSPARENT ,                                       KC_TRANSPARENT , LT(LY_MED, KC_TAB) , KC_TRANSPARENT         , KC_TRANSPARENT       , KC_TRANSPARENT         , KC_TRANSPARENT,
+                                                                                  LT(LY_EXT, KC_SPC) , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , HYPR_T(KC_ENT)
 ),
 
 [LY_EXT] = LAYOUT_moonlander(
@@ -62,16 +62,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├───┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┼───┘   └───┼───────────────┼───────────────┼────────────┼────────────┼───────────────┼───┤
 //    │   │     LGUI(z)      │     LGUI(x)      │     LGUI(c)      │     LGUI(v)      │ LGUI(b) │           │               │    CW_TOGG    │ LSFT(tab)  │    tab     │ LALT(LGUI(i)) │   │
 //    ├───┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤           ├───────────────┼───────────────┼────────────┼────────────┼───────────────┼───┤
-//    │   │                  │                  │                  │                  │         │           │               │   LSFT(tab)   │            │            │               │   │
+//    │   │                  │                  │                  │                  │         │           │               │   LSFT(tab)   │  LGUI(`)   │            │               │   │
 //    └───┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼─────────┼───┐   ┌───┼───────────────┼───────────────┼────────────┴────────────┴───────────────┴───┘
-//                                                                 │                  │         │   │   │   │    LGUI(`)    │   LGUI(tab)   │
+//                                                                 │                  │         │   │   │   │               │   LGUI(tab)   │
 //                                                                 └──────────────────┴─────────┴───┘   └───┴───────────────┴───────────────┘
   KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT,
   KC_TRANSPARENT , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T)     , KC_TRANSPARENT ,     KC_TRANSPARENT , LGUI(LCTL(KC_C)) , LGUI(LSFT(KC_C)) , LGUI(KC_BSPC)  , LALT(KC_BSPC)  , KC_TRANSPARENT   , KC_TRANSPARENT,
   KC_TRANSPARENT , TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G)     , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_LEFT          , KC_DOWN          , KC_UP          , KC_RIGHT       , KC_COLN          , KC_TRANSPARENT,
   KC_TRANSPARENT , LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B)     ,                                       KC_TRANSPARENT   , CW_TOGG          , LSFT(KC_TAB)   , KC_TAB         , LALT(LGUI(KC_I)) , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT ,                                       KC_TRANSPARENT   , LSFT(KC_TAB)     , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT,
-                                                                            KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , LGUI(KC_GRAVE)   , LGUI(KC_TAB)
+  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT ,                                       KC_TRANSPARENT   , LSFT(KC_TAB)     , LGUI(KC_GRV)   , KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT,
+                                                                            KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT   , LGUI(KC_TAB)
 ),
 
 [LY_SYM] = LAYOUT_moonlander(
@@ -97,25 +97,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [LY_NUM] = LAYOUT_moonlander(
-//    ┌───┬──────────┬──────────┬───────────┬────────────┬──────┬───┐   ┌───┬───┬───┬───┬───┬───┬───┐
-//    │   │          │          │           │            │      │   │   │   │   │   │   │   │   │   │
-//    ├───┼──────────┼──────────┼───────────┼────────────┼──────┼───┤   ├───┼───┼───┼───┼───┼───┼───┤
-//    │   │          │          │           │            │ TODO │   │   │   │ + │ 7 │ 8 │ 9 │ * │   │
-//    ├───┼──────────┼──────────┼───────────┼────────────┼──────┼───┤   ├───┼───┼───┼───┼───┼───┼───┤
-//    │   │ left_GUI │ left_ALT │ left_CTRL │ left_SHIFT │      │   │   │   │ = │ 4 │ 5 │ 6 │ : │   │
-//    ├───┼──────────┼──────────┼───────────┼────────────┼──────┼───┘   └───┼───┼───┼───┼───┼───┼───┤
-//    │   │          │          │           │            │ BCD- │           │ - │ 1 │ 2 │ 3 │ / │   │
-//    ├───┼──────────┼──────────┼───────────┼────────────┼──────┤           ├───┼───┼───┼───┼───┼───┤
-//    │   │          │          │           │            │      │           │   │ 0 │   │   │   │   │
-//    └───┴──────────┴──────────┴───────────┼────────────┼──────┼───┐   ┌───┼───┼───┼───┴───┴───┴───┘
-//                                          │            │      │   │   │   │ , │ . │
-//                                          └────────────┴──────┴───┘   └───┴───┴───┘
+//    ┌───┬────────────┬──────┬──────┬──────┬──────┬───┐   ┌───┬───┬───┬───┬───┬───┬───┐
+//    │   │            │      │      │      │      │   │   │   │   │   │   │   │   │   │
+//    ├───┼────────────┼──────┼──────┼──────┼──────┼───┤   ├───┼───┼───┼───┼───┼───┼───┤
+//    │   │            │      │      │      │ TODO │   │   │   │ + │ 7 │ 8 │ 9 │ * │   │
+//    ├───┼────────────┼──────┼──────┼──────┼──────┼───┤   ├───┼───┼───┼───┼───┼───┼───┤
+//    │   │    lgui    │ lalt │ lctl │ lsft │      │   │   │   │ = │ 4 │ 5 │ 6 │ : │   │
+//    ├───┼────────────┼──────┼──────┼──────┼──────┼───┘   └───┼───┼───┼───┼───┼───┼───┤
+//    │   │ HYPR_T(no) │      │      │      │ BCD- │           │ - │ 1 │ 2 │ 3 │ / │   │
+//    ├───┼────────────┼──────┼──────┼──────┼──────┤           ├───┼───┼───┼───┼───┼───┤
+//    │   │            │      │      │      │      │           │   │ 0 │ , │   │   │   │
+//    └───┴────────────┴──────┴──────┼──────┼──────┼───┐   ┌───┼───┼───┼───┴───┴───┴───┘
+//                                   │      │      │   │   │   │   │ . │
+//                                   └──────┴──────┴───┘   └───┴───┴───┘
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
   KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , SS_TODO        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_PLUS        , KC_7           , KC_8           , KC_9           , KC_ASTR        , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_LEFT_GUI    , KC_LEFT_ALT    , KC_LEFT_CTRL   , KC_LEFT_SHIFT  , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_EQUAL       , KC_4           , KC_5           , KC_6           , KC_COLN        , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , SS_BCD         ,                                       KC_MINUS       , KC_1           , KC_2           , KC_3           , KC_SLASH       , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,                                       KC_TRANSPARENT , KC_0           , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                      KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_COMMA       , KC_DOT
+  KC_TRANSPARENT , KC_LGUI        , KC_LALT        , KC_LCTL        , KC_LSFT        , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_EQUAL       , KC_4           , KC_5           , KC_6           , KC_COLN        , KC_TRANSPARENT,
+  KC_TRANSPARENT , HYPR_T(KC_NO)  , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , SS_BCD         ,                                       KC_MINUS       , KC_1           , KC_2           , KC_3           , KC_SLASH       , KC_TRANSPARENT,
+  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,                                       KC_TRANSPARENT , KC_0           , KC_COMMA       , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
+                                                                      KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_DOT
 ),
 
 [LY_FUN] = LAYOUT_moonlander(
@@ -198,7 +198,7 @@ bool achordion_chord(
     case LT(LY_NUM, KC_ESC):
     case LT(LY_EXT, KC_SPC):
     case HYPR_T(KC_ENT):
-    case LT(LY_MED, KC_NO):
+    case LT(LY_MED, KC_TAB):
     return true;
   }
 
