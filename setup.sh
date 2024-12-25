@@ -105,6 +105,36 @@ fi
 
 check_qmk() {
     debug_log "Checking QMK installation..."
+    
+    # First check if qmk CLI is available
+    if ! command -v qmk &>/dev/null; then
+        debug_log "Warning: QMK CLI not found"
+
+        if [[ "$DRY_RUN" == "true" ]]; then
+            debug_log "Would prompt to install QMK CLI"
+            return
+        fi
+
+        prompt_log "Would you like to install QMK CLI now? (y/n)"
+        read -r response
+
+        if [[ "$response" =~ ^[Yy]$ ]]; then
+            if command -v python3 &>/dev/null; then
+                python3 -m pip install --user qmk
+                success_log "QMK CLI installed successfully"
+            else
+                error_log "Python3 not found. Please install Python3 and pip before continuing"
+                exit 1
+            fi
+        else
+            warning_log "Please install QMK CLI manually before continuing"
+            exit 1
+        fi
+    else
+        success_log "QMK CLI found"
+    fi
+
+    # Then check QMK firmware directory
     if [[ ! -d "$QMK_DIR" ]]; then
         debug_log "Warning: QMK firmware not found at $QMK_DIR"
 
@@ -113,18 +143,35 @@ check_qmk() {
             return
         fi
 
-        prompt_log "Would you like to clone it now? (y/n)"
+        prompt_log "Would you like to clone and setup QMK firmware now? (y/n)"
         read -r response
 
         if [[ "$response" =~ ^[Yy]$ ]]; then
-            git clone https://github.com/qmk/qmk_firmware.git "$QMK_DIR"
-            success_log "QMK firmware cloned successfully"
+            # Configure QMK home directory
+            qmk config user.qmk_home="$QMK_DIR"
+            
+            # Run QMK setup
+            if ! qmk setup -y; then
+                error_log "Failed to setup QMK firmware"
+                exit 1
+            fi
+            success_log "QMK firmware setup completed successfully"
         else
-            warning_log "Please clone QMK firmware manually before flashing"
+            warning_log "Please setup QMK firmware manually before continuing"
             exit 1
         fi
     else
         success_log "QMK firmware found"
+        # Even if directory exists, ensure it's properly setup
+        if [[ "$DRY_RUN" == "false" ]]; then
+            debug_log "Ensuring QMK firmware is properly setup..."
+            qmk config user.qmk_home="$QMK_DIR"
+            if ! qmk setup -y; then
+                error_log "Failed to setup existing QMK firmware"
+                exit 1
+            fi
+            success_log "QMK firmware is properly setup"
+        fi
     fi
 }
 
