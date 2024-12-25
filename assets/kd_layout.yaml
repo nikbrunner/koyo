@@ -1,84 +1,240 @@
-layout: {qmk_keyboard: crkbd/rev1, qmk_layout: LAYOUT_split_3x5_3}
+layout: { qmk_keyboard: crkbd/rev1, qmk_layout: LAYOUT_split_3x5_3 }
 layers:
-  L0:
-  - Q
-  - W
-  - E
-  - R
-  - T
-  - Y
-  - U
-  - I
-  - O
-  - P
-  - A
-  - S
-  - LT(LY SYM, D)
-  - F
-  - G
-  - H
-  - J
-  - LT(LY SYM, K)
-  - L
-  - ;
-  - {t: Z, h: LGUI}
-  - {t: X, h: LALT}
-  - {t: C, h: LCTL}
-  - {t: V, h: LSFT}
-  - B
-  - N
-  - {t: M, h: RSFT}
-  - {t: ',', h: RCTL}
-  - {t: ., h: LALT}
-  - {t: /, h: RGUI}
-  - LT(LY FUN, NO)
-  - LT(LY NUM, ESC)
-  - LT(LY EXT, SPC)
-  - {t: ENT, h: HYPR}
-  - {t: TAB, h: MEH}
-  - LT(LY MED, NO)
-  L1: [Gui+ Q, Gui+ W, Gui+ E, Gui+ R, Gui+ T, Gui+Ctl+ C, Gui+Sft+ C, Gui+ BSPC, Alt+ BSPC, '', TD(TD EXT GUI A), TD(TD EXT GUI S), TD(TD EXT GUI D), TD(TD EXT GUI
-      F), Gui+ G, LEFT, DOWN, UP, RGHT, ':', Gui+ Z, Gui+ X, Gui+ C, Gui+ V, Gui+ B, '', CW TOGG, Sft+ TAB, TAB, Alt+Gui+ I, '', '', '', Gui+ TAB, Sft+ TAB, Gui+
-      `]
-  L2: [^, +, '#', '%', $, <, '{', '"', '}', '>', '!', '-', '&', '?', '|', '=', '[', '''', ']', ':', '~', _, '*', '@', SS TILD SLSH, \, (, '`', ), /, '', '', '', '',
-    '', '']
-  L3:
-  - ''
-  - ''
-  - ''
-  - ''
-  - SS TODO
-  - PPLS
-  - P7
-  - P8
-  - P9
-  - PAST
-  - LGUI
-  - LALT
-  - LCTL
-  - LSFT
-  - ''
-  - PEQL
-  - P4
-  - P5
-  - P6
-  - ':'
-  - ''
-  - ''
-  - ''
-  - ''
-  - SS BCD
-  - PMNS
-  - P1
-  - P2
-  - P3
-  - PSLS
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ','
-  - P0
-  - .
-  L4: ['', '', '', '', '', '', F9, F10, F11, F12, RGUI, LALT, RCTL, RSFT, '', '', F5, F6, F7, F8, '', '', '', '', '', '', F1, F2, F3, F4, '', '', '', '', '', '']
-  L5: [Ctl+Gui+ Q, VOLD, MUTE, VOLU, '', '', RGB HUD, RGB TOG, RGB HUI, '', '', MPRV, MPLY, MNXT, Meh+ K, '', Gui+ -, Gui+ 0, Gui+ =, '', '', '', '', '', '', '',
-    DT DOWN, DT PRNT, DT UP, '', '', '', '', '', '', '']
+  LY_BAS: # Base Layer
+    - Q
+    - W
+    - E
+    - R
+    - T
+    - Y
+    - U
+    - I
+    - O
+    - P
+    - A
+    - S
+    - { t: D, h: LY_SYM }
+    - F
+    - G
+    - H
+    - J
+    - { t: K, h: LY_SYM }
+    - L
+    - ;
+    - { t: Z, h: LGUI }
+    - { t: X, h: LALT }
+    - { t: C, h: LCTL }
+    - { t: V, h: LSFT }
+    - B
+    - N
+    - { t: M, h: RSFT }
+    - { t: ",", h: RCTL }
+    - { t: ., h: LALT }
+    - { t: /, h: RGUI }
+    - { t: "", h: LY_FUN }
+    - { t: ESC, h: LY_NUM }
+    - { t: SPC, h: LY_EXT }
+    - { t: ENT, h: HYPR }
+    - { t: TAB, h: MEH }
+    - { t: "", h: LY_MED }
+
+  LY_EXT: # Extended Layer
+    - { t: G(Q) }
+    - { t: G(W) }
+    - { t: G(E) }
+    - { t: G(R) }
+    - { t: G(T) }
+    - { t: G(C(C)) }
+    - { t: G(S(C)) }
+    - { t: G(`) }
+    - { t: G(TAB) }
+    - ""
+    - { t: "G(A)", h: "GUI" }
+    - { t: "G(S)", h: "ALT" }
+    - { t: "G(D)", h: "CTL" }
+    - { t: "G(F)", h: "SFT" }
+    - { t: G(G) }
+    - LEFT
+    - DOWN
+    - UP
+    - RIGHT
+    - ":"
+    - { t: G(Z) }
+    - { t: G(X) }
+    - { t: G(C) }
+    - { t: G(V) }
+    - { t: G(B) }
+    - ""
+    - CW_TOGG
+    - { t: "G(LBRC)" } # Instead of G([)
+    - { t: "G(RBRC)" } # Instead of G(])
+    - { t: "AG(I)" }
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+
+  LY_SYM: # Symbol Layer
+    - ^
+    - +
+    - "#"
+    - "%"
+    - $
+    - <
+    - "{"
+    - '"'
+    - "}"
+    - ">"
+    - "!"
+    - "-"
+    - "&"
+    - "?"
+    - "|"
+    - "="
+    - "["
+    - "'"
+    - "]"
+    - ":"
+    - ~
+    - _
+    - "*"
+    - "@"
+    - "~/"
+    - \
+    - (
+    - "`"
+    - )
+    - /
+    - { t: "", h: LALT }
+    - { t: "", h: LCTL }
+    - { t: "", h: LGUI }
+    - ""
+    - "=>"
+    - ""
+
+  LY_NUM: # Number Layer
+    - ""
+    - ""
+    - ""
+    - ""
+    - TODO
+    - +
+    - "7"
+    - "8"
+    - "9"
+    - "*"
+    - LGUI
+    - LALT
+    - LCTL
+    - LSFT
+    - ""
+    - "="
+    - "4"
+    - "5"
+    - "6"
+    - ":"
+    - { t: "", h: HYPR }
+    - ""
+    - ""
+    - ""
+    - BCD-
+    - "-"
+    - "1"
+    - "2"
+    - "3"
+    - /
+    - ""
+    - ""
+    - ""
+    - "."
+    - "0"
+    - ","
+
+  LY_FUN: # Function Layer
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - F9
+    - F10
+    - F11
+    - F12
+    - RGUI
+    - LALT
+    - RCTL
+    - RSFT
+    - ""
+    - ""
+    - F5
+    - F6
+    - F7
+    - F8
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - F1
+    - F2
+    - F3
+    - F4
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+
+  LY_MED: # Media Layer
+    - { t: G(C(Q)) }
+    - VOLD
+    - MUTE
+    - VOLU
+    - ""
+    - ""
+    - RGB_HUD
+    - RGB_TOG
+    - RGB_HUI
+    - ""
+    - ""
+    - MPRV
+    - MPLY
+    - MNXT
+    - { t: "", h: MEH }
+    - ""
+    - { t: G(-) }
+    - { t: G(0) }
+    - { t: G(=) }
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - DT_DOWN
+    - DT_PRNT
+    - DT_UP
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+
+combos:
+  # Base layer combos
+  - { p: [7, 8], k: BSPC, l: [LY_BAS] } # I + O = Backspace
+  - { p: [16, 17], k: "[", l: [LY_BAS] } # J + K = Left bracket
+  - { p: [17, 18], k: "]", l: [LY_BAS] } # K + L = Right bracket
+
+  # Number layer combos
+  - { p: [7, 8], k: BSPC, l: [LY_NUM] } # 8 + 9 = Backspace
+  - { p: [26, 27], k: ".", l: [LY_NUM] } # 2 + 3 = Dot
+  - { p: [27, 28], k: ",", l: [LY_NUM] } # 1 + 2 = Comma

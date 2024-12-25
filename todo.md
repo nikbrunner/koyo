@@ -9,6 +9,8 @@
 - [x] `koyo update qmk` (Pulls latest Version of QMK firmware)
 - [x] Align layouts
 - [x] Ensure keymap-drawer is installed
+- [ ] Script to automatically update SVGs
+- [ ] SSOT for keymap. Script to generate `keymap.c` from SSOT.
 - [ ] Document differences between kōyō for CRKBD and Moonlander
 - [ ] Rename: RKBD -> kōyō for Corne
 - [ ] Rename: kōyō should have layout differentiators like 3T (3 Thumbs) or 4T (4 Thumbs)
