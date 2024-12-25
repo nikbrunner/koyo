@@ -9,6 +9,7 @@
 - [x] `koyo update qmk` (Pulls latest Version of QMK firmware)
 - [x] Align layouts
 - [x] Ensure keymap-drawer is installed
+- [ ] Align both layouts & purge unused or redundant stuff
 - [ ] Script to automatically update SVGs
 - [ ] SSOT for keymap. Script to generate `keymap.c` from SSOT.
 - [ ] Document differences between kōyō for CRKBD and Moonlander
