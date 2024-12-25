@@ -160,6 +160,7 @@ koyo/
 ## Prerequisites
 
 - QMK Firmware
+- `keymap-drawer` for SVG generation
 - `yq` for YAML processing
 - ZSH shell
 - Git

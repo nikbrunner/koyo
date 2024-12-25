@@ -53,7 +53,38 @@ check_yq() {
     fi
 }
 
-check_yq
+check_keymap() {
+    debug_log "Checking keymap-drawer installation..."
+
+    if ! command -v keymap &>/dev/null; then
+        debug_log "Warning: keymap-drawer not found"
+
+        if [[ "$DRY_RUN" == "true" ]]; then
+            debug_log "Would prompt to install keymap-drawer"
+            return
+        fi
+
+        prompt_log "Would you like to install keymap-drawer now? (y/n)"
+        read -r response
+
+        if [[ "$response" =~ ^[Yy]$ ]]; then
+            if command -v pip3 &>/dev/null; then
+                pipx install keymap-drawer
+                success_log "keymap-drawer installed successfully via pip3"
+            else
+                error_log "pipx not found. Please install pipx (`brew install pipx`) and then install keymap-drawer:"
+                error_log "pipx install keymap-drawer"
+                exit 1
+            fi
+        else
+            warning_log "Please install keymap-drawer manually before continuing"
+            exit 1
+        fi
+    else
+        success_log "keymap-drawer found"
+    fi
+}
+
 
 # Get and expand paths
 QMK_DIR=$(eval echo "$(get_config '.paths.qmk_dir')")
@@ -178,6 +209,8 @@ main() {
     debug_log "Starting Koyo keyboard setup..."
 
     check_zsh
+    check_yq
+    check_keymap
     check_qmk
     setup_permissions
     setup_symlink
