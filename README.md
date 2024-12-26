@@ -9,8 +9,8 @@
 - [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
 - [Development](#development)
-  - [Adding New Features](#adding-new-features)
-  - [Testing](#testing)
+    - [Adding New Features](#adding-new-features)
+    - [Testing](#testing)
 - [Resources](#resources)
 - [Contributing](#contributing)
 - [License](#license)
@@ -25,61 +25,56 @@
 
 ### Core Layout
 
-- **QWERTY Base**: Familiar layout to ease the transition while maintaining efficiency
-- **Compact 36-Key Design**: Optimized for minimal finger movement and maximum ergonomics
-- **Strategic Alpha Placement**: Bottom row alphas remain easily accessible without blocking home row access
+- QWERTY Base: Familiar layout to ease the transition while maintaining efficiency
+- Compact 36-Key Design: Optimized for minimal finger movement and maximum ergonomics
+- Strategic Alpha Placement: Bottom row alphas remain easily accessible without blocking home row access
 
 ### Layer Design
 
-- **Intuitive Layer Access**:
-  - Extended layer under space bar for frequently used tools
-  - Dual symbol layers (one per hand) with semantic arrangement
-  - Dedicated number and function key layers
+- Extended layer under space bar for frequently used tools
+- Dual symbol layers (one per hand) with semantic arrangement
+- Dedicated number and function key layers
 
-### Ergonomic Optimizations
+### Thumb Cluster Philosophy
 
-- **Thumb Cluster Philosophy**:
-
-  - Reserved for high-frequency, single-action keys (Space, Enter, Tab)
-  - Avoids sequential/repeated actions to prevent thumb fatigue
-  - Dual-purpose modifiers (MEH, HYPER) integrated with common actions
-
-- **Smart Key Combinations**:
-  - Backspace implemented as two-finger combo (I+O) to distribute load
-  - Strategic use of home row mods for modifier access
-  - Layer-tap combinations for efficient space utilization
+- Reserved for high-frequency, single-action keys (Space, Enter, Tab)
+- Dual-purpose modifiers (MEH, HYPER) integrated with common actions
+- Avoids sequential/repeated actions to prevent thumb fatigue
+    - e.g. Backspace implemented as two-finger combo (I+O) to avoid repeated presses of thumb
 
 ### Navigation & Tools
 
-- **Vim-Inspired Navigation**:
-
-  - Arrow keys in familiar HJKL pattern
-  - Navigation shortcuts following vim metaphors
-  - Extended layer provides quick access to common movements
-
-- **Efficient Symbol Access**:
-  - Symbols arranged in semantic pairs for intuitive access
-  - Common programming symbols placed at strongest fingers
-  - Consistent access pattern across both hands
+- Vim-Inspired Navigation:
+    - Arrow keys in familiar HJKL pattern
+    - Navigation shortcuts following vim metaphors
+        - `[` & `]` for often used navigation bindings are combos on the base layer
+    - Extended layer provides quick access to common movements
+- Efficient Symbol Access:
+    - Symbols arranged in semantic pairs for intuitive access
+    - Common programming symbols placed at strongest fingers
+    - Consistent access pattern across both hands
 
 ### Special Features
 
-- **Integrated Shortcuts**:
-
-  - Quick access to common GUI commands
-  - Tab and window management controls
-  - Media and system controls in dedicated layer
-
-- **Smart Tap Dancing**:
-  - Dual-function keys for extended capabilities
-  - Context-aware modifier combinations
-  - Reduced finger travel for common operations
+- Integrated Shortcuts:
+    - Quick access to common GUI commands
+        - e.g. Put common GUI commands on left hand split to enable one hand use in combination with the right hand on mouse
+    - Tab and window management controls
+    - Media and system controls in dedicated layer
+- Smart Tap Dancing:
+    - Dual-function keys for extended capabilities
+    - Context-aware modifier combinations
+    - Reduced finger travel for common operations
 
 ### Quality of Life
 
-- **Achordion Integration**: Smart handling of hold-tap actions
-- **Cross-Platform Compatibility**: Works seamlessly across operating systems
-- **Customizable Function Layer**: Easy access to F-keys and system functions
+- Achordion Integration: Smart handling of hold-tap actions
+- Cross-Platform Compatibility: Works seamlessly across operating systems
+- Customizable Function Layer: Easy access to F-keys and system functions
+
+## Layout
+
+![layout graphic](./assets/layout.svg)
 
 ## CLI Tool
 
@@ -138,32 +133,29 @@ Add the `--debug` or `-d` flag to any command for verbose output:
 koyo --debug moonlander flash
 ```
 
-## Layout
-
-![layout graphic](./assets/layout.svg)
-
 ## Project Structure
 
 ```
 koyo/
-├── setup.sh           # Setup script
-├── utils.sh           # Utility functions
+└── assets/            # Project assets
 ├── qmk/               # QMK configurations
 │   ├── moonlander/    # Moonlander specific files
 │   └── crkbd/         # Corne specific files
+├── setup.sh           # Setup script
+├── utils.sh           # Utility functions
 ├── help.sh            # Help documentation
 ├── update_svg.sh      # SVG update script
 ├── config.yml         # Configuration file
-└── assets/           # Project assets
+├── koyo               # koyo command
 ```
 
 ## Prerequisites
 
-- QMK Firmware
+- `qmk` firmware
 - `keymap-drawer` for SVG generation
 - `yq` for YAML processing
-- ZSH shell
-- Git
+- `zsh` shell
+- `git`
 
 ## Development
 
