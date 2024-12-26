@@ -12,4 +12,4 @@
 - [x] Align both layouts & purge unused or redundant stuff
 - [ ] Script to automatically update SVGs
 - [ ] SSOT for keymap. Script to generate `keymap.c` from SSOT.
-- [ ] Document differences between kōyō for CRKBD and Moonlander
+- [x] Document differences between kōyō for CRKBD and Moonlander
