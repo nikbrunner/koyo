@@ -31,135 +31,135 @@ enum tap_dance_codes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LY_BAS] = LAYOUT_moonlander(
-//    ┌───┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬───┬───┐   ┌───┬───┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬───┐
-//    │   │                 │                 │                 │                 │   │   │   │   │   │                 │                 │                 │                 │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┤   ├───┼───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │        q        │        w        │        e        │        r        │ t │   │   │   │ y │        u        │        i        │        o        │        p        │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┤   ├───┼───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │        a        │        s        │  LT(LY_SYM, d)  │        f        │ g │   │   │   │ h │        j        │  LT(LY_SYM, k)  │        l        │        ;        │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┼───┘   └───┼───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │ b │           │ n │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │   │
-//    ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤           ├───┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼───┤
-//    │   │                 │                 │   MO(LY_FUN)    │ LT(LY_NUM, esc) │   │           │   │   MEH_T(tab)    │   MO(LY_MED)    │                 │                 │   │
-//    └───┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼───┼───┐   ┌───┼───┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴───┘
-//                                                              │ LT(LY_EXT, spc) │   │   │   │   │   │   HYPR_T(ent)   │
-//                                                              └─────────────────┴───┴───┘   └───┴───┴─────────────────┘
-  KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT     , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT         , KC_TRANSPARENT       , KC_TRANSPARENT         , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T           , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_Y           , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G           , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_H           , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_TRANSPARENT,
-  KC_TRANSPARENT , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B           ,                                       KC_N           , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT     , KC_TRANSPARENT     , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_TRANSPARENT ,                                       KC_TRANSPARENT , MEH_T(KC_TAB)      , MO(LY_MED)             , KC_TRANSPARENT       , KC_TRANSPARENT         , KC_TRANSPARENT,
-                                                                                  LT(LY_EXT, KC_SPC) , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , HYPR_T(KC_ENT)
+//    ┌────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬────┬────┐   ┌────┬────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬────┐
+//    │ no │       no        │       no        │       no        │       no        │ no │ no │   │ no │ no │       no        │       no        │       no        │       no        │ no │
+//    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │        q        │        w        │        e        │        r        │ t  │ no │   │ no │ y  │        u        │        i        │        o        │        p        │ no │
+//    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │        a        │        s        │  LT(LY_SYM, d)  │        f        │ g  │ no │   │ no │ h  │        j        │  LT(LY_SYM, k)  │        l        │        ;        │ no │
+//    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┼────┘   └────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │ b  │             │ n  │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │ no │
+//    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤             ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │       no        │       no        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ no │             │ no │   MEH_T(tab)    │   MO(LY_MED)    │       no        │       no        │ no │
+//    └────┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼────┼────┐   ┌────┼────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴────┘
+//                                                               │ LT(LY_EXT, spc) │ no │ no │   │ no │ no │   HYPR_T(ent)   │
+//                                                               └─────────────────┴────┴────┘   └────┴────┴─────────────────┘
+  KC_NO , KC_NO              , KC_NO              , KC_NO              , KC_NO              , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO              , KC_NO                  , KC_NO                , KC_NO                  , KC_NO,
+  KC_NO , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T  , KC_NO ,     KC_NO , KC_Y  , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_NO,
+  KC_NO , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G  , KC_NO ,     KC_NO , KC_H  , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_NO,
+  KC_NO , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B  ,                     KC_N  , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , KC_NO,
+  KC_NO , KC_NO              , KC_NO              , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_NO ,                     KC_NO , MEH_T(KC_TAB)      , MO(LY_MED)             , KC_NO                , KC_NO                  , KC_NO,
+                                                                         LT(LY_EXT, KC_SPC) , KC_NO , KC_NO ,     KC_NO , KC_NO , HYPR_T(KC_ENT)
 ),
 
 [LY_EXT] = LAYOUT_moonlander(
-//    ┌───┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬─────────┬───┐   ┌───┬───────────────┬───────────────┬─────────┬───────────┬─────────┬───┐
-//    │   │                  │                  │                  │                  │         │   │   │   │               │               │         │           │         │   │
-//    ├───┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┼───┤   ├───┼───────────────┼───────────────┼─────────┼───────────┼─────────┼───┤
-//    │   │     LGUI(q)      │     LGUI(w)      │     LGUI(e)      │     LGUI(r)      │ LGUI(t) │   │   │   │ LGUI(LCTL(c)) │ LGUI(LSFT(c)) │ LGUI(`) │ LGUI(tab) │ HYPR(p) │   │
-//    ├───┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┼───┤   ├───┼───────────────┼───────────────┼─────────┼───────────┼─────────┼───┤
-//    │   │ TD(TD_EXT_GUI_A) │ TD(TD_EXT_GUI_S) │ TD(TD_EXT_GUI_D) │ TD(TD_EXT_GUI_F) │ LGUI(g) │   │   │   │     left      │     down      │   up    │   rght    │ HYPR(;) │   │
-//    ├───┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┼───┘   └───┼───────────────┼───────────────┼─────────┼───────────┼─────────┼───┤
-//    │   │     LGUI(z)      │     LGUI(x)      │     LGUI(c)      │     LGUI(v)      │ LGUI(b) │           │               │    CW_TOGG    │  G([)   │   G(])    │ LAG(i)  │   │
-//    ├───┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤           ├───────────────┼───────────────┼─────────┼───────────┼─────────┼───┤
-//    │   │                  │                  │                  │                  │         │           │               │               │         │           │         │   │
-//    └───┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼─────────┼───┐   ┌───┼───────────────┼───────────────┼─────────┴───────────┴─────────┴───┘
-//                                                                 │                  │         │   │   │   │               │               │
-//                                                                 └──────────────────┴─────────┴───┘   └───┴───────────────┴───────────────┘
-  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T)     , KC_TRANSPARENT ,     KC_TRANSPARENT , LGUI(LCTL(KC_C)) , LGUI(LSFT(KC_C)) , LGUI(KC_GRV)   , LGUI(KC_TAB)   , HYPR(KC_P)     , KC_TRANSPARENT,
-  KC_TRANSPARENT , TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G)     , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_LEFT          , KC_DOWN          , KC_UP          , KC_RIGHT       , HYPR(KC_SCLN)  , KC_TRANSPARENT,
-  KC_TRANSPARENT , LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B)     ,                                       KC_TRANSPARENT   , CW_TOGG          , G(KC_LBRC)     , G(KC_RBRC)     , LAG(KC_I)      , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT ,                                       KC_TRANSPARENT   , KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                            KC_TRANSPARENT   , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT   , KC_TRANSPARENT
+//    ┌────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬─────────┬────┐   ┌────┬───────────────┬───────────────┬─────────┬───────────┬─────────┬────┐
+//    │ no │        no        │        no        │        no        │        no        │   no    │ no │   │ no │      no       │      no       │   no    │    no     │   no    │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┼────┤   ├────┼───────────────┼───────────────┼─────────┼───────────┼─────────┼────┤
+//    │ no │     LGUI(q)      │     LGUI(w)      │     LGUI(e)      │     LGUI(r)      │ LGUI(t) │ no │   │ no │ LGUI(LCTL(c)) │ LGUI(LSFT(c)) │ LGUI(`) │ LGUI(tab) │ HYPR(p) │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┼────┤   ├────┼───────────────┼───────────────┼─────────┼───────────┼─────────┼────┤
+//    │ no │ TD(TD_EXT_GUI_A) │ TD(TD_EXT_GUI_S) │ TD(TD_EXT_GUI_D) │ TD(TD_EXT_GUI_F) │ LGUI(g) │ no │   │ no │     left      │     down      │   up    │   rght    │ HYPR(;) │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┼────┘   └────┼───────────────┼───────────────┼─────────┼───────────┼─────────┼────┤
+//    │ no │     LGUI(z)      │     LGUI(x)      │     LGUI(c)      │     LGUI(v)      │ LGUI(b) │             │      no       │    CW_TOGG    │  G([)   │   G(])    │ LAG(i)  │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤             ├───────────────┼───────────────┼─────────┼───────────┼─────────┼────┤
+//    │ no │        no        │        no        │        no        │        no        │   no    │             │      no       │      no       │   no    │    no     │   no    │ no │
+//    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼─────────┼────┐   ┌────┼───────────────┼───────────────┼─────────┴───────────┴─────────┴────┘
+//                                                                  │        no        │   no    │ no │   │ no │      no       │      no       │
+//                                                                  └──────────────────┴─────────┴────┘   └────┴───────────────┴───────────────┘
+  KC_NO , KC_NO            , KC_NO            , KC_NO            , KC_NO            , KC_NO      , KC_NO ,     KC_NO , KC_NO            , KC_NO            , KC_NO        , KC_NO        , KC_NO         , KC_NO,
+  KC_NO , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) , KC_NO ,     KC_NO , LGUI(LCTL(KC_C)) , LGUI(LSFT(KC_C)) , LGUI(KC_GRV) , LGUI(KC_TAB) , HYPR(KC_P)    , KC_NO,
+  KC_NO , TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G) , KC_NO ,     KC_NO , KC_LEFT          , KC_DOWN          , KC_UP        , KC_RIGHT     , HYPR(KC_SCLN) , KC_NO,
+  KC_NO , LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B) ,                     KC_NO            , CW_TOGG          , G(KC_LBRC)   , G(KC_RBRC)   , LAG(KC_I)     , KC_NO,
+  KC_NO , KC_NO            , KC_NO            , KC_NO            , KC_NO            , KC_NO      ,                     KC_NO            , KC_NO            , KC_NO        , KC_NO        , KC_NO         , KC_NO,
+                                                                   KC_NO            , KC_NO      , KC_NO ,     KC_NO , KC_NO            , KC_NO
 ),
 
 [LY_SYM] = LAYOUT_moonlander(
-//    ┌───┬───┬───┬───┬──────┬──────┬───┐   ┌───┬───┬────┬───┬───┬───┬───┐
-//    │   │   │   │   │      │      │   │   │   │   │    │   │   │   │   │
-//    ├───┼───┼───┼───┼──────┼──────┼───┤   ├───┼───┼────┼───┼───┼───┼───┤
-//    │   │ ^ │ + │ # │  %   │  $   │   │   │   │ < │ {  │ " │ } │ > │   │
-//    ├───┼───┼───┼───┼──────┼──────┼───┤   ├───┼───┼────┼───┼───┼───┼───┤
-//    │   │ ! │ - │ & │  ?   │  |   │   │   │   │ = │ [  │ ' │ ] │ : │   │
-//    ├───┼───┼───┼───┼──────┼──────┼───┘   └───┼───┼────┼───┼───┼───┼───┤
-//    │   │ ~ │ _ │ * │  @   │  ~/  │           │ \ │ (  │ ` │ ) │ / │   │
-//    ├───┼───┼───┼───┼──────┼──────┤           ├───┼────┼───┼───┼───┼───┤
-//    │   │   │   │   │ lalt │      │           │   │ => │   │   │   │   │
-//    └───┴───┴───┴───┼──────┼──────┼───┐   ┌───┼───┼────┼───┴───┴───┴───┘
-//                    │ lctl │ lgui │   │   │   │   │    │
-//                    └──────┴──────┴───┘   └───┴───┴────┘
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_CIRC        , KC_PLUS        , KC_HASH        , KC_PERC        , KC_DLR         , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_LABK        , KC_LCBR        , KC_DQUO        , KC_RCBR        , KC_RABK        , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_EXLM        , KC_MINUS       , KC_AMPR        , KC_QUES        , KC_PIPE        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_EQUAL       , KC_LBRC        , KC_QUOTE       , KC_RBRC        , KC_COLN        , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TILD        , KC_UNDS        , KC_ASTR        , KC_AT          , SS_TILD_SLSH   ,                                       KC_BSLS        , KC_LPRN        , KC_GRAVE       , KC_RPRN        , KC_SLASH       , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_LALT        , KC_TRANSPARENT ,                                       KC_TRANSPARENT , SS_FATARROW    , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                      KC_LCTL        , KC_LGUI        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
+//    ┌────┬────┬────┬────┬──────┬──────┬────┐   ┌────┬────┬────┬────┬────┬────┬────┐
+//    │ no │ no │ no │ no │  no  │  no  │ no │   │ no │ no │ no │ no │ no │ no │ no │
+//    ├────┼────┼────┼────┼──────┼──────┼────┤   ├────┼────┼────┼────┼────┼────┼────┤
+//    │ no │ ^  │ +  │ #  │  %   │  $   │ no │   │ no │ <  │ {  │ "  │ }  │ >  │ no │
+//    ├────┼────┼────┼────┼──────┼──────┼────┤   ├────┼────┼────┼────┼────┼────┼────┤
+//    │ no │ !  │ -  │ &  │  ?   │  |   │ no │   │ no │ =  │ [  │ '  │ ]  │ :  │ no │
+//    ├────┼────┼────┼────┼──────┼──────┼────┘   └────┼────┼────┼────┼────┼────┼────┤
+//    │ no │ ~  │ _  │ *  │  @   │  ~/  │             │ \  │ (  │ `  │ )  │ /  │ no │
+//    ├────┼────┼────┼────┼──────┼──────┤             ├────┼────┼────┼────┼────┼────┤
+//    │ no │ no │ no │ no │ lalt │  no  │             │ no │ => │ no │ no │ no │ no │
+//    └────┴────┴────┴────┼──────┼──────┼────┐   ┌────┼────┼────┼────┴────┴────┴────┘
+//                        │ lctl │ lgui │ no │   │ no │ no │ no │
+//                        └──────┴──────┴────┘   └────┴────┴────┘
+  KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_NO   , KC_NO        , KC_NO ,     KC_NO , KC_NO    , KC_NO       , KC_NO    , KC_NO   , KC_NO    , KC_NO,
+  KC_NO , KC_CIRC , KC_PLUS  , KC_HASH , KC_PERC , KC_DLR       , KC_NO ,     KC_NO , KC_LABK  , KC_LCBR     , KC_DQUO  , KC_RCBR , KC_RABK  , KC_NO,
+  KC_NO , KC_EXLM , KC_MINUS , KC_AMPR , KC_QUES , KC_PIPE      , KC_NO ,     KC_NO , KC_EQUAL , KC_LBRC     , KC_QUOTE , KC_RBRC , KC_COLN  , KC_NO,
+  KC_NO , KC_TILD , KC_UNDS  , KC_ASTR , KC_AT   , SS_TILD_SLSH ,                     KC_BSLS  , KC_LPRN     , KC_GRAVE , KC_RPRN , KC_SLASH , KC_NO,
+  KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_LALT , KC_NO        ,                     KC_NO    , SS_FATARROW , KC_NO    , KC_NO   , KC_NO    , KC_NO,
+                                         KC_LCTL , KC_LGUI      , KC_NO ,     KC_NO , KC_NO    , KC_NO
 ),
 
 [LY_NUM] = LAYOUT_moonlander(
-//    ┌───┬───────────┬──────────┬──────┬──────┬──────┬───┐   ┌───┬───┬───┬───┬───┬───┬───┐
-//    │   │           │          │      │      │      │   │   │   │   │   │   │   │   │   │
-//    ├───┼───────────┼──────────┼──────┼──────┼──────┼───┤   ├───┼───┼───┼───┼───┼───┼───┤
-//    │   │           │          │      │      │ TODO │   │   │   │ + │ 7 │ 8 │ 9 │ * │   │
-//    ├───┼───────────┼──────────┼──────┼──────┼──────┼───┤   ├───┼───┼───┼───┼───┼───┼───┤
-//    │   │   lgui    │   lalt   │ lctl │ lsft │      │   │   │   │ = │ 4 │ 5 │ 6 │ : │   │
-//    ├───┼───────────┼──────────┼──────┼──────┼──────┼───┘   └───┼───┼───┼───┼───┼───┼───┤
-//    │   │ csag-none │ csa-none │      │      │ BCD- │           │ - │ 1 │ 2 │ 3 │ / │   │
-//    ├───┼───────────┼──────────┼──────┼──────┼──────┤           ├───┼───┼───┼───┼───┼───┤
-//    │   │           │          │      │      │      │           │   │ 0 │ , │   │   │   │
-//    └───┴───────────┴──────────┴──────┼──────┼──────┼───┐   ┌───┼───┼───┼───┴───┴───┴───┘
-//                                      │      │      │   │   │   │   │ . │
-//                                      └──────┴──────┴───┘   └───┴───┴───┘
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , SS_TODO        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_PLUS        , KC_7           , KC_8           , KC_9           , KC_ASTR        , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_LGUI        , KC_LALT        , KC_LCTL        , KC_LSFT        , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_EQUAL       , KC_4           , KC_5           , KC_6           , KC_COLN        , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_HYPR        , KC_MEH         , KC_TRANSPARENT , KC_TRANSPARENT , SS_BCD         ,                                       KC_MINUS       , KC_1           , KC_2           , KC_3           , KC_SLASH       , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,                                       KC_TRANSPARENT , KC_0           , KC_COMMA       , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                      KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_DOT
+//    ┌────┬───────────┬──────────┬──────┬──────┬──────┬────┐   ┌────┬────┬────┬────┬────┬────┬────┐
+//    │ no │    no     │    no    │  no  │  no  │  no  │ no │   │ no │ no │ no │ no │ no │ no │ no │
+//    ├────┼───────────┼──────────┼──────┼──────┼──────┼────┤   ├────┼────┼────┼────┼────┼────┼────┤
+//    │ no │    no     │    no    │  no  │  no  │ TODO │ no │   │ no │ +  │ 7  │ 8  │ 9  │ *  │ no │
+//    ├────┼───────────┼──────────┼──────┼──────┼──────┼────┤   ├────┼────┼────┼────┼────┼────┼────┤
+//    │ no │   lgui    │   lalt   │ lctl │ lsft │  no  │ no │   │ no │ =  │ 4  │ 5  │ 6  │ :  │ no │
+//    ├────┼───────────┼──────────┼──────┼──────┼──────┼────┘   └────┼────┼────┼────┼────┼────┼────┤
+//    │ no │ csag-none │ csa-none │  no  │  no  │ BCD- │             │ -  │ 1  │ 2  │ 3  │ /  │ no │
+//    ├────┼───────────┼──────────┼──────┼──────┼──────┤             ├────┼────┼────┼────┼────┼────┤
+//    │ no │    no     │    no    │  no  │  no  │  no  │             │ no │ 0  │ ,  │ no │ no │ no │
+//    └────┴───────────┴──────────┴──────┼──────┼──────┼────┐   ┌────┼────┼────┼────┴────┴────┴────┘
+//                                       │  no  │  no  │ no │   │ no │ no │ .  │
+//                                       └──────┴──────┴────┘   └────┴────┴────┘
+  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_NO  , KC_NO    , KC_NO , KC_NO    , KC_NO,
+  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_TODO , KC_NO ,     KC_NO , KC_PLUS  , KC_7   , KC_8     , KC_9  , KC_ASTR  , KC_NO,
+  KC_NO , KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   , KC_NO ,     KC_NO , KC_EQUAL , KC_4   , KC_5     , KC_6  , KC_COLN  , KC_NO,
+  KC_NO , KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , SS_BCD  ,                     KC_MINUS , KC_1   , KC_2     , KC_3  , KC_SLASH , KC_NO,
+  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                     KC_NO    , KC_0   , KC_COMMA , KC_NO , KC_NO    , KC_NO,
+                                        KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_DOT
 ),
 
 [LY_FUN] = LAYOUT_moonlander(
-//    ┌───┬───────────┬──────────┬──────┬──────┬───┬───┐   ┌───┬───┬────┬─────┬─────┬─────┬───┐
-//    │   │           │          │      │      │   │   │   │   │   │    │     │     │     │   │
-//    ├───┼───────────┼──────────┼──────┼──────┼───┼───┤   ├───┼───┼────┼─────┼─────┼─────┼───┤
-//    │   │           │          │      │      │   │   │   │   │   │ f9 │ f10 │ f11 │ f12 │   │
-//    ├───┼───────────┼──────────┼──────┼──────┼───┼───┤   ├───┼───┼────┼─────┼─────┼─────┼───┤
-//    │   │   rgui    │   lalt   │ lctl │ lsft │   │   │   │   │   │ f5 │ f6  │ f7  │ f8  │   │
-//    ├───┼───────────┼──────────┼──────┼──────┼───┼───┘   └───┼───┼────┼─────┼─────┼─────┼───┤
-//    │   │ csag-none │ csa-none │      │      │   │           │   │ f1 │ f2  │ f3  │ f4  │   │
-//    ├───┼───────────┼──────────┼──────┼──────┼───┤           ├───┼────┼─────┼─────┼─────┼───┤
-//    │   │           │          │      │      │   │           │   │    │     │     │     │   │
-//    └───┴───────────┴──────────┴──────┼──────┼───┼───┐   ┌───┼───┼────┼─────┴─────┴─────┴───┘
-//                                      │      │   │   │   │   │   │    │
-//                                      └──────┴───┴───┘   └───┴───┴────┘
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_F9          , KC_F10         , KC_F11         , KC_F12         , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_RGUI        , KC_LALT        , KC_LCTL        , KC_LSFT        , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_F5          , KC_F6          , KC_F7          , KC_F8          , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_HYPR        , KC_MEH         , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,                                       KC_TRANSPARENT , KC_F1          , KC_F2          , KC_F3          , KC_F4          , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,                                       KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                      KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
+//    ┌────┬───────────┬──────────┬──────┬──────┬────┬────┐   ┌────┬────┬────┬─────┬─────┬─────┬────┐
+//    │ no │    no     │    no    │  no  │  no  │ no │ no │   │ no │ no │ no │ no  │ no  │ no  │ no │
+//    ├────┼───────────┼──────────┼──────┼──────┼────┼────┤   ├────┼────┼────┼─────┼─────┼─────┼────┤
+//    │ no │    no     │    no    │  no  │  no  │ no │ no │   │ no │ no │ f9 │ f10 │ f11 │ f12 │ no │
+//    ├────┼───────────┼──────────┼──────┼──────┼────┼────┤   ├────┼────┼────┼─────┼─────┼─────┼────┤
+//    │ no │   rgui    │   lalt   │ lctl │ lsft │ no │ no │   │ no │ no │ f5 │ f6  │ f7  │ f8  │ no │
+//    ├────┼───────────┼──────────┼──────┼──────┼────┼────┘   └────┼────┼────┼─────┼─────┼─────┼────┤
+//    │ no │ csag-none │ csa-none │  no  │  no  │ no │             │ no │ f1 │ f2  │ f3  │ f4  │ no │
+//    ├────┼───────────┼──────────┼──────┼──────┼────┤             ├────┼────┼─────┼─────┼─────┼────┤
+//    │ no │    no     │    no    │  no  │  no  │ no │             │ no │ no │ no  │ no  │ no  │ no │
+//    └────┴───────────┴──────────┴──────┼──────┼────┼────┐   ┌────┼────┼────┼─────┴─────┴─────┴────┘
+//                                       │  no  │ no │ no │   │ no │ no │ no │
+//                                       └──────┴────┴────┘   └────┴────┴────┘
+  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO,
+  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_F9 , KC_F10 , KC_F11 , KC_F12 , KC_NO,
+  KC_NO , KC_RGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_F5 , KC_F6  , KC_F7  , KC_F8  , KC_NO,
+  KC_NO , KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , KC_NO ,                     KC_NO , KC_F1 , KC_F2  , KC_F3  , KC_F4  , KC_NO,
+  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO ,                     KC_NO , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO,
+                                        KC_NO   , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO
 ),
 
 [LY_MED] = LAYOUT_moonlander(
-//    ┌───┬─────────┬──────┬──────┬──────┬─────────┬───┐   ┌───┬───┬─────────┬─────────┬─────────┬───┬───┐
-//    │   │         │      │      │      │         │   │   │   │   │         │         │         │   │   │
-//    ├───┼─────────┼──────┼──────┼──────┼─────────┼───┤   ├───┼───┼─────────┼─────────┼─────────┼───┼───┤
-//    │   │ G(C(q)) │ vold │ mute │ volu │ QK_BOOT │   │   │   │   │ RGB_HUD │ RGB_TOG │ RGB_HUI │   │   │
-//    ├───┼─────────┼──────┼──────┼──────┼─────────┼───┤   ├───┼───┼─────────┼─────────┼─────────┼───┼───┤
-//    │   │         │ mprv │ mply │ mnxt │         │   │   │   │   │  G(-)   │  G(0)   │  G(=)   │   │   │
-//    ├───┼─────────┼──────┼──────┼──────┼─────────┼───┘   └───┼───┼─────────┼─────────┼─────────┼───┼───┤
-//    │   │         │      │      │      │         │           │   │ DT_DOWN │ DT_PRNT │  DT_UP  │   │   │
-//    ├───┼─────────┼──────┼──────┼──────┼─────────┤           ├───┼─────────┼─────────┼─────────┼───┼───┤
-//    │   │         │      │      │      │         │           │   │         │         │         │   │   │
-//    └───┴─────────┴──────┴──────┼──────┼─────────┼───┐   ┌───┼───┼─────────┼─────────┴─────────┴───┴───┘
-//                                │      │         │   │   │   │   │         │
-//                                └──────┴─────────┴───┘   └───┴───┴─────────┘
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , G(C(KC_Q))     , KC_VOLD             , KC_MUTE             , KC_VOLU             , QK_BOOT        , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , RGB_HUD        , RGB_TOG        , RGB_HUI        , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_MEDIA_PREV_TRACK , KC_MEDIA_PLAY_PAUSE , KC_MEDIA_NEXT_TRACK , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , G(KC_MINS)     , G(KC_0)        , G(KC_EQL)      , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT ,                                       KC_TRANSPARENT , DT_DOWN        , DT_PRNT        , DT_UP          , KC_TRANSPARENT , KC_TRANSPARENT,
-  KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT      , KC_TRANSPARENT ,                                       KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT,
-                                                                                KC_TRANSPARENT      , KC_TRANSPARENT , KC_TRANSPARENT ,     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
+//    ┌────┬─────────┬──────┬──────┬──────┬─────────┬────┐   ┌────┬────┬─────────┬─────────┬─────────┬────┬────┐
+//    │ no │   no    │  no  │  no  │  no  │   no    │ no │   │ no │ no │   no    │   no    │   no    │ no │ no │
+//    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┤   ├────┼────┼─────────┼─────────┼─────────┼────┼────┤
+//    │ no │ G(C(q)) │ vold │ mute │ volu │ QK_BOOT │ no │   │ no │ no │ RGB_HUD │ RGB_TOG │ RGB_HUI │ no │ no │
+//    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┤   ├────┼────┼─────────┼─────────┼─────────┼────┼────┤
+//    │ no │   no    │ mprv │ mply │ mnxt │   no    │ no │   │ no │ no │  G(-)   │  G(0)   │  G(=)   │ no │ no │
+//    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┘   └────┼────┼─────────┼─────────┼─────────┼────┼────┤
+//    │ no │   no    │  no  │  no  │  no  │   no    │             │ no │ DT_DOWN │ DT_PRNT │  DT_UP  │ no │ no │
+//    ├────┼─────────┼──────┼──────┼──────┼─────────┤             ├────┼─────────┼─────────┼─────────┼────┼────┤
+//    │ no │   no    │  no  │  no  │  no  │   no    │             │ no │   no    │   no    │   no    │ no │ no │
+//    └────┴─────────┴──────┴──────┼──────┼─────────┼────┐   ┌────┼────┼─────────┼─────────┴─────────┴────┴────┘
+//                                 │  no  │   no    │ no │   │ no │ no │   no    │
+//                                 └──────┴─────────┴────┘   └────┴────┴─────────┘
+  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   , KC_NO ,     KC_NO , KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO , KC_NO,
+  KC_NO , G(C(KC_Q)) , KC_VOLD             , KC_MUTE             , KC_VOLU             , QK_BOOT , KC_NO ,     KC_NO , KC_NO , RGB_HUD    , RGB_TOG , RGB_HUI   , KC_NO , KC_NO,
+  KC_NO , KC_NO      , KC_MEDIA_PREV_TRACK , KC_MEDIA_PLAY_PAUSE , KC_MEDIA_NEXT_TRACK , KC_NO   , KC_NO ,     KC_NO , KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO , KC_NO,
+  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO , KC_NO,
+  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO , KC_NO,
+                                                                   KC_NO               , KC_NO   , KC_NO ,     KC_NO , KC_NO , KC_NO
 )
 };
 

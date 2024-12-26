@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_CIRC , KC_PLUS , KC_HASH , KC_PERC , KC_DLR       ,     KC_LT   , KC_LCBR     , KC_DQUO , KC_RCBR , KC_GT  ,
   KC_EXLM , KC_MINS , KC_AMPR , KC_QUES , KC_PIPE      ,     KC_EQL  , KC_LBRC     , KC_QUOT , KC_RBRC , KC_COLN,
   KC_TILD , KC_UNDS , KC_ASTR , KC_AT   , SS_TILD_SLSH ,     KC_BSLS , KC_LPRN     , KC_GRV  , KC_RPRN , KC_SLSH,
-                      KC_LALT , KC_LCTL , KC_LGUI      ,     KC_TRNS , SS_FATARROW , KC_TRNS
+                      KC_LALT , KC_LCTL , KC_LGUI      ,     KC_NO , SS_FATARROW , KC_NO
 ),
 
 [LY_NUM] = LAYOUT_split_3x5_3(
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_TODO ,     KC_PLUS  , KC_7 , KC_8     , KC_9 , KC_ASTR ,
   KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   ,     KC_EQUAL , KC_4 , KC_5     , KC_6 , KC_COLN ,
   KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , SS_BCD  ,     KC_MINUS , KC_1 , KC_2     , KC_3 , KC_SLASH,
-                      KC_TRNS , KC_TRNS , KC_TRNS ,     KC_DOT   , KC_0 , KC_COMMA
+                      KC_NO , KC_NO , KC_NO ,     KC_DOT   , KC_0 , KC_COMMA
 ),
 
 [LY_FUN] = LAYOUT_split_3x5_3(
