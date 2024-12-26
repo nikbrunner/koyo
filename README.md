@@ -11,6 +11,7 @@
 - [Development](#development)
     - [Adding New Features](#adding-new-features)
     - [Testing](#testing)
+- [Roadmap](#roadmap)
 - [Resources](#resources)
 - [Contributing](#contributing)
 - [License](#license)
@@ -20,6 +21,13 @@
 **kōyō** is a sleek, minimalistic keyboard layout, designed with a 36-key split configuration. Its name is inspired by the harmony and elegance of Japanese aesthetics and the calming feeling of autumn leaves.
 
 > In Japanese, **kōyō (紅葉)** translates to "autumn leaves" and is used to describe the phenomenon of leaves changing color in the autumn season. The word is composed of two kanji characters: **kō (紅)** meaning "crimson" and **yō (葉)** meaning "leaf".
+
+## Note
+
+> [!NOTE]
+> The layout in its current form is mainly focused for use in combination with MacOS.
+> It can work on other operating systems, but the layout may not be optimized for them.
+> In the future, I (hopefully) will be working on optimizing the layout for other operating systems.
 
 ## Features
 
@@ -173,6 +181,24 @@ Before submitting changes:
 1. Test all keyboard configurations
 2. Verify CLI commands work as expected
 3. Run setup script in dry-run mode
+
+## Roadmap
+
+- [x] `koyo moonlander flash` (Flashes the Moonlander Keybaord)
+- [x] `koyo setup` (Sets up Prerequisites)
+- [x] DRY up scripts
+- [x] `koyo moonlander oryx` (Opens up Oryx Configurator Page)
+- [x] `koyo corne flash` (Flashes the Corne Keyboard)
+- [x] `koyo update svg` (Updates the SVG files)
+- [x] `koyo update qmk` (Pulls latest Version of QMK firmware)
+- [x] Ensure keymap-drawer is installed
+- [x] Align layouts & purge unused or redundant stuff
+- [x] Document differences between kōyō for CRKBD and Moonlander
+- [x] Add note about current optimizations focused on MacOS
+- [ ] Optimize Home Row Mods for MacOS
+- [ ] Make Layout SVG OS agnostic
+- [ ] Script to automatically update SVG
+- [ ] SSOT for keymap. Script to generate `keymap.c` files from SSOT.
 
 ## Resources
 
