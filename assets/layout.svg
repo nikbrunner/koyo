@@ -390,7 +390,6 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(1125, 169)" class="key keypos-19">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">:</text>
 </g>
 <g transform="translate(45, 259)" class="key keypos-20">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -536,6 +535,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(45, 259)" class="key keypos-20">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
+<text x="0" y="0" class="key tap">~</text>
 </g>
 <g transform="translate(135, 236)" class="key keypos-21">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -595,6 +595,10 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(900, 329)" class="key keypos-35">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 </g>
+<g class="combo combopos-0">
+<rect rx="6" ry="6" x="976" y="38" width="28" height="26" class="combo"/>
+<text x="990" y="51" class="combo tap">BSPC</text>
+</g>
 </g>
 </g>
 <g transform="translate(30, 1492)" class="layer-LY_NUM">
@@ -614,7 +618,6 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(405, 68)" class="key keypos-4">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">TODO</text>
 </g>
 <g transform="translate(765, 68)" class="key keypos-5">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -677,10 +680,11 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(45, 259)" class="key keypos-20">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="41" class="key hold">HYPR</text>
+<text x="0" y="0" class="key tap">HYPR</text>
 </g>
 <g transform="translate(135, 236)" class="key keypos-21">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
+<text x="0" y="0" class="key tap">MEH</text>
 </g>
 <g transform="translate(225, 225)" class="key keypos-22">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -690,7 +694,6 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(405, 248)" class="key keypos-24">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">BCD-</text>
 </g>
 <g transform="translate(765, 248)" class="key keypos-25">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -737,14 +740,6 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="976" y="38" width="28" height="26" class="combo"/>
 <text x="990" y="51" class="combo tap">BSPC</text>
 </g>
-<g class="combo combopos-1">
-<rect rx="6" ry="6" x="886" y="218" width="28" height="26" class="combo"/>
-<text x="900" y="231" class="combo tap">.</text>
-</g>
-<g class="combo combopos-2">
-<rect rx="6" ry="6" x="976" y="218" width="28" height="26" class="combo"/>
-<text x="990" y="231" class="combo tap">,</text>
-</g>
 </g>
 </g>
 <g transform="translate(30, 1990)" class="layer-LY_FUN">
@@ -786,7 +781,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(45, 169)" class="key keypos-10">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">RGUI</text>
+<text x="0" y="0" class="key tap">LGUI</text>
 </g>
 <g transform="translate(135, 146)" class="key keypos-11">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -794,11 +789,11 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(225, 135)" class="key keypos-12">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">RCTL</text>
+<text x="0" y="0" class="key tap">LCTL</text>
 </g>
 <g transform="translate(315, 146)" class="key keypos-13">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">RSFT</text>
+<text x="0" y="0" class="key tap">LSFT</text>
 </g>
 <g transform="translate(405, 158)" class="key keypos-14">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -824,9 +819,11 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(45, 259)" class="key keypos-20">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
+<text x="0" y="0" class="key tap">HYPR</text>
 </g>
 <g transform="translate(135, 236)" class="key keypos-21">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
+<text x="0" y="0" class="key tap">MEH</text>
 </g>
 <g transform="translate(225, 225)" class="key keypos-22">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -933,7 +930,6 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(405, 158)" class="key keypos-14">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="41" class="key hold">MEH</text>
 </g>
 <g transform="translate(765, 158)" class="key keypos-15">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>

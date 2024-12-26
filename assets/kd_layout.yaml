@@ -58,7 +58,7 @@ layers:
     - DOWN
     - UP
     - RIGHT
-    - ":"
+    - ""
     - { t: G(Z) }
     - { t: G(X) }
     - { t: G(C) }
@@ -97,7 +97,7 @@ layers:
     - "'"
     - "]"
     - ":"
-    - ~
+    - "~"
     - _
     - "*"
     - "@"
@@ -119,11 +119,11 @@ layers:
     - ""
     - ""
     - ""
-    - TODO
+    - ""
     - +
-    - "7"
-    - "8"
-    - "9"
+    - 7
+    - 8
+    - 9
     - "*"
     - LGUI
     - LALT
@@ -131,19 +131,19 @@ layers:
     - LSFT
     - ""
     - "="
-    - "4"
-    - "5"
-    - "6"
+    - 4
+    - 5
+    - 6
     - ":"
-    - { t: "", h: HYPR }
+    - HYPR
+    - MEH
     - ""
     - ""
     - ""
-    - BCD-
     - "-"
-    - "1"
-    - "2"
-    - "3"
+    - 1
+    - 2
+    - 3
     - /
     - ""
     - ""
@@ -163,18 +163,18 @@ layers:
     - F10
     - F11
     - F12
-    - RGUI
+    - LGUI
     - LALT
-    - RCTL
-    - RSFT
+    - LCTL
+    - LSFT
     - ""
     - ""
     - F5
     - F6
     - F7
     - F8
-    - ""
-    - ""
+    - HYPR
+    - MEH
     - ""
     - ""
     - ""
@@ -205,7 +205,7 @@ layers:
     - MPRV
     - MPLY
     - MNXT
-    - { t: "", h: MEH }
+    - ""
     - ""
     - { t: G(-) }
     - { t: G(0) }
@@ -234,7 +234,8 @@ combos:
   - { p: [16, 17], k: "[", l: [LY_BAS] } # J + K = Left bracket
   - { p: [17, 18], k: "]", l: [LY_BAS] } # K + L = Right bracket
 
+  # Symbol layer combos
+  - { p: [7, 8], k: BSPC, l: [LY_SYM] } # 8 + 9 = Backspace
+
   # Number layer combos
   - { p: [7, 8], k: BSPC, l: [LY_NUM] } # 8 + 9 = Backspace
-  - { p: [26, 27], k: ".", l: [LY_NUM] } # 2 + 3 = Dot
-  - { p: [27, 28], k: ",", l: [LY_NUM] } # 1 + 2 = Comma
