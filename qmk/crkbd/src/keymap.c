@@ -60,19 +60,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [LY_SYM] = LAYOUT_split_3x5_3(
-//    ┌───┬───┬──────┬──────┬──────┐   ┌─────┬────┬─────┬───┬───┐
-//    │ ^ │ + │  #   │  %   │  $   │   │  <  │ {  │  "  │ } │ > │
-//    ├───┼───┼──────┼──────┼──────┤   ├─────┼────┼─────┼───┼───┤
-//    │ ! │ - │  &   │  ?   │  |   │   │  =  │ [  │  '  │ ] │ : │
-//    ├───┼───┼──────┼──────┼──────┤   ├─────┼────┼─────┼───┼───┤
-//    │ ~ │ _ │  *   │  @   │  ~/  │   │  \  │ (  │  `  │ ) │ / │
-//    └───┴───┼──────┼──────┼──────┤   ├─────┼────┼─────┼───┴───┘
-//            │ lalt │ lctl │ lgui │   │     │ => │     │
-//            └──────┴──────┴──────┘   └─────┴────┴─────┘
+//    ┌───┬───┬──────┬──────┬──────┐   ┌────┬────┬────┬───┬───┐
+//    │ ^ │ + │  #   │  %   │  $   │   │ <  │ {  │ "  │ } │ > │
+//    ├───┼───┼──────┼──────┼──────┤   ├────┼────┼────┼───┼───┤
+//    │ ! │ - │  &   │  ?   │  |   │   │ =  │ [  │ '  │ ] │ : │
+//    ├───┼───┼──────┼──────┼──────┤   ├────┼────┼────┼───┼───┤
+//    │ ~ │ _ │  *   │  @   │  ~/  │   │ \  │ (  │ `  │ ) │ / │
+//    └───┴───┼──────┼──────┼──────┤   ├────┼────┼────┼───┴───┘
+//            │ lalt │ lctl │ lgui │   │ no │ => │ no │
+//            └──────┴──────┴──────┘   └────┴────┴────┘
   KC_CIRC , KC_PLUS , KC_HASH , KC_PERC , KC_DLR       ,     KC_LT   , KC_LCBR     , KC_DQUO , KC_RCBR , KC_GT  ,
   KC_EXLM , KC_MINS , KC_AMPR , KC_QUES , KC_PIPE      ,     KC_EQL  , KC_LBRC     , KC_QUOT , KC_RBRC , KC_COLN,
   KC_TILD , KC_UNDS , KC_ASTR , KC_AT   , SS_TILD_SLSH ,     KC_BSLS , KC_LPRN     , KC_GRV  , KC_RPRN , KC_SLSH,
-                      KC_LALT , KC_LCTL , KC_LGUI      ,     KC_NO , SS_FATARROW , KC_NO
+                      KC_LALT , KC_LCTL , KC_LGUI      ,     KC_NO   , SS_FATARROW , KC_NO
 ),
 
 [LY_NUM] = LAYOUT_split_3x5_3(
@@ -83,12 +83,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├───────────┼──────────┼──────┼──────┼──────┤   ├───┼───┼───┼───┼───┤
 //    │ csag-none │ csa-none │  no  │  no  │ BCD- │   │ - │ 1 │ 2 │ 3 │ / │
 //    └───────────┴──────────┼──────┼──────┼──────┤   ├───┼───┼───┼───┴───┘
-//                           │      │      │      │   │ . │ 0 │ , │
+//                           │  no  │  no  │  no  │   │ . │ 0 │ , │
 //                           └──────┴──────┴──────┘   └───┴───┴───┘
   KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_TODO ,     KC_PLUS  , KC_7 , KC_8     , KC_9 , KC_ASTR ,
   KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   ,     KC_EQUAL , KC_4 , KC_5     , KC_6 , KC_COLN ,
   KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , SS_BCD  ,     KC_MINUS , KC_1 , KC_2     , KC_3 , KC_SLASH,
-                      KC_NO , KC_NO , KC_NO ,     KC_DOT   , KC_0 , KC_COMMA
+                      KC_NO   , KC_NO   , KC_NO   ,     KC_DOT   , KC_0 , KC_COMMA
 ),
 
 [LY_FUN] = LAYOUT_split_3x5_3(
@@ -127,17 +127,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Tapping Term
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LGUI_T(KC_Z):
-        case LALT_T(KC_X):
-        case LALT_T(KC_DOT):
-        case RGUI_T(KC_SLSH):
+        case MT(MOD_LCTL, KC_Z):
+        case MT(MOD_LALT, KC_X):
+        case MT(MOD_LALT, KC_DOT):
+        case MT(MOD_RCTL, KC_SLASH):
             return TAPPING_TERM + 15;
 
-        case LT(LY_SYM, KC_D):
-        case LT(LY_SYM, KC_K):
-        case LSFT_T(KC_V):
-        case RSFT_T(KC_M):
-            return TAPPING_TERM - 15;
+        // case LT(LY_SYM, KC_D):
+        // case LT(LY_SYM, KC_K):
+        // case MT(MOD_LGUI, KC_C):
+        // case MT(MOD_RGUI, KC_COMMA):
+        // case MT(MOD_LSFT, KC_V):
+        // case MT(MOD_RSFT, KC_M):
+        //     return TAPPING_TERM - 15;
+
         default:
             return TAPPING_TERM;
     }
