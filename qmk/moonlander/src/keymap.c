@@ -163,8 +163,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 };
 
-// COMBO ================================================================================
+// Tapping Term
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_LCTL, KC_Z):
+        case MT(MOD_LALT, KC_X):
+        case MT(MOD_LALT, KC_DOT):
+        case MT(MOD_RCTL, KC_SLASH):
+            return TAPPING_TERM + 15;
 
+        // case LT(LY_SYM, KC_D):
+        // case LT(LY_SYM, KC_K):
+        // case MT(MOD_LGUI, KC_C):
+        // case MT(MOD_RGUI, KC_COMMA):
+        // case MT(MOD_LSFT, KC_V):
+        // case MT(MOD_RSFT, KC_M):
+        //     return TAPPING_TERM - 15;
+
+        default:
+            return TAPPING_TERM;
+    }
+}
+
+// COMBO ================================================================================
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_LEFT[]  = {KC_J, LT(LY_SYM, KC_K), COMBO_END};
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {LT(LY_SYM, KC_K), KC_L, COMBO_END};
 
