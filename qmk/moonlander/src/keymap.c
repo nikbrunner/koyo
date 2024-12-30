@@ -40,16 +40,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┼────┘   └────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
 //    │ no │ MT(MOD_LCTL, z) │ MT(MOD_LALT, x) │ MT(MOD_LGUI, c) │ MT(MOD_LSFT, v) │ b  │             │ n  │ MT(MOD_RSFT, m) │ MT(MOD_RGUI, ,) │ MT(MOD_LALT, .) │ MT(MOD_RCTL, /) │ no │
 //    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤             ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
-//    │ no │       no        │       no        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ no │             │ no │   MEH_T(bspc)   │   MO(LY_MED)    │       no        │       no        │ no │
+//    │ no │       no        │       no        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ no │             │ no │   MEH_T(ent)    │   MO(LY_MED)    │       no        │       no        │ no │
 //    └────┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼────┼────┐   ┌────┼────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴────┘
-//                                                               │ LT(LY_EXT, spc) │ no │ no │   │ no │ no │   HYPR_T(ent)   │
+//                                                               │ LT(LY_EXT, spc) │ no │ no │   │ no │ no │  HYPR_T(bspc)   │
 //                                                               └─────────────────┴────┴────┘   └────┴────┴─────────────────┘
   KC_NO , KC_NO              , KC_NO              , KC_NO              , KC_NO              , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO              , KC_NO                  , KC_NO                , KC_NO                  , KC_NO,
   KC_NO , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T  , KC_NO ,     KC_NO , KC_Y  , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_NO,
   KC_NO , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G  , KC_NO ,     KC_NO , KC_H  , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_NO,
   KC_NO , MT(MOD_LCTL, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LGUI, KC_C) , MT(MOD_LSFT, KC_V) , KC_B  ,                     KC_N  , MT(MOD_RSFT, KC_M) , MT(MOD_RGUI, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RCTL, KC_SLASH) , KC_NO,
-  KC_NO , KC_NO              , KC_NO              , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_NO ,                     KC_NO , MEH_T(KC_BSPC)     , MO(LY_MED)             , KC_NO                , KC_NO                  , KC_NO,
-                                                                         LT(LY_EXT, KC_SPC) , KC_NO , KC_NO ,     KC_NO , KC_NO , HYPR_T(KC_ENT)
+  KC_NO , KC_NO              , KC_NO              , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_NO ,                     KC_NO , MEH_T(KC_ENT)      , MO(LY_MED)             , KC_NO                , KC_NO                  , KC_NO,
+                                                                         LT(LY_EXT, KC_SPC) , KC_NO , KC_NO ,     KC_NO , KC_NO , HYPR_T(KC_BSPC)
 ),
 
 [LY_EXT] = LAYOUT_moonlander(
@@ -163,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 };
 
-// Tapping Term
+// TAPPING TERM ============================================================================
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LCTL, KC_Z):
@@ -192,7 +192,6 @@ const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {LT(LY_SYM, KC_K), KC_L, COM
 combo_t key_combos[] = {
     COMBO(LY_BAS_CMB_BRACKET_LEFT, KC_LBRC),
     COMBO(LY_BAS_CMB_BRACKET_RIGHT, KC_RBRC),
-
 };
 
 void matrix_scan_user(void) {
@@ -212,8 +211,8 @@ bool achordion_chord(
     case LT(LY_EXT, KC_SPC):
 
     // Right hand
-    case HYPR_T(KC_ENT):
-    case MEH_T(KC_BSPC):
+    case HYPR_T(KC_BSPC):
+    case MEH_T(KC_ENT):
     case MO(LY_MED):
 
     return true;
