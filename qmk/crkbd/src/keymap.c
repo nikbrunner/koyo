@@ -34,28 +34,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
 //    │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │        b        │   │      n      │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_LGUI, /) │
 //    └─────────────────┴─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┴─────────────────┘
-//                                        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ LT(LY_EXT, spc) │   │ HYPR_T(tab) │   MEH_T(ent)    │   MO(LY_MED)    │
+//                                        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ LT(LY_EXT, spc) │   │ HYPR_T(ent) │   MEH_T(tab)    │   MO(LY_MED)    │
 //                                        └─────────────────┴─────────────────┴─────────────────┘   └─────────────┴─────────────────┴─────────────────┘
   KC_Q               , KC_W               , KC_E               , KC_R               , KC_T               ,     KC_Y           , KC_U               , KC_I                   , KC_O                 , KC_P                  ,
   KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G               ,     KC_H           , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN               ,
   MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B               ,     KC_N           , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_LGUI, KC_SLASH),
-                                            MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , LT(LY_EXT, KC_SPC) ,     HYPR_T(KC_TAB) , MEH_T(KC_ENT)      , MO(LY_MED)
+                                            MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , LT(LY_EXT, KC_SPC) ,     HYPR_T(KC_ENT) , MEH_T(KC_TAB)      , MO(LY_MED)
 ),
 
 [LY_EXT] = LAYOUT_split_3x5_3(
-//    ┌──────────────────┬──────────────────┬──────────────────┬──────────────────┬─────────┐   ┌───────────┬─────────┬─────────┬───────────┬─────────┐
-//    │     LGUI(q)      │     LGUI(w)      │     LGUI(e)      │     LGUI(r)      │ LGUI(t) │   │    no     │ LALT(u) │ LGUI(`) │ LGUI(tab) │ HYPR(p) │
-//    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├───────────┼─────────┼─────────┼───────────┼─────────┤
-//    │ TD(TD_EXT_GUI_A) │ TD(TD_EXT_GUI_S) │ TD(TD_EXT_GUI_D) │ TD(TD_EXT_GUI_F) │ LGUI(g) │   │   left    │  down   │   up    │   rght    │ HYPR(;) │
-//    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├───────────┼─────────┼─────────┼───────────┼─────────┤
-//    │     LGUI(z)      │     LGUI(x)      │     LGUI(c)      │     LGUI(v)      │ LGUI(b) │   │    no     │ CW_TOGG │   no    │    no     │   no    │
-//    └──────────────────┴──────────────────┼──────────────────┼──────────────────┼─────────┤   ├───────────┼─────────┼─────────┼───────────┴─────────┘
-//                                          │        no        │        no        │   no    │   │ LSFT(tab) │   no    │   no    │
-//                                          └──────────────────┴──────────────────┴─────────┘   └───────────┴─────────┴─────────┘
-  LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) ,     KC_NO        , LALT(KC_U) , LGUI(KC_GRV) , LGUI(KC_TAB) , HYPR(KC_P)   ,
-  TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G) ,     KC_LEFT      , KC_DOWN    , KC_UP        , KC_RGHT      , HYPR(KC_SCLN),
-  LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B) ,     KC_NO        , CW_TOGG    , KC_NO        , KC_NO        , KC_NO        ,
-                                        KC_NO            , KC_NO            , KC_NO      ,     LSFT(KC_TAB) , KC_NO      , KC_NO
+//    ┌──────────────────┬──────────────────┬──────────────────┬──────────────────┬─────────┐   ┌──────┬───────────┬─────────┬───────────┬─────────┐
+//    │     LGUI(q)      │     LGUI(w)      │     LGUI(e)      │     LGUI(r)      │ LGUI(t) │   │  no  │  LALT(u)  │ LGUI(`) │ LGUI(tab) │ HYPR(p) │
+//    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼───────────┼─────────┼───────────┼─────────┤
+//    │ TD(TD_EXT_GUI_A) │ TD(TD_EXT_GUI_S) │ TD(TD_EXT_GUI_D) │ TD(TD_EXT_GUI_F) │ LGUI(g) │   │ left │   down    │   up    │   rght    │ HYPR(;) │
+//    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼───────────┼─────────┼───────────┼─────────┤
+//    │     LGUI(z)      │     LGUI(x)      │     LGUI(c)      │     LGUI(v)      │ LGUI(b) │   │  no  │  CW_TOGG  │   no    │    no     │   no    │
+//    └──────────────────┴──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼───────────┼─────────┼───────────┴─────────┘
+//                                          │        no        │        no        │   no    │   │  no  │ LSFT(tab) │   no    │
+//                                          └──────────────────┴──────────────────┴─────────┘   └──────┴───────────┴─────────┘
+  LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) ,     KC_NO   , LALT(KC_U)   , LGUI(KC_GRV) , LGUI(KC_TAB) , HYPR(KC_P)   ,
+  TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G) ,     KC_LEFT , KC_DOWN      , KC_UP        , KC_RGHT      , HYPR(KC_SCLN),
+  LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B) ,     KC_NO   , CW_TOGG      , KC_NO        , KC_NO        , KC_NO        ,
+                                        KC_NO            , KC_NO            , KC_NO      ,     KC_NO   , LSFT(KC_TAB) , KC_NO
 ),
 
 [LY_SYM] = LAYOUT_split_3x5_3(
@@ -186,8 +186,8 @@ bool achordion_chord(
     case LT(LY_EXT, KC_SPC):
 
     // Right hand
-    case HYPR_T(KC_TAB):
-    case MEH_T(KC_ENT):
+    case HYPR_T(KC_ENT):
+    case MEH_T(KC_TAB):
     case MO(LY_MED):
 
     return true;

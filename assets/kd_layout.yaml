@@ -38,8 +38,8 @@ layers:
         - { t: SPC, h: LY_EXT }
 
         # Right Thumb
-        - { t: TAB, h: HYPR }
-        - { t: ENT, h: MEH }
+        - { t: ENT, h: HYPR }
+        - { t: TAB, h: MEH }
         - { t: "", h: LY_MED }
 
     LY_EXT: # Extended Layer
