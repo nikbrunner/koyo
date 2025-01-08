@@ -106,16 +106,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼───────────┼──────────┼──────┼──────┼──────┼────┘   └────┼────┼────┼────┼────┼────┼────┤
 //    │ no │ csag-none │ csa-none │  no  │  no  │ BCD- │             │ -  │ 1  │ 2  │ 3  │ /  │ no │
 //    ├────┼───────────┼──────────┼──────┼──────┼──────┤             ├────┼────┼────┼────┼────┼────┤
-//    │ no │    no     │    no    │  no  │  no  │  no  │             │ no │ 0  │ ,  │ no │ no │ no │
+//    │ no │    no     │    no    │  no  │  no  │  no  │             │ no │ .  │ ,  │ no │ no │ no │
 //    └────┴───────────┴──────────┴──────┼──────┼──────┼────┐   ┌────┼────┼────┼────┴────┴────┴────┘
-//                                       │  no  │  no  │ no │   │ no │ no │ .  │
+//                                       │  no  │  no  │ no │   │ no │ no │ 0  │
 //                                       └──────┴──────┴────┘   └────┴────┴────┘
   KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_NO  , KC_NO    , KC_NO , KC_NO    , KC_NO,
   KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_TODO , KC_NO ,     KC_NO , KC_PLUS  , KC_7   , KC_8     , KC_9  , KC_ASTR  , KC_NO,
   KC_NO , KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   , KC_NO ,     KC_NO , KC_EQUAL , KC_4   , KC_5     , KC_6  , KC_COLN  , KC_NO,
   KC_NO , KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , SS_BCD  ,                     KC_MINUS , KC_1   , KC_2     , KC_3  , KC_SLASH , KC_NO,
-  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                     KC_NO    , KC_0   , KC_COMMA , KC_NO , KC_NO    , KC_NO,
-                                        KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_DOT
+  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                     KC_NO    , KC_DOT , KC_COMMA , KC_NO , KC_NO    , KC_NO,
+                                        KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_0
 ),
 
 [LY_FUN] = LAYOUT_moonlander(

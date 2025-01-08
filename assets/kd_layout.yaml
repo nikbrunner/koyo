@@ -156,8 +156,8 @@ layers:
         - ""
         - ""
         - ""
-        - "."
         - "0"
+        - "."
         - ","
 
     LY_FUN: # Function Layer
