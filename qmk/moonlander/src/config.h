@@ -1,5 +1,5 @@
 #undef TAPPING_TERM
-#define TAPPING_TERM 150
+#define TAPPING_TERM 185
 
 #define COMBO_TERM 35
 
