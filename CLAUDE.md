@@ -19,6 +19,12 @@
 - Utilize utility functions from `utils.sh` for consistent logging and operations
 - Test thoroughly with `--dry-run` before implementing changes
 
+## QMK Framework Notes
+- Both keyboards (Moonlander and Corne) use QMK's Chordal Hold for tap-hold features
+- When implementing tap-hold functionality, use the `get_chordal_hold()` function
+- Key combos are implemented consistently across keyboards
+- Custom send string macros use the `SS_` prefix naming convention
+
 ## Prerequisites
 - QMK firmware
 - keymap-drawer for SVG generation
