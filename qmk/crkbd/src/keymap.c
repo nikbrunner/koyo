@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "features/achordion.h"
 
 enum layers {
     LY_BAS,
@@ -175,39 +174,38 @@ combo_t key_combos[] = {
     COMBO(LY_BAS_CMB_BRACKET_RIGHT, KC_RBRC),
 };
 
-void matrix_scan_user(void) {
-    achordion_task();
+// Chordal Hold implementation
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode, keyrecord_t* other_record) {
+    // Define which keys should always hold when chorded
+    switch (tap_hold_keycode) {
+        // Left hand
+        case MO(LY_FUN):
+        case LT(LY_NUM, KC_ESC):
+        case LT(LY_EXT, KC_SPC):
+
+        // Right hand
+        case HYPR_T(KC_ENT):
+        case MEH_T(KC_NO):
+        case MO(LY_MED):
+            return true;
+    }
+    
+    // Otherwise defer to the opposite hands rule (default behavior)
+    return get_chordal_hold_default(tap_hold_record, other_record);
 }
 
-// https://getreuer.info/posts/keyboards/achordion/index.html
-bool achordion_chord(
-        uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
-        uint16_t other_keycode, keyrecord_t *other_record
-) {
-  // Exclude the following keycodes from the opposite-hand check.
-  switch (tap_hold_keycode) {
-    // Left hand
-    case MO(LY_FUN):
-    case LT(LY_NUM, KC_ESC):
-    case LT(LY_EXT, KC_SPC):
-
-    // Right hand
-    case HYPR_T(KC_ENT):
-    case MEH_T(KC_NO):
-    case MO(LY_MED):
-
-    return true;
-  }
-
-  return achordion_opposite_hands(tap_hold_record, other_record);
-}
+// Optional: Define handedness for keys
+// If you don't define this, QMK will attempt to guess based on the keyboard layout
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_split_3x5_3(
+        'L', 'L', 'L', 'L', 'L',    'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',    'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',    'R', 'R', 'R', 'R', 'R',
+                'L', 'L', 'L',    'R', 'R', 'R'
+    );
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // https://getreuer.info/posts/keyboards/achordion/index.html
-    if (!process_achordion(keycode, record)) {
-        return false;
-    }
-
     switch (keycode) {
         case SS_TILD_SLSH:
             if (record->event.pressed) {

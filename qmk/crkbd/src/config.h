@@ -1,10 +1,11 @@
 #pragma once
 
 #define MASTER_LEFT
-#define TAPPING_TERM 185
+#define TAPPING_TERM 150
+#define COMBO_TERM 35
 #define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
-#define COMBO_TERM 35
+#define CHORDAL_HOLD
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_LIMIT_VAL 120
