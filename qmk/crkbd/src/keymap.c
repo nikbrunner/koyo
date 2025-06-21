@@ -106,18 +106,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [LY_MED] = LAYOUT_split_3x5_3(
-//    ┌─────────┬──────┬──────┬──────┬────┐   ┌────┬─────────┬─────────┬─────────┬────┐
-//    │ G(C(q)) │ vold │ mute │ volu │ no │   │ no │ RGB_HUD │ RGB_TOG │ RGB_HUI │ no │
-//    ├─────────┼──────┼──────┼──────┼────┤   ├────┼─────────┼─────────┼─────────┼────┤
-//    │   no    │ mprv │ mply │ mnxt │ no │   │ no │  G(-)   │  G(0)   │  G(=)   │ no │
-//    ├─────────┼──────┼──────┼──────┼────┤   ├────┼─────────┼─────────┼─────────┼────┤
-//    │   no    │  no  │  no  │  no  │ no │   │ no │ DT_DOWN │ DT_PRNT │  DT_UP  │ no │
-//    └─────────┴──────┼──────┼──────┼────┤   ├────┼─────────┼─────────┼─────────┴────┘
+//    ┌─────────┬──────┬──────┬──────┬────┐   ┌────┬─────────┬─────────┬─────────┬──────────────┐
+//    │ G(C(q)) │ vold │ mute │ volu │ no │   │ no │ RGB_HUD │ RGB_TOG │ RGB_HUI │ pRINT_SCREEN │
+//    ├─────────┼──────┼──────┼──────┼────┤   ├────┼─────────┼─────────┼─────────┼──────────────┤
+//    │   no    │ mprv │ mply │ mnxt │ no │   │ no │  G(-)   │  G(0)   │  G(=)   │      no      │
+//    ├─────────┼──────┼──────┼──────┼────┤   ├────┼─────────┼─────────┼─────────┼──────────────┤
+//    │   no    │  no  │  no  │  no  │ no │   │ no │ DT_DOWN │ DT_PRNT │  DT_UP  │      no      │
+//    └─────────┴──────┼──────┼──────┼────┤   ├────┼─────────┼─────────┼─────────┴──────────────┘
 //                     │  no  │  no  │ no │   │ no │   no    │   no    │
 //                     └──────┴──────┴────┘   └────┴─────────┴─────────┘
-  G(C(KC_Q)) , KC_VOLD , KC_MUTE , KC_VOLU , KC_NO ,     KC_NO , RGB_HUD    , RGB_TOG , RGB_HUI   , KC_NO,
-  KC_NO      , KC_MPRV , KC_MPLY , KC_MNXT , KC_NO ,     KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO,
-  KC_NO      , KC_NO   , KC_NO   , KC_NO   , KC_NO ,     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO,
+  G(C(KC_Q)) , KC_VOLD , KC_MUTE , KC_VOLU , KC_NO ,     KC_NO , RGB_HUD    , RGB_TOG , RGB_HUI   , KC_PRINT_SCREEN,
+  KC_NO      , KC_MPRV , KC_MPLY , KC_MNXT , KC_NO ,     KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO          ,
+  KC_NO      , KC_NO   , KC_NO   , KC_NO   , KC_NO ,     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO          ,
                          KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO      , KC_NO
 )
 };
@@ -140,16 +140,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // COMBO ================================================================================
 // Backspace
 const uint16_t PROGMEM LY_BAS_CMB_BACKSPACE[]     = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM LY_BAS_CMB_ALT_BACKSPACE[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM LY_BAS_CMB_GUI_BACKSPACE[] = {KC_U, KC_I, KC_O, COMBO_END};
-
 const uint16_t PROGMEM LY_NUM_CMB_BACKSPACE[]     = {KC_8, KC_9, COMBO_END};
-const uint16_t PROGMEM LY_NUM_CMB_ALT_BACKSPACE[] = {KC_7, KC_8, COMBO_END};
-const uint16_t PROGMEM LY_NUM_CMB_GUI_BACKSPACE[] = {KC_7, KC_8, KC_9, COMBO_END};
-
 const uint16_t PROGMEM LY_SYM_CMB_BACKSPACE[]     = {KC_DQUO , KC_RCBR, COMBO_END};
-const uint16_t PROGMEM LY_SYM_CMB_ALT_BACKSPACE[] = {KC_LCBR , KC_DQUO, COMBO_END};
-const uint16_t PROGMEM LY_SYM_CMB_GUI_BACKSPACE[] = {KC_LCBR , KC_DQUO, KC_RCBR, COMBO_END};
 
 // Brackets
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_LEFT[]  = {KC_J, LT(LY_SYM, KC_K), COMBO_END};
@@ -158,16 +150,8 @@ const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {LT(LY_SYM, KC_K), KC_L, COM
 combo_t key_combos[] = {
     // Backspace
     COMBO(LY_BAS_CMB_BACKSPACE, KC_BSPC),
-    COMBO(LY_BAS_CMB_ALT_BACKSPACE, LALT(KC_BSPC)),
-    COMBO(LY_BAS_CMB_GUI_BACKSPACE, LGUI(KC_BSPC)),
-
     COMBO(LY_NUM_CMB_BACKSPACE, KC_BSPC),
-    COMBO(LY_NUM_CMB_ALT_BACKSPACE, LALT(KC_BSPC)),
-    COMBO(LY_NUM_CMB_GUI_BACKSPACE, LGUI(KC_BSPC)),
-
     COMBO(LY_SYM_CMB_BACKSPACE, KC_BSPC),
-    COMBO(LY_SYM_CMB_ALT_BACKSPACE, LALT(KC_BSPC)),
-    COMBO(LY_SYM_CMB_GUI_BACKSPACE, LGUI(KC_BSPC)),
 
     // Brackets
     COMBO(LY_BAS_CMB_BRACKET_LEFT, KC_LBRC),
