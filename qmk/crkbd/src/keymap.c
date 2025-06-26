@@ -29,16 +29,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ┌─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐   ┌─────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐
 //    │        q        │        w        │        e        │        r        │        t        │   │      y      │        u        │        i        │        o        │        p        │
 //    ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-//    │        a        │        s        │  LT(LY_SYM, d)  │        f        │        g        │   │      h      │        j        │  LT(LY_SYM, k)  │        l        │        ;        │
+//    │ MT(MOD_LGUI, a) │ MT(MOD_LALT, s) │ MT(MOD_LCTL, d) │ MT(MOD_LSFT, f) │        g        │   │      h      │ MT(MOD_RSFT, j) │ MT(MOD_RCTL, k) │ MT(MOD_LALT, l) │ MT(MOD_LGUI, ;) │
 //    ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-//    │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │        b        │   │      n      │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_LGUI, /) │
+//    │        z        │        x        │        c        │        v        │        b        │   │      n      │        m        │        ,        │        .        │        /        │
 //    └─────────────────┴─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┴─────────────────┘
-//                                        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ LT(LY_EXT, spc) │   │ HYPR_T(ent) │    MEH_T(no)    │   MO(LY_MED)    │
+//                                        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ LT(LY_EXT, spc) │   │ HYPR_T(ent) │   MO(LY_SYM)    │   MO(LY_MED)    │
 //                                        └─────────────────┴─────────────────┴─────────────────┘   └─────────────┴─────────────────┴─────────────────┘
-  KC_Q               , KC_W               , KC_E               , KC_R               , KC_T               ,     KC_Y           , KC_U               , KC_I                   , KC_O                 , KC_P                  ,
-  KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G               ,     KC_H           , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN               ,
-  MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B               ,     KC_N           , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_LGUI, KC_SLASH),
-                                            MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , LT(LY_EXT, KC_SPC) ,     HYPR_T(KC_ENT) , MEH_T(KC_NO)       , MO(LY_MED)
+  KC_Q               , KC_W               , KC_E               , KC_R               , KC_T               ,     KC_Y           , KC_U               , KC_I               , KC_O                 , KC_P                  ,
+  MT(MOD_LGUI, KC_A) , MT(MOD_LALT, KC_S) , MT(MOD_LCTL, KC_D) , MT(MOD_LSFT, KC_F) , KC_G               ,     KC_H           , MT(MOD_RSFT, KC_J) , MT(MOD_RCTL, KC_K) , MT(MOD_LALT, KC_L)   , MT(MOD_LGUI, KC_SCLN),
+  KC_Z               , KC_X               , KC_C               , KC_V               , KC_B               ,     KC_N           , KC_M               , KC_COMMA           , KC_DOT               , KC_SLASH             ,
+                                            MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , LT(LY_EXT, KC_SPC) ,     HYPR_T(KC_ENT) , MO(LY_SYM)         , MO(LY_MED)
 ),
 
 [LY_EXT] = LAYOUT_split_3x5_3(
@@ -125,10 +125,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // TAPPING TERM ============================================================================
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MT(MOD_LGUI, KC_Z):
-        case MT(MOD_LALT, KC_X):
-        case MT(MOD_LALT, KC_DOT):
-        case MT(MOD_RGUI, KC_SLASH):
+        case MT(MOD_LGUI, KC_A):
+        case MT(MOD_LALT, KC_S):
+        case MT(MOD_LALT, KC_L):
+        case MT(MOD_LGUI, KC_SCLN):
             return TAPPING_TERM + 15;
 
         
@@ -143,9 +143,9 @@ const uint16_t PROGMEM LY_BAS_CMB_BACKSPACE[]     = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM LY_NUM_CMB_BACKSPACE[]     = {KC_8, KC_9, COMBO_END};
 const uint16_t PROGMEM LY_SYM_CMB_BACKSPACE[]     = {KC_DQUO , KC_RCBR, COMBO_END};
 
-// Brackets
-const uint16_t PROGMEM LY_BAS_CMB_BRACKET_LEFT[]  = {KC_J, LT(LY_SYM, KC_K), COMBO_END};
-const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {LT(LY_SYM, KC_K), KC_L, COMBO_END};
+// Brackets - moved to avoid homerow mod conflicts
+const uint16_t PROGMEM LY_BAS_CMB_BRACKET_LEFT[]  = {KC_Y, KC_U, COMBO_END};
+const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {KC_O, KC_P, COMBO_END};
 
 combo_t key_combos[] = {
     // Backspace
@@ -163,14 +163,22 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
                      uint16_t other_keycode, keyrecord_t* other_record) {
     // Define which keys should always hold when chorded
     switch (tap_hold_keycode) {
-        // Left hand
+        // Homerow mods - always hold when chorded with other keys
+        case MT(MOD_LGUI, KC_A):
+        case MT(MOD_LALT, KC_S):
+        case MT(MOD_LCTL, KC_D):
+        case MT(MOD_LSFT, KC_F):
+        case MT(MOD_RSFT, KC_J):
+        case MT(MOD_RCTL, KC_K):
+        case MT(MOD_LALT, KC_L):
+        case MT(MOD_LGUI, KC_SCLN):
+        
+        // Layer keys
         case MO(LY_FUN):
         case LT(LY_NUM, KC_ESC):
         case LT(LY_EXT, KC_SPC):
-
-        // Right hand
         case HYPR_T(KC_ENT):
-        case MEH_T(KC_NO):
+        case MO(LY_SYM):
         case MO(LY_MED):
             return true;
     }
