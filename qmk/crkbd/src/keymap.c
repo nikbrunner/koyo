@@ -26,19 +26,19 @@ enum tap_dance_codes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LY_BAS] = LAYOUT_split_3x5_3(
-//    ┌─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐   ┌─────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐
-//    │        q        │        w        │        e        │        r        │        t        │   │      y      │        u        │        i        │        o        │        p        │
-//    ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-//    │        a        │        s        │  LT(LY_SYM, d)  │        f        │        g        │   │      h      │        j        │  LT(LY_SYM, k)  │        l        │        ;        │
-//    ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-//    │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │        b        │   │      n      │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_LGUI, /) │
-//    └─────────────────┴─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├─────────────┼─────────────────┼─────────────────┼─────────────────┴─────────────────┘
-//                                        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ LT(LY_EXT, spc) │   │ HYPR_T(ent) │    MEH_T(no)    │   MO(LY_MED)    │
-//                                        └─────────────────┴─────────────────┴─────────────────┘   └─────────────┴─────────────────┴─────────────────┘
-  KC_Q               , KC_W               , KC_E               , KC_R               , KC_T               ,     KC_Y           , KC_U               , KC_I                   , KC_O                 , KC_P                  ,
-  KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G               ,     KC_H           , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN               ,
-  MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B               ,     KC_N           , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_LGUI, KC_SLASH),
-                                            MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , LT(LY_EXT, KC_SPC) ,     HYPR_T(KC_ENT) , MEH_T(KC_NO)       , MO(LY_MED)
+//    ┌─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐   ┌──────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐
+//    │        q        │        w        │        e        │        r        │        t        │   │      y       │        u        │        i        │        o        │        p        │
+//    ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├──────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
+//    │        a        │        s        │  LT(LY_SYM, d)  │        f        │        g        │   │      h       │        j        │  LT(LY_SYM, k)  │        l        │        ;        │
+//    ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├──────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
+//    │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │        b        │   │      n       │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_LGUI, /) │
+//    └─────────────────┴─────────────────┼─────────────────┼─────────────────┼─────────────────┤   ├──────────────┼─────────────────┼─────────────────┼─────────────────┴─────────────────┘
+//                                        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ LT(LY_EXT, spc) │   │ HYPR_T(bspc) │   MEH_T(ent)    │   MO(LY_MED)    │
+//                                        └─────────────────┴─────────────────┴─────────────────┘   └──────────────┴─────────────────┴─────────────────┘
+  KC_Q               , KC_W               , KC_E               , KC_R               , KC_T               ,     KC_Y            , KC_U               , KC_I                   , KC_O                 , KC_P                  ,
+  KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G               ,     KC_H            , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN               ,
+  MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B               ,     KC_N            , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_LGUI, KC_SLASH),
+                                            MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , LT(LY_EXT, KC_SPC) ,     HYPR_T(KC_BSPC) , MEH_T(KC_ENT)      , MO(LY_MED)
 ),
 
 [LY_EXT] = LAYOUT_split_3x5_3(
@@ -49,12 +49,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼─────────┼───────────┼───────────┼─────────┤
 //    │     LGUI(z)      │     LGUI(x)      │     LGUI(c)      │     LGUI(v)      │ LGUI(b) │   │  no  │ CW_TOGG │ LSFT(tab) │    tab    │   no    │
 //    └──────────────────┴──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼─────────┼───────────┼───────────┴─────────┘
-//                                          │        no        │        no        │   no    │   │  no  │   no    │    no     │
+//                                          │        no        │        no        │   no    │   │ bspc │   no    │    no     │
 //                                          └──────────────────┴──────────────────┴─────────┘   └──────┴─────────┴───────────┘
   LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) ,     KC_NO   , RALT(KC_U) , LGUI(KC_GRV) , LGUI(KC_TAB) , HYPR(KC_P)   ,
   TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G) ,     KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT      , HYPR(KC_SCLN),
   LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B) ,     KC_NO   , CW_TOGG    , LSFT(KC_TAB) , KC_TAB       , KC_NO        ,
-                                        KC_NO            , KC_NO            , KC_NO      ,     KC_NO   , KC_NO      , KC_NO
+                                        KC_NO            , KC_NO            , KC_NO      ,     KC_BSPC , KC_NO      , KC_NO
 ),
 
 [LY_SYM] = LAYOUT_split_3x5_3(
@@ -81,12 +81,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├───────────┼──────────┼──────┼──────┼──────┤   ├───┼───┼───┼───┼───┤
 //    │ csag-none │ csa-none │  no  │  no  │ BCD- │   │ - │ 1 │ 2 │ 3 │ / │
 //    └───────────┴──────────┼──────┼──────┼──────┤   ├───┼───┼───┼───┴───┘
-//                           │  no  │  no  │  no  │   │ 0 │ . │ , │
+//                           │  no  │  no  │  no  │   │ . │ 0 │ , │
 //                           └──────┴──────┴──────┘   └───┴───┴───┘
-  KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_TODO ,     KC_PLUS  , KC_7   , KC_8     , KC_9 , KC_ASTR ,
-  KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   ,     KC_EQUAL , KC_4   , KC_5     , KC_6 , KC_COLN ,
-  KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , SS_BCD  ,     KC_MINUS , KC_1   , KC_2     , KC_3 , KC_SLASH,
-                      KC_NO   , KC_NO   , KC_NO   ,     KC_0     , KC_DOT , KC_COMMA
+  KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_TODO ,     KC_PLUS  , KC_7 , KC_8     , KC_9 , KC_ASTR ,
+  KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   ,     KC_EQUAL , KC_4 , KC_5     , KC_6 , KC_COLN ,
+  KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , SS_BCD  ,     KC_MINUS , KC_1 , KC_2     , KC_3 , KC_SLASH,
+                      KC_NO   , KC_NO   , KC_NO   ,     KC_DOT   , KC_0 , KC_COMMA
 ),
 
 [LY_FUN] = LAYOUT_split_3x5_3(
@@ -169,8 +169,8 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
         case LT(LY_EXT, KC_SPC):
 
         // Right hand
-        case HYPR_T(KC_ENT):
-        case MEH_T(KC_NO):
+        case HYPR_T(KC_BSPC):
+        case MEH_T(KC_ENT):
         case MO(LY_MED):
             return true;
     }

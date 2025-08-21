@@ -39,16 +39,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┼────┘   └────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
 //    │ no │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │ b  │             │ n  │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │ no │
 //    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤             ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
-//    │ no │       no        │       no        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ no │             │ no │    MEH_T(no)    │   MO(LY_MED)    │       no        │       no        │ no │
+//    │ no │       no        │       no        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ no │             │ no │   MEH_T(ent)    │   MO(LY_MED)    │       no        │       no        │ no │
 //    └────┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼────┼────┐   ┌────┼────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴────┘
-//                                                               │ LT(LY_EXT, spc) │ no │ no │   │ no │ no │   HYPR_T(ent)   │
+//                                                               │ LT(LY_EXT, spc) │ no │ no │   │ no │ no │  HYPR_T(bspc)   │
 //                                                               └─────────────────┴────┴────┘   └────┴────┴─────────────────┘
   KC_NO , KC_NO              , KC_NO              , KC_NO              , KC_NO              , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO              , KC_NO                  , KC_NO                , KC_NO                  , KC_NO,
   KC_NO , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T  , KC_NO ,     KC_NO , KC_Y  , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_NO,
   KC_NO , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G  , KC_NO ,     KC_NO , KC_H  , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_NO,
   KC_NO , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B  ,                     KC_N  , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , KC_NO,
-  KC_NO , KC_NO              , KC_NO              , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_NO ,                     KC_NO , MEH_T(KC_NO)       , MO(LY_MED)             , KC_NO                , KC_NO                  , KC_NO,
-                                                                         LT(LY_EXT, KC_SPC) , KC_NO , KC_NO ,     KC_NO , KC_NO , HYPR_T(KC_ENT)
+  KC_NO , KC_NO              , KC_NO              , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_NO ,                     KC_NO , MEH_T(KC_ENT)      , MO(LY_MED)             , KC_NO                , KC_NO                  , KC_NO,
+                                                                         LT(LY_EXT, KC_SPC) , KC_NO , KC_NO ,     KC_NO , KC_NO , HYPR_T(KC_BSPC)
 ),
 
 [LY_EXT] = LAYOUT_moonlander(
@@ -63,14 +63,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤             ├──────┼───────────┼───────────┼───────────┼─────────┼────┤
 //    │ no │        no        │        no        │        no        │        no        │   no    │             │  no  │ LSFT(tab) │    no     │    no     │   no    │ no │
 //    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼─────────┼────┐   ┌────┼──────┼───────────┼───────────┴───────────┴─────────┴────┘
-//                                                                  │        no        │   no    │ no │   │ no │  no  │    no     │
+//                                                                  │        no        │   no    │ no │   │ no │  no  │   bspc    │
 //                                                                  └──────────────────┴─────────┴────┘   └────┴──────┴───────────┘
   KC_NO , KC_NO            , KC_NO            , KC_NO            , KC_NO            , KC_NO      , KC_NO ,     KC_NO , KC_NO   , KC_NO        , KC_NO        , KC_NO        , KC_NO         , KC_NO,
   KC_NO , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) , KC_NO ,     KC_NO , KC_NO   , RALT(KC_U)   , LGUI(KC_GRV) , LGUI(KC_TAB) , HYPR(KC_P)    , KC_NO,
   KC_NO , TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G) , KC_NO ,     KC_NO , KC_LEFT , KC_DOWN      , KC_UP        , KC_RIGHT     , HYPR(KC_SCLN) , KC_NO,
   KC_NO , LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B) ,                     KC_NO   , CW_TOGG      , LSFT(KC_TAB) , KC_TAB       , KC_NO         , KC_NO,
   KC_NO , KC_NO            , KC_NO            , KC_NO            , KC_NO            , KC_NO      ,                     KC_NO   , LSFT(KC_TAB) , KC_NO        , KC_NO        , KC_NO         , KC_NO,
-                                                                   KC_NO            , KC_NO      , KC_NO ,     KC_NO , KC_NO   , KC_NO
+                                                                   KC_NO            , KC_NO      , KC_NO ,     KC_NO , KC_NO   , KC_BSPC
 ),
 
 [LY_SYM] = LAYOUT_moonlander(
@@ -105,16 +105,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼───────────┼──────────┼──────┼──────┼──────┼────┘   └────┼────┼────┼────┼────┼────┼────┤
 //    │ no │ csag-none │ csa-none │  no  │  no  │ BCD- │             │ -  │ 1  │ 2  │ 3  │ /  │ no │
 //    ├────┼───────────┼──────────┼──────┼──────┼──────┤             ├────┼────┼────┼────┼────┼────┤
-//    │ no │    no     │    no    │  no  │  no  │  no  │             │ no │ .  │ ,  │ no │ no │ no │
+//    │ no │    no     │    no    │  no  │  no  │  no  │             │ no │ 0  │ ,  │ no │ no │ no │
 //    └────┴───────────┴──────────┴──────┼──────┼──────┼────┐   ┌────┼────┼────┼────┴────┴────┴────┘
-//                                       │  no  │  no  │ no │   │ no │ no │ 0  │
+//                                       │  no  │  no  │ no │   │ no │ no │ .  │
 //                                       └──────┴──────┴────┘   └────┴────┴────┘
   KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_NO  , KC_NO    , KC_NO , KC_NO    , KC_NO,
   KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_TODO , KC_NO ,     KC_NO , KC_PLUS  , KC_7   , KC_8     , KC_9  , KC_ASTR  , KC_NO,
   KC_NO , KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   , KC_NO ,     KC_NO , KC_EQUAL , KC_4   , KC_5     , KC_6  , KC_COLN  , KC_NO,
   KC_NO , KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , SS_BCD  ,                     KC_MINUS , KC_1   , KC_2     , KC_3  , KC_SLASH , KC_NO,
-  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                     KC_NO    , KC_DOT , KC_COMMA , KC_NO , KC_NO    , KC_NO,
-                                        KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_0
+  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                     KC_NO    , KC_0   , KC_COMMA , KC_NO , KC_NO    , KC_NO,
+                                        KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_DOT
 ),
 
 [LY_FUN] = LAYOUT_moonlander(
@@ -140,24 +140,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [LY_MED] = LAYOUT_moonlander(
-//    ┌────┬─────────┬──────┬──────┬──────┬─────────┬────┐   ┌────┬────┬─────────┬─────────┬─────────┬────┬────┐
-//    │ no │   no    │  no  │  no  │  no  │   no    │ no │   │ no │ no │   no    │   no    │   no    │ no │ no │
-//    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┤   ├────┼────┼─────────┼─────────┼─────────┼────┼────┤
-//    │ no │ G(C(q)) │ vold │ mute │ volu │ QK_BOOT │ no │   │ no │ no │ RGB_HUD │ RGB_TOG │ RGB_HUI │ no │ no │
-//    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┤   ├────┼────┼─────────┼─────────┼─────────┼────┼────┤
-//    │ no │   no    │ mprv │ mply │ mnxt │   no    │ no │   │ no │ no │  G(-)   │  G(0)   │  G(=)   │ no │ no │
-//    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┘   └────┼────┼─────────┼─────────┼─────────┼────┼────┤
-//    │ no │   no    │  no  │  no  │  no  │   no    │             │ no │ DT_DOWN │ DT_PRNT │  DT_UP  │ no │ no │
-//    ├────┼─────────┼──────┼──────┼──────┼─────────┤             ├────┼─────────┼─────────┼─────────┼────┼────┤
-//    │ no │   no    │  no  │  no  │  no  │   no    │             │ no │   no    │   no    │   no    │ no │ no │
-//    └────┴─────────┴──────┴──────┼──────┼─────────┼────┐   ┌────┼────┼─────────┼─────────┴─────────┴────┴────┘
+//    ┌────┬─────────┬──────┬──────┬──────┬─────────┬────┐   ┌────┬────┬─────────┬─────────┬─────────┬──────────────┬────┐
+//    │ no │   no    │  no  │  no  │  no  │   no    │ no │   │ no │ no │   no    │   no    │   no    │      no      │ no │
+//    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┤   ├────┼────┼─────────┼─────────┼─────────┼──────────────┼────┤
+//    │ no │ G(C(q)) │ vold │ mute │ volu │ QK_BOOT │ no │   │ no │ no │ RGB_HUD │ RGB_TOG │ RGB_HUI │ pRINT_SCREEN │ no │
+//    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┤   ├────┼────┼─────────┼─────────┼─────────┼──────────────┼────┤
+//    │ no │   no    │ mprv │ mply │ mnxt │   no    │ no │   │ no │ no │  G(-)   │  G(0)   │  G(=)   │      no      │ no │
+//    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┘   └────┼────┼─────────┼─────────┼─────────┼──────────────┼────┤
+//    │ no │   no    │  no  │  no  │  no  │   no    │             │ no │ DT_DOWN │ DT_PRNT │  DT_UP  │      no      │ no │
+//    ├────┼─────────┼──────┼──────┼──────┼─────────┤             ├────┼─────────┼─────────┼─────────┼──────────────┼────┤
+//    │ no │   no    │  no  │  no  │  no  │   no    │             │ no │   no    │   no    │   no    │      no      │ no │
+//    └────┴─────────┴──────┴──────┼──────┼─────────┼────┐   ┌────┼────┼─────────┼─────────┴─────────┴──────────────┴────┘
 //                                 │  no  │   no    │ no │   │ no │ no │   no    │
 //                                 └──────┴─────────┴────┘   └────┴────┴─────────┘
-  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   , KC_NO ,     KC_NO , KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO , KC_NO,
+  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   , KC_NO ,     KC_NO , KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO           , KC_NO,
   KC_NO , G(C(KC_Q)) , KC_VOLD             , KC_MUTE             , KC_VOLU             , QK_BOOT , KC_NO ,     KC_NO , KC_NO , RGB_HUD    , RGB_TOG , RGB_HUI   , KC_PRINT_SCREEN , KC_NO,
-  KC_NO , KC_NO      , KC_MEDIA_PREV_TRACK , KC_MEDIA_PLAY_PAUSE , KC_MEDIA_NEXT_TRACK , KC_NO   , KC_NO ,     KC_NO , KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO , KC_NO,
-  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO , KC_NO,
-  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO , KC_NO,
+  KC_NO , KC_NO      , KC_MEDIA_PREV_TRACK , KC_MEDIA_PLAY_PAUSE , KC_MEDIA_NEXT_TRACK , KC_NO   , KC_NO ,     KC_NO , KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO           , KC_NO,
+  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO           , KC_NO,
+  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO           , KC_NO,
                                                                    KC_NO               , KC_NO   , KC_NO ,     KC_NO , KC_NO , KC_NO
 )
 };
@@ -177,7 +177,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 }
 
 // COMBO ================================================================================
-// Backspace
 // Backspace
 const uint16_t PROGMEM LY_BAS_CMB_BACKSPACE[]     = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM LY_NUM_CMB_BACKSPACE[]     = {KC_8, KC_9, COMBO_END};
@@ -209,8 +208,8 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
         case LT(LY_EXT, KC_SPC):
 
         // Right hand
-        case HYPR_T(KC_ENT):
-        case MEH_T(KC_NO):
+        case HYPR_T(KC_BSPC):
+        case MEH_T(KC_ENT):
         case MO(LY_MED):
             return true;
     }
