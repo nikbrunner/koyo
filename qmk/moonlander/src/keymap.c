@@ -8,17 +8,12 @@ enum layers {
   LY_BAS,
   LY_EXT,
   LY_SYM,
-  LY_NUM,
-  LY_FUN,
+  LY_NUM_FN,
   LY_MED
 };
 
 enum custom_keycodes {
-  SS_TILD_SLSH = ML_SAFE_RANGE,
-  SS_VIM_WA,
-  SS_TODO,
-  SS_BCD,
-  SS_FATARROW,
+  SS_FATARROW = ML_SAFE_RANGE,
 };
 
 enum tap_dance_codes {
@@ -47,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T  , KC_NO ,     KC_NO , KC_Y  , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_NO,
   KC_NO , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G  , KC_NO ,     KC_NO , KC_H  , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_NO,
   KC_NO , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B  ,                     KC_N  , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , KC_NO,
-  KC_NO , KC_NO              , KC_NO              , MO(LY_FUN)         , LT(LY_NUM, KC_ESC) , KC_NO ,                     KC_NO , MO(LY_MED)         , KC_NO                  , KC_NO                , KC_NO                  , KC_NO,
+  KC_NO , KC_NO              , KC_NO              , KC_NO              , LT(LY_NUM_FN, KC_ESC) , KC_NO ,                     KC_NO , MO(LY_MED)         , KC_NO                  , KC_NO                , KC_NO                  , KC_NO,
                                                                          LT(LY_EXT, KC_SPC) , KC_NO , KC_NO ,     KC_NO , KC_NO , HYPR_T(KC_ENT)
 ),
 
@@ -90,54 +85,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_NO   , KC_NO        , KC_NO ,     KC_NO , KC_NO    , KC_NO       , KC_NO    , KC_NO   , KC_NO    , KC_NO,
   KC_NO , KC_CIRC , KC_PLUS  , KC_HASH , KC_PERC , KC_DLR       , KC_NO ,     KC_NO , KC_LABK  , KC_LCBR     , KC_DQUO  , KC_RCBR , KC_RABK  , KC_NO,
   KC_NO , KC_EXLM , KC_MINUS , KC_AMPR , KC_QUES , KC_PIPE      , KC_NO ,     KC_NO , KC_EQUAL , KC_LBRC     , KC_QUOTE , KC_RBRC , KC_COLN  , KC_NO,
-  KC_NO , KC_TILD , KC_UNDS  , KC_ASTR , KC_AT   , SS_TILD_SLSH ,                     KC_BSLS  , KC_LPRN     , KC_GRAVE , KC_RPRN , KC_SLASH , KC_NO,
+  KC_NO , KC_TILD , KC_UNDS  , KC_ASTR , KC_AT   , KC_NO        ,                     KC_BSLS  , KC_LPRN     , KC_GRAVE , KC_RPRN , KC_SLASH , KC_NO,
   KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_LALT , KC_NO        ,                     KC_NO    , SS_FATARROW , KC_NO    , KC_NO   , KC_NO    , KC_NO,
                                          KC_LCTL , KC_LGUI      , KC_NO ,     KC_NO , KC_NO    , KC_NO
 ),
 
-[LY_NUM] = LAYOUT_moonlander(
-//    ┌────┬───────────┬──────────┬──────┬──────┬──────┬────┐   ┌────┬────┬────┬────┬────┬────┬────┐
-//    │ no │    no     │    no    │  no  │  no  │  no  │ no │   │ no │ no │ no │ no │ no │ no │ no │
-//    ├────┼───────────┼──────────┼──────┼──────┼──────┼────┤   ├────┼────┼────┼────┼────┼────┼────┤
-//    │ no │    no     │    no    │  no  │  no  │ TODO │ no │   │ no │ +  │ 7  │ 8  │ 9  │ *  │ no │
-//    ├────┼───────────┼──────────┼──────┼──────┼──────┼────┤   ├────┼────┼────┼────┼────┼────┼────┤
-//    │ no │   lgui    │   lalt   │ lctl │ lsft │  no  │ no │   │ no │ =  │ 4  │ 5  │ 6  │ :  │ no │
-//    ├────┼───────────┼──────────┼──────┼──────┼──────┼────┘   └────┼────┼────┼────┼────┼────┼────┤
-//    │ no │ csag-none │ csa-none │  no  │  no  │ BCD- │             │ -  │ 1  │ 2  │ 3  │ /  │ no │
-//    ├────┼───────────┼──────────┼──────┼──────┼──────┤             ├────┼────┼────┼────┼────┼────┤
-//    │ no │    no     │    no    │  no  │  no  │  no  │             │ no │ 0  │ ,  │ no │ no │ no │
-//    └────┴───────────┴──────────┴──────┼──────┼──────┼────┐   ┌────┼────┼────┼────┴────┴────┴────┘
-//                                       │  no  │  no  │ no │   │ no │ no │ .  │
-//                                       └──────┴──────┴────┘   └────┴────┴────┘
-  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_NO  , KC_NO    , KC_NO , KC_NO    , KC_NO,
-  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , SS_TODO , KC_NO ,     KC_NO , KC_PLUS  , KC_7   , KC_8     , KC_9  , KC_ASTR  , KC_NO,
-  KC_NO , KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO   , KC_NO ,     KC_NO , KC_EQUAL , KC_4   , KC_5     , KC_6  , KC_COLN  , KC_NO,
-  KC_NO , KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , SS_BCD  ,                     KC_MINUS , KC_1   , KC_2     , KC_3  , KC_SLASH , KC_NO,
-  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                     KC_NO    , KC_0   , KC_COMMA , KC_NO , KC_NO    , KC_NO,
-                                        KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_DOT
+[LY_NUM_FN] = LAYOUT_moonlander(
+//    ┌────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬────┬────┐   ┌────┬────┬─────────────────┬─────────────────┬─────────────────┬────┬────┐
+//    │ no │        no        │        no        │        no        │        no        │ no │ no │   │ no │ no │        no       │        no       │        no       │ no │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
+//    │ no │        f9        │       f10        │       f11        │       f12        │ no │ no │   │ no │ +  │        7        │        8        │        9        │ *  │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
+//    │ no │ MT(MOD_LGUI, f5) │ MT(MOD_LALT, f6) │ MT(MOD_LCTL, f7) │ MT(MOD_LSFT, f8) │ no │ no │   │ no │ =  │ MT(MOD_RSFT, 4) │ MT(MOD_RCTL, 5) │ MT(MOD_RALT, 6) │ :  │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┼────┘   └────┼────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
+//    │ no │        f1        │        f2        │        f3        │        f4        │ no │             │ -  │        1        │        2        │        3        │ /  │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤             ├────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
+//    │ no │        no        │        no        │        no        │        no        │ no │             │ no │        0        │        ,        │        no       │ no │ no │
+//    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼────┼────┐   ┌────┼────┼─────────────────┼─────────────────┴─────────────────┴────┴────┘
+//                                                                  │        no        │ no │ no │   │ no │ no │        .        │
+//                                                                  └──────────────────┴────┴────┘   └────┴────┴─────────────────┘
+  KC_NO , KC_NO               , KC_NO              , KC_NO              , KC_NO              , KC_NO , KC_NO ,     KC_NO , KC_NO    , KC_NO              , KC_NO              , KC_NO              , KC_NO    , KC_NO,
+  KC_NO , KC_F9               , KC_F10             , KC_F11             , KC_F12             , KC_NO , KC_NO ,     KC_NO , KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , KC_NO,
+  KC_NO , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6), MT(MOD_LCTL, KC_F7), MT(MOD_LSFT, KC_F8), KC_NO , KC_NO ,     KC_NO , KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , KC_NO,
+  KC_NO , KC_F1               , KC_F2              , KC_F3              , KC_F4              , KC_NO ,                     KC_MINUS , KC_1               , KC_2               , KC_3               , KC_SLASH , KC_NO,
+  KC_NO , KC_NO               , KC_NO              , KC_NO              , KC_NO              , KC_NO ,                     KC_NO    , KC_0               , KC_COMMA           , KC_NO              , KC_NO    , KC_NO,
+                                                                         KC_NO              , KC_NO , KC_NO ,     KC_NO , KC_NO    , KC_DOT
 ),
 
-[LY_FUN] = LAYOUT_moonlander(
-//    ┌────┬───────────┬──────────┬──────┬──────┬────┬────┐   ┌────┬────┬────┬─────┬─────┬─────┬────┐
-//    │ no │    no     │    no    │  no  │  no  │ no │ no │   │ no │ no │ no │ no  │ no  │ no  │ no │
-//    ├────┼───────────┼──────────┼──────┼──────┼────┼────┤   ├────┼────┼────┼─────┼─────┼─────┼────┤
-//    │ no │    no     │    no    │  no  │  no  │ no │ no │   │ no │ no │ f9 │ f10 │ f11 │ f12 │ no │
-//    ├────┼───────────┼──────────┼──────┼──────┼────┼────┤   ├────┼────┼────┼─────┼─────┼─────┼────┤
-//    │ no │   lgui    │   lalt   │ lctl │ lsft │ no │ no │   │ no │ no │ f5 │ f6  │ f7  │ f8  │ no │
-//    ├────┼───────────┼──────────┼──────┼──────┼────┼────┘   └────┼────┼────┼─────┼─────┼─────┼────┤
-//    │ no │ csag-none │ csa-none │  no  │  no  │ no │             │ no │ f1 │ f2  │ f3  │ f4  │ no │
-//    ├────┼───────────┼──────────┼──────┼──────┼────┤             ├────┼────┼─────┼─────┼─────┼────┤
-//    │ no │    no     │    no    │  no  │  no  │ no │             │ no │ no │ no  │ no  │ no  │ no │
-//    └────┴───────────┴──────────┴──────┼──────┼────┼────┐   ┌────┼────┼────┼─────┴─────┴─────┴────┘
-//                                       │  no  │ no │ no │   │ no │ no │ no │
-//                                       └──────┴────┴────┘   └────┴────┴────┘
-  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO,
-  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_F9 , KC_F10 , KC_F11 , KC_F12 , KC_NO,
-  KC_NO , KC_LGUI , KC_LALT , KC_LCTL , KC_LSFT , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_F5 , KC_F6  , KC_F7  , KC_F8  , KC_NO,
-  KC_NO , KC_HYPR , KC_MEH  , KC_NO   , KC_NO   , KC_NO ,                     KC_NO , KC_F1 , KC_F2  , KC_F3  , KC_F4  , KC_NO,
-  KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO ,                     KC_NO , KC_NO , KC_NO  , KC_NO  , KC_NO  , KC_NO,
-                                        KC_NO   , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO
-),
 
 [LY_MED] = LAYOUT_moonlander(
 //    ┌────┬─────────┬──────┬──────┬──────┬─────────┬────┐   ┌────┬────┬─────────┬─────────┬─────────┬──────────────┬────┐
@@ -179,7 +153,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // COMBO ================================================================================
 // Backspace
 const uint16_t PROGMEM LY_BAS_CMB_BACKSPACE[]     = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM LY_NUM_CMB_BACKSPACE[]     = {KC_8, KC_9, COMBO_END};
+const uint16_t PROGMEM LY_NUM_FN_CMB_BACKSPACE[]  = {KC_8, KC_9, COMBO_END};
 const uint16_t PROGMEM LY_SYM_CMB_BACKSPACE[]     = {KC_DQUO , KC_RCBR, COMBO_END};
 
 // Brackets
@@ -189,7 +163,7 @@ const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {LT(LY_SYM, KC_K), KC_L, COM
 combo_t key_combos[] = {
     // Backspace
     COMBO(LY_BAS_CMB_BACKSPACE, KC_BSPC),
-    COMBO(LY_NUM_CMB_BACKSPACE, KC_BSPC),
+    COMBO(LY_NUM_FN_CMB_BACKSPACE, KC_BSPC),
     COMBO(LY_SYM_CMB_BACKSPACE, KC_BSPC),
 
     // Brackets
@@ -203,8 +177,7 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     // Define which keys should always hold when chorded
     switch (tap_hold_keycode) {
         // Left hand
-        case MO(LY_FUN):
-        case LT(LY_NUM, KC_ESC):
+        case LT(LY_NUM_FN, KC_ESC):
         case LT(LY_EXT, KC_SPC):
 
         // Right hand
@@ -230,40 +203,13 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     );
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case SS_TILD_SLSH:
-      if (record->event.pressed) {
-        SEND_STRING("~/");
-      }
-      break;
-
-    case SS_VIM_WA:
-      if (record->event.pressed) {
-        tap_code(KC_ESC);
-        SEND_STRING(":wa");
-        tap_code(KC_ENT);
-      }
-      break;
-
-    case SS_TODO:
-      if (record->event.pressed) {
-        SEND_STRING("TODO");
-      }
-      break;
-
-    case SS_BCD:
-      if (record->event.pressed) {
-        SEND_STRING("BCD-");
-      }
-      break;
-
-    case SS_FATARROW:
-      if (record->event.pressed) {
-        SEND_STRING("=>");
-      }
-      break;
+    switch (keycode) {
+        case SS_FATARROW:
+            if (record->event.pressed) {
+                SEND_STRING("=>");
+            }
+            break;
     }
-
     return true;
 }
 
@@ -373,6 +319,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   void reset_td_ext_gui_f(tap_dance_state_t * state, void *user_data) {
     unregister_code(KC_LSFT);
   }
+
 
 tap_dance_action_t tap_dance_actions[] = {
     [TD_EXT_GUI_A] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_a, reset_td_ext_gui_a),
