@@ -25,25 +25,25 @@ enum tap_dance_codes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LY_BAS] = LAYOUT_moonlander(
-//    ┌────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬────┬────┐   ┌────┬────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬────┐
-//    │ no │       no        │       no        │       no        │       no        │ no │ no │   │ no │ no │       no        │       no        │       no        │       no        │ no │
-//    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
-//    │ no │        q        │        w        │        e        │        r        │ t  │ no │   │ no │ y  │        u        │        i        │        o        │        p        │ no │
-//    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
-//    │ no │        a        │        s        │  LT(LY_SYM, d)  │        f        │ g  │ no │   │ no │ h  │        j        │  LT(LY_SYM, k)  │        l        │        ;        │ no │
-//    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┼────┘   └────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
-//    │ no │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │ b  │             │ n  │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │ no │
-//    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤             ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
-//    │ no │       no        │       no        │   MO(LY_FUN)    │ LT(LY_NUM, esc) │ no │             │ no │   MO(LY_MED)    │       no        │       no        │       no        │ no │
-//    └────┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼────┼────┐   ┌────┼────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴────┘
-//                                                               │ LT(LY_EXT, spc) │ no │ no │   │ no │ no │   HYPR_T(ent)   │
-//                                                               └─────────────────┴────┴────┘   └────┴────┴─────────────────┘
-  KC_NO , KC_NO              , KC_NO              , KC_NO              , KC_NO              , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO              , KC_NO                  , KC_NO                , KC_NO                  , KC_NO,
-  KC_NO , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T  , KC_NO ,     KC_NO , KC_Y  , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_NO,
-  KC_NO , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G  , KC_NO ,     KC_NO , KC_H  , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_NO,
-  KC_NO , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B  ,                     KC_N  , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , KC_NO,
+//    ┌────┬─────────────────┬─────────────────┬─────────────────┬────────────────────┬────┬────┐   ┌────┬────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬────┐
+//    │ no │       no        │       no        │       no        │         no         │ no │ no │   │ no │ no │       no        │       no        │       no        │       no        │ no │
+//    ├────┼─────────────────┼─────────────────┼─────────────────┼────────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │        q        │        w        │        e        │         r          │ t  │ no │   │ no │ y  │        u        │        i        │        o        │        p        │ no │
+//    ├────┼─────────────────┼─────────────────┼─────────────────┼────────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │        a        │        s        │  LT(LY_SYM, d)  │         f          │ g  │ no │   │ no │ h  │        j        │  LT(LY_SYM, k)  │        l        │        ;        │ no │
+//    ├────┼─────────────────┼─────────────────┼─────────────────┼────────────────────┼────┼────┘   └────┼────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │  MT(MOD_LSFT, v)   │ b  │             │ n  │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_RGUI, /) │ no │
+//    ├────┼─────────────────┼─────────────────┼─────────────────┼────────────────────┼────┤             ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │       no        │       no        │       no        │ LT(LY_NUM_FN, esc) │ no │             │ no │   MO(LY_MED)    │       no        │       no        │       no        │ no │
+//    └────┴─────────────────┴─────────────────┴─────────────────┼────────────────────┼────┼────┐   ┌────┼────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴────┘
+//                                                               │  LT(LY_EXT, spc)   │ no │ no │   │ no │ no │   HYPR_T(ent)   │
+//                                                               └────────────────────┴────┴────┘   └────┴────┴─────────────────┘
+  KC_NO , KC_NO              , KC_NO              , KC_NO              , KC_NO                 , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO              , KC_NO                  , KC_NO                , KC_NO                  , KC_NO,
+  KC_NO , KC_Q               , KC_W               , KC_E               , KC_R                  , KC_T  , KC_NO ,     KC_NO , KC_Y  , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_NO,
+  KC_NO , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F                  , KC_G  , KC_NO ,     KC_NO , KC_H  , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_NO,
+  KC_NO , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V)    , KC_B  ,                     KC_N  , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , KC_NO,
   KC_NO , KC_NO              , KC_NO              , KC_NO              , LT(LY_NUM_FN, KC_ESC) , KC_NO ,                     KC_NO , MO(LY_MED)         , KC_NO                  , KC_NO                , KC_NO                  , KC_NO,
-                                                                         LT(LY_EXT, KC_SPC) , KC_NO , KC_NO ,     KC_NO , KC_NO , HYPR_T(KC_ENT)
+                                                                         LT(LY_EXT, KC_SPC)    , KC_NO , KC_NO ,     KC_NO , KC_NO , HYPR_T(KC_ENT)
 ),
 
 [LY_EXT] = LAYOUT_moonlander(
@@ -76,23 +76,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼────┼────┼────┼──────┼──────┼────┤   ├────┼────┼────┼────┼────┼────┼────┤
 //    │ no │ !  │ -  │ &  │  ?   │  |   │ no │   │ no │ =  │ [  │ '  │ ]  │ :  │ no │
 //    ├────┼────┼────┼────┼──────┼──────┼────┘   └────┼────┼────┼────┼────┼────┼────┤
-//    │ no │ ~  │ _  │ *  │  @   │  ~/  │             │ \  │ (  │ `  │ )  │ /  │ no │
+//    │ no │ ~  │ _  │ *  │  @   │  no  │             │ \  │ (  │ `  │ )  │ /  │ no │
 //    ├────┼────┼────┼────┼──────┼──────┤             ├────┼────┼────┼────┼────┼────┤
 //    │ no │ no │ no │ no │ lalt │  no  │             │ no │ => │ no │ no │ no │ no │
 //    └────┴────┴────┴────┼──────┼──────┼────┐   ┌────┼────┼────┼────┴────┴────┴────┘
 //                        │ lctl │ lgui │ no │   │ no │ no │ no │
 //                        └──────┴──────┴────┘   └────┴────┴────┘
-  KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_NO   , KC_NO        , KC_NO ,     KC_NO , KC_NO    , KC_NO       , KC_NO    , KC_NO   , KC_NO    , KC_NO,
-  KC_NO , KC_CIRC , KC_PLUS  , KC_HASH , KC_PERC , KC_DLR       , KC_NO ,     KC_NO , KC_LABK  , KC_LCBR     , KC_DQUO  , KC_RCBR , KC_RABK  , KC_NO,
-  KC_NO , KC_EXLM , KC_MINUS , KC_AMPR , KC_QUES , KC_PIPE      , KC_NO ,     KC_NO , KC_EQUAL , KC_LBRC     , KC_QUOTE , KC_RBRC , KC_COLN  , KC_NO,
-  KC_NO , KC_TILD , KC_UNDS  , KC_ASTR , KC_AT   , KC_NO        ,                     KC_BSLS  , KC_LPRN     , KC_GRAVE , KC_RPRN , KC_SLASH , KC_NO,
-  KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_LALT , KC_NO        ,                     KC_NO    , SS_FATARROW , KC_NO    , KC_NO   , KC_NO    , KC_NO,
-                                         KC_LCTL , KC_LGUI      , KC_NO ,     KC_NO , KC_NO    , KC_NO
+  KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_NO       , KC_NO    , KC_NO   , KC_NO    , KC_NO,
+  KC_NO , KC_CIRC , KC_PLUS  , KC_HASH , KC_PERC , KC_DLR  , KC_NO ,     KC_NO , KC_LABK  , KC_LCBR     , KC_DQUO  , KC_RCBR , KC_RABK  , KC_NO,
+  KC_NO , KC_EXLM , KC_MINUS , KC_AMPR , KC_QUES , KC_PIPE , KC_NO ,     KC_NO , KC_EQUAL , KC_LBRC     , KC_QUOTE , KC_RBRC , KC_COLN  , KC_NO,
+  KC_NO , KC_TILD , KC_UNDS  , KC_ASTR , KC_AT   , KC_NO   ,                     KC_BSLS  , KC_LPRN     , KC_GRAVE , KC_RPRN , KC_SLASH , KC_NO,
+  KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_LALT , KC_NO   ,                     KC_NO    , SS_FATARROW , KC_NO    , KC_NO   , KC_NO    , KC_NO,
+                                         KC_LCTL , KC_LGUI , KC_NO ,     KC_NO , KC_NO    , KC_NO
 ),
 
 [LY_NUM_FN] = LAYOUT_moonlander(
 //    ┌────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬────┬────┐   ┌────┬────┬─────────────────┬─────────────────┬─────────────────┬────┬────┐
-//    │ no │        no        │        no        │        no        │        no        │ no │ no │   │ no │ no │        no       │        no       │        no       │ no │ no │
+//    │ no │        no        │        no        │        no        │        no        │ no │ no │   │ no │ no │       no        │       no        │       no        │ no │ no │
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
 //    │ no │        f9        │       f10        │       f11        │       f12        │ no │ no │   │ no │ +  │        7        │        8        │        9        │ *  │ no │
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┼────┤   ├────┼────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
@@ -100,18 +100,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┼────┘   └────┼────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
 //    │ no │        f1        │        f2        │        f3        │        f4        │ no │             │ -  │        1        │        2        │        3        │ /  │ no │
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤             ├────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
-//    │ no │        no        │        no        │        no        │        no        │ no │             │ no │        0        │        ,        │        no       │ no │ no │
+//    │ no │        no        │        no        │        no        │        no        │ no │             │ no │        0        │        ,        │       no        │ no │ no │
 //    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼────┼────┐   ┌────┼────┼─────────────────┼─────────────────┴─────────────────┴────┴────┘
 //                                                                  │        no        │ no │ no │   │ no │ no │        .        │
 //                                                                  └──────────────────┴────┴────┘   └────┴────┴─────────────────┘
-  KC_NO , KC_NO               , KC_NO              , KC_NO              , KC_NO              , KC_NO , KC_NO ,     KC_NO , KC_NO    , KC_NO              , KC_NO              , KC_NO              , KC_NO    , KC_NO,
-  KC_NO , KC_F9               , KC_F10             , KC_F11             , KC_F12             , KC_NO , KC_NO ,     KC_NO , KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , KC_NO,
-  KC_NO , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6), MT(MOD_LCTL, KC_F7), MT(MOD_LSFT, KC_F8), KC_NO , KC_NO ,     KC_NO , KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , KC_NO,
-  KC_NO , KC_F1               , KC_F2              , KC_F3              , KC_F4              , KC_NO ,                     KC_MINUS , KC_1               , KC_2               , KC_3               , KC_SLASH , KC_NO,
-  KC_NO , KC_NO               , KC_NO              , KC_NO              , KC_NO              , KC_NO ,                     KC_NO    , KC_0               , KC_COMMA           , KC_NO              , KC_NO    , KC_NO,
-                                                                         KC_NO              , KC_NO , KC_NO ,     KC_NO , KC_NO    , KC_DOT
+  KC_NO , KC_NO               , KC_NO               , KC_NO               , KC_NO               , KC_NO , KC_NO ,     KC_NO , KC_NO    , KC_NO              , KC_NO              , KC_NO              , KC_NO    , KC_NO,
+  KC_NO , KC_F9               , KC_F10              , KC_F11              , KC_F12              , KC_NO , KC_NO ,     KC_NO , KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , KC_NO,
+  KC_NO , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6) , MT(MOD_LCTL, KC_F7) , MT(MOD_LSFT, KC_F8) , KC_NO , KC_NO ,     KC_NO , KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , KC_NO,
+  KC_NO , KC_F1               , KC_F2               , KC_F3               , KC_F4               , KC_NO ,                     KC_MINUS , KC_1               , KC_2               , KC_3               , KC_SLASH , KC_NO,
+  KC_NO , KC_NO               , KC_NO               , KC_NO               , KC_NO               , KC_NO ,                     KC_NO    , KC_0               , KC_COMMA           , KC_NO              , KC_NO    , KC_NO,
+                                                                            KC_NO               , KC_NO , KC_NO ,     KC_NO , KC_NO    , KC_DOT
 ),
-
 
 [LY_MED] = LAYOUT_moonlander(
 //    ┌────┬─────────┬──────┬──────┬──────┬─────────┬────┐   ┌────┬────┬─────────┬─────────┬─────────┬──────────────┬────┐
@@ -121,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┤   ├────┼────┼─────────┼─────────┼─────────┼──────────────┼────┤
 //    │ no │   no    │ mprv │ mply │ mnxt │   no    │ no │   │ no │ no │  G(-)   │  G(0)   │  G(=)   │      no      │ no │
 //    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┘   └────┼────┼─────────┼─────────┼─────────┼──────────────┼────┤
-//    │ no │   no    │  no  │  no  │  no  │   no    │             │ no │ DT_DOWN │ DT_PRNT │  DT_UP  │      no      │ no │
+//    │ no │   no    │ bRID │  no  │ bRIU │   no    │             │ no │ DT_DOWN │ DT_PRNT │  DT_UP  │      no      │ no │
 //    ├────┼─────────┼──────┼──────┼──────┼─────────┤             ├────┼─────────┼─────────┼─────────┼──────────────┼────┤
 //    │ no │   no    │  no  │  no  │  no  │   no    │             │ no │   no    │   no    │   no    │      no      │ no │
 //    └────┴─────────┴──────┴──────┼──────┼─────────┼────┐   ┌────┼────┼─────────┼─────────┴─────────┴──────────────┴────┘
@@ -130,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   , KC_NO ,     KC_NO , KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO           , KC_NO,
   KC_NO , G(C(KC_Q)) , KC_VOLD             , KC_MUTE             , KC_VOLU             , QK_BOOT , KC_NO ,     KC_NO , KC_NO , RM_HUED    , RM_TOGG , RM_HUEU   , KC_PRINT_SCREEN , KC_NO,
   KC_NO , KC_NO      , KC_MEDIA_PREV_TRACK , KC_MEDIA_PLAY_PAUSE , KC_MEDIA_NEXT_TRACK , KC_NO   , KC_NO ,     KC_NO , KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO           , KC_NO,
-  KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO           , KC_NO,
+  KC_NO , KC_NO      , KC_BRID             , KC_NO               , KC_BRIU             , KC_NO   ,                     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO           , KC_NO,
   KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO           , KC_NO,
                                                                    KC_NO               , KC_NO   , KC_NO ,     KC_NO , KC_NO , KC_NO
 )

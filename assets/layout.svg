@@ -841,12 +841,14 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(135, 236)" class="key keypos-21">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
+<text x="0" y="0" class="key tap">BRID</text>
 </g>
 <g transform="translate(225, 225)" class="key keypos-22">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 </g>
 <g transform="translate(315, 236)" class="key keypos-23">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
+<text x="0" y="0" class="key tap">BRIU</text>
 </g>
 <g transform="translate(405, 248)" class="key keypos-24">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>

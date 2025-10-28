@@ -90,13 +90,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────────┼──────┼──────┼──────┼─────────┤   ├────┼─────────┼─────────┼─────────┼──────────────┤
 //    │   no    │ mprv │ mply │ mnxt │   no    │   │ no │  G(-)   │  G(0)   │  G(=)   │      no      │
 //    ├─────────┼──────┼──────┼──────┼─────────┤   ├────┼─────────┼─────────┼─────────┼──────────────┤
-//    │   no    │  no  │  no  │  no  │   no    │   │ no │ DT_DOWN │ DT_PRNT │  DT_UP  │      no      │
+//    │   no    │ brid │  no  │ briu │   no    │   │ no │ DT_DOWN │ DT_PRNT │  DT_UP  │      no      │
 //    └─────────┴──────┼──────┼──────┼─────────┤   ├────┼─────────┼─────────┼─────────┴──────────────┘
 //                     │  no  │  no  │   no    │   │ no │   no    │   no    │
 //                     └──────┴──────┴─────────┘   └────┴─────────┴─────────┘
   G(C(KC_Q)) , KC_VOLD , KC_MUTE , KC_VOLU , QK_BOOT ,     KC_NO , RM_HUED    , RM_TOGG , RM_HUEU   , KC_PRINT_SCREEN,
   KC_NO      , KC_MPRV , KC_MPLY , KC_MNXT , KC_NO   ,     KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO          ,
-  KC_NO      , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO          ,
+  KC_NO      , KC_BRID , KC_NO   , KC_BRIU , KC_NO   ,     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO          ,
                          KC_NO   , KC_NO   , KC_NO   ,     KC_NO , KC_NO      , KC_NO
 )
 };
