@@ -41,14 +41,15 @@
 
 - Extended layer under space bar for frequently used tools
 - Dual symbol layers (one per hand) with semantic arrangement
-- Dedicated number and function key layers
+- Unified NUM_FN layer combining numbers and function keys for efficient access
 
 ### Thumb Cluster Philosophy
 
-- Reserved for high-frequency, single-action keys (Space, Enter, Tab)
-- Dual-purpose modifiers (MEH, HYPER) integrated with common actions
+- Reserved for high-frequency, single-action keys (Space, Enter)
+- Dual-purpose modifiers (HYPER) integrated with common actions
+- Minimal thumb usage - only middle thumb keys are active to reduce fatigue
 - Avoids sequential/repeated actions to prevent thumb fatigue
-    - e.g. Backspace implemented as two-finger combo (I+O) to avoid repeated presses of thumb
+    - e.g. Backspace implemented as two-finger combo (I+O) to avoid repeated thumb presses
 
 ### Navigation & Tools
 

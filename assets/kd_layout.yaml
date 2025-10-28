@@ -33,14 +33,14 @@ layers:
         - { t: /, h: RGUI }
 
         # Left Thumb
-        - { t: "", h: LY_FUN }
-        - { t: ESC, h: LY_NUM }
+        - ""
+        - { t: ESC, h: LY_NUM_FN }
         - { t: SPC, h: LY_EXT }
 
         # Right Thumb
+        - { h: LY_MED }
         - { t: ENT, h: HYPR }
-        - { t: TAB, h: MEH }
-        - { t: "", h: LY_MED }
+        - ""
 
     LY_EXT: # Extended Layer
         - { t: G(Q) }
@@ -122,31 +122,31 @@ layers:
         - "=>"
         - ""
 
-    LY_NUM: # Number Layer
-        - ""
-        - ""
-        - ""
-        - ""
+    LY_NUM_FN: # Numbers & Function Keys Layer
+        - F9
+        - F10
+        - F11
+        - F12
         - ""
         - +
         - 7
         - 8
         - 9
         - "*"
-        - LGUI
-        - LALT
-        - LCTL
-        - LSFT
+        - { t: F5, h: LGUI }
+        - { t: F6, h: LALT }
+        - { t: F7, h: LCTL }
+        - { t: F8, h: LSFT }
         - ""
         - "="
-        - 4
-        - 5
-        - 6
+        - { t: "4", h: RSFT }
+        - { t: "5", h: RCTL }
+        - { t: "6", h: LALT }
         - ":"
-        - HYPR
-        - MEH
-        - ""
-        - ""
+        - F1
+        - F2
+        - F3
+        - F4
         - ""
         - "-"
         - 1
@@ -156,46 +156,8 @@ layers:
         - ""
         - ""
         - ""
+        - SPC
         - "0"
-        - "."
-        - ","
-
-    LY_FUN: # Function Layer
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-        - F9
-        - F10
-        - F11
-        - F12
-        - LGUI
-        - LALT
-        - LCTL
-        - LSFT
-        - ""
-        - ""
-        - F5
-        - F6
-        - F7
-        - F8
-        - HYPR
-        - MEH
-        - ""
-        - ""
-        - ""
-        - ""
-        - F1
-        - F2
-        - F3
-        - F4
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
         - ""
 
     LY_MED: # Media Layer
@@ -205,9 +167,9 @@ layers:
         - VOLU
         - ""
         - ""
-        - RGB_HUD
-        - RGB_TOG
-        - RGB_HUI
+        - RM_HUED
+        - RM_TOGG
+        - RM_HUEU
         - ""
         - ""
         - MPRV
@@ -247,6 +209,6 @@ combos:
     - { p: [6, 7], k: A(BSPC), l: [LY_SYM] } # 7 + 8 = Alt(Backspace)
     - { p: [7, 8], k: BSPC, l: [LY_SYM] } # 8 + 9 = Backspace
 
-    # Number layer combos
-    - { p: [6, 7], k: A(BSPC), l: [LY_NUM] } # 7 + 8 = Alt(Backspace)
-    - { p: [7, 8], k: BSPC, l: [LY_NUM] } # 8 + 9 = Backspace
+    # Number/Function layer combos
+    - { p: [6, 7], k: A(BSPC), l: [LY_NUM_FN] } # 7 + 8 = Alt(Backspace)
+    - { p: [7, 8], k: BSPC, l: [LY_NUM_FN] } # 8 + 9 = Backspace
