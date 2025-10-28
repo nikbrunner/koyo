@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ┌────┬─────────┬──────┬──────┬──────┬─────────┬────┐   ┌────┬────┬─────────┬─────────┬─────────┬──────────────┬────┐
 //    │ no │   no    │  no  │  no  │  no  │   no    │ no │   │ no │ no │   no    │   no    │   no    │      no      │ no │
 //    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┤   ├────┼────┼─────────┼─────────┼─────────┼──────────────┼────┤
-//    │ no │ G(C(q)) │ vold │ mute │ volu │ QK_BOOT │ no │   │ no │ no │ RGB_HUD │ RGB_TOG │ RGB_HUI │ pRINT_SCREEN │ no │
+//    │ no │ G(C(q)) │ vold │ mute │ volu │ QK_BOOT │ no │   │ no │ no │ RM_HUED │ RM_TOGG │ RM_HUEU │ pRINT_SCREEN │ no │
 //    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┤   ├────┼────┼─────────┼─────────┼─────────┼──────────────┼────┤
 //    │ no │   no    │ mprv │ mply │ mnxt │   no    │ no │   │ no │ no │  G(-)   │  G(0)   │  G(=)   │      no      │ no │
 //    ├────┼─────────┼──────┼──────┼──────┼─────────┼────┘   └────┼────┼─────────┼─────────┼─────────┼──────────────┼────┤
@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                                 │  no  │   no    │ no │   │ no │ no │   no    │
 //                                 └──────┴─────────┴────┘   └────┴────┴─────────┘
   KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   , KC_NO ,     KC_NO , KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO           , KC_NO,
-  KC_NO , G(C(KC_Q)) , KC_VOLD             , KC_MUTE             , KC_VOLU             , QK_BOOT , KC_NO ,     KC_NO , KC_NO , RGB_HUD    , RGB_TOG , RGB_HUI   , KC_PRINT_SCREEN , KC_NO,
+  KC_NO , G(C(KC_Q)) , KC_VOLD             , KC_MUTE             , KC_VOLU             , QK_BOOT , KC_NO ,     KC_NO , KC_NO , RM_HUED    , RM_TOGG , RM_HUEU   , KC_PRINT_SCREEN , KC_NO,
   KC_NO , KC_NO      , KC_MEDIA_PREV_TRACK , KC_MEDIA_PLAY_PAUSE , KC_MEDIA_NEXT_TRACK , KC_NO   , KC_NO ,     KC_NO , KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO           , KC_NO,
   KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO           , KC_NO,
   KC_NO , KC_NO      , KC_NO               , KC_NO               , KC_NO               , KC_NO   ,                     KC_NO , KC_NO      , KC_NO   , KC_NO     , KC_NO           , KC_NO,
@@ -181,8 +181,7 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
         case LT(LY_EXT, KC_SPC):
 
         // Right hand
-        case HYPR_T(KC_BSPC):
-        case MEH_T(KC_ENT):
+        case HYPR_T(KC_ENT):
         case MO(LY_MED):
             return true;
     }
