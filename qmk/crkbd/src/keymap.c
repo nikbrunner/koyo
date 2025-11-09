@@ -16,7 +16,8 @@ enum tap_dance_codes {
     TD_EXT_GUI_A,
     TD_EXT_GUI_S,
     TD_EXT_GUI_D,
-    TD_EXT_GUI_F
+    TD_EXT_GUI_F,
+    TD_MED_CTRLB
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -28,12 +29,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├─────────────────┼─────────────────┼─────────────────┼────────────────────┼─────────────────┤   ├────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
 //    │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │  MT(MOD_LSFT, v)   │        b        │   │     n      │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_LGUI, /) │
 //    └─────────────────┴─────────────────┼─────────────────┼────────────────────┼─────────────────┤   ├────────────┼─────────────────┼─────────────────┼─────────────────┴─────────────────┘
-//                                        │       no        │ LT(LY_NUM_FN, esc) │ LT(LY_EXT, spc) │   │ MO(LY_MED) │   HYPR_T(ent)   │       no        │
-//                                        └─────────────────┴────────────────────┴─────────────────┘   └────────────┴─────────────────┴─────────────────┘
+//                                        │       no        │ LT(LY_NUM_FN, esc) │ LT(LY_EXT, spc) │   │ TD(TD_MED_CTRLB) │   HYPR_T(ent)   │       no        │
+//                                        └─────────────────┴────────────────────┴─────────────────┘   └──────────────────┴─────────────────┴─────────────────┘
   KC_Q               , KC_W               , KC_E               , KC_R                  , KC_T               ,     KC_Y       , KC_U               , KC_I                   , KC_O                 , KC_P                  ,
   KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F                  , KC_G               ,     KC_H       , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN               ,
   MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V)    , KC_B               ,     KC_N       , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_LGUI, KC_SLASH),
-                                            KC_NO              , LT(LY_NUM_FN, KC_ESC) , LT(LY_EXT, KC_SPC) ,     MO(LY_MED) , HYPR_T(KC_ENT)     , KC_NO
+                                            KC_NO              , LT(LY_NUM_FN, KC_ESC) , LT(LY_EXT, KC_SPC) ,     TD(TD_MED_CTRLB) , HYPR_T(KC_ENT)     , KC_NO
 ),
 
 [LY_EXT] = LAYOUT_split_3x5_3(
@@ -148,7 +149,7 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
 
         // Right hand
         case HYPR_T(KC_ENT):
-        case MO(LY_MED):
+        case TD(TD_MED_CTRLB):
             return true;
     }
     
@@ -280,9 +281,29 @@ void reset_td_ext_gui_f(tap_dance_state_t *state, void *user_data) {
     unregister_code(KC_LSFT);
 }
 
+void on_td_med_ctrlb(tap_dance_state_t *state, void *user_data) {
+    uint8_t dance = dance_step(state);
+    switch (dance) {
+        case SINGLE_TAP:
+            register_code(KC_LCTL);
+            register_code(KC_B);
+            unregister_code(KC_B);
+            unregister_code(KC_LCTL);
+            break;
+        case SINGLE_HOLD:
+            layer_on(LY_MED);
+            break;
+    }
+}
+
+void reset_td_med_ctrlb(tap_dance_state_t *state, void *user_data) {
+    layer_off(LY_MED);
+}
+
 tap_dance_action_t tap_dance_actions[] = {
     [TD_EXT_GUI_A] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_a, reset_td_ext_gui_a),
     [TD_EXT_GUI_S] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_s, reset_td_ext_gui_s),
     [TD_EXT_GUI_D] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_d, reset_td_ext_gui_d),
     [TD_EXT_GUI_F] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_f, reset_td_ext_gui_f),
+    [TD_MED_CTRLB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_med_ctrlb, reset_td_med_ctrlb),
 };
