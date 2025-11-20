@@ -13,17 +13,16 @@ enum custom_keycodes {
 };
 
 enum tap_dance_codes {
-    TD_EXT_GUI_A,
-    TD_EXT_GUI_S,
-    TD_EXT_GUI_D,
-    TD_EXT_GUI_F,
     TD_EXT_GUI_Z,
     TD_EXT_ALT_X,
     TD_EXT_CTL_C,
     TD_EXT_SFT_V,
+
     TD_EXT_SFT_CW,
     TD_EXT_CTL_STAB,
     TD_EXT_ALT_TAB,
+    TD_EXT_GUI_SLASH
+
     TD_MED_CTRLB
 };
 
@@ -48,21 +47,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [LY_EXT] = LAYOUT_voyager(
-//    ┌────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬─────────┐   ┌──────┬────────────────────┬─────────────────────┬────────────────────┬─────────┬────┐
-//    │ no │        1         │        2         │        3         │        4         │    5    │   │  6   │         7          │          8          │         9          │    0    │ no │
-//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼────────────────────┼─────────────────────┼────────────────────┼─────────┼────┤
-//    │ no │     LGUI(q)      │     LGUI(w)      │     LGUI(e)      │     LGUI(r)      │ LGUI(t) │   │  no  │      RALT(u)       │       LGUI(`)       │     LGUI(tab)      │ HYPR(p) │ no │
-//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼────────────────────┼─────────────────────┼────────────────────┼─────────┼────┤
-//    │ no │ TD(TD_EXT_GUI_A) │ TD(TD_EXT_GUI_S) │ TD(TD_EXT_GUI_D) │ TD(TD_EXT_GUI_F) │ LGUI(g) │   │ left │        down        │         up          │        rght        │ HYPR(;) │ no │
-//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼────────────────────┼─────────────────────┼────────────────────┼─────────┼────┤
-//    │ no │ TD(TD_EXT_GUI_Z) │ TD(TD_EXT_ALT_X) │ TD(TD_EXT_CTL_C) │ TD(TD_EXT_SFT_V) │ LGUI(b) │   │  no  │ TD(TD_EXT_SFT_CW)  │ TD(TD_EXT_CTL_STAB) │ TD(TD_EXT_ALT_TAB) │   no    │ no │
-//    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼─────────┤   ├──────┼────────────────────┼─────────────────────┴────────────────────┴─────────┴────┘
-//                                                                  │        no        │   no    │   │  no  │         no         │
-//                                                                  └──────────────────┴─────────┘   └──────┴────────────────────┘
-  KC_NO , KC_1             , KC_2             , KC_3             , KC_4             , KC_5       ,     KC_6    , KC_7                , KC_8                 , KC_9                , KC_0          , KC_NO,
-  KC_NO , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) ,     KC_NO   , RALT(KC_U)          , LGUI(KC_GRV)         , LGUI(KC_TAB)        , HYPR(KC_P)    , KC_NO,
-  KC_NO , TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G) ,     KC_LEFT , KC_DOWN             , KC_UP                , KC_RGHT             , HYPR(KC_SCLN) , KC_NO,
-  KC_NO , TD(TD_EXT_GUI_Z) , TD(TD_EXT_ALT_X) , TD(TD_EXT_CTL_C) , TD(TD_EXT_SFT_V) , LGUI(KC_B) ,     KC_NO   , TD(TD_EXT_SFT_CW)   , TD(TD_EXT_CTL_STAB)  , TD(TD_EXT_ALT_TAB)  , KC_NO         , KC_NO,
+//    ┌────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬─────────┐   ┌──────┬───────────────────┬─────────────────────┬────────────────────┬──────────────────────┬────┐
+//    │ no │        1         │        2         │        3         │        4         │    5    │   │  6   │         7         │          8          │         9          │          0           │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼───────────────────┼─────────────────────┼────────────────────┼──────────────────────┼────┤
+//    │ no │     LGUI(q)      │     LGUI(w)      │     LGUI(e)      │     LGUI(r)      │ LGUI(t) │   │  no  │      RALT(u)      │       LGUI(`)       │     LGUI(tab)      │       HYPR(p)        │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼───────────────────┼─────────────────────┼────────────────────┼──────────────────────┼────┤
+//    │ no │     LGUI(a)      │     LGUI(s)      │     LGUI(d)      │     LGUI(f)      │ LGUI(g) │   │ left │       down        │         up          │        rght        │       HYPR(;)        │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼───────────────────┼─────────────────────┼────────────────────┼──────────────────────┼────┤
+//    │ no │ TD(TD_EXT_GUI_Z) │ TD(TD_EXT_ALT_X) │ TD(TD_EXT_CTL_C) │ TD(TD_EXT_SFT_V) │ LGUI(b) │   │  no  │ TD(TD_EXT_SFT_CW) │ TD(TD_EXT_CTL_STAB) │ TD(TD_EXT_ALT_TAB) │ TD(TD_EXT_GUI_SLASH) │ no │
+//    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼─────────┤   ├──────┼───────────────────┼─────────────────────┴────────────────────┴──────────────────────┴────┘
+//                                                                  │        no        │   no    │   │  no  │        no         │
+//                                                                  └──────────────────┴─────────┘   └──────┴───────────────────┘
+  KC_NO , KC_1             , KC_2             , KC_3             , KC_4             , KC_5       ,     KC_6    , KC_7              , KC_8                , KC_9               , KC_0                 , KC_NO,
+  KC_NO , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) ,     KC_NO   , RALT(KC_U)        , LGUI(KC_GRV)        , LGUI(KC_TAB)       , HYPR(KC_P)           , KC_NO,
+  KC_NO , LGUI(KC_A)       , LGUI(KC_S)       , LGUI(KC_D)       , LGUI(KC_F)       , LGUI(KC_G) ,     KC_LEFT , KC_DOWN           , KC_UP               , KC_RGHT            , HYPR(KC_SCLN)        , KC_NO,
+  KC_NO , TD(TD_EXT_GUI_Z) , TD(TD_EXT_ALT_X) , TD(TD_EXT_CTL_C) , TD(TD_EXT_SFT_V) , LGUI(KC_B) ,     KC_NO   , TD(TD_EXT_SFT_CW) , TD(TD_EXT_CTL_STAB) , TD(TD_EXT_ALT_TAB) , TD(TD_EXT_GUI_SLASH) , KC_NO,
                                                                    KC_NO            , KC_NO      ,     KC_NO   , KC_NO
 ),
 
@@ -86,21 +85,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [LY_NUM_FN] = LAYOUT_voyager(
-//    ┌────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬────┐   ┌─────┬─────────────────┬─────────────────┬─────────────────┬───┬────┐
-//    │ no │        1         │        2         │        3         │        4         │ 5  │   │  6  │        7        │        8        │        9        │ 0 │ no │
-//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤   ├─────┼─────────────────┼─────────────────┼─────────────────┼───┼────┤
-//    │ no │        f9        │       f10        │       f11        │       f12        │ no │   │  +  │        7        │        8        │        9        │ * │ no │
-//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤   ├─────┼─────────────────┼─────────────────┼─────────────────┼───┼────┤
-//    │ no │ MT(MOD_LGUI, f5) │ MT(MOD_LALT, f6) │ MT(MOD_LCTL, f7) │ MT(MOD_LSFT, f8) │ no │   │  =  │ MT(MOD_RSFT, 4) │ MT(MOD_RCTL, 5) │ MT(MOD_RALT, 6) │ : │ no │
-//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤   ├─────┼─────────────────┼─────────────────┼─────────────────┼───┼────┤
-//    │ no │ MT(MOD_LGUI, f1) │ MT(MOD_LALT, f2) │ MT(MOD_LCTL, f3) │ MT(MOD_LSFT, f4) │ no │   │  -  │ MT(MOD_RSFT, 1) │ MT(MOD_RCTL, 2) │ MT(MOD_RALT, 3) │ / │ no │
-//    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼────┤   ├─────┼─────────────────┼─────────────────┴─────────────────┴───┴────┘
+//    ┌────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬────┐   ┌─────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬────┐
+//    │ no │        1         │        2         │        3         │        4         │ 5  │   │  6  │        7        │        8        │        9        │        0        │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤   ├─────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │        f9        │       f10        │       f11        │       f12        │ no │   │  +  │        7        │        8        │        9        │        *        │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤   ├─────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │        f5        │        f6        │        f7        │        f8        │ no │   │  =  │        4        │        5        │        6        │        :        │ no │
+//    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤   ├─────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
+//    │ no │ MT(MOD_LGUI, f1) │ MT(MOD_LALT, f2) │ MT(MOD_LCTL, f3) │ MT(MOD_LSFT, f4) │ no │   │  -  │ MT(MOD_RSFT, 1) │ MT(MOD_RCTL, 2) │ MT(MOD_RALT, 3) │ MT(MOD_RGUI, /) │ no │
+//    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼────┤   ├─────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴────┘
 //                                                                  │        no        │ no │   │ spc │        0        │
 //                                                                  └──────────────────┴────┘   └─────┴─────────────────┘
-  KC_NO , KC_1                , KC_2                , KC_3                , KC_4                , KC_5  ,     KC_6     , KC_7               , KC_8               , KC_9               , KC_0     , KC_NO,
-  KC_NO , KC_F9               , KC_F10              , KC_F11              , KC_F12              , KC_NO ,     KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , KC_NO,
-  KC_NO , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6) , MT(MOD_LCTL, KC_F7) , MT(MOD_LSFT, KC_F8) , KC_NO ,     KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , KC_NO,
-  KC_NO , MT(MOD_LGUI, KC_F1) , MT(MOD_LALT, KC_F2) , MT(MOD_LCTL, KC_F3) , MT(MOD_LSFT, KC_F4) , KC_NO ,     KC_MINUS , MT(MOD_RSFT, KC_1) , MT(MOD_RCTL, KC_2) , MT(MOD_RALT, KC_3) , KC_SLASH , KC_NO,
+  KC_NO , KC_1                , KC_2                , KC_3                , KC_4                , KC_5  ,     KC_6     , KC_7               , KC_8               , KC_9               , KC_0                   , KC_NO,
+  KC_NO , KC_F9               , KC_F10              , KC_F11              , KC_F12              , KC_NO ,     KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR                , KC_NO,
+  KC_NO , KC_F5               , KC_F6               , KC_F7               , KC_F8               , KC_NO ,     KC_EQUAL , KC_4               , KC_5               , KC_6               , KC_COLN                , KC_NO,
+  KC_NO , MT(MOD_LGUI, KC_F1) , MT(MOD_LALT, KC_F2) , MT(MOD_LCTL, KC_F3) , MT(MOD_LSFT, KC_F4) , KC_NO ,     KC_MINUS , MT(MOD_RSFT, KC_1) , MT(MOD_RCTL, KC_2) , MT(MOD_RALT, KC_3) , MT(MOD_RGUI, KC_SLASH) , KC_NO,
                                                                             KC_NO               , KC_NO ,     KC_SPC   , KC_0
 ),
 
@@ -223,82 +222,6 @@ uint8_t dance_step(tap_dance_state_t *state) {
         }
     }
     return MORE_TAPS;
-}
-
-void on_td_ext_gui_a(tap_dance_state_t *state, void *user_data) {
-    uint8_t dance = dance_step(state);
-    switch (dance) {
-        case SINGLE_TAP:
-            register_code(KC_LGUI);
-            register_code(KC_A);
-            unregister_code(KC_A);
-            unregister_code(KC_LGUI);
-            break;
-        case SINGLE_HOLD:
-            register_code(KC_LGUI);
-            break;
-    }
-}
-
-void reset_td_ext_gui_a(tap_dance_state_t *state, void *user_data) {
-    unregister_code(KC_LGUI);
-}
-
-void on_td_ext_gui_s(tap_dance_state_t *state, void *user_data) {
-    uint8_t dance = dance_step(state);
-    switch (dance) {
-        case SINGLE_TAP:
-            register_code(KC_LGUI);
-            register_code(KC_S);
-            unregister_code(KC_S);
-            unregister_code(KC_LGUI);
-            break;
-        case SINGLE_HOLD:
-            register_code(KC_LALT);
-            break;
-    }
-}
-
-void reset_td_ext_gui_s(tap_dance_state_t *state, void *user_data) {
-    unregister_code(KC_LALT);
-}
-
-void on_td_ext_gui_d(tap_dance_state_t *state, void *user_data) {
-    uint8_t dance = dance_step(state);
-    switch (dance) {
-        case SINGLE_TAP:
-            register_code(KC_LGUI);
-            register_code(KC_D);
-            unregister_code(KC_D);
-            unregister_code(KC_LGUI);
-            break;
-        case SINGLE_HOLD:
-            register_code(KC_LCTL);
-            break;
-    }
-}
-
-void reset_td_ext_gui_d(tap_dance_state_t *state, void *user_data) {
-    unregister_code(KC_LCTL);
-}
-
-void on_td_ext_gui_f(tap_dance_state_t *state, void *user_data) {
-    uint8_t dance = dance_step(state);
-    switch (dance) {
-        case SINGLE_TAP:
-            register_code(KC_LGUI);
-            register_code(KC_F);
-            unregister_code(KC_F);
-            unregister_code(KC_LGUI);
-            break;
-        case SINGLE_HOLD:
-            register_code(KC_LSFT);
-            break;
-    }
-}
-
-void reset_td_ext_gui_f(tap_dance_state_t *state, void *user_data) {
-    unregister_code(KC_LSFT);
 }
 
 void on_td_med_ctrlb(tap_dance_state_t *state, void *user_data) {
@@ -449,17 +372,35 @@ void reset_td_ext_alt_tab(tap_dance_state_t *state, void *user_data) {
     unregister_code(KC_RALT);
 }
 
+void on_td_ext_gui_slash(tap_dance_state_t *state, void *user_data) {
+    uint8_t dance = dance_step(state);
+    switch (dance) {
+        case SINGLE_TAP:
+            register_code(KC_LGUI);
+            register_code(KC_SLASH);
+            unregister_code(KC_SLASH);
+            unregister_code(KC_LGUI);
+            break;
+        case SINGLE_HOLD:
+            register_code(KC_GUI);
+            break;
+    }
+}
+
+void reset_td_ext_gui_slash(tap_dance_state_t *state, void *user_data) {
+    unregister_code(KC_GUI);
+}
+
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_EXT_GUI_A] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_a, reset_td_ext_gui_a),
-    [TD_EXT_GUI_S] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_s, reset_td_ext_gui_s),
-    [TD_EXT_GUI_D] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_d, reset_td_ext_gui_d),
-    [TD_EXT_GUI_F] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_f, reset_td_ext_gui_f),
     [TD_EXT_GUI_Z] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_z, reset_td_ext_gui_z),
     [TD_EXT_ALT_X] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_alt_x, reset_td_ext_alt_x),
     [TD_EXT_CTL_C] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_ctl_c, reset_td_ext_ctl_c),
     [TD_EXT_SFT_V] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_sft_v, reset_td_ext_sft_v),
+
     [TD_EXT_SFT_CW] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_sft_cw, reset_td_ext_sft_cw),
     [TD_EXT_CTL_STAB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_ctl_stab, reset_td_ext_ctl_stab),
     [TD_EXT_ALT_TAB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_alt_tab, reset_td_ext_alt_tab),
+    [TD_EXT_GUI_SLASH] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_slash, reset_td_ext_gui_slash),
+
     [TD_MED_CTRLB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_med_ctrlb, reset_td_med_ctrlb),
 };
