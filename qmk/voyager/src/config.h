@@ -1,0 +1,11 @@
+#undef TAPPING_TERM
+
+#define TAPPING_TERM 135
+#define COMBO_TERM 35
+#define COMBO_COUNT 5
+#define TAPPING_TERM_PER_KEY
+#define CHORDAL_HOLD
+
+#ifdef RGB_MATRIX_ENABLE
+    #define RGB_MATRIX_STARTUP_SPD 60
+#endif

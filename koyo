@@ -136,6 +136,22 @@ case $KEYBOARD in
     esac
     ;;
 
+"voyager")
+    case $COMMAND in
+    "flash")
+        "$PROJECT_DIR/qmk/voyager/flash.sh"
+        ;;
+    "help")
+        show_help
+        ;;
+    *)
+        error_log "Unknown command: $COMMAND"
+        show_help
+        exit 1
+        ;;
+    esac
+    ;;
+
 "help")
     show_help
     ;;
