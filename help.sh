@@ -46,6 +46,9 @@ show_help() {
 
     log_command "crkbd" "Corne keyboard commands"
     log_subcommand "flash" "Flash the keyboard with current configuration"
+
+    log_command "voyager" "ZSA Voyager commands"
+    log_subcommand "flash" "Flash the keyboard with current configuration"
     echo ""
 
     log_header "Examples"
@@ -55,6 +58,7 @@ show_help() {
     log_example "koyo moonlander flash"
     log_example "koyo --debug moonlander flash"
     log_example "koyo crkbd flash"
+    log_example "koyo voyager flash"
 }
 
 export -f show_help

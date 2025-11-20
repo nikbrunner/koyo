@@ -5,6 +5,7 @@
 - `./koyo setup --dry-run`: Validate setup without making changes
 - `./koyo moonlander flash`: Flash Moonlander keyboard
 - `./koyo crkbd flash`: Flash Corne keyboard
+- `./koyo voyager flash`: Flash Voyager keyboard
 - `./koyo update svg`: Update layout SVG
 - `./koyo update qmk`: Update QMK firmware
 - `./koyo --debug <command>`: Run with verbose logging
@@ -20,7 +21,7 @@
 - Test thoroughly with `--dry-run` before implementing changes
 
 ## QMK Framework Notes
-- Both keyboards (Moonlander and Corne) use QMK's Chordal Hold for tap-hold features
+- All keyboards (Moonlander, Corne, and Voyager) use QMK's Chordal Hold for tap-hold features
 - When implementing tap-hold functionality, use the `get_chordal_hold()` function
 - Key combos are implemented consistently across keyboards
 - Custom send string macros use the `SS_` prefix naming convention
