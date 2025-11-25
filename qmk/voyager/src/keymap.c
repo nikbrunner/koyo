@@ -84,17 +84,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤   ├────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
 //    │ no │        f9        │       f10        │       f11        │       f12        │ no │   │ +  │        7        │        8        │        9        │ *  │ no │
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤   ├────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
-//    │ no │ MT(MOD_LGUI, f5) │ MT(MOD_LALT, f6) │ MT(MOD_LCTL, f7) │ MT(MOD_LSFT, f8) │ no │   │ =  │ MT(MOD_RSFT, 4) │ MT(MOD_RCTL, 5) │ MT(MOD_RALT, 6) │ :  │ no │
+//    │ no │ MT(MOD_LGUI, f5) │ MT(MOD_LALT, f6) │ MT(MOD_LCTL, f7) │ MT(MOD_LSFT, f8) │ no │   │ =  │ MT(MOD_RSFT, 4) │ MT(MOD_RCTL, 5) │ MT(MOD_RALT, 6) │ 0  │ no │
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤   ├────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
 //    │ no │        f1        │        f2        │        f3        │        f4        │ no │   │ -  │        1        │        2        │        3        │ /  │ no │
 //    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼────┤   ├────┼─────────────────┼─────────────────┴─────────────────┴────┴────┘
-//                                                                  │        no        │ no │   │ 0  │        .        │
+//                                                                  │        no        │ no │   │ no │        :        │
 //                                                                  └──────────────────┴────┘   └────┴─────────────────┘
   KC_NO , KC_NO               , KC_NO               , KC_NO               , KC_NO               , KC_NO ,     KC_NO    , KC_NO              , KC_NO              , KC_NO              , KC_NO    , KC_NO,
   KC_NO , KC_F9               , KC_F10              , KC_F11              , KC_F12              , KC_NO ,     KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , KC_NO,
-  KC_NO , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6) , MT(MOD_LCTL, KC_F7) , MT(MOD_LSFT, KC_F8) , KC_NO ,     KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , KC_NO,
+  KC_NO , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6) , MT(MOD_LCTL, KC_F7) , MT(MOD_LSFT, KC_F8) , KC_NO ,     KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_0     , KC_NO,
   KC_NO , KC_F1               , KC_F2               , KC_F3               , KC_F4               , KC_NO ,     KC_MINUS , KC_1               , KC_2               , KC_3               , KC_SLASH , KC_NO,
-                                                                            KC_NO               , KC_NO ,     KC_0     , KC_DOT
+                                                                            KC_NO               , KC_NO ,     KC_NO    , KC_COLN
 ),
 
 [LY_MED] = LAYOUT_voyager(
@@ -141,6 +141,10 @@ const uint16_t PROGMEM LY_SYM_CMB_BACKSPACE[]     = {KC_DQUO , KC_RCBR, COMBO_EN
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_LEFT[]  = {KC_J, LT(LY_SYM, KC_K), COMBO_END};
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {LT(LY_SYM, KC_K), KC_L, COMBO_END};
 
+// Punctuation on NUM layer
+const uint16_t PROGMEM LY_NUM_FN_CMB_COMMA[]  = {KC_1, KC_2, COMBO_END};
+const uint16_t PROGMEM LY_NUM_FN_CMB_DOT[]    = {KC_2, KC_3, COMBO_END};
+
 combo_t key_combos[] = {
     // Backspace
     COMBO(LY_BAS_CMB_BACKSPACE, KC_BSPC),
@@ -150,6 +154,10 @@ combo_t key_combos[] = {
     // Brackets
     COMBO(LY_BAS_CMB_BRACKET_LEFT, KC_LBRC),
     COMBO(LY_BAS_CMB_BRACKET_RIGHT, KC_RBRC),
+
+    // Punctuation on NUM layer
+    COMBO(LY_NUM_FN_CMB_COMMA, KC_COMMA),
+    COMBO(LY_NUM_FN_CMB_DOT, KC_DOT),
 };
 
 // Chordal Hold implementation
