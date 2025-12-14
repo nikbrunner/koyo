@@ -196,6 +196,18 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     );
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // Ctrl+[ sends Escape (like terminal)
+    if (keycode == KC_LBRC && record->event.pressed) {
+        if (get_mods() & MOD_MASK_CTRL) {
+            // Clear ctrl, send escape, restore mods
+            uint8_t mods = get_mods();
+            clear_mods();
+            tap_code(KC_ESC);
+            set_mods(mods);
+            return false;
+        }
+    }
+
     switch (keycode) {
         case SS_FATARROW:
             if (record->event.pressed) {
