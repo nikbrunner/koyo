@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_Q               , KC_W               , KC_E               , KC_R                  , KC_T               ,     KC_Y           , KC_U               , KC_I                   , KC_O                 , KC_P                  ,
   KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F                  , KC_G               ,     KC_H           , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN               ,
   MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V)    , KC_B               ,     KC_N           , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_LGUI, KC_SLASH),
-                                            KC_NO              , LT(LY_EXT, KC_SPC)    , LT(LY_NUM_FN, KC_ESC) ,     TD(TD_MED_CTRLB) , HYPR_T(KC_ENT)   , KC_NO
+                                            KC_NO              , LT(LY_EXT, KC_SPC)    , MO(LY_NUM_FN) ,     TD(TD_MED_CTRLB) , HYPR_T(KC_ENT)   , KC_NO
 ),
 
 [LY_EXT] = LAYOUT_split_3x5_3(
@@ -158,7 +158,7 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     // Define which keys should always hold when chorded
     switch (tap_hold_keycode) {
         // Left hand
-        case LT(LY_NUM_FN, KC_ESC):
+        case MO(LY_NUM_FN):
         case LT(LY_EXT, KC_SPC):
 
         // Right hand
