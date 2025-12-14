@@ -81,14 +81,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼────┼────┼────┼──────┼──────┤             ├────┼────┼────┼────┼────┼────┤
 //    │ no │ no │ no │ no │ lalt │  no  │             │ no │ => │ no │ no │ no │ no │
 //    └────┴────┴────┴────┼──────┼──────┼────┐   ┌────┼────┼────┼────┴────┴────┴────┘
-//                        │ lctl │ lgui │ no │   │ no │ no │ no │
+//                        │ lctl │  no  │ no │   │ no │ no │ no │
 //                        └──────┴──────┴────┘   └────┴────┴────┘
   KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_NO   , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_NO       , KC_NO    , KC_NO   , KC_NO    , KC_NO,
   KC_NO , KC_CIRC , KC_PLUS  , KC_HASH , KC_PERC , KC_DLR  , KC_NO ,     KC_NO , KC_LABK  , KC_LCBR     , KC_DQUO  , KC_RCBR , KC_RABK  , KC_NO,
   KC_NO , KC_EXLM , KC_MINUS , KC_AMPR , KC_QUES , KC_PIPE , KC_NO ,     KC_NO , KC_EQUAL , KC_LBRC     , KC_QUOTE , KC_RBRC , KC_COLN  , KC_NO,
   KC_NO , KC_TILD , KC_UNDS  , KC_ASTR , KC_AT   , KC_NO   ,                     KC_BSLS  , KC_LPRN     , KC_GRAVE , KC_RPRN , KC_SLASH , KC_NO,
   KC_NO , KC_NO   , KC_NO    , KC_NO   , KC_LALT , KC_NO   ,                     KC_NO    , SS_FATARROW , KC_NO    , KC_NO   , KC_NO    , KC_NO,
-                                         KC_LCTL , KC_LGUI , KC_NO ,     KC_NO , KC_NO    , KC_NO
+                                         KC_LCTL , KC_NO   , KC_NO ,     KC_NO , KC_NO    , KC_NO
 ),
 
 [LY_NUM_FN] = LAYOUT_moonlander(
@@ -101,16 +101,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┼────┘   └────┼────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
 //    │ no │        f1        │        f2        │        f3        │        f4        │ no │             │ -  │        1        │        2        │        3        │ /  │ no │
 //    ├────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼────┤             ├────┼─────────────────┼─────────────────┼─────────────────┼────┼────┤
-//    │ no │        no        │        no        │        no        │        no        │ no │             │ no │        0        │        ,        │       no        │ no │ no │
+//    │ no │        no        │        no        │        no        │        no        │ no │             │ no │       no        │       no        │       no        │ no │ no │
 //    └────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼────┼────┐   ┌────┼────┼─────────────────┼─────────────────┴─────────────────┴────┴────┘
-//                                                                  │        no        │ no │ no │   │ no │ no │        .        │
-//                                                                  └──────────────────┴────┴────┘   └────┴────┴─────────────────┘
+//                                                                  │        no        │ no │ no │   │ no │ C(b) │       ent       │
+//                                                                  └──────────────────┴────┴────┘   └────┴──────┴─────────────────┘
   KC_NO , KC_NO               , KC_NO               , KC_NO               , KC_NO               , KC_NO , KC_NO ,     KC_NO , KC_NO    , KC_NO              , KC_NO              , KC_NO              , KC_NO    , KC_NO,
   KC_NO , KC_F9               , KC_F10              , KC_F11              , KC_F12              , KC_NO , KC_NO ,     KC_NO , KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , KC_NO,
   KC_NO , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6) , MT(MOD_LCTL, KC_F7) , MT(MOD_LSFT, KC_F8) , KC_NO , KC_NO ,     KC_NO , KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , KC_NO,
   KC_NO , KC_F1               , KC_F2               , KC_F3               , KC_F4               , KC_NO ,                     KC_MINUS , KC_1               , KC_2               , KC_3               , KC_SLASH , KC_NO,
-  KC_NO , KC_NO               , KC_NO               , KC_NO               , KC_NO               , KC_NO ,                     KC_NO    , KC_0               , KC_COMMA           , KC_NO              , KC_NO    , KC_NO,
-                                                                            KC_NO               , KC_NO , KC_NO ,     KC_NO , KC_NO    , KC_DOT
+  KC_NO , KC_NO               , KC_NO               , KC_NO               , KC_NO               , KC_NO ,                     KC_NO    , KC_NO              , KC_NO              , KC_NO              , KC_NO    , KC_NO,
+                                                                            KC_NO               , KC_NO , KC_NO ,     KC_NO , C(KC_B)  , KC_ENT
 ),
 
 [LY_MED] = LAYOUT_moonlander(
@@ -160,6 +160,13 @@ const uint16_t PROGMEM LY_SYM_CMB_BACKSPACE[]     = {KC_DQUO , KC_RCBR, COMBO_EN
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_LEFT[]  = {KC_J, LT(LY_SYM, KC_K), COMBO_END};
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {LT(LY_SYM, KC_K), KC_L, COMBO_END};
 
+// Punctuation on NUM layer
+const uint16_t PROGMEM LY_NUM_FN_CMB_COMMA[]  = {KC_1, KC_2, COMBO_END};
+const uint16_t PROGMEM LY_NUM_FN_CMB_DOT[]    = {KC_2, KC_3, COMBO_END};
+
+// 0 on NUM layer
+const uint16_t PROGMEM LY_NUM_FN_CMB_0[] = {MT(MOD_RCTL, KC_5), MT(MOD_RALT, KC_6), COMBO_END};
+
 combo_t key_combos[] = {
     // Backspace
     COMBO(LY_BAS_CMB_BACKSPACE, KC_BSPC),
@@ -169,6 +176,13 @@ combo_t key_combos[] = {
     // Brackets
     COMBO(LY_BAS_CMB_BRACKET_LEFT, KC_LBRC),
     COMBO(LY_BAS_CMB_BRACKET_RIGHT, KC_RBRC),
+
+    // Punctuation on NUM layer
+    COMBO(LY_NUM_FN_CMB_COMMA, KC_COMMA),
+    COMBO(LY_NUM_FN_CMB_DOT, KC_DOT),
+
+    // 0 on NUM layer
+    COMBO(LY_NUM_FN_CMB_0, KC_0),
 };
 
 // Chordal Hold implementation
@@ -347,3 +361,28 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_EXT_GUI_F] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_f, reset_td_ext_gui_f),
     [TD_MED_CTRLB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_med_ctrlb, reset_td_med_ctrlb),
 };
+
+// RGB LAYER LIGHTING ============================================================================
+// https://getreuer.info/posts/keyboards/palettefx/index.html
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+
+    switch (get_highest_layer(state)) {
+        case LY_BAS:
+            rgb_matrix_sethsv_noeeprom(15, 255, 255);   // Orange
+            break;
+        case LY_EXT:
+            rgb_matrix_sethsv_noeeprom(200, 255, 255);  // Purple
+            break;
+        case LY_SYM:
+            rgb_matrix_sethsv_noeeprom(85, 255, 255);   // Green
+            break;
+        case LY_NUM_FN:
+            rgb_matrix_sethsv_noeeprom(170, 255, 255);  // Blue
+            break;
+        case LY_MED:
+            rgb_matrix_sethsv_noeeprom(0, 255, 255);    // Red
+            break;
+    }
+    return state;
+}
