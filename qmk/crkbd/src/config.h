@@ -1,7 +1,7 @@
 #pragma once
 
 #define MASTER_LEFT
-#define TAPPING_TERM 100
+#define TAPPING_TERM 165
 #define COMBO_TERM 35
 #define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD

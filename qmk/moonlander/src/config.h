@@ -1,6 +1,6 @@
 #undef TAPPING_TERM
 
-#define TAPPING_TERM 100
+#define TAPPING_TERM 165
 #define COMBO_TERM 35
 #define COMBO_COUNT 5
 #define TAPPING_TERM_PER_KEY
