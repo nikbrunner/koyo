@@ -83,7 +83,7 @@ main() {
     fi
 
     echo "Compiling and flashing firmware..."
-    if ! make zsa/voyager:koyo:flash; then
+    if ! qmk flash -kb zsa/voyager -km koyo; then
         error_log "Failed to compile/flash firmware"
         exit 1
     fi
