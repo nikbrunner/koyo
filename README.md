@@ -122,6 +122,9 @@ koyo moonlander oryx
 
 # Flash Corne keyboard
 koyo crkbd flash
+
+# Flash Voyager keyboard
+koyo voyager flash
 ```
 
 #### Update Operations
@@ -146,25 +149,34 @@ koyo --debug moonlander flash
 
 ```
 koyo/
-└── assets/            # Project assets
+├── assets/            # Project assets
 ├── qmk/               # QMK configurations
 │   ├── moonlander/    # Moonlander specific files
-│   └── crkbd/         # Corne specific files
+│   ├── crkbd/         # Corne specific files
+│   └── voyager/       # Voyager specific files
 ├── setup.sh           # Setup script
 ├── utils.sh           # Utility functions
 ├── help.sh            # Help documentation
 ├── update_svg.sh      # SVG update script
 ├── config.yml         # Configuration file
-├── koyo               # koyo command
+└── koyo               # koyo command
 ```
 
 ## Prerequisites
 
-- `qmk` firmware
-- `keymap-drawer` for SVG generation
-- `yq` for YAML processing
-- `zsh` shell
-- `git`
+The setup script will automatically install missing dependencies:
+
+- **Homebrew** - Required for installing other dependencies (install from [brew.sh](https://brew.sh))
+- **git** - For cloning repositories
+- **zsh** - Shell (usually pre-installed on macOS)
+
+The following are installed automatically by `./koyo setup`:
+
+- **QMK CLI** - Installed via [official installer](https://docs.qmk.fm/newbs_getting_started)
+- **QMK Firmware** - Cloned to `~/repos/qmk/qmk_firmware`
+- **yq** - YAML processing (via Homebrew)
+- **pipx** - Python package manager (via Homebrew)
+- **keymap-drawer** - SVG generation (via pipx)
 
 ## Development
 
@@ -190,6 +202,7 @@ Before submitting changes:
 - [x] DRY up scripts
 - [x] `koyo moonlander oryx` (Opens up Oryx Configurator Page)
 - [x] `koyo corne flash` (Flashes the Corne Keyboard)
+- [x] `koyo voyager flash` (Flashes the Voyager Keyboard)
 - [x] `koyo update svg` (Updates the SVG files)
 - [x] `koyo update qmk` (Pulls latest Version of QMK firmware)
 - [x] Ensure keymap-drawer is installed

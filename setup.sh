@@ -53,6 +53,40 @@ check_yq() {
     fi
 }
 
+check_pipx() {
+    debug_log "Checking pipx installation..."
+
+    if ! command -v pipx &>/dev/null; then
+        debug_log "Warning: pipx not found"
+
+        if [[ "$DRY_RUN" == "true" ]]; then
+            debug_log "Would prompt to install pipx"
+            return
+        fi
+
+        prompt_log "Would you like to install pipx now? (y/n)"
+        read -r response
+
+        if [[ "$response" =~ ^[Yy]$ ]]; then
+            if command -v brew &>/dev/null; then
+                brew install pipx
+                pipx ensurepath
+                success_log "pipx installed successfully via Homebrew"
+            else
+                error_log "Homebrew not found. Please install pipx manually:"
+                error_log "  macOS: brew install pipx"
+                error_log "  Linux: python3 -m pip install --user pipx"
+                exit 1
+            fi
+        else
+            warning_log "Please install pipx manually before continuing"
+            exit 1
+        fi
+    else
+        success_log "pipx found"
+    fi
+}
+
 check_keymap() {
     debug_log "Checking keymap-drawer installation..."
 
@@ -68,16 +102,15 @@ check_keymap() {
         read -r response
 
         if [[ "$response" =~ ^[Yy]$ ]]; then
-            if command -v pip3 &>/dev/null; then
+            if command -v pipx &>/dev/null; then
                 pipx install keymap-drawer
-                success_log "keymap-drawer installed successfully via pip3"
+                success_log "keymap-drawer installed successfully via pipx"
             else
-                error_log "pipx not found. Please install pipx (`brew install pipx`) and then install keymap-drawer:"
-                error_log "pipx install keymap-drawer"
+                error_log "pipx not found. Please run setup again to install pipx first."
                 exit 1
             fi
         else
-            warning_log "Please install keymap-drawer manually before continuing"
+            warning_log "Please install keymap-drawer manually: pipx install keymap-drawer"
             exit 1
         fi
     else
@@ -105,7 +138,7 @@ fi
 
 check_qmk() {
     debug_log "Checking QMK installation..."
-    
+
     # First check if qmk CLI is available
     if ! command -v qmk &>/dev/null; then
         debug_log "Warning: QMK CLI not found"
@@ -119,15 +152,24 @@ check_qmk() {
         read -r response
 
         if [[ "$response" =~ ^[Yy]$ ]]; then
-            if command -v python3 &>/dev/null; then
-                python3 -m pip install --user qmk
-                success_log "QMK CLI installed successfully"
+            echo "Installing QMK via official installer..."
+            if command -v curl &>/dev/null; then
+                curl -fsSL https://install.qmk.fm | sh
+                # Source the updated PATH
+                export PATH="$HOME/.local/bin:$PATH"
+                if command -v qmk &>/dev/null; then
+                    success_log "QMK CLI installed successfully"
+                else
+                    warning_log "QMK installed but not in PATH. You may need to restart your shell."
+                    warning_log "Then run this setup again."
+                    exit 1
+                fi
             else
-                error_log "Python3 not found. Please install Python3 and pip before continuing"
+                error_log "curl not found. Please install curl first."
                 exit 1
             fi
         else
-            warning_log "Please install QMK CLI manually before continuing"
+            warning_log "Please install QMK CLI manually: curl -fsSL https://install.qmk.fm | sh"
             exit 1
         fi
     else
@@ -149,9 +191,17 @@ check_qmk() {
         if [[ "$response" =~ ^[Yy]$ ]]; then
             # Configure QMK home directory
             qmk config user.qmk_home="$QMK_DIR"
-            
-            # Run QMK setup
-            if ! qmk setup -y; then
+
+            # Clone with progress visible
+            echo "Cloning QMK firmware (this may take a while)..."
+            if ! git clone --progress --recurse-submodules https://github.com/qmk/qmk_firmware.git "$QMK_DIR"; then
+                error_log "Failed to clone QMK firmware"
+                exit 1
+            fi
+
+            # Run QMK setup to finalize
+            echo "Setting up QMK..."
+            if ! qmk setup -y -H "$QMK_DIR"; then
                 error_log "Failed to setup QMK firmware"
                 exit 1
             fi
@@ -257,6 +307,7 @@ main() {
 
     check_zsh
     check_yq
+    check_pipx
     check_keymap
     check_qmk
     setup_permissions
