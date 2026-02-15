@@ -5,8 +5,7 @@ enum layers {
     LY_EXT,
     LY_SYM,
     LY_NUM_FN,
-    LY_MED,
-    LY_GAME
+    LY_MED
 };
 
 enum custom_keycodes {
@@ -30,14 +29,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────────┤   ├──────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────┤
 //    │ no │        a        │        s        │  LT(LY_SYM, d)  │        f        │         g          │   │        h         │        j        │  LT(LY_SYM, k)  │        l        │        ;        │     no      │
 //    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────────┤   ├──────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────┤
-//    │ no │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │         b          │   │        n         │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_LGUI, /) │ TG(LY_GAME) │
+//    │ no │ MT(MOD_LGUI, z) │ MT(MOD_LALT, x) │ MT(MOD_LCTL, c) │ MT(MOD_LSFT, v) │         b          │   │        n         │ MT(MOD_RSFT, m) │ MT(MOD_RCTL, ,) │ MT(MOD_LALT, .) │ MT(MOD_LGUI, /) │     no      │
 //    └────┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼────────────────────┤   ├──────────────────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴─────────────┘
 //                                                               │ LT(LY_EXT, spc) │ LT(LY_NUM_FN, esc) │   │ TD(TD_MED_CTRLB) │   HYPR_T(ent)   │
 //                                                               └─────────────────┴────────────────────┘   └──────────────────┴─────────────────┘
   KC_NO , KC_NO              , KC_NO              , KC_NO              , KC_NO              , KC_NO                 ,     KC_NO            , KC_NO              , KC_NO                  , KC_NO                , KC_NO                  , KC_NO      ,
   KC_NO , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T                  ,     KC_Y             , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_NO      ,
   KC_NO , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G                  ,     KC_H             , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_NO      ,
-  KC_NO , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B                  ,     KC_N             , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_LGUI, KC_SLASH) , TG(LY_GAME),
+  KC_NO , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B                  ,     KC_N             , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_LGUI, KC_SLASH) , KC_NO      ,
                                                                          LT(LY_EXT, KC_SPC) , LT(LY_NUM_FN, KC_ESC) ,     TD(TD_MED_CTRLB) , HYPR_T(KC_ENT)
 ),
 
@@ -115,25 +114,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO , KC_NO      , KC_MPRV , KC_MPLY , KC_MNXT , KC_NO   ,     KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO           , KC_NO,
   KC_NO , KC_NO      , KC_BRID , KC_NO   , KC_BRIU , KC_NO   ,     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO           , KC_NO,
                                            KC_NO   , KC_NO   ,     KC_NO , KC_NO
-),
-
-[LY_GAME] = LAYOUT_voyager(
-//    ┌──────┬───┬───┬───┬─────┬───────────────────┐   ┌──────────────────┬─────────────┬───┬───┬───┬─────────────┐
-//    │  `   │ 1 │ 2 │ 3 │  4  │         5         │   │        6         │      7      │ 8 │ 9 │ 0 │    bspc     │
-//    ├──────┼───┼───┼───┼─────┼───────────────────┤   ├──────────────────┼─────────────┼───┼───┼───┼─────────────┤
-//    │ tab  │ q │ w │ e │  r  │         t         │   │        y         │      u      │ i │ o │ p │      \      │
-//    ├──────┼───┼───┼───┼─────┼───────────────────┤   ├──────────────────┼─────────────┼───┼───┼───┼─────────────┤
-//    │ lctl │ a │ s │ d │  f  │         g         │   │        h         │      j      │ k │ l │ ; │      '      │
-//    ├──────┼───┼───┼───┼─────┼───────────────────┤   ├──────────────────┼─────────────┼───┼───┼───┼─────────────┤
-//    │ lsft │ z │ x │ c │  v  │         b         │   │        n         │      m      │ , │ . │ / │ TG(LY_GAME) │
-//    └──────┴───┴───┴───┼─────┼───────────────────┤   ├──────────────────┼─────────────┼───┴───┴───┴─────────────┘
-//                       │ spc │ MT(MOD_LALT, esc) │   │ TD(TD_MED_CTRLB) │ HYPR_T(ent) │
-//                       └─────┴───────────────────┘   └──────────────────┴─────────────┘
-  KC_GRV  , KC_1 , KC_2 , KC_3 , KC_4   , KC_5                 ,     KC_6             , KC_7           , KC_8     , KC_9   , KC_0    , KC_BSPC    ,
-  KC_TAB  , KC_Q , KC_W , KC_E , KC_R   , KC_T                 ,     KC_Y             , KC_U           , KC_I     , KC_O   , KC_P    , KC_BSLS    ,
-  KC_LCTL , KC_A , KC_S , KC_D , KC_F   , KC_G                 ,     KC_H             , KC_J           , KC_K     , KC_L   , KC_SCLN , KC_QUOT    ,
-  KC_LSFT , KC_Z , KC_X , KC_C , KC_V   , KC_B                 ,     KC_N             , KC_M           , KC_COMMA , KC_DOT , KC_SLSH , TG(LY_GAME),
-                                 KC_SPC , MT(MOD_LALT, KC_ESC) ,     TD(TD_MED_CTRLB) , HYPR_T(KC_ENT)
 )
 };
 
@@ -154,7 +134,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // COMBO ================================================================================
 // Backspace
 const uint16_t PROGMEM LY_BAS_CMB_BACKSPACE[]     = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM LY_GAME_CMB_BACKSPACE[]     = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM LY_NUM_FN_CMB_BACKSPACE[]  = {KC_8, KC_9, COMBO_END};
 const uint16_t PROGMEM LY_SYM_CMB_BACKSPACE[]     = {KC_DQUO , KC_RCBR, COMBO_END};
 
@@ -169,7 +148,6 @@ const uint16_t PROGMEM LY_NUM_FN_CMB_DOT[]    = {KC_2, KC_3, COMBO_END};
 combo_t key_combos[] = {
     // Backspace
     COMBO(LY_BAS_CMB_BACKSPACE, KC_BSPC),
-    COMBO(LY_GAME_CMB_BACKSPACE, KC_BSPC),
     COMBO(LY_NUM_FN_CMB_BACKSPACE, KC_BSPC),
     COMBO(LY_SYM_CMB_BACKSPACE, KC_BSPC),
 
@@ -188,7 +166,7 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     // Define which keys should always hold when chorded
     switch (tap_hold_keycode) {
         // Left hand
-        case MO(LY_NUM_FN):
+        case LT(LY_NUM_FN, KC_ESC):
         case LT(LY_EXT, KC_SPC):
 
         // Right hand
@@ -371,9 +349,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             break;
         case LY_MED:
             rgb_matrix_sethsv_noeeprom(0, 255, 255);    // Red
-            break;
-        case LY_GAME:
-            rgb_matrix_sethsv_noeeprom(130, 255, 255);  // Cyan
             break;
     }
     return state;
