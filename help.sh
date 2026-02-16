@@ -47,6 +47,9 @@ show_help() {
     log_command "crkbd" "Corne keyboard commands"
     log_subcommand "flash" "Flash the keyboard with current configuration"
 
+    log_command "chocofi" "Chocofi keyboard commands (RP2040)"
+    log_subcommand "flash" "Compile and flash firmware via RP2040 USB drive"
+
     log_command "voyager" "ZSA Voyager commands"
     log_subcommand "flash" "Flash the keyboard with current configuration"
     echo ""
@@ -58,6 +61,7 @@ show_help() {
     log_example "koyo moonlander flash"
     log_example "koyo --debug moonlander flash"
     log_example "koyo crkbd flash"
+    log_example "koyo chocofi flash"
     log_example "koyo voyager flash"
 }
 
