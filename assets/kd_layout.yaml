@@ -201,15 +201,12 @@ layers:
 combos:
     # Base layer combos
     - { p: [1, 2], k: BSPC, l: [LY_BAS] } # W + E = Backspace
-    - { p: [6, 7], k: A(BSPC), l: [LY_BAS] } # U + I = Alt(Backspace)
     - { p: [7, 8], k: BSPC, l: [LY_BAS] } # I + O = Backspace
     - { p: [16, 17], k: "[", l: [LY_BAS] } # J + K = Left bracket
     - { p: [17, 18], k: "]", l: [LY_BAS] } # K + L = Right bracket
 
     # Symbol layer combos
-    - { p: [6, 7], k: A(BSPC), l: [LY_SYM] } # 7 + 8 = Alt(Backspace)
     - { p: [7, 8], k: BSPC, l: [LY_SYM] } # 8 + 9 = Backspace
 
     # Number/Function layer combos
-    - { p: [6, 7], k: A(BSPC), l: [LY_NUM_FN] } # 7 + 8 = Alt(Backspace)
     - { p: [7, 8], k: BSPC, l: [LY_NUM_FN] } # 8 + 9 = Backspace
