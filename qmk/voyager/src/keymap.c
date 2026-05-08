@@ -140,6 +140,9 @@ const uint16_t PROGMEM LY_SYM_CMB_BACKSPACE[]     = {KC_DQUO , KC_RCBR, COMBO_EN
 // Backspace (left hand)
 const uint16_t PROGMEM LY_BAS_CMB_BACKSPACE_LH[]     = {KC_W, KC_E, COMBO_END};
 
+// Space (left hand)
+const uint16_t PROGMEM LY_BAS_CMB_SPACE[] = {KC_S, LT(LY_SYM, KC_D), COMBO_END};
+
 // Brackets
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_LEFT[]  = {KC_J, LT(LY_SYM, KC_K), COMBO_END};
 const uint16_t PROGMEM LY_BAS_CMB_BRACKET_RIGHT[] = {LT(LY_SYM, KC_K), KC_L, COMBO_END};
@@ -156,6 +159,9 @@ combo_t key_combos[] = {
 
     // Backspace (left hand)
     COMBO(LY_BAS_CMB_BACKSPACE_LH, KC_BSPC),
+
+    // Space (left hand)
+    COMBO(LY_BAS_CMB_SPACE, KC_SPC),
 
     // Brackets
     COMBO(LY_BAS_CMB_BRACKET_LEFT, KC_LBRC),
