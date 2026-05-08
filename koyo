@@ -36,8 +36,10 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Restore positional arguments
-set -- "${POSITIONAL_ARGS[@]}"
+# Restore positional arguments (if any)
+if [ ${#POSITIONAL_ARGS[@]} -gt 0 ]; then
+    set -- "${POSITIONAL_ARGS[@]}"
+fi
 
 # Check if we have enough arguments
 if [ $# -lt 1 ]; then
