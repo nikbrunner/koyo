@@ -48,11 +48,11 @@ layers:
         - { t: G(E) }
         - { t: G(R) }
         - { t: G(T) }
-        - { t: G(C(C)) }
-        - { t: G(S(C)) }
+        - ""
+        - { t: RALT(U) }
         - { t: G(`) }
         - { t: G(TAB) }
-        - ""
+        - { t: HYPR(P) }
         - { t: "G(A)", h: "GUI" }
         - { t: "G(S)", h: "ALT" }
         - { t: "G(D)", h: "CTL" }
@@ -62,7 +62,7 @@ layers:
         - DOWN
         - UP
         - RIGHT
-        - ""
+        - { t: HYPR(;) }
         - { t: G(Z) }
         - { t: G(X) }
         - { t: G(C) }
@@ -70,8 +70,8 @@ layers:
         - { t: G(B) }
         - ""
         - CW_TOGG
-        - ""
-        - ""
+        - { t: S(KC_TAB) }
+        - TAB
         - ""
 
         # Left Thumb
@@ -80,7 +80,7 @@ layers:
         - ""
 
         # Right Thumb
-        - { t: S(KC_TAB) }
+        - ""
         - ""
         - ""
 
@@ -109,17 +109,17 @@ layers:
         - _
         - "*"
         - "@"
-        - "~/"
+        - ""
         - \
         - (
         - "`"
         - )
         - /
-        - { t: "", h: LALT }
-        - { t: "", h: LCTL }
-        - { t: "", h: LGUI }
         - ""
+        - LALT
+        - LCTL
         - "=>"
+        - ""
         - ""
 
     LY_NUM_FN: # Numbers & Function Keys Layer
@@ -156,7 +156,7 @@ layers:
         - ""
         - ""
         - ""
-        - SPC
+        - { t: C(B) }
         - "0"
         - ""
 
@@ -165,12 +165,12 @@ layers:
         - VOLD
         - MUTE
         - VOLU
-        - ""
+        - QK_BOOT
         - ""
         - RM_HUED
         - RM_TOGG
         - RM_HUEU
-        - ""
+        - PRINT_SCREEN
         - ""
         - MPRV
         - MPLY
@@ -200,6 +200,7 @@ layers:
 
 combos:
     # Base layer combos
+    - { p: [1, 2], k: BSPC, l: [LY_BAS] } # W + E = Backspace
     - { p: [6, 7], k: A(BSPC), l: [LY_BAS] } # U + I = Alt(Backspace)
     - { p: [7, 8], k: BSPC, l: [LY_BAS] } # I + O = Backspace
     - { p: [16, 17], k: "[", l: [LY_BAS] } # J + K = Left bracket
