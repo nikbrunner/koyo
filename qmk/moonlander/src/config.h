@@ -28,7 +28,6 @@
 
 // Time window for combo key presses (ms)
 #define COMBO_TERM 35
-#define COMBO_COUNT 5
 
 // =============================================================================
 // Layer Configuration
