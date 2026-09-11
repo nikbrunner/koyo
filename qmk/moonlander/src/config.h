@@ -59,3 +59,10 @@
 
 #undef MOUSEKEY_WHEEL_MAX_SPEED
 #define MOUSEKEY_WHEEL_MAX_SPEED 3
+
+// =============================================================================
+// Unicode Configuration
+// https://docs.qmk.fm/features/unicode
+// =============================================================================
+
+#define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS, UNICODE_MODE_LINUX

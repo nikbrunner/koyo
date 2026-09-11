@@ -5,11 +5,15 @@ enum layers {
     LY_EXT,
     LY_SYM,
     LY_NUM_FN,
-    LY_MED
+    LY_MED,
+    LY_UML
 };
 
 enum custom_keycodes {
     SS_FATARROW = SAFE_RANGE,
+    UML_A,
+    UML_O,
+    UML_U,
 };
 
 enum tap_dance_codes {
@@ -39,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [LY_EXT] = LAYOUT_split_3x5_3(
 //    ┌──────────────────┬──────────────────┬──────────────────┬──────────────────┬─────────┐   ┌──────┬─────────┬───────────┬───────────┬─────────┐
-//    │     LGUI(q)      │     LGUI(w)      │     LGUI(e)      │     LGUI(r)      │ LGUI(t) │   │  no  │ RALT(u) │  LGUI(`)  │ LGUI(tab) │ HYPR(p) │
+//    │     LGUI(q)      │     LGUI(w)      │     LGUI(e)      │     LGUI(r)      │ LGUI(t) │   │  no  │ OSL(LY_UML) │  LGUI(`)  │ LGUI(tab) │ HYPR(p) │
 //    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼─────────┼───────────┼───────────┼─────────┤
 //    │ TD(TD_EXT_GUI_A) │ TD(TD_EXT_GUI_S) │ TD(TD_EXT_GUI_D) │ TD(TD_EXT_GUI_F) │ LGUI(g) │   │ left │  down   │    up     │   rght    │ HYPR(;) │
 //    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼─────────┼───────────┼───────────┼─────────┤
@@ -47,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    └──────────────────┴──────────────────┼──────────────────┼──────────────────┼─────────┤   ├──────┼─────────┼───────────┼───────────┴─────────┘
 //                                          │        no        │        no        │   no    │   │  no  │   no    │    no     │
 //                                          └──────────────────┴──────────────────┴─────────┘   └──────┴─────────┴───────────┘
-  LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) ,     KC_NO   , RALT(KC_U) , LGUI(KC_GRV) , LGUI(KC_TAB) , HYPR(KC_P)   ,
+  LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) ,     KC_NO   , OSL(LY_UML) , LGUI(KC_GRV) , LGUI(KC_TAB) , HYPR(KC_P)   ,
   TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G) ,     KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT      , HYPR(KC_SCLN),
   LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B) ,     KC_NO   , CW_TOGG    , LSFT(KC_TAB) , KC_TAB       , KC_NO        ,
                                         KC_NO            , KC_NO            , KC_NO      ,     KC_NO   , KC_NO      , KC_NO
@@ -99,6 +103,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO      , KC_MPRV , KC_MPLY , KC_MNXT , KC_NO   ,     KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO          ,
   KC_NO      , KC_BRID , KC_NO   , KC_BRIU , KC_NO   ,     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO          ,
                          KC_NO   , KC_NO   , KC_NO   ,     KC_NO , KC_NO      , KC_NO
+),
+
+[LY_UML] = LAYOUT_split_3x5_3(
+  KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS , UML_U   , KC_TRNS , UML_O   , KC_TRNS,
+  UML_A   , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS , KC_TRNS , KC_TRNS , UC_LINX , KC_TRNS,
+  KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS , UC_MAC  , KC_TRNS , KC_TRNS , KC_TRNS,
+                      KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS , KC_TRNS , KC_TRNS
 )
 };
 
@@ -187,8 +198,53 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
                 'L', 'L', 'L',    'R', 'R', 'R'
     );
 
+static bool umlaut_is_uppercase(void) {
+    const uint8_t mods = get_mods() | get_weak_mods();
+    const bool shift = mods & MOD_MASK_SHIFT;
+    const bool caps_lock = host_keyboard_led_state().caps_lock;
+    return is_caps_word_on() || (shift ^ caps_lock);
+}
+
+static void send_umlaut(uint16_t vowel, uint32_t lowercase, uint32_t uppercase) {
+    const bool uppercase_output = umlaut_is_uppercase();
+
+    if (get_unicode_input_mode() == UNICODE_MODE_MACOS) {
+        const uint8_t mods = get_mods();
+        const uint8_t weak_mods = get_weak_mods();
+        const bool caps_lock = host_keyboard_led_state().caps_lock;
+
+        clear_mods();
+        clear_weak_mods();
+        send_keyboard_report();
+        tap_code16(RALT(KC_U));
+        tap_code16((uppercase_output ^ caps_lock) ? S(vowel) : vowel);
+
+        set_mods(mods);
+        set_weak_mods(weak_mods);
+        send_keyboard_report();
+        return;
+    }
+
+    register_unicode(uppercase_output ? uppercase : lowercase);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case UML_A:
+            if (record->event.pressed) {
+                send_umlaut(KC_A, 0x00E4, 0x00C4);
+            }
+            return false;
+        case UML_O:
+            if (record->event.pressed) {
+                send_umlaut(KC_O, 0x00F6, 0x00D6);
+            }
+            return false;
+        case UML_U:
+            if (record->event.pressed) {
+                send_umlaut(KC_U, 0x00FC, 0x00DC);
+            }
+            return false;
         case SS_FATARROW:
             if (record->event.pressed) {
                 SEND_STRING("=>");

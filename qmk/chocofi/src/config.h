@@ -45,3 +45,10 @@
     #define RGBLIGHT_SAT_STEP 17
     #define RGBLIGHT_VAL_STEP 17
 #endif
+
+// =============================================================================
+// Unicode Configuration
+// https://docs.qmk.fm/features/unicode
+// =============================================================================
+
+#define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS, UNICODE_MODE_LINUX
