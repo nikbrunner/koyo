@@ -9,14 +9,15 @@ description: Keep assets/layout.svg, the cross-board drawing of kōyō, in sync 
 
 ## The drawing model
 
-- The drawing shows the 3x5+3 core every board shares, on the Corne physical layout. The Corne is only the template; the drawing stands for all four boards.
-- Each layer is a list of 36 keys: three rows of ten (left five, then right five), then six thumbs in the same order as the thumb row of `qmk/crkbd/src/keymap.c` (`LAYOUT_split_3x5_3`, left to right).
-- A layer that exists only on boards with more keys (outer ring, number row) is still drawn: its core keys as they are, and the layer name says so, e.g. `"LY_GAM (outer-key boards only)"`. The keys outside the core live in that board's keymap.c table.
-- Tap-hold keys are `{ t: <tap>, h: <hold> }`. Combos are `{ p: [<pos>, <pos>], k: <key>, l: [<layer>] }`, with 0-based positions into the 36-key list.
+- The drawing uses the Voyager physical layout, the superset of what kōyō uses: the 3x5 core, an outer ring, and two thumbs per side. The Voyager is only the template; the drawing stands for all four boards.
+- Each layer is a list of 52 keys in the order of `LAYOUT_voyager` in `qmk/voyager/src/keymap.c`: four rows of twelve (outer key, five core keys, five core keys, outer key; the top row is all ring), then the left two thumbs and the right two thumbs.
+- The core and thumbs are shared by every board. The outer ring is drawn only where a board uses it; everything else there stays `""`.
+- A layer or key that only some boards have is still drawn, and the layer name says which boards, e.g. `"LY_GAM (Voyager only)"`.
+- Tap-hold keys are `{ t: <tap>, h: <hold> }`. Combos are `{ p: [<pos>, <pos>], k: <key>, l: [<layer>] }`, with 0-based positions into the 52-key list.
 
 ## Steps
 
-1. Read the keymaps of all boards: `qmk/{crkbd,chocofi,moonlander,voyager}/src/keymap.c`. Collect every layer, every key in the 3x5+3 core, every board-only layer, and every `COMBO(...)`.
+1. Read the keymaps of all boards: `qmk/{crkbd,chocofi,moonlander,voyager}/src/keymap.c`. Collect every layer, every core and thumb key, every outer-ring key in use, every board-only layer, and every `COMBO(...)`.
 2. Diff that against `assets/kd_layout.yaml`. Done when every layer, core key and combo from every board is either drawn identically or named as board-only in its layer label. When boards disagree on a core key, that is drift in the firmware, not the drawing: stop and ask Nik which board is right.
 3. Edit the YAML.
 4. Run `./koyo update svg`.

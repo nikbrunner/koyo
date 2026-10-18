@@ -1,6 +1,22 @@
-layout: { qmk_keyboard: crkbd/rev1, qmk_layout: LAYOUT_split_3x5_3 }
+layout: { qmk_keyboard: zsa/voyager, layout_name: LAYOUT }
 layers:
     LY_BAS: # Base Layer
+        # Top row
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - { t: TG(LY_GAM) }
+
+        # Row 1
+        - ""
         - Q
         - W
         - E
@@ -11,6 +27,10 @@ layers:
         - I
         - O
         - P
+        - ""
+
+        # Row 2
+        - ""
         - A
         - S
         - { t: D, h: LY_SYM }
@@ -21,6 +41,10 @@ layers:
         - { t: K, h: LY_SYM }
         - L
         - ;
+        - ""
+
+        # Row 3
+        - ""
         - { t: Z, h: LGUI }
         - { t: X, h: LALT }
         - { t: C, h: LCTL }
@@ -31,18 +55,33 @@ layers:
         - { t: ",", h: RCTL }
         - { t: ., h: LALT }
         - { t: /, h: RGUI }
+        - ""
 
         # Left Thumb
-        - ""
         - { t: SPC, h: LY_EXT }
         - { t: ESC, h: LY_NUM_FN }
 
         # Right Thumb
         - { t: BSPC, h: LY_MED }
         - { t: ENT, h: HYPR }
-        - ""
 
     LY_EXT: # Extended Layer
+        # Top row
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+
+        # Row 1
+        - ""
         - { t: G(Q) }
         - { t: G(W) }
         - { t: G(E) }
@@ -53,6 +92,10 @@ layers:
         - { t: G(`) }
         - { t: G(TAB) }
         - { t: HYPR(P) }
+        - ""
+
+        # Row 2
+        - ""
         - { t: "G(A)", h: "GUI" }
         - { t: "G(S)", h: "ALT" }
         - { t: "G(D)", h: "CTL" }
@@ -63,6 +106,10 @@ layers:
         - UP
         - RIGHT
         - { t: HYPR(;) }
+        - ""
+
+        # Row 3
+        - ""
         - { t: G(Z) }
         - { t: G(X) }
         - { t: G(C) }
@@ -73,18 +120,33 @@ layers:
         - { t: S(KC_TAB) }
         - TAB
         - ""
+        - ""
 
         # Left Thumb
-        - ""
         - ""
         - ""
 
         # Right Thumb
         - ""
         - ""
-        - ""
 
     LY_SYM: # Symbol Layer
+        # Top row
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+
+        # Row 1
+        - ""
         - ^
         - +
         - "#"
@@ -95,6 +157,10 @@ layers:
         - '"'
         - "}"
         - ">"
+        - ""
+
+        # Row 2
+        - ""
         - "!"
         - "-"
         - "&"
@@ -105,6 +171,10 @@ layers:
         - "'"
         - "]"
         - ":"
+        - ""
+
+        # Row 3
+        - ""
         - "~"
         - _
         - "*"
@@ -116,13 +186,32 @@ layers:
         - )
         - /
         - ""
-        - ""
-        - ""
-        - "=>"
+
+        # Left Thumb
         - ""
         - ""
 
+        # Right Thumb
+        - "=>"
+        - ""
+
     LY_NUM_FN: # Numbers & Function Keys Layer
+        # Top row
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+
+        # Row 1
+        - ""
         - F9
         - F10
         - F11
@@ -133,6 +222,10 @@ layers:
         - 8
         - 9
         - "*"
+        - ""
+
+        # Row 2
+        - ""
         - { t: F5, h: LGUI }
         - { t: F6, h: LALT }
         - { t: F7, h: LCTL }
@@ -143,6 +236,10 @@ layers:
         - { t: "5", h: RCTL }
         - { t: "6", h: LALT }
         - ":"
+        - ""
+
+        # Row 3
+        - ""
         - F1
         - F2
         - F3
@@ -154,13 +251,32 @@ layers:
         - 3
         - /
         - ""
+
+        # Left Thumb
         - ""
-        - ""
-        - { t: C(B) }
-        - "0"
         - ""
 
+        # Right Thumb
+        - { t: C(B) }
+        - "0"
+
     LY_MED: # Media Layer
+        # Top row
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+        - ""
+
+        # Row 1
+        - ""
         - { t: G(C(Q)) }
         - VOLD
         - MUTE
@@ -172,6 +288,10 @@ layers:
         - RM_HUEU
         - PRINT_SCREEN
         - ""
+
+        # Row 2
+        - ""
+        - ""
         - MPRV
         - MPLY
         - MNXT
@@ -180,6 +300,10 @@ layers:
         - { t: G(-) }
         - { t: G(0) }
         - { t: G(=) }
+        - ""
+        - ""
+
+        # Row 3
         - ""
         - ""
         - BRID
@@ -192,13 +316,32 @@ layers:
         - DT_UP
         - ""
         - ""
-        - ""
-        - ""
-        - ""
+
+        # Left Thumb
         - ""
         - ""
 
-    "LY_GAM (outer-key boards only)": # Gaming Layer, toggled via TG on the top-right outer key
+        # Right Thumb
+        - ""
+        - ""
+
+    "LY_GAM (Voyager only)": # Gaming Layer
+        # Top row
+        - ESC
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "0"
+        - { t: TG(LY_GAM) }
+
+        # Row 1
+        - TAB
         - Q
         - W
         - E
@@ -209,6 +352,10 @@ layers:
         - I
         - O
         - P
+        - ""
+
+        # Row 2
+        - LSFT
         - A
         - S
         - D
@@ -219,6 +366,10 @@ layers:
         - K
         - L
         - ;
+        - ""
+
+        # Row 3
+        - LCTL
         - Z
         - X
         - C
@@ -229,23 +380,22 @@ layers:
         - ","
         - .
         - /
+        - ""
 
         # Left Thumb
-        - ""
         - SPC
         - LALT
 
         # Right Thumb
         - BSPC
         - ENT
-        - ""
 
 combos:
     # Base layer combos
-    - { p: [16, 17], k: "[", l: [LY_BAS] } # J + K = Left bracket
-    - { p: [17, 18], k: "]", l: [LY_BAS] } # K + L = Right bracket
-    - { p: [11, 12], k: SPC, l: [LY_BAS] } # S + D = Space
+    - { p: [31, 32], k: "[", l: [LY_BAS] } # J + K = Left bracket
+    - { p: [32, 33], k: "]", l: [LY_BAS] } # K + L = Right bracket
+    - { p: [26, 27], k: SPC, l: [LY_BAS] } # S + D = Space
 
     # Num layer combos
-    - { p: [26, 27], k: ",", l: [LY_NUM_FN] } # 1 + 2 = Comma
-    - { p: [27, 28], k: ".", l: [LY_NUM_FN] } # 2 + 3 = Dot
+    - { p: [43, 44], k: ",", l: [LY_NUM_FN] } # 1 + 2 = Comma
+    - { p: [44, 45], k: ".", l: [LY_NUM_FN] } # 2 + 3 = Dot
