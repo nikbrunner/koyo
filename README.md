@@ -91,7 +91,7 @@
 koyo update keymap
 ```
 
-This writes `qmk/<board>/src/keymap.generated.h` for every board (Corne and Chocofi use the core and thumbs, Moonlander and Voyager the outer ring too) and redraws the graphic above. Flashing runs it as well. Each board's `keymap.c` holds only behaviour: tap dances, chordal hold, tapping terms, RGB and per-board hooks.
+This writes `qmk/<board>/src/keymap.generated.h` for every board (Corne and Chocofi use the core and thumbs, Moonlander and Voyager the outer ring too) and redraws the graphic above. Flashing runs it as well. `koyo check` verifies the result and runs as a Git pre-push hook, which `./koyo setup` installs through Lefthook (from `mise.toml`). Each board's `keymap.c` holds only behaviour: tap dances, chordal hold, tapping terms, RGB and per-board hooks.
 
 ## CLI Tool
 
@@ -141,6 +141,9 @@ koyo voyager flash
 # Generate board keymaps and the layout SVG from keymap.yml
 koyo update keymap
 
+# Verify generated files, keymap.c cases and that every board compiles
+koyo check
+
 # Update QMK firmware
 koyo update qmk
 ```
@@ -168,6 +171,8 @@ koyo/
 ├── keymap.yml         # Keymap for all boards (source of truth)
 ├── generate_keymap.py # keymap.yml → board headers and drawing input
 ├── update_keymap.sh   # Keymap and SVG update script
+├── check.sh           # Verifies generated files and builds every board
+├── lefthook.yml       # Git hooks (pre-push runs check.sh)
 ├── config.yml         # Configuration file
 └── koyo               # koyo command
 ```

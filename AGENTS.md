@@ -8,6 +8,7 @@
 - `./koyo chocofi flash`: Flash Chocofi keyboard (RP2040, compiles .uf2 and auto-copies)
 - `./koyo voyager flash`: Flash Voyager keyboard
 - `./koyo update keymap`: Generate board keymaps and the layout SVG from `keymap.yml`
+- `./koyo check`: Verify generated files are current, no `keymap.c` case is orphaned, and every board compiles (also runs on pre-push)
 - `./koyo update qmk`: Update QMK firmware
 - `./koyo --debug <command>`: Run with verbose logging
 

@@ -82,6 +82,10 @@ case $KEYBOARD in
     "$PROJECT_DIR/setup.sh"
     ;;
 
+"check")
+    "$PROJECT_DIR/check.sh"
+    ;;
+
 "update")
     case $COMMAND in
     "keymap")

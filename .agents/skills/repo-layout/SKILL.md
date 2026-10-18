@@ -34,31 +34,8 @@ A new tap dance has three parts: its entry in `enum tap_dance_codes` and its `ta
 
 1. Edit `keymap.yml`, and the `keymap.c` files where the change adds behaviour. Done when every keycode the change introduces is either a QMK keycode or defined in all four `keymap.c` files.
 2. Run `./koyo update keymap`. Done when it prints both success lines; a malformed row, an unknown board name or a combo key missing from its layer stops it with a message naming the culprit.
-3. Check the hand-written `case`s in the `keymap.c` files against `keymap.yml`. An orphaned `case` compiles but never matches. Done when this prints nothing:
-
-   ```sh
-   grep -ho 'case [A-Z_]*([^:]*)' qmk/*/src/keymap.c | sort -u | sed 's/^case //' |
-     while read -r k; do grep -qF "$k" keymap.yml || echo "orphan: $k"; done
-   ```
-
-4. Compile all four boards without flashing. qmk_firmware lives at `paths.qmk_dir` in `config.yml` (`~/repos/qmk/qmk_firmware`); link each board's `src` in as its keymap, compile, remove the link:
-
-   | Board      | Keymap link inside qmk_firmware               | Compile                                                          |
-   | ---------- | --------------------------------------------- | ---------------------------------------------------------------- |
-   | voyager    | `keyboards/zsa/voyager/keymaps/koyo`          | `qmk compile -kb zsa/voyager -km koyo`                           |
-   | moonlander | `keyboards/zsa/moonlander/keymaps/koyo`       | `qmk compile -kb zsa/moonlander -km koyo`                        |
-   | crkbd      | `keyboards/crkbd/rev1/keymaps/koyo`           | `qmk compile -kb crkbd/rev1 -km koyo`                            |
-   | chocofi    | `keyboards/crkbd/rev1/keymaps/koyo_chocofi`   | `qmk compile -kb crkbd/rev1 -km koyo_chocofi -e CONVERT_TO=rp2040_ce` |
-
-   ```sh
-   QMK_DIR=~/repos/qmk/qmk_firmware
-   ln -s "$PWD/qmk/voyager/src" "$QMK_DIR/keyboards/zsa/voyager/keymaps/koyo"
-   (cd "$QMK_DIR" && qmk compile -kb zsa/voyager -km koyo)
-   rm "$QMK_DIR/keyboards/zsa/voyager/keymaps/koyo"
-   ```
-
-   Done when all four build.
-5. Render the SVG and look at it. `qlmanage` thumbnails crop tall SVGs; use headless Chrome with the size from the SVG's `viewBox`, writing to a temp dir:
+3. Run `./koyo check` (`check.sh`). It works on a copy of the working tree and verifies that the generated files match `keymap.yml`, that every hand-written `case` in the `keymap.c` files still names a key in `keymap.yml` (an orphaned `case` compiles but never matches), and that all four boards compile. Done when it prints `All checks passed`; each failure names the stale file, the orphaned `case` or the board with its compiler error.
+4. Render the SVG and look at it. `qlmanage` thumbnails crop tall SVGs; use headless Chrome with the size from the SVG's `viewBox`, writing to a temp dir:
 
    ```sh
    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --hide-scrollbars \
@@ -69,4 +46,4 @@ A new tap dance has three parts: its entry in `enum tap_dance_codes` and its `ta
 
 ## On commit
 
-`keymap.yml`, the generated headers and `assets/layout.svg` travel together in one commit. Before committing, run `./koyo update keymap`: done when the rerun changes no file.
+`keymap.yml`, the generated headers and `assets/layout.svg` travel together in one commit, and `./koyo check` passes before it. The Lefthook pre-push hook runs `./check.sh --ref HEAD` and blocks a push that fails it.

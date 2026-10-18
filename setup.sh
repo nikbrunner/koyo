@@ -262,6 +262,22 @@ setup_symlink() {
     fi
 }
 
+setup_hooks() {
+    debug_log "Setting up Git hooks..."
+
+    if ! command -v lefthook &>/dev/null; then
+        warning_log "lefthook not found: run 'mise install', then setup again"
+        return
+    fi
+
+    if [[ "$DRY_RUN" == "true" ]]; then
+        debug_log "Would install Git hooks with lefthook"
+    else
+        lefthook install
+        success_log "Git hooks installed"
+    fi
+}
+
 check_zsh() {
     debug_log "Checking ZSH configuration..."
     if [[ ! -f ~/.zshrc ]]; then
@@ -312,6 +328,7 @@ main() {
     check_qmk
     setup_permissions
     setup_symlink
+    setup_hooks
 
     if [[ "$DRY_RUN" == "true" ]]; then
         success_log "Dry run completed - no changes were made"
