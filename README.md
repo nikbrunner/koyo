@@ -48,8 +48,7 @@
 - Reserved for high-frequency, single-action keys (Space, Enter)
 - Dual-purpose modifiers (HYPER) integrated with common actions
 - Minimal thumb usage - only middle thumb keys are active to reduce fatigue
-- Avoids sequential/repeated actions to prevent thumb fatigue
-    - e.g. Backspace implemented as two-finger combo (I+O) to avoid repeated thumb presses
+- Backspace on the right thumb: tap for Backspace, hold for the MED layer
 
 ### Navigation & Tools
 
