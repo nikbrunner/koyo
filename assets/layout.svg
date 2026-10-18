@@ -351,14 +351,10 @@ path.combo { stroke: #7f7f7f; }
 <text x="0" y="41" class="key hold">HYPR</text>
 </g>
 <g class="combo combopos-0">
-<rect rx="6" ry="6" x="242" y="222" width="55" height="25" class="combo"/>
-<text x="270" y="234" class="combo tap">SPC</text>
-</g>
-<g class="combo combopos-1">
 <rect rx="6" ry="6" x="1008" y="226" width="55" height="25" class="combo"/>
 <text x="1035" y="238" class="combo tap">[</text>
 </g>
-<g class="combo combopos-2">
+<g class="combo combopos-1">
 <rect rx="6" ry="6" x="1098" y="222" width="55" height="25" class="combo"/>
 <text x="1125" y="234" class="combo tap">]</text>
 </g>

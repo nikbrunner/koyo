@@ -66,10 +66,6 @@ layers:
 # their keys: it places them in the drawing, decides which boards get them, and
 # names their C array <layer>_CMB_<name>.
 combos:
-  SPACE:
-    layer: LY_BAS
-    keys: KC_S, LT(LY_SYM, KC_D)
-    send: KC_SPC
   BRACKET_LEFT:
     layer: LY_BAS
     keys: KC_J, LT(LY_SYM, KC_K)
