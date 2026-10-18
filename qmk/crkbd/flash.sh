@@ -47,11 +47,6 @@ cleanup() {
         rm -rf "$KEYMAP_DIR"
         success_log "Removed existing keymap directory"
     fi
-
-    if [[ -e "$QMK_DIR/keyboards/crkbd/keymaps/koyo" ]]; then
-        rm -rf "$QMK_DIR/keyboards/crkbd/keymaps/koyo"
-        success_log "Removed existing keymaps directory"
-    fi
 }
 
 debug_log "Script directory: $SCRIPT_DIR"
@@ -77,12 +72,6 @@ main() {
     # Create new symlink
     ln -s "$SCRIPT_DIR/src" "$KEYMAP_DIR"
     debug_log "Created symlink to keymap directory"
-
-    # Create features directory in the keymap folder
-    mkdir -p "$QMK_DIR/keyboards/crkbd/keymaps/koyo/features"
-    ln -sf "$SCRIPT_DIR/src/features/achordion.c" "$QMK_DIR/keyboards/crkbd/keymaps/koyo/features/"
-    ln -sf "$SCRIPT_DIR/src/features/achordion.h" "$QMK_DIR/keyboards/crkbd/keymaps/koyo/features/"
-    debug_log "Created symlinks for Achordion features"
 
     # Verify required files exist
     if ! verify_files "$KEYMAP_DIR"; then
