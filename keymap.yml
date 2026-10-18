@@ -13,72 +13,72 @@
 # and assets/layout.svg.
 
 layers:
-  LY_BAS: # Base
-    rows:
-      - XXXXXXX , XXXXXXX            , XXXXXXX            , XXXXXXX            , XXXXXXX            , XXXXXXX   |   XXXXXXX , XXXXXXX            , XXXXXXX                , XXXXXXX              , XXXXXXX                , TG(LY_GAM)
-      - XXXXXXX , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T      |   KC_Y    , KC_U               , KC_I                   , KC_O                 , KC_P                   , XXXXXXX
-      - XXXXXXX , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G      |   KC_H    , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , XXXXXXX
-      - XXXXXXX , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B      |   KC_N    , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , XXXXXXX
-      - LT(LY_EXT, KC_SPC) , LT(LY_NUM_FN, KC_ESC)   |   LT(LY_MED, KC_BSPC) , HYPR_T(KC_ENT)
+    LY_BAS: # Base
+        rows:
+            - XXXXXXX , XXXXXXX            , XXXXXXX            , XXXXXXX            , XXXXXXX            , XXXXXXX   |   XXXXXXX , XXXXXXX            , XXXXXXX                , XXXXXXX              , XXXXXXX                , TG(LY_GAM)
+            - XXXXXXX , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T      |   KC_Y    , KC_U               , KC_I                   , KC_O                 , KC_P                   , XXXXXXX
+            - XXXXXXX , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G      |   KC_H    , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , XXXXXXX
+            - XXXXXXX , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B      |   KC_N    , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_RGUI, KC_SLASH) , XXXXXXX
+            - LT(LY_EXT, KC_SPC) , LT(LY_NUM_FN, KC_ESC)   |   LT(LY_MED, KC_BSPC) , HYPR_T(KC_ENT)
 
-  LY_EXT: # Extended
-    rows:
-      - XXXXXXX , XXXXXXX          , XXXXXXX          , XXXXXXX          , XXXXXXX          , XXXXXXX      |   XXXXXXX , XXXXXXX    , XXXXXXX      , XXXXXXX      , XXXXXXX       , XXXXXXX
-      - XXXXXXX , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T)   |   XXXXXXX , RALT(KC_U) , LGUI(KC_GRV) , LGUI(KC_TAB) , HYPR(KC_P)    , XXXXXXX
-      - XXXXXXX , TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G)   |   KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT      , HYPR(KC_SCLN) , XXXXXXX
-      - XXXXXXX , LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B)   |   XXXXXXX , CW_TOGG    , LSFT(KC_TAB) , KC_TAB       , XXXXXXX       , XXXXXXX
-      - XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX
+    LY_EXT: # Extended
+        rows:
+            - XXXXXXX , XXXXXXX          , XXXXXXX          , XXXXXXX          , XXXXXXX          , XXXXXXX      |   XXXXXXX , XXXXXXX    , XXXXXXX      , XXXXXXX      , XXXXXXX       , XXXXXXX
+            - XXXXXXX , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T)   |   XXXXXXX , RALT(KC_U) , XXXXXXX      , XXXXXXX      ,XXXXXXX        , XXXXXXX
+            - XXXXXXX , TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G)   |   KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT      , HYPR(KC_SCLN) , XXXXXXX
+            - XXXXXXX , LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B)   |   XXXXXXX , CW_TOGG    , LSFT(KC_TAB) , KC_TAB       , XXXXXXX       , XXXXXXX
+            - XXXXXXX , XXXXXXX   | LGUI(KC_GRV), LGUI(KC_TAB)
 
-  LY_SYM: # Symbols
-    rows:
-      - XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX   |   XXXXXXX  , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX  , XXXXXXX
-      - XXXXXXX , KC_CIRC , KC_PLUS , KC_HASH , KC_PERC , KC_DLR    |   KC_LABK  , KC_LCBR , KC_DQUO , KC_RCBR , KC_RABK  , XXXXXXX
-      - XXXXXXX , KC_EXLM , KC_MINS , KC_AMPR , KC_QUES , KC_PIPE   |   KC_EQUAL , KC_LBRC , KC_QUOT , KC_RBRC , KC_COLN  , XXXXXXX
-      - XXXXXXX , KC_TILD , KC_UNDS , KC_ASTR , KC_AT   , XXXXXXX   |   KC_BSLS  , KC_LPRN , KC_GRV  , KC_RPRN , KC_SLASH , XXXXXXX
-      - XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX
+    LY_SYM: # Symbols
+        rows:
+            - XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX   |   XXXXXXX  , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX  , XXXXXXX
+            - XXXXXXX , KC_CIRC , KC_PLUS , KC_HASH , KC_PERC , KC_DLR    |   KC_LABK  , KC_LCBR , KC_DQUO , KC_RCBR , KC_RABK  , XXXXXXX
+            - XXXXXXX , KC_EXLM , KC_MINS , KC_AMPR , KC_QUES , KC_PIPE   |   KC_EQUAL , KC_LBRC , KC_QUOT , KC_RBRC , KC_COLN  , XXXXXXX
+            - XXXXXXX , KC_TILD , KC_UNDS , KC_ASTR , KC_AT   , XXXXXXX   |   KC_BSLS  , KC_LPRN , KC_GRV  , KC_RPRN , KC_SLASH , XXXXXXX
+            - XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX
 
-  LY_NUM_FN: # Numbers & function keys
-    rows:
-      - XXXXXXX , XXXXXXX             , XXXXXXX             , XXXXXXX             , XXXXXXX             , XXXXXXX   |   XXXXXXX  , XXXXXXX            , XXXXXXX            , XXXXXXX            , XXXXXXX  , XXXXXXX
-      - XXXXXXX , KC_F9               , KC_F10              , KC_F11              , KC_F12              , XXXXXXX   |   KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , XXXXXXX
-      - XXXXXXX , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6) , MT(MOD_LCTL, KC_F7) , MT(MOD_LSFT, KC_F8) , XXXXXXX   |   KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , XXXXXXX
-      - XXXXXXX , KC_F1               , KC_F2               , KC_F3               , KC_F4               , XXXXXXX   |   KC_MINUS , KC_1               , KC_2               , KC_3               , KC_SLASH , XXXXXXX
-      - XXXXXXX , XXXXXXX   |   C(KC_B) , KC_0
+    LY_NUM_FN: # Numbers & function keys
+        rows:
+            - XXXXXXX , XXXXXXX             , XXXXXXX             , XXXXXXX             , XXXXXXX             , XXXXXXX   |   XXXXXXX  , XXXXXXX            , XXXXXXX            , XXXXXXX            , XXXXXXX  , XXXXXXX
+            - XXXXXXX , KC_F9               , KC_F10              , KC_F11              , KC_F12              , XXXXXXX   |   KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , XXXXXXX
+            - XXXXXXX , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6) , MT(MOD_LCTL, KC_F7) , MT(MOD_LSFT, KC_F8) , XXXXXXX   |   KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , XXXXXXX
+            - XXXXXXX , KC_F1               , KC_F2               , KC_F3               , KC_F4               , XXXXXXX   |   KC_MINUS , KC_1               , KC_2               , KC_3               , KC_SLASH , XXXXXXX
+            - XXXXXXX , XXXXXXX   |   C(KC_B) , KC_0
 
-  LY_MED: # Media & system
-    rows:
-      - XXXXXXX , XXXXXXX    , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX    , XXXXXXX , XXXXXXX   , XXXXXXX         , XXXXXXX
-      - XXXXXXX , G(C(KC_Q)) , KC_VOLD , KC_MUTE , KC_VOLU , QK_BOOT   |   XXXXXXX , RM_HUED    , RM_TOGG , RM_HUEU   , KC_PRINT_SCREEN , XXXXXXX
-      - XXXXXXX , XXXXXXX    , KC_MPRV , KC_MPLY , KC_MNXT , XXXXXXX   |   XXXXXXX , G(KC_MINS) , G(KC_0) , G(KC_EQL) , XXXXXXX         , XXXXXXX
-      - XXXXXXX , XXXXXXX    , KC_BRID , XXXXXXX , KC_BRIU , XXXXXXX   |   XXXXXXX , DT_DOWN    , DT_PRNT , DT_UP     , XXXXXXX         , XXXXXXX
-      - XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX
+    LY_MED: # Media & system
+        rows:
+            - XXXXXXX , XXXXXXX    , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX    , XXXXXXX , XXXXXXX   , XXXXXXX         , XXXXXXX
+            - XXXXXXX , G(C(KC_Q)) , KC_VOLD , KC_MUTE , KC_VOLU , QK_BOOT   |   XXXXXXX , RM_HUED    , RM_TOGG , RM_HUEU   , KC_PRINT_SCREEN , XXXXXXX
+            - XXXXXXX , XXXXXXX    , KC_MPRV , KC_MPLY , KC_MNXT , XXXXXXX   |   XXXXXXX , G(KC_MINS) , G(KC_0) , G(KC_EQL) , XXXXXXX         , XXXXXXX
+            - XXXXXXX , XXXXXXX    , KC_BRID , XXXXXXX , KC_BRIU , XXXXXXX   |   XXXXXXX , DT_DOWN    , DT_PRNT , DT_UP     , XXXXXXX         , XXXXXXX
+            - XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX
 
-  LY_GAM: # Gaming
-    boards: [voyager]
-    rows:
-      - KC_ESC  , KC_1 , KC_2 , KC_3 , KC_4 , KC_5   |   KC_6 , KC_7 , KC_8     , KC_9   , KC_0     , TG(LY_GAM)
-      - KC_TAB  , KC_Q , KC_W , KC_E , KC_R , KC_T   |   KC_Y , KC_U , KC_I     , KC_O   , KC_P     , XXXXXXX
-      - KC_LSFT , KC_A , KC_S , KC_D , KC_F , KC_G   |   KC_H , KC_J , KC_K     , KC_L   , KC_SCLN  , XXXXXXX
-      - KC_LCTL , KC_Z , KC_X , KC_C , KC_V , KC_B   |   KC_N , KC_M , KC_COMMA , KC_DOT , KC_SLASH , XXXXXXX
-      - KC_SPC , KC_LALT   |   KC_BSPC , KC_ENT
+    LY_GAM: # Gaming
+        boards: [voyager]
+        rows:
+            - KC_ESC  , KC_1 , KC_2 , KC_3 , KC_4 , KC_5   |   KC_6 , KC_7 , KC_8     , KC_9   , KC_0     , TG(LY_GAM)
+            - KC_TAB  , KC_Q , KC_W , KC_E , KC_R , KC_T   |   KC_Y , KC_U , KC_I     , KC_O   , KC_P     , XXXXXXX
+            - KC_LSFT , KC_A , KC_S , KC_D , KC_F , KC_G   |   KC_H , KC_J , KC_K     , KC_L   , KC_SCLN  , XXXXXXX
+            - KC_LCTL , KC_Z , KC_X , KC_C , KC_V , KC_B   |   KC_N , KC_M , KC_COMMA , KC_DOT , KC_SLASH , XXXXXXX
+            - KC_SPC , KC_LALT   |   KC_BSPC , KC_ENT
 
 # Combos fire on any layer where their keys exist. `layer` is the layer holding
 # their keys: it places them in the drawing, decides which boards get them, and
 # names their C array <layer>_CMB_<name>.
 combos:
-  BRACKET_LEFT:
-    layer: LY_BAS
-    keys: KC_J, LT(LY_SYM, KC_K)
-    send: KC_LBRC
-  BRACKET_RIGHT:
-    layer: LY_BAS
-    keys: LT(LY_SYM, KC_K), KC_L
-    send: KC_RBRC
-  COMMA:
-    layer: LY_NUM_FN
-    keys: KC_1, KC_2
-    send: KC_COMMA
-  DOT:
-    layer: LY_NUM_FN
-    keys: KC_2, KC_3
-    send: KC_DOT
+    BRACKET_LEFT:
+        layer: LY_BAS
+        keys: KC_J, LT(LY_SYM, KC_K)
+        send: KC_LBRC
+    BRACKET_RIGHT:
+        layer: LY_BAS
+        keys: LT(LY_SYM, KC_K), KC_L
+        send: KC_RBRC
+    COMMA:
+        layer: LY_NUM_FN
+        keys: KC_1, KC_2
+        send: KC_COMMA
+    DOT:
+        layer: LY_NUM_FN
+        keys: KC_2, KC_3
+        send: KC_DOT

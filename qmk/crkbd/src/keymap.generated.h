@@ -18,10 +18,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [LY_EXT] = LAYOUT_split_3x5_3(
-  LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) , KC_NO   , RALT(KC_U) , LGUI(KC_GRV) , LGUI(KC_TAB) , HYPR(KC_P),
-  TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G) , KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT      , HYPR(KC_SCLN),
-  LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B) , KC_NO   , CW_TOGG    , LSFT(KC_TAB) , KC_TAB       , KC_NO,
-  KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO
+  LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T) , KC_NO   , RALT(KC_U) , KC_NO        , KC_NO   , KC_NO,
+  TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G) , KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT , HYPR(KC_SCLN),
+  LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B) , KC_NO   , CW_TOGG    , LSFT(KC_TAB) , KC_TAB  , KC_NO,
+  KC_NO , KC_NO , KC_NO , LGUI(KC_GRV) , LGUI(KC_TAB) , KC_NO
 ),
 
 [LY_SYM] = LAYOUT_split_3x5_3(
