@@ -244,3 +244,8 @@ combos:
     # Base layer combos
     - { p: [16, 17], k: "[", l: [LY_BAS] } # J + K = Left bracket
     - { p: [17, 18], k: "]", l: [LY_BAS] } # K + L = Right bracket
+    - { p: [11, 12], k: SPC, l: [LY_BAS] } # S + D = Space
+
+    # Num layer combos
+    - { p: [26, 27], k: ",", l: [LY_NUM_FN] } # 1 + 2 = Comma
+    - { p: [27, 28], k: ".", l: [LY_NUM_FN] } # 2 + 3 = Dot
