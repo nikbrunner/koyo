@@ -12,10 +12,6 @@ enum layers {
   LY_MED
 };
 
-enum custom_keycodes {
-  SS_FATARROW = ML_SAFE_RANGE,
-};
-
 enum tap_dance_codes {
   TD_EXT_GUI_A,
   TD_EXT_GUI_S,
@@ -80,14 +76,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼────┼────┼────┼────┼──────┤               ├────┼────┼────┼────┼────┼────┤
 //    │ no │ no │ no │ no │ no │  no  │               │ no │ no │ no │ no │ no │ no │
 //    └────┴────┴────┴────┼────┼──────┼──────┐   ┌────┼────┼────┼────┴────┴────┴────┘
-//                        │ no │  no  │  no  │   │ no │ => │ no │
+//                        │ no │  no  │  no  │   │ no │ no │ no │
 //                        └────┴──────┴──────┘   └────┴────┴────┘
   KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,     KC_NO       , KC_NO    , KC_NO   , KC_NO   , KC_NO   , KC_NO    , KC_NO,
   KC_NO , KC_CIRC , KC_PLUS , KC_HASH , KC_PERC , KC_DLR  , KC_NO   ,     KC_NO       , KC_LABK  , KC_LCBR , KC_DQUO , KC_RCBR , KC_RABK  , KC_NO,
   KC_NO , KC_EXLM , KC_MINS , KC_AMPR , KC_QUES , KC_PIPE , KC_NO   ,     KC_NO       , KC_EQUAL , KC_LBRC , KC_QUOT , KC_RBRC , KC_COLN  , KC_NO,
   KC_NO , KC_TILD , KC_UNDS , KC_ASTR , KC_AT   , KC_NO   ,                             KC_BSLS  , KC_LPRN , KC_GRV  , KC_RPRN , KC_SLASH , KC_NO,
   KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                             KC_NO    , KC_NO   , KC_NO   , KC_NO   , KC_NO    , KC_NO,
-                                        KC_NO   , KC_NO   , KC_NO   ,     KC_NO       , SS_FATARROW , KC_NO
+                                        KC_NO   , KC_NO   , KC_NO   ,     KC_NO       , KC_NO       , KC_NO
 ),
 
 [LY_NUM_FN] = LAYOUT_moonlander(
@@ -203,17 +199,6 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         'L', 'L', 'L', 'L', 'L', 'L',             'R', 'R', 'R', 'R', 'R', 'R',
                       'L', 'L', 'L',         'R', 'R', 'R'
     );
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case SS_FATARROW:
-            if (record->event.pressed) {
-                SEND_STRING("=>");
-            }
-            break;
-    }
-    return true;
-}
 
   // TAP DANCE
   // ============================================================================
