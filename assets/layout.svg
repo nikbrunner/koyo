@@ -273,15 +273,15 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(369, 342) rotate(15.0)" class="key keypos-31">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">ESC</text>
-<a href="#LY_NUM_FN">
-<text x="0" y="41" class="key hold layer-activator"><tspan style="font-size: 78%">LY_NUM_FN</tspan></text>
+<text x="0" y="0" class="key tap">SPC</text>
+<a href="#LY_EXT">
+<text x="0" y="41" class="key hold layer-activator">LY_EXT</text>
 </a></g>
 <g transform="translate(474, 360) rotate(30.0)" class="key keypos-32">
 <rect rx="6" ry="6" x="-43" y="-66" width="86" height="131" class="key"/>
-<text x="0" y="0" class="key tap">SPC</text>
-<a href="#LY_EXT">
-<text x="0" y="64" class="key hold layer-activator">LY_EXT</text>
+<text x="0" y="0" class="key tap">ESC</text>
+<a href="#LY_NUM_FN">
+<text x="0" y="64" class="key hold layer-activator"><tspan style="font-size: 78%">LY_NUM_FN</tspan></text>
 </a></g>
 <g transform="translate(696, 360) rotate(-30.0)" class="key keypos-33">
 <rect rx="6" ry="6" x="-43" y="-66" width="86" height="131" class="key"/>
@@ -1006,11 +1006,11 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(369, 342) rotate(15.0)" class="key keypos-31">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">LALT</text>
+<text x="0" y="0" class="key tap">SPC</text>
 </g>
 <g transform="translate(474, 360) rotate(30.0)" class="key keypos-32">
 <rect rx="6" ry="6" x="-43" y="-66" width="86" height="131" class="key"/>
-<text x="0" y="0" class="key tap">SPC</text>
+<text x="0" y="0" class="key tap">LALT</text>
 </g>
 <g transform="translate(696, 360) rotate(-30.0)" class="key keypos-33">
 <rect rx="6" ry="6" x="-43" y="-66" width="86" height="131" class="key"/>

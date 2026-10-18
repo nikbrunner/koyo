@@ -34,8 +34,8 @@ layers:
 
         # Left Thumb
         - ""
-        - { t: ESC, h: LY_NUM_FN }
         - { t: SPC, h: LY_EXT }
+        - { t: ESC, h: LY_NUM_FN }
 
         # Right Thumb
         - { t: BSPC, h: LY_MED }
@@ -232,8 +232,8 @@ layers:
 
         # Left Thumb
         - ""
-        - LALT
         - SPC
+        - LALT
 
         # Right Thumb
         - BSPC
