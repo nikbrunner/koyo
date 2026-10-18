@@ -285,6 +285,7 @@ path.combo { stroke: #7f7f7f; }
 </a></g>
 <g transform="translate(696, 360) rotate(-30.0)" class="key keypos-33">
 <rect rx="6" ry="6" x="-43" y="-66" width="86" height="131" class="key"/>
+<text x="0" y="0" class="key tap">BSPC</text>
 <a href="#LY_MED">
 <text x="0" y="64" class="key hold layer-activator">LY_MED</text>
 </a></g>
@@ -297,18 +298,10 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 </g>
 <g class="combo combopos-0">
-<rect rx="6" ry="6" x="152" y="38" width="55" height="25" class="combo"/>
-<text x="180" y="51" class="combo tap">BSPC</text>
-</g>
-<g class="combo combopos-1">
-<rect rx="6" ry="6" x="962" y="38" width="55" height="25" class="combo"/>
-<text x="990" y="51" class="combo tap">BSPC</text>
-</g>
-<g class="combo combopos-2">
 <rect rx="6" ry="6" x="872" y="128" width="55" height="25" class="combo"/>
 <text x="900" y="141" class="combo tap">[</text>
 </g>
-<g class="combo combopos-3">
+<g class="combo combopos-1">
 <rect rx="6" ry="6" x="962" y="128" width="55" height="25" class="combo"/>
 <text x="990" y="141" class="combo tap">]</text>
 </g>
@@ -587,11 +580,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(369, 342) rotate(15.0)" class="key keypos-31">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">LALT</text>
 </g>
 <g transform="translate(474, 360) rotate(30.0)" class="key keypos-32">
 <rect rx="6" ry="6" x="-43" y="-66" width="86" height="131" class="key"/>
-<text x="0" y="0" class="key tap">LCTL</text>
 </g>
 <g transform="translate(696, 360) rotate(-30.0)" class="key keypos-33">
 <rect rx="6" ry="6" x="-43" y="-66" width="86" height="131" class="key"/>
@@ -602,10 +593,6 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(900, 329)" class="key keypos-35">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-</g>
-<g class="combo combopos-0">
-<rect rx="6" ry="6" x="962" y="38" width="55" height="25" class="combo"/>
-<text x="990" y="51" class="combo tap">BSPC</text>
 </g>
 </g>
 </g>
@@ -755,10 +742,6 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(900, 329)" class="key keypos-35">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-</g>
-<g class="combo combopos-0">
-<rect rx="6" ry="6" x="962" y="38" width="55" height="25" class="combo"/>
-<text x="990" y="51" class="combo tap">BSPC</text>
 </g>
 </g>
 </g>

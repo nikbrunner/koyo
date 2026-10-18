@@ -68,13 +68,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────┼────┼────┼────┼──────┼──────┤   ├────┼────┼────┼────┼────┼────┤
 //    │ no │ ~  │ _  │ *  │  @   │  no  │   │ \  │ (  │ `  │ )  │ /  │ no │
 //    └────┴────┴────┴────┼──────┼──────┤   ├────┼────┼────┴────┴────┴────┘
-//                        │ lalt │ lctl │   │ => │ no │
+//                        │  no  │  no  │   │ => │ no │
 //                        └──────┴──────┘   └────┴────┘
   KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,     KC_NO       , KC_NO   , KC_NO   , KC_NO   , KC_NO    , KC_NO,
   KC_NO , KC_CIRC , KC_PLUS , KC_HASH , KC_PERC , KC_DLR  ,     KC_LABK     , KC_LCBR , KC_DQUO , KC_RCBR , KC_RABK  , KC_NO,
   KC_NO , KC_EXLM , KC_MINS , KC_AMPR , KC_QUES , KC_PIPE ,     KC_EQUAL    , KC_LBRC , KC_QUOT , KC_RBRC , KC_COLN  , KC_NO,
   KC_NO , KC_TILD , KC_UNDS , KC_ASTR , KC_AT   , KC_NO   ,     KC_BSLS     , KC_LPRN , KC_GRV  , KC_RPRN , KC_SLASH , KC_NO,
-                                        KC_LALT , KC_LCTL ,     SS_FATARROW , KC_NO
+                                        KC_NO   , KC_NO   ,     SS_FATARROW , KC_NO
 ),
 
 [LY_NUM_FN] = LAYOUT_voyager(
