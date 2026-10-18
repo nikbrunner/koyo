@@ -34,7 +34,7 @@ parse_config:
     trans_legend:
         t: ▽
         type: trans
-    mark_alternate_layer_activators: false
+    mark_alternate_layer_activators: true
     modifier_fn_map:
         left_ctrl: Ctl
         right_ctrl: Ctl
