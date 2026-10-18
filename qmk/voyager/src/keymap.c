@@ -5,7 +5,8 @@ enum layers {
     LY_EXT,
     LY_SYM,
     LY_NUM_FN,
-    LY_MED
+    LY_MED,
+    LY_GAM
 };
 
 enum custom_keycodes {
@@ -22,7 +23,7 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LY_BAS] = LAYOUT_voyager(
 //    ┌────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬────────────────────┐   ┌──────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬────┐
-//    │ no │       no        │       no        │       no        │       no        │         no         │   │        no        │       no        │       no        │       no        │       no        │ no │
+//    │ no │       no        │       no        │       no        │       no        │         no         │   │        no        │       no        │       no        │       no        │       no        │ TG │
 //    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────────┤   ├──────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
 //    │ no │        q        │        w        │        e        │        r        │         t          │   │        y         │        u        │        i        │        o        │        p        │ no │
 //    ├────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────────┤   ├──────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼────┤
@@ -32,8 +33,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    └────┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼────────────────────┤   ├──────────────────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴────┘
 //                                                               │ LT(LY_EXT, spc) │ LT(LY_NUM_FN, esc) │   │ LT(LY_MED, bspc) │   HYPR_T(ent)   │
 //                                                               └─────────────────┴────────────────────┘   └──────────────────┴─────────────────┘
-  KC_NO , KC_NO              , KC_NO              , KC_NO              , KC_NO              , KC_NO                 ,     KC_NO               , KC_NO              , KC_NO                  , KC_NO                , KC_NO                  , KC_NO,
-  KC_NO , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T                  ,     KC_Y                , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_NO,
+  KC_NO , KC_NO              , KC_NO              , KC_NO              , KC_NO              , KC_NO                 ,     KC_NO               , KC_NO              , KC_NO                  , KC_NO                , KC_NO                  , TG(LY_GAM),
+  KC_NO , KC_Q              , KC_W               , KC_E               , KC_R               , KC_T                  ,     KC_Y                , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_NO,
   KC_NO , KC_A               , KC_S               , LT(LY_SYM, KC_D)   , KC_F               , KC_G                  ,     KC_H                , KC_J               , LT(LY_SYM, KC_K)       , KC_L                 , KC_SCLN                , KC_NO,
   KC_NO , MT(MOD_LGUI, KC_Z) , MT(MOD_LALT, KC_X) , MT(MOD_LCTL, KC_C) , MT(MOD_LSFT, KC_V) , KC_B                  ,     KC_N                , MT(MOD_RSFT, KC_M) , MT(MOD_RCTL, KC_COMMA) , MT(MOD_LALT, KC_DOT) , MT(MOD_LGUI, KC_SLASH) , KC_NO,
                                                                          LT(LY_EXT, KC_SPC) , LT(LY_NUM_FN, KC_ESC) ,     LT(LY_MED, KC_BSPC) , HYPR_T(KC_ENT)
@@ -113,6 +114,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO , KC_NO      , KC_MPRV , KC_MPLY , KC_MNXT , KC_NO   ,     KC_NO , G(KC_MINS) , G(KC_0) , G(KC_EQL) , KC_NO           , KC_NO,
   KC_NO , KC_NO      , KC_BRID , KC_NO   , KC_BRIU , KC_NO   ,     KC_NO , DT_DOWN    , DT_PRNT , DT_UP     , KC_NO           , KC_NO,
                                            KC_NO   , KC_NO   ,     KC_NO , KC_NO
+),
+
+[LY_GAM] = LAYOUT_voyager(
+//    ┌──────┬───┬───┬───┬─────┬──────┐   ┌──────┬─────┬───┬───┬───┬────┐
+//    │ esc  │ 1 │ 2 │ 3 │  4  │  5   │   │  6   │  7  │ 8 │ 9 │ 0 │ TG │
+//    ├──────┼───┼───┼───┼─────┼──────┤   ├──────┼─────┼───┼───┼───┼────┤
+//    │ tab  │ q │ w │ e │  r  │  t   │   │  y   │  u  │ i │ o │ p │ no │
+//    ├──────┼───┼───┼───┼─────┼──────┤   ├──────┼─────┼───┼───┼───┼────┤
+//    │ lsft │ a │ s │ d │  f  │  g   │   │  h   │  j  │ k │ l │ ; │ no │
+//    ├──────┼───┼───┼───┼─────┼──────┤   ├──────┼─────┼───┼───┼───┼────┤
+//    │ lctl │ z │ x │ c │  v  │  b   │   │  n   │  m  │ , │ . │ / │ no │
+//    └──────┴───┴───┴───┼─────┼──────┤   ├──────┼─────┼───┴───┴───┴────┘
+//                       │ spc │ lalt │   │ bspc │ ent │
+//                       └─────┴──────┘   └──────┴─────┘
+  KC_ESC  , KC_1 , KC_2 , KC_3 , KC_4   , KC_5    ,     KC_6    , KC_7   , KC_8     , KC_9   , KC_0     , TG(LY_GAM),
+  KC_TAB  , KC_Q , KC_W , KC_E , KC_R   , KC_T    ,     KC_Y    , KC_U   , KC_I     , KC_O   , KC_P     , KC_NO,
+  KC_LSFT , KC_A , KC_S , KC_D , KC_F   , KC_G    ,     KC_H    , KC_J   , KC_K     , KC_L   , KC_SCLN  , KC_NO,
+  KC_LCTL , KC_Z , KC_X , KC_C , KC_V   , KC_B    ,     KC_N    , KC_M   , KC_COMMA , KC_DOT , KC_SLASH , KC_NO,
+                                 KC_SPC , KC_LALT ,     KC_BSPC , KC_ENT
 )
 };
 
@@ -154,6 +174,10 @@ combo_t key_combos[] = {
     COMBO(LY_NUM_FN_CMB_COMMA, KC_COMMA),
     COMBO(LY_NUM_FN_CMB_DOT, KC_DOT),
 };
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    return !layer_state_is(LY_GAM);
+}
 
 // Chordal Hold implementation
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
@@ -324,6 +348,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             break;
         case LY_MED:
             rgb_matrix_sethsv_noeeprom(0, 255, 255);    // Red
+            break;
+        case LY_GAM:
+            rgb_matrix_sethsv_noeeprom(128, 255, 255);  // Cyan
             break;
     }
     return state;

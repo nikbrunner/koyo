@@ -30,6 +30,9 @@
 #define COMBO_TERM 35
 #define COMBO_COUNT 5
 
+// Enable combo_should_trigger() to disable combos on the gaming layer
+#define COMBO_SHOULD_TRIGGER
+
 // =============================================================================
 // RGB Configuration
 // =============================================================================
