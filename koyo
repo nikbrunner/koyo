@@ -84,8 +84,8 @@ case $KEYBOARD in
 
 "update")
     case $COMMAND in
-    "svg")
-        "$PROJECT_DIR/update_svg.sh"
+    "keymap")
+        "$PROJECT_DIR/update_keymap.sh"
         ;;
     "qmk")
         # fetch latest version of QMK

@@ -54,6 +54,10 @@ parse_config:
     qmk_keycode_map:
         XXXXXXX: ""
         "NO": ""
+        TD(TD_EXT_GUI_A): { t: "Gui+ A", h: GUI }
+        TD(TD_EXT_GUI_S): { t: "Gui+ S", h: ALT }
+        TD(TD_EXT_GUI_D): { t: "Gui+ D", h: CTL }
+        TD(TD_EXT_GUI_F): { t: "Gui+ F", h: SFT }
         MINUS: "-"
         MINS: "-"
         EQUAL: "="

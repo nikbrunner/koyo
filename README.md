@@ -42,7 +42,7 @@
 - Extended layer under space bar for frequently used tools
 - Dual symbol layers (one per hand) with semantic arrangement
 - Unified NUM_FN layer combining numbers and function keys for efficient access
-- Gaming layer on boards with an outer ring (Voyager), toggled from the top-right outer key
+- Gaming layer on the Voyager, toggled from the top-right outer key
 
 ### Thumb Cluster Philosophy
 
@@ -84,6 +84,14 @@
 ## Layout
 
 ![layout graphic](./assets/layout.svg)
+
+[`keymap.yml`](./keymap.yml) is the source of truth for every board. It describes each layer in QMK keycodes on the Voyager shape: the 3x5 core, the outer ring and two thumbs per side. To change the layout, edit `keymap.yml` and run:
+
+```bash
+koyo update keymap
+```
+
+This writes `qmk/<board>/src/keymap.generated.h` for every board (Corne and Chocofi use the core and thumbs, Moonlander and Voyager the outer ring too) and redraws the graphic above. Flashing runs it as well. Each board's `keymap.c` holds only behaviour: tap dances, chordal hold, tapping terms, RGB and per-board hooks.
 
 ## CLI Tool
 
@@ -130,8 +138,8 @@ koyo voyager flash
 #### Update Operations
 
 ```bash
-# Update layout SVG
-koyo update svg
+# Generate board keymaps and the layout SVG from keymap.yml
+koyo update keymap
 
 # Update QMK firmware
 koyo update qmk
@@ -157,7 +165,9 @@ koyo/
 ├── setup.sh           # Setup script
 ├── utils.sh           # Utility functions
 ├── help.sh            # Help documentation
-├── update_svg.sh      # SVG update script
+├── keymap.yml         # Keymap for all boards (source of truth)
+├── generate_keymap.py # keymap.yml → board headers and drawing input
+├── update_keymap.sh   # Keymap and SVG update script
 ├── config.yml         # Configuration file
 └── koyo               # koyo command
 ```
@@ -177,6 +187,7 @@ The following are installed automatically by `./koyo setup`:
 - **yq** - YAML processing (via Homebrew)
 - **pipx** - Python package manager (via Homebrew)
 - **keymap-drawer** - SVG generation (via pipx)
+- **python3** - Runs the keymap generator (standard library only)
 
 ## Development
 
@@ -203,7 +214,7 @@ Before submitting changes:
 - [x] `koyo moonlander oryx` (Opens up Oryx Configurator Page)
 - [x] `koyo corne flash` (Flashes the Corne Keyboard)
 - [x] `koyo voyager flash` (Flashes the Voyager Keyboard)
-- [x] `koyo update svg` (Updates the SVG files)
+- [x] `koyo update keymap` (Generates board keymaps and the SVG from `keymap.yml`)
 - [x] `koyo update qmk` (Pulls latest Version of QMK firmware)
 - [x] Ensure keymap-drawer is installed
 - [x] Align layouts & purge unused or redundant stuff
@@ -211,8 +222,8 @@ Before submitting changes:
 - [x] Add note about current optimizations focused on MacOS
 - [ ] Optimize Home Row Mods for MacOS
 - [ ] Make Layout SVG OS agnostic
-- [ ] Script to automatically update SVG
-- [ ] SSOT for keymap. Script to generate `keymap.c` files from SSOT.
+- [x] Script to automatically update SVG
+- [x] SSOT for keymap. Script to generate `keymap.c` files from SSOT.
 
 ## Resources
 

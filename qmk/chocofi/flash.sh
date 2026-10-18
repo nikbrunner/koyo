@@ -87,6 +87,9 @@ debug_log "Keymap directory: $KEYMAP_DIR"
 trap cleanup EXIT
 
 main() {
+    # Regenerate board keymaps and the layout SVG from keymap.yml
+    "$PROJECT_DIR/update_keymap.sh"
+
     # Verify QMK directory exists
     if [[ ! -d "$QMK_DIR" ]]; then
         error_log "QMK directory not found at $QMK_DIR"
