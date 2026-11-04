@@ -70,7 +70,7 @@
         - e.g. Put common GUI commands on left hand split to enable one hand use in combination with the right hand on mouse
     - Tab and window management controls
     - Media and system controls in dedicated layer
-- Smart Tap Dancing:
+- Smart Mod-Taps:
     - Dual-function keys for extended capabilities
     - Context-aware modifier combinations
     - Reduced finger travel for common operations
@@ -91,7 +91,7 @@
 koyo update keymap
 ```
 
-This writes `qmk/<board>/src/keymap.generated.h` for every board (Corne and Chocofi use the core and thumbs, Moonlander and Voyager the outer ring too) and redraws the graphic above. Flashing runs it as well. `koyo check` verifies the result and runs as a Git pre-push hook, which `./koyo setup` installs through Lefthook (from `mise.toml`). Each board's `keymap.c` holds only behaviour: tap dances, chordal hold, tapping terms, RGB and per-board hooks.
+This writes `qmk/<board>/src/keymap.generated.h` for every board (Corne and Chocofi use the core and thumbs, Moonlander and Voyager the outer ring too) and redraws the graphic above. Flashing runs it as well. `koyo check` verifies the result and runs as a Git pre-push hook, which `./koyo setup` installs through Lefthook (from `mise.toml`). Each board's `keymap.c` holds only behaviour: mod-tap overrides, chordal hold, tapping terms, RGB and per-board hooks.
 
 ## CLI Tool
 

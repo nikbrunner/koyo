@@ -25,7 +25,7 @@ layers:
         rows:
             - XXXXXXX , XXXXXXX          , XXXXXXX          , XXXXXXX          , XXXXXXX          , XXXXXXX      |   XXXXXXX , XXXXXXX    , XXXXXXX      , XXXXXXX      , XXXXXXX       , XXXXXXX
             - XXXXXXX , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T)   |   XXXXXXX , RALT(KC_U) , XXXXXXX      , XXXXXXX      ,XXXXXXX        , XXXXXXX
-            - XXXXXXX , TD(TD_EXT_GUI_A) , TD(TD_EXT_GUI_S) , TD(TD_EXT_GUI_D) , TD(TD_EXT_GUI_F) , LGUI(KC_G)   |   KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT      , HYPR(KC_SCLN) , XXXXXXX
+            - XXXXXXX , EXT_A            , EXT_S            , EXT_D            , EXT_F            , LGUI(KC_G)   |   KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT      , HYPR(KC_SCLN) , XXXXXXX
             - XXXXXXX , LGUI(KC_Z)       , LGUI(KC_X)       , LGUI(KC_C)       , LGUI(KC_V)       , LGUI(KC_B)   |   XXXXXXX , CW_TOGG    , LSFT(KC_TAB) , KC_TAB       , XXXXXXX       , XXXXXXX
             - XXXXXXX , XXXXXXX   | LGUI(KC_GRV), LGUI(KC_TAB)
 

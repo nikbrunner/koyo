@@ -3,12 +3,10 @@
 
 #define MOON_LED_LEVEL LED_LEVEL
 
-enum tap_dance_codes {
-  TD_EXT_GUI_A,
-  TD_EXT_GUI_S,
-  TD_EXT_GUI_D,
-  TD_EXT_GUI_F,
-};
+#define EXT_A MT(MOD_LGUI, KC_A)
+#define EXT_S MT(MOD_LALT, KC_S)
+#define EXT_D MT(MOD_LCTL, KC_D)
+#define EXT_F MT(MOD_LSFT, KC_F)
 
 #include "keymap.generated.h"
 
@@ -34,6 +32,10 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
         // Left hand
         case LT(LY_NUM_FN, KC_ESC):
         case LT(LY_EXT, KC_SPC):
+        case EXT_A:
+        case EXT_S:
+        case EXT_D:
+        case EXT_F:
 
         // Right hand
         case HYPR_T(KC_ENT):
@@ -56,120 +58,50 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
                       'L', 'L', 'L',         'R', 'R', 'R'
     );
 
-  // TAP DANCE
-  // ============================================================================
-  enum tab_dance_events {
-    SINGLE_TAP = 1,
-    SINGLE_HOLD,
-    DOUBLE_TAP,
-    DOUBLE_HOLD,
-    MORE_TAPS
-  };
-
-  uint8_t dance_step(tap_dance_state_t * state) {
-    if (state->count == 1) {
-      if (!state->pressed) {
-        return SINGLE_TAP;
-      } else {
-        return SINGLE_HOLD;
-      }
-    } else if (state->count == 2) {
-      if (!state->pressed) {
-        return DOUBLE_TAP;
-      } else {
-        return DOUBLE_HOLD;
-      }
+// EXT HOME ROW ============================================================================
+// Tapped: GUI + the letter. Held: the key's modifier.
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case EXT_A:
+        case EXT_S:
+        case EXT_D:
+        case EXT_F:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(QK_MOD_TAP_GET_TAP_KEYCODE(keycode)));
+                return false;
+            }
+            break;
     }
-    return MORE_TAPS;
-  }
+    return true;
+}
 
-  void on_td_ext_gui_a(tap_dance_state_t * state, void *user_data) {
-    uint8_t dance = dance_step(state);
-
-    switch (dance) {
-    case SINGLE_TAP:
-      register_code(KC_LGUI);
-      register_code(KC_A);
-      unregister_code(KC_A);
-      unregister_code(KC_LGUI);
-      break;
-    case SINGLE_HOLD:
-      register_code(KC_LGUI);
-      break;
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case EXT_A:
+        case EXT_S:
+        case EXT_D:
+        case EXT_F:
+            return true;
+        default:
+            return false;
     }
-  }
+}
 
-  void reset_td_ext_gui_a(tap_dance_state_t * state, void *user_data) {
-    unregister_code(KC_LGUI);
-  }
-
-  void on_td_ext_gui_s(tap_dance_state_t * state, void *user_data) {
-    uint8_t dance = dance_step(state);
-
-    switch (dance) {
-    case SINGLE_TAP:
-      register_code(KC_LGUI);
-      register_code(KC_S);
-      unregister_code(KC_S);
-      unregister_code(KC_LGUI);
-      break;
-    case SINGLE_HOLD:
-      register_code(KC_LALT);
-      break;
+bool get_speculative_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // Mostly tapped, so speculating would flash Ctrl or Shift before each GUI shortcut
+        case EXT_D:
+        case EXT_F:
+            return false;
     }
-  }
+    const uint8_t mods = mod_config(QK_MOD_TAP_GET_MODS(keycode));
+    return (mods & (MOD_LCTL | MOD_LSFT)) == (mods & MOD_HYPR);
+}
 
-  void reset_td_ext_gui_s(tap_dance_state_t * state, void *user_data) {
-    unregister_code(KC_LALT);
-  }
-
-  void on_td_ext_gui_d(tap_dance_state_t * state, void *user_data) {
-    uint8_t dance = dance_step(state);
-
-    switch (dance) {
-    case SINGLE_TAP:
-      register_code(KC_LGUI);
-      register_code(KC_D);
-      unregister_code(KC_D);
-      unregister_code(KC_LGUI);
-      break;
-    case SINGLE_HOLD:
-      register_code(KC_LCTL);
-      break;
-    }
-  }
-
-  void reset_td_ext_gui_d(tap_dance_state_t * state, void *user_data) {
-    unregister_code(KC_LCTL);
-  }
-
-  void on_td_ext_gui_f(tap_dance_state_t * state, void *user_data) {
-    uint8_t dance = dance_step(state);
-
-    switch (dance) {
-    case SINGLE_TAP:
-      register_code(KC_LGUI);
-      register_code(KC_F);
-      unregister_code(KC_F);
-      unregister_code(KC_LGUI);
-      break;
-    case SINGLE_HOLD:
-      register_code(KC_LSFT);
-      break;
-    }
-  }
-
-  void reset_td_ext_gui_f(tap_dance_state_t * state, void *user_data) {
-    unregister_code(KC_LSFT);
-  }
-
-
-tap_dance_action_t tap_dance_actions[] = {
-    [TD_EXT_GUI_A] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_a, reset_td_ext_gui_a),
-    [TD_EXT_GUI_S] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_s, reset_td_ext_gui_s),
-    [TD_EXT_GUI_D] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_d, reset_td_ext_gui_d),
-    [TD_EXT_GUI_F] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, on_td_ext_gui_f, reset_td_ext_gui_f),
-};
+// A key tapped while the EXT thumb is down settles the thumb as held
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    return keycode == LT(LY_EXT, KC_SPC);
+}
 
 // RGB LAYER LIGHTING ============================================================================
 // https://getreuer.info/posts/keyboards/palettefx/index.html

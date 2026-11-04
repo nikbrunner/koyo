@@ -21,6 +21,14 @@
 // https://docs.qmk.fm/tap_hold#speculative-hold
 #define SPECULATIVE_HOLD
 
+// Enable per-key permissive hold via get_permissive_hold()
+// https://docs.qmk.fm/tap_hold#permissive-hold
+#define PERMISSIVE_HOLD_PER_KEY
+
+// Enable per-key hold on other key press via get_hold_on_other_key_press()
+// https://docs.qmk.fm/tap_hold#hold-on-other-key-press
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+
 // =============================================================================
 // Combo Configuration
 // https://docs.qmk.fm/features/combo

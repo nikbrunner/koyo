@@ -1,6 +1,6 @@
 ---
 name: repo-layout
-description: Change the kōyō layout through keymap.yml and regenerate every board's keymap and the layout SVG. Use for any key, layer, combo or tap dance change, and before any commit that touches keymap.yml or a qmk/*/src/keymap.c.
+description: Change the kōyō layout through keymap.yml and regenerate every board's keymap and the layout SVG. Use for any key, layer, combo, tap-hold or tap dance change, and before any commit that touches keymap.yml or a qmk/*/src/keymap.c.
 ---
 
 # Layout
@@ -26,15 +26,35 @@ description: Change the kōyō layout through keymap.yml and regenerate every bo
 
 ## The keymap.c files
 
-Each board's `keymap.c` holds the behaviour: `enum tap_dance_codes` and its callbacks, `get_tapping_term`, `get_chordal_hold`, RGB, and any per-board hooks. `enum tap_dance_codes` comes before `#include "keymap.generated.h"`; everything that uses `LY_*` comes after it. Code that names a board-only layer lives only in those boards' `keymap.c` (e.g. `combo_should_trigger()` with `LY_GAM` in the Voyager's), since the other boards have no such enum value.
+Each board's `keymap.c` holds the behaviour: key aliases, tap-hold hooks, RGB, and any per-board hooks. Names that `keymap.yml` uses (aliases, a tap dance enum) come before `#include "keymap.generated.h"`; everything that uses `LY_*` comes after it. Code that names a board-only layer lives only in those boards' `keymap.c` (e.g. `combo_should_trigger()` with `LY_GAM` in the Voyager's), since the other boards have no such enum value.
 
-A new tap dance has three parts: its entry in `enum tap_dance_codes` and its `tap_dance_actions` entry with callbacks in all four `keymap.c` files, plus a label in `qmk_keycode_map` in `assets/kd_config.yaml` (e.g. `TD(TD_EXT_GUI_A): { t: "Gui+ A", h: GUI }`).
+## Tap-hold
+
+Pick the mechanism by latency. A mod-tap or layer-tap sends its tap on release. A tap dance waits out the full tapping term after every press, in case another tap follows, so it fits only a key that really acts on the tap count.
+
+**Tap sends a modified keycode** (the EXT home row: tap Cmd-S, hold Alt). `MT()` keeps only a basic keycode, so the tap is intercepted:
+
+- Name the key before the generated header (`#define EXT_S MT(MOD_LALT, KC_S)`) and use that name in `keymap.yml`. keymap-drawer splits a literal `MT(...)` into its tap and hold before it reads `qmk_keycode_map`, so the alias is what lets the drawing show the real tap: `EXT_S: { t: "Gui+ S", h: ALT }` in `assets/kd_config.yaml`.
+- Send the tap from `process_record_user`, guarded by `record->tap.count && record->event.pressed`, and return `false`.
+
+**Hooks that decide tap or hold.** Each needs its `*_PER_KEY` define in `config.h`, where one exists. `SPECULATIVE_HOLD`, `CHORDAL_HOLD` and `TAPPING_TERM_PER_KEY` apply to all four boards.
+
+| Hook | Effect | Keys it suits |
+| --- | --- | --- |
+| `get_hold_on_other_key_press` | Settles as held the moment another key goes down, so a chord fires at once. A fast roll also becomes a hold. | Keys mostly chorded with others, on a layer where you are not typing prose (EXT home row) |
+| `get_permissive_hold` | Settles as held when another key is tapped inside it, ending that key's wait for the timer. Rolls stay taps. | Layer thumbs that also type (EXT thumb on space) |
+| `get_chordal_hold` | Returning `true` lets a same-hand chord hold; the default settles it as a tap. | Thumbs, and keys that combine with same-hand keys (EXT home row: F+D, F+C) |
+| `get_speculative_hold` | Sends the modifier on keydown, before the decision. QMK's default covers Ctrl and Shift mod-taps; an override has to repeat that default for the keys it keeps. | Exclude keys mostly tapped for a shortcut, since each tap would flash the modifier first |
+
+These settings interact, so check against QMK's `docs/tap_hold.md` at the checkout in `config.yml` (`paths.qmk_dir`).
+
+**A new tap dance** has three parts: its entry in `enum tap_dance_codes` and its `tap_dance_actions` entry with callbacks in all four `keymap.c` files (`TAP_DANCE_ENABLE = yes` in each `rules.mk`), plus a label in `qmk_keycode_map` (`TD(TD_NAME): { t: "Gui+ A", h: GUI }`).
 
 ## Steps
 
 1. Edit `keymap.yml`, and the `keymap.c` files where the change adds behaviour. Done when every keycode the change introduces is either a QMK keycode or defined in all four `keymap.c` files.
 2. Run `./koyo update keymap`. Done when it prints both success lines; a malformed row, an unknown board name or a combo key missing from its layer stops it with a message naming the culprit.
-3. Run `./koyo check` (`check.sh`). It works on a copy of the working tree and verifies that the generated files match `keymap.yml`, that every hand-written `case` in the `keymap.c` files still names a key in `keymap.yml` (an orphaned `case` compiles but never matches), and that all four boards compile. Done when it prints `All checks passed`; each failure names the stale file, the orphaned `case` or the board with its compiler error.
+3. Run `./koyo check` (`check.sh`). It works on a copy of the working tree and verifies that the generated files match `keymap.yml`, that every hand-written `case` with a literal keycode (`case LT(...)`, not an alias like `case EXT_S`) in the `keymap.c` files still names a key in `keymap.yml` (an orphaned `case` compiles but never matches), and that all four boards compile. Done when it prints `All checks passed`; each failure names the stale file, the orphaned `case` or the board with its compiler error.
 4. Render the SVG and look at it. `qlmanage` thumbnails crop tall SVGs; use headless Chrome with the size from the SVG's `viewBox`, writing to a temp dir:
 
    ```sh
