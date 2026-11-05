@@ -76,13 +76,13 @@ else
 fi
 
 # 2. Every hand-written case still matches a key in keymap.yml
-ORPHANS=$(grep -ho 'case [A-Z_]*([^:]*)' "$COPY"/qmk/*/src/keymap.c | sort -u | sed 's/^case //' |
+ORPHANS=$({ grep -ho 'case [A-Z_]*([^:]*)' "$COPY"/qmk/*/src/keymap.c "$COPY"/qmk/shared/*.h || true; } | sort -u | sed 's/^case //' |
     while read -r key; do grep -qF "$key" "$COPY/keymap.yml" || echo "$key"; done)
 if [[ -n "$ORPHANS" ]]; then
-    while read -r key; do error_log "Orphaned case in keymap.c: $key"; done <<<"$ORPHANS"
+    while read -r key; do error_log "Orphaned case: $key"; done <<<"$ORPHANS"
     FAILED=true
 else
-    success_log "No orphaned cases in keymap.c"
+    success_log "No orphaned cases"
 fi
 
 # 3. Every board compiles
