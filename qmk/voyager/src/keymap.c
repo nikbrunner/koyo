@@ -21,7 +21,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+// The number row on base shares its keycodes with these combos, which belong to LY_NUM_FN only
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    if (combo->keys == LY_NUM_FN_CMB_COMMA || combo->keys == LY_NUM_FN_CMB_DOT) {
+        return layer_state_is(LY_NUM_FN);
+    }
     return !layer_state_is(LY_GAM);
 }
 
@@ -82,6 +86,9 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case EXT_D:
         case EXT_F:
             return true;
+        // Binds under this thumb must fire at once in a game, while typing keeps fast Esc rolls
+        case LT(LY_NUM_FN, KC_ESC):
+            return layer_state_is(LY_GAM);
         default:
             return false;
     }

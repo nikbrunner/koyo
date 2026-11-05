@@ -41,7 +41,7 @@
 // Time window for combo key presses (ms)
 #define COMBO_TERM 35
 
-// Enable combo_should_trigger() to disable combos on the gaming layer
+// Enable combo_should_trigger() to limit combos to their layer
 #define COMBO_SHOULD_TRIGGER
 
 // =============================================================================

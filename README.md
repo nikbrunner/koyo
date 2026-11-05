@@ -42,7 +42,7 @@
 - Extended layer under space bar for frequently used tools
 - Dual symbol layers (one per hand) with semantic arrangement
 - Unified NUM_FN layer combining numbers and function keys for efficient access
-- Gaming layer on the Voyager, toggled from the top-right outer key
+- Gaming layer on the Voyager, toggled by holding the left outer thumb and pressing the left Shift key
 
 ### Thumb Cluster Philosophy
 

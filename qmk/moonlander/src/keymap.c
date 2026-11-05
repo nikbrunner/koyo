@@ -10,6 +10,14 @@
 
 #include "keymap.generated.h"
 
+// The number row on base shares its keycodes with these combos, which belong to LY_NUM_FN only
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    if (combo->keys == LY_NUM_FN_CMB_COMMA || combo->keys == LY_NUM_FN_CMB_DOT) {
+        return layer_state_is(LY_NUM_FN);
+    }
+    return true;
+}
+
 // TAPPING TERM ============================================================================
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
