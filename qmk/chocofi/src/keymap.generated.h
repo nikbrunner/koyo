@@ -62,19 +62,19 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
     switch (get_highest_layer(state)) {
         case LY_BAS:
-            rgb_matrix_sethsv_noeeprom(184, 61, 70);
+            rgb_matrix_sethsv_noeeprom(184, 130, 70);
             break;
         case LY_EXT:
-            rgb_matrix_sethsv_noeeprom(236, 68, 70);
+            rgb_matrix_sethsv_noeeprom(236, 135, 70);
             break;
         case LY_SYM:
-            rgb_matrix_sethsv_noeeprom(94, 87, 70);
+            rgb_matrix_sethsv_noeeprom(94, 150, 70);
             break;
         case LY_NUM_FN:
-            rgb_matrix_sethsv_noeeprom(16, 174, 70);
+            rgb_matrix_sethsv_noeeprom(16, 215, 70);
             break;
         case LY_MED:
-            rgb_matrix_sethsv_noeeprom(24, 63, 70);
+            rgb_matrix_sethsv_noeeprom(24, 95, 70);
             break;
     }
     return state;
@@ -88,7 +88,7 @@ static hsv_t key_highlight(uint8_t layer, keypos_t pos) {
                 case KC_J:
                 case LT(LY_SYM, KC_K):
                 case KC_L:
-                    return (hsv_t){27, 218, 228};
+                    return (hsv_t){27, 240, 228};
             }
             break;
         case LY_EXT:
@@ -97,7 +97,7 @@ static hsv_t key_highlight(uint8_t layer, keypos_t pos) {
                 case KC_DOWN:
                 case KC_UP:
                 case KC_RGHT:
-                    return (hsv_t){27, 218, 228};
+                    return (hsv_t){27, 240, 228};
             }
             break;
         case LY_SYM:
@@ -110,11 +110,11 @@ static hsv_t key_highlight(uint8_t layer, keypos_t pos) {
                 case KC_RCBR:
                 case KC_LABK:
                 case KC_RABK:
-                    return (hsv_t){27, 218, 228};
+                    return (hsv_t){27, 240, 228};
                 case KC_DQUO:
                 case KC_QUOT:
                 case KC_GRV:
-                    return (hsv_t){120, 134, 195};
+                    return (hsv_t){120, 190, 195};
                 case KC_PLUS:
                 case KC_MINS:
                 case KC_ASTR:
@@ -126,7 +126,7 @@ static hsv_t key_highlight(uint8_t layer, keypos_t pos) {
                 case KC_TILD:
                 case KC_EQUAL:
                 case KC_SLASH:
-                    return (hsv_t){236, 68, 211};
+                    return (hsv_t){236, 135, 211};
             }
             break;
         case LY_NUM_FN:
@@ -141,7 +141,7 @@ static hsv_t key_highlight(uint8_t layer, keypos_t pos) {
                 case KC_7:
                 case KC_8:
                 case KC_9:
-                    return (hsv_t){120, 134, 195};
+                    return (hsv_t){120, 190, 195};
             }
             break;
         case LY_MED:
@@ -152,15 +152,15 @@ static hsv_t key_highlight(uint8_t layer, keypos_t pos) {
                 case KC_MPRV:
                 case KC_MPLY:
                 case KC_MNXT:
-                    return (hsv_t){184, 61, 215};
+                    return (hsv_t){184, 130, 215};
                 case QK_BOOT:
-                    return (hsv_t){251, 124, 254};
+                    return (hsv_t){251, 200, 254};
             }
             break;
     }
     // Looks through transparent keys, so the outer ring's mods stay lit on every layer
     uint16_t keycode = keymap_key_to_keycode(layer_switch_get_layer(pos), pos);
-    return IS_MODIFIER_KEYCODE(keycode) || IS_QK_MOD_TAP(keycode) ? (hsv_t){24, 63, 225} : (hsv_t){0, 0, 0};
+    return IS_MODIFIER_KEYCODE(keycode) || IS_QK_MOD_TAP(keycode) ? (hsv_t){24, 95, 225} : (hsv_t){0, 0, 0};
 }
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {

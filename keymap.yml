@@ -12,16 +12,16 @@
 # Run `./koyo update keymap` after editing to regenerate the board headers
 # and assets/layout.svg.
 
-# Black Atom JPN Kōyō dark, converted from OKLCH to QMK's HSV.
+# Hues of Black Atom JPN Kōyō dark in QMK's HSV, more saturated because LEDs wash out pale colours.
 palette:
-    amber: [27, 218, 228]
-    copper: [16, 174, 248]
-    cream: [24, 63, 225]
-    cyan: [120, 134, 195]
-    green: [94, 87, 192]
-    pink: [236, 68, 211]
-    red: [251, 124, 254]
-    violet: [184, 61, 215]
+    amber: [27, 240, 228]
+    copper: [16, 215, 248]
+    cream: [24, 95, 225]
+    cyan: [120, 190, 195]
+    green: [94, 150, 192]
+    pink: [236, 135, 211]
+    red: [251, 200, 254]
+    violet: [184, 130, 215]
 
 # A layer's `background` lights every key at background_v. Its `highlights` paint
 # the listed keys, written exactly as on that layer, in a palette colour. Remaining
