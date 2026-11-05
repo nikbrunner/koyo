@@ -1363,9 +1363,6 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(990, 162)" class="key keypos-19">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">RM</tspan><tspan x="0" dy="1.2em">HUED</tspan>
-</text>
 </g>
 <g transform="translate(1080, 135)" class="key keypos-20">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -1375,9 +1372,6 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(1170, 153)" class="key keypos-21">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">RM</tspan><tspan x="0" dy="1.2em">HUEU</tspan>
-</text>
 </g>
 <g transform="translate(1260, 171)" class="key keypos-22">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>

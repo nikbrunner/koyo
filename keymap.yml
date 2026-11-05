@@ -97,7 +97,7 @@ layers:
             red: QK_BOOT
         rows:
             - KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS   |   KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS   , KC_TRNS         , KC_TRNS
-            - KC_TRNS , G(C(KC_Q)) , KC_VOLD , KC_MUTE , KC_VOLU , QK_BOOT   |   XXXXXXX , RM_HUED    , RM_TOGG , RM_HUEU   , KC_PRINT_SCREEN , KC_TRNS
+            - KC_TRNS , G(C(KC_Q)) , KC_VOLD , KC_MUTE , KC_VOLU , QK_BOOT   |   XXXXXXX , XXXXXXX    , RM_TOGG , XXXXXXX   , KC_PRINT_SCREEN , KC_TRNS
             - KC_TRNS , XXXXXXX    , KC_MPRV , KC_MPLY , KC_MNXT , XXXXXXX   |   XXXXXXX , G(KC_MINS) , G(KC_0) , G(KC_EQL) , XXXXXXX         , KC_TRNS
             - KC_TRNS , XXXXXXX    , KC_BRID , XXXXXXX , KC_BRIU , XXXXXXX   |   XXXXXXX , DT_DOWN    , DT_PRNT , DT_UP     , XXXXXXX         , KC_TRNS
             - XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX

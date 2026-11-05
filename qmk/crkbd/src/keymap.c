@@ -14,11 +14,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LALT, KC_X):
         case MT(MOD_LALT, KC_DOT):
         case MT(MOD_RGUI, KC_SLASH):
-            return TAPPING_TERM + 15;
+            return g_tapping_term + 15;
 
         
         default:
-            return TAPPING_TERM;
+            return g_tapping_term;
     }
 }
 
