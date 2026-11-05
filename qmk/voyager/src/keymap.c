@@ -103,6 +103,21 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     return keycode == LT(LY_EXT, KC_SPC);
 }
 
+// Shift and SYM keys stay out: camelCase and symbols need a hold right after a letter
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
+    switch (keycode) {
+        case MT(MOD_LGUI, KC_Z):
+        case MT(MOD_LALT, KC_X):
+        case MT(MOD_LCTL, KC_C):
+        case MT(MOD_RCTL, KC_COMMA):
+        case MT(MOD_LALT, KC_DOT):
+        case MT(MOD_RGUI, KC_SLASH):
+            return is_flow_tap_key(prev_keycode) ? FLOW_TAP_TERM : 0;
+        default:
+            return 0;
+    }
+}
+
 // RGB LAYER LIGHTING ============================================================================
 // https://getreuer.info/posts/keyboards/palettefx/index.html
 layer_state_t layer_state_set_user(layer_state_t state) {

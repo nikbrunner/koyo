@@ -35,6 +35,10 @@
 // https://docs.qmk.fm/tap_hold#hold-on-other-key-press
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
+// Window after a typed letter in which a tap-hold key settles as tapped (ms)
+// https://docs.qmk.fm/tap_hold#flow-tap
+#define FLOW_TAP_TERM 150
+
 // =============================================================================
 // Combo Configuration
 // https://docs.qmk.fm/features/combo
