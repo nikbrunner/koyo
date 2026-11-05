@@ -63,14 +63,3 @@
 // =============================================================================
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-
-// =============================================================================
-// Mouse Key Configuration
-// https://docs.qmk.fm/features/mouse_keys
-// =============================================================================
-
-#undef MOUSEKEY_WHEEL_DELAY
-#define MOUSEKEY_WHEEL_DELAY 50
-
-#undef MOUSEKEY_WHEEL_MAX_SPEED
-#define MOUSEKEY_WHEEL_MAX_SPEED 3

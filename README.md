@@ -40,7 +40,7 @@
 ### Layer Design
 
 - Extended layer under space bar for frequently used tools
-- Dual symbol layers (one per hand) with semantic arrangement
+- Symbol layer with semantic arrangement
 - Unified NUM_FN layer combining numbers and function keys for efficient access
 - Gaming layer on the Voyager, toggled by holding the left outer thumb and pressing the left Shift key
 
@@ -77,7 +77,7 @@
 
 ### Quality of Life
 
-- Achordion Integration: Smart handling of hold-tap actions
+- Chordal Hold: Smart handling of hold-tap actions
 - Cross-Platform Compatibility: Works seamlessly across operating systems
 - Customizable Function Layer: Easy access to F-keys and system functions
 
@@ -91,7 +91,7 @@
 koyo update keymap
 ```
 
-This writes `qmk/<board>/src/keymap.generated.h` for every board (Corne and Chocofi use the core and thumbs, Moonlander and Voyager the outer ring too) and redraws the graphic above. Flashing runs it as well. `koyo check` verifies the result and runs as a Git pre-push hook, which `./koyo setup` installs through Lefthook (from `mise.toml`). `keymap.yml` also sets the lighting: a background colour per layer and highlights for key groups, generated into the same headers. Each board's `keymap.c` holds only behaviour: mod-tap overrides, chordal hold, tapping terms and per-board hooks.
+This writes `qmk/<board>/src/keymap.generated.h` for every board (Corne and Chocofi use the core and thumbs, Moonlander and Voyager the outer ring too) and redraws the graphic above. Flashing runs it as well. `koyo check` verifies the result and runs as a Git pre-push hook, which `./koyo setup` installs through Lefthook (from `mise.toml`). `keymap.yml` also sets the lighting: a background colour per layer and highlights for key groups, generated into the same headers. `qmk/shared/` holds the behaviour of every board: mod-tap overrides, chordal hold and tapping terms. Each board's `keymap.c` holds only what differs per board.
 
 ## CLI Tool
 
@@ -141,7 +141,7 @@ koyo voyager flash
 # Generate board keymaps and the layout SVG from keymap.yml
 koyo update keymap
 
-# Verify generated files, keymap.c cases and that every board compiles
+# Verify generated files, key mapping, hand-written cases and that every board compiles
 koyo check
 
 # Update QMK firmware
@@ -164,12 +164,16 @@ koyo/
 ├── qmk/               # QMK configurations
 │   ├── moonlander/    # Moonlander specific files
 │   ├── crkbd/         # Corne specific files
-│   └── voyager/       # Voyager specific files
+│   ├── chocofi/       # Chocofi specific files
+│   ├── voyager/       # Voyager specific files
+│   ├── shared/        # Behaviour of every board
+│   └── flash.sh       # Builds and flashes one board
 ├── setup.sh           # Setup script
 ├── utils.sh           # Utility functions
 ├── help.sh            # Help documentation
 ├── keymap.yml         # Keymap for all boards (source of truth)
 ├── generate_keymap.py # keymap.yml → board headers and drawing input
+├── test_generate_keymap.py # Checks where keys land on each board
 ├── update_keymap.sh   # Keymap and SVG update script
 ├── check.sh           # Verifies generated files and builds every board
 ├── lefthook.yml       # Git hooks (pre-push runs check.sh)
@@ -183,7 +187,6 @@ The setup script will automatically install missing dependencies:
 
 - **Homebrew** - Required for installing other dependencies (install from [brew.sh](https://brew.sh))
 - **git** - For cloning repositories
-- **zsh** - Shell (usually pre-installed on macOS)
 
 The following are installed automatically by `./koyo setup`:
 
@@ -217,7 +220,7 @@ Before submitting changes:
 - [x] `koyo setup` (Sets up Prerequisites)
 - [x] DRY up scripts
 - [x] `koyo moonlander oryx` (Opens up Oryx Configurator Page)
-- [x] `koyo corne flash` (Flashes the Corne Keyboard)
+- [x] `koyo crkbd flash` (Flashes the Corne Keyboard)
 - [x] `koyo voyager flash` (Flashes the Voyager Keyboard)
 - [x] `koyo update keymap` (Generates board keymaps and the SVG from `keymap.yml`)
 - [x] `koyo update qmk` (Pulls latest Version of QMK firmware)

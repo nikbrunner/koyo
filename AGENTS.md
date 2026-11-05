@@ -8,7 +8,7 @@
 - `./koyo chocofi flash`: Flash Chocofi keyboard (RP2040, compiles .uf2 and auto-copies)
 - `./koyo voyager flash`: Flash Voyager keyboard
 - `./koyo update keymap`: Generate board keymaps and the layout SVG from `keymap.yml`
-- `./koyo check`: Verify generated files are current, no `keymap.c` case is orphaned, and every board compiles (also runs on pre-push)
+- `./koyo check`: Verify generated files are current, keys map onto every board, no hand-written `case` is orphaned, and every board compiles (also runs on pre-push)
 - `./koyo update qmk`: Update QMK firmware
 - `./koyo --debug <command>`: Run with verbose logging
 
@@ -24,7 +24,7 @@
 
 ## Keymap
 - `keymap.yml` is the layout of every board; `./koyo update keymap` generates `qmk/*/src/keymap.generated.h` and `assets/layout.svg` from it, so never edit those two by hand
-- For any key, layer, combo or tap dance change, and before every commit that touches `keymap.yml` or a `keymap.c`, use the `repo-layout` skill
+- For any key, layer, combo or tap dance change, and before every commit that touches `keymap.yml`, `qmk/shared/` or a `keymap.c`, use the `repo-layout` skill
 
 ## QMK Framework Notes
 - All keyboards (Moonlander, Corne, Chocofi, and Voyager) use QMK's Chordal Hold for tap-hold features
@@ -35,5 +35,4 @@
 - keymap-drawer for SVG generation
 - python3 for the keymap generator (standard library only)
 - yq for YAML processing
-- zsh shell
 - git

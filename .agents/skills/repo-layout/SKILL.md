@@ -26,9 +26,9 @@ description: Change the kōyō layout through keymap.yml and regenerate every bo
 
 - Lighting lives here too and is generated into the same headers. `palette` names HSV colours, a layer's `background` lights all its keys at `lighting.background_v`, its `highlights` paint keys written exactly as on that layer, and `lighting.mods` colours every other modifier and mod-tap. Colours come from Black Atom JPN Kōyō dark. A split board with per-key highlights needs `SPLIT_LAYER_STATE_ENABLE` in its `config.h`, or the right half keeps showing the base layer.
 
-## The keymap.c files
+## The behaviour files
 
-Each board's `keymap.c` holds the behaviour: key aliases, tap-hold hooks, and any per-board hooks. Names that `keymap.yml` uses (aliases, a tap dance enum) come before `#include "keymap.generated.h"`; everything that uses `LY_*` comes after it. Code that names a board-only layer lives only in those boards' `keymap.c` (e.g. `combo_should_trigger()` with `LY_GAM` in the Voyager's), since the other boards have no such enum value.
+`qmk/shared/` holds the behaviour of every board. Names that `keymap.yml` uses (aliases, a tap dance enum) go in `aliases.h`, which comes before `keymap.generated.h`; the tap-hold and combo hooks go in `hooks.h`, which comes after it, since they use `LY_*`. Each board's `keymap.c` includes both and holds what differs per board: its `chordal_hold_layout`, and `#define GAMING_LAYER LY_GAM` on a board with the gaming layer. Other boards have no such enum value, so `hooks.h` guards that code with `#ifdef GAMING_LAYER`.
 
 ## Tap-hold
 
@@ -51,13 +51,13 @@ Pick the mechanism by latency. A mod-tap or layer-tap sends its tap on release. 
 
 These settings interact, so check against QMK's `docs/tap_hold.md` at the checkout in `config.yml` (`paths.qmk_dir`).
 
-**A new tap dance** has three parts: its entry in `enum tap_dance_codes` and its `tap_dance_actions` entry with callbacks in all four `keymap.c` files (`TAP_DANCE_ENABLE = yes` in each `rules.mk`), plus a label in `qmk_keycode_map` (`TD(TD_NAME): { t: "Gui+ A", h: GUI }`).
+**A new tap dance** has three parts: its entry in `enum tap_dance_codes` in `aliases.h`, its `tap_dance_actions` entry with callbacks in `hooks.h` (`TAP_DANCE_ENABLE = yes` in each `rules.mk`), plus a label in `qmk_keycode_map` (`TD(TD_NAME): { t: "Gui+ A", h: GUI }`).
 
 ## Steps
 
-1. Edit `keymap.yml`, and the `keymap.c` files where the change adds behaviour. Done when every keycode the change introduces is either a QMK keycode or defined in all four `keymap.c` files.
+1. Edit `keymap.yml`, and `qmk/shared/` where the change adds behaviour. Done when every keycode the change introduces is either a QMK keycode or defined in `aliases.h`.
 2. Run `./koyo update keymap`. Done when it prints both success lines; a malformed row, an unknown board name or a combo key missing from its layer stops it with a message naming the culprit.
-3. Run `./koyo check` (`check.sh`). It works on a copy of the working tree and verifies that the generated files match `keymap.yml`, that every hand-written `case` with a literal keycode (`case LT(...)`, not an alias like `case EXT_S`) in the `keymap.c` files still names a key in `keymap.yml` (an orphaned `case` compiles but never matches), and that all four boards compile. Done when it prints `All checks passed`; each failure names the stale file, the orphaned `case` or the board with its compiler error.
+3. Run `./koyo check` (`check.sh`). It works on a copy of the working tree and verifies that the generated files match `keymap.yml`, that keys land where each board expects them (`test_generate_keymap.py`), that every hand-written `case` with a literal keycode (`case LT(...)`, not an alias like `case EXT_S`) in `qmk/shared/` and the `keymap.c` files still names a key in `keymap.yml` (an orphaned `case` compiles but never matches), and that all four boards compile. Done when it prints `All checks passed`; each failure names the stale file, the wrong key position, the orphaned `case` or the board with its compiler error.
 4. Render the SVG and look at it. `qlmanage` thumbnails crop tall SVGs; use headless Chrome with the size from the SVG's `viewBox`, writing to a temp dir:
 
    ```sh
