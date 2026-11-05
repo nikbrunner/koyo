@@ -35,6 +35,7 @@ show_help() {
     log_command "setup" "Setup Koyo environment"
     log_subcommand "--dry-run" "Show what would be done without making changes"
     log_command "check" "Verify generated files are current, keys map onto every board, hand-written cases are not orphaned, and every board compiles"
+    log_command "macos" "Apply the macOS keyboard settings"
     log_command "update" "Command to update various related aspects"
     log_subcommand "keymap" "Generate board keymaps and the layout SVG from keymap.yml"
     log_subcommand "qmk" "Update the QMK firmware checkout and its submodules"

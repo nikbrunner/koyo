@@ -10,6 +10,7 @@
 - `./koyo update keymap`: Generate board keymaps and the layout SVG from `keymap.yml`
 - `./koyo check`: Verify generated files are current, keys map onto every board, no hand-written `case` is orphaned, and every board compiles (also runs on pre-push)
 - `./koyo update qmk`: Update QMK firmware
+- `./koyo macos`: Apply the macOS keyboard settings
 - `./koyo --debug <command>`: Run with verbose logging
 
 ## Code Style Guidelines

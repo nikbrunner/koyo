@@ -5,6 +5,7 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [CLI Tool](#cli-tool)
+- [macOS Settings](#macos-settings)
 - [Layout](#layout)
 - [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
@@ -156,6 +157,18 @@ Add the `--debug` or `-d` flag to any command for verbose output:
 koyo --debug moonlander flash
 ```
 
+## macOS Settings
+
+`koyo macos` applies these settings. Log out and back in afterwards so every app picks them up.
+
+| Setting                                    | Value    | Where to set it by hand                                                                            | Effect                                                                                                                                                                      |
+| ------------------------------------------ | -------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `com.apple.keyboard.fnState`               | `true`   | Keyboard → Keyboard Shortcuts… → Function Keys → "Use F1, F2, etc. keys as standard function keys" | F-keys send F1, F2 and so on. Hold `fn` for the media action.                                                                                                               |
+| `KeyRepeat`                                | `2`      | Keyboard → Key repeat rate, fastest                                                                | Repeat speed once a held key starts repeating                                                                                                                               |
+| `InitialKeyRepeat`                         | `15`     | Keyboard → Delay until repeat, shortest                                                            | Wait before a held key starts repeating                                                                                                                                     |
+| `ApplePressAndHoldEnabled`                 | `false`  | Terminal only                                                                                      | A held key repeats instead of opening the accent popup, so holding `j` keeps moving in Vim. Umlauts stay on Option+U.                                                       |
+| `AppleSymbolicHotKeys` (IDs in `macos.sh`) | disabled | Keyboard → Keyboard Shortcuts…, in Mission Control, Screenshots, Input Sources and Accessibility   | System shortcuts for zoom, screenshots, Mission Control, show desktop, input source and Spaces stop catching keys meant for Karabiner and apps, such as F12 and Ctrl+Arrow. |
+
 ## Project Structure
 
 ```
@@ -176,6 +189,7 @@ koyo/
 ├── test_generate_keymap.py # Checks where keys land on each board
 ├── update_keymap.sh   # Keymap and SVG update script
 ├── check.sh           # Verifies generated files and builds every board
+├── macos.sh           # Applies the macOS keyboard settings
 ├── lefthook.yml       # Git hooks (pre-push runs check.sh)
 ├── config.yml         # Configuration file
 └── koyo               # koyo command
