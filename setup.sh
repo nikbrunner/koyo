@@ -119,23 +119,6 @@ check_keymap() {
 }
 
 
-# Get and expand paths
-QMK_DIR=$(eval echo "$(get_config '.paths.qmk_dir')")
-REPO_DIR=$(eval echo "$(get_config '.paths.repo_dir')")
-
-# Handle script files with proper quoting and expansion
-# shellcheck disable=SC2207
-SCRIPT_FILES=($(get_config '.paths.script_files[]' | sed "s|^|$SCRIPT_DIR/|"))
-
-# Debug output
-if [[ "$DEBUG" == "true" ]]; then
-    debug_log "Paths from config:"
-    debug_log "  QMK_DIR: $QMK_DIR"
-    debug_log "  REPO_DIR: $REPO_DIR"
-    debug_log "  SCRIPT_FILES:"
-    printf '    - %s\n' "${SCRIPT_FILES[@]}"
-fi
-
 check_qmk() {
     debug_log "Checking QMK installation..."
 
@@ -225,23 +208,6 @@ check_qmk() {
     fi
 }
 
-setup_permissions() {
-    debug_log "Setting up script permissions..."
-
-    for script in "${SCRIPT_FILES[@]}"; do
-        if [[ -f "$script" ]]; then
-            if [[ "$DRY_RUN" == "true" ]]; then
-                debug_log "Would make $script executable"
-            else
-                chmod +x "$script"
-                success_log "Made $script executable"
-            fi
-        else
-            warning_log "$script not found"
-        fi
-    done
-}
-
 setup_symlink() {
     debug_log "Setting up command symlink..."
 
@@ -255,9 +221,9 @@ setup_symlink() {
     fi
 
     if [[ "$DRY_RUN" == "true" ]]; then
-        debug_log "Would create symlink: $REPO_DIR/koyo -> /usr/local/bin/koyo"
+        debug_log "Would create symlink: $SCRIPT_DIR/koyo -> /usr/local/bin/koyo"
     else
-        sudo ln -s "$REPO_DIR/koyo" "/usr/local/bin/koyo"
+        sudo ln -s "$SCRIPT_DIR/koyo" "/usr/local/bin/koyo"
         success_log "Created symlink for koyo command"
     fi
 }
@@ -276,15 +242,6 @@ setup_hooks() {
         lefthook install
         success_log "Git hooks installed"
     fi
-}
-
-check_zsh() {
-    debug_log "Checking ZSH configuration..."
-    if [[ ! -f ~/.zshrc ]]; then
-        error_log "Error: ~/.zshrc not found"
-        exit 1
-    fi
-    success_log "ZSH configuration found"
 }
 
 show_help() {
@@ -321,12 +278,11 @@ main() {
 
     debug_log "Starting Koyo keyboard setup..."
 
-    check_zsh
     check_yq
+    QMK_DIR=$(eval echo "$(get_config '.paths.qmk_dir')")
     check_pipx
     check_keymap
     check_qmk
-    setup_permissions
     setup_symlink
     setup_hooks
 

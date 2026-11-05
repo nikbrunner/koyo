@@ -92,12 +92,8 @@ case $KEYBOARD in
         "$PROJECT_DIR/update_keymap.sh"
         ;;
     "qmk")
-        # fetch latest version of QMK
-        git -C "$QMK_DIR" fetch
-        # pull latest version of QMK
-        git -C "$QMK_DIR" pull
-        # reset to origin/master
-        git -C "$QMK_DIR" reset --hard origin/master
+        git -C "$QMK_DIR" pull --ff-only
+        git -C "$QMK_DIR" submodule update --init --recursive
         ;;
     *)
         error_log "Unknown command: $COMMAND"
@@ -107,61 +103,17 @@ case $KEYBOARD in
     esac
     ;;
 
-"moonlander")
+"voyager" | "moonlander" | "crkbd" | "chocofi")
     case $COMMAND in
     "flash")
-        "$PROJECT_DIR/qmk/moonlander/flash.sh"
+        "$PROJECT_DIR/qmk/flash.sh" "$KEYBOARD"
         ;;
     "oryx")
+        if [[ "$KEYBOARD" != "moonlander" ]]; then
+            error_log "Oryx only has the Moonlander layout"
+            exit 1
+        fi
         open "$ORYX_URL"
-        ;;
-    "help")
-        show_help
-        ;;
-    *)
-        error_log "Unknown command: $COMMAND"
-        show_help
-        exit 1
-        ;;
-    esac
-    ;;
-
-"crkbd")
-    case $COMMAND in
-    "flash")
-        "$PROJECT_DIR/qmk/crkbd/flash.sh"
-        ;;
-    "help")
-        show_help
-        ;;
-    *)
-        error_log "Unknown command: $COMMAND"
-        show_help
-        exit 1
-        ;;
-    esac
-    ;;
-
-"chocofi")
-    case $COMMAND in
-    "flash")
-        "$PROJECT_DIR/qmk/chocofi/flash.sh"
-        ;;
-    "help")
-        show_help
-        ;;
-    *)
-        error_log "Unknown command: $COMMAND"
-        show_help
-        exit 1
-        ;;
-    esac
-    ;;
-
-"voyager")
-    case $COMMAND in
-    "flash")
-        "$PROJECT_DIR/qmk/voyager/flash.sh"
         ;;
     "help")
         show_help

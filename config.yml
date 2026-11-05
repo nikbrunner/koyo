@@ -1,13 +1,6 @@
 paths:
   qmk_dir: "$HOME/repos/qmk/qmk_firmware"
-  repo_dir: "$HOME/repos/nikbrunner/koyo"
   oryx_url: "https://configure.zsa.io/moonlander/layouts/EM5en/latest/0"
-  script_files:
-    - koyo
-    - qmk/moonlander/flash.sh
-    - qmk/crkbd/flash.sh
-    - qmk/chocofi/flash.sh
-    - qmk/voyager/flash.sh
   keymap_dirs:
     moonlander: keyboards/zsa/moonlander/keymaps/koyo
     crkbd: keyboards/crkbd/rev1/keymaps/koyo

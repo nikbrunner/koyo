@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Verify the keymap without changing the repo: generated files are up to date,
-# no hand-written case is orphaned, and every board compiles.
+# keys map onto every board, no hand-written case is orphaned, and every board compiles.
 # Usage: check.sh [--ref <git-ref>]   (default: the working tree)
 
 set -euo pipefail
@@ -75,7 +75,16 @@ else
     success_log "Generated files match keymap.yml"
 fi
 
-# 2. Every hand-written case still matches a key in keymap.yml
+# 2. Keys land where each board expects them
+if python3 -B "$COPY/test_generate_keymap.py" >"$WORK_DIR/test.log" 2>&1; then
+    success_log "Keys map onto every board"
+else
+    cat "$WORK_DIR/test.log"
+    error_log "generate_keymap.py maps keys wrongly"
+    FAILED=true
+fi
+
+# 3. Every hand-written case still matches a key in keymap.yml
 ORPHANS=$({ grep -ho 'case [A-Z_]*([^:]*)' "$COPY"/qmk/*/src/keymap.c "$COPY"/qmk/shared/*.h || true; } | sort -u | sed 's/^case //' |
     while read -r key; do grep -qF "$key" "$COPY/keymap.yml" || echo "$key"; done)
 if [[ -n "$ORPHANS" ]]; then
@@ -85,7 +94,7 @@ else
     success_log "No orphaned cases"
 fi
 
-# 3. Every board compiles
+# 4. Every board compiles
 for board in "${BOARDS[@]}"; do
     ARGS=$(compile_args "$board")
     KEYBOARD=$(echo "$ARGS" | awk '{print $2}')
