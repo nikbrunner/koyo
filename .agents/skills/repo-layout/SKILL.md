@@ -24,9 +24,11 @@ description: Change the kōyō layout through keymap.yml and regenerate every bo
 
   QMK matches combos by keycode, so a combo fires on any layer where its keys exist. Its C array is `<layer>_CMB_<name>`.
 
+- Lighting lives here too and is generated into the same headers. `palette` names HSV colours, a layer's `background` lights all its keys at `lighting.background_v`, its `highlights` paint keys written exactly as on that layer, and `lighting.mods` colours every other modifier and mod-tap. Colours come from Black Atom JPN Kōyō dark. A split board with per-key highlights needs `SPLIT_LAYER_STATE_ENABLE` in its `config.h`, or the right half keeps showing the base layer.
+
 ## The keymap.c files
 
-Each board's `keymap.c` holds the behaviour: key aliases, tap-hold hooks, RGB, and any per-board hooks. Names that `keymap.yml` uses (aliases, a tap dance enum) come before `#include "keymap.generated.h"`; everything that uses `LY_*` comes after it. Code that names a board-only layer lives only in those boards' `keymap.c` (e.g. `combo_should_trigger()` with `LY_GAM` in the Voyager's), since the other boards have no such enum value.
+Each board's `keymap.c` holds the behaviour: key aliases, tap-hold hooks, and any per-board hooks. Names that `keymap.yml` uses (aliases, a tap dance enum) come before `#include "keymap.generated.h"`; everything that uses `LY_*` comes after it. Code that names a board-only layer lives only in those boards' `keymap.c` (e.g. `combo_should_trigger()` with `LY_GAM` in the Voyager's), since the other boards have no such enum value.
 
 ## Tap-hold
 

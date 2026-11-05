@@ -57,3 +57,125 @@ combo_t key_combos[] = {
     COMBO(LY_NUM_FN_CMB_COMMA, KC_COMMA),
     COMBO(LY_NUM_FN_CMB_DOT, KC_DOT),
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+    switch (get_highest_layer(state)) {
+        case LY_BAS:
+            rgb_matrix_sethsv_noeeprom(184, 61, 70);
+            break;
+        case LY_EXT:
+            rgb_matrix_sethsv_noeeprom(236, 68, 70);
+            break;
+        case LY_SYM:
+            rgb_matrix_sethsv_noeeprom(94, 87, 70);
+            break;
+        case LY_NUM_FN:
+            rgb_matrix_sethsv_noeeprom(16, 174, 70);
+            break;
+        case LY_MED:
+            rgb_matrix_sethsv_noeeprom(24, 63, 70);
+            break;
+    }
+    return state;
+}
+
+static hsv_t key_highlight(uint8_t layer, keypos_t pos) {
+    switch (layer) {
+        case LY_BAS:
+            switch (keymap_key_to_keycode(layer, pos)) {
+                case KC_H:
+                case KC_J:
+                case LT(LY_SYM, KC_K):
+                case KC_L:
+                    return (hsv_t){27, 218, 228};
+            }
+            break;
+        case LY_EXT:
+            switch (keymap_key_to_keycode(layer, pos)) {
+                case KC_LEFT:
+                case KC_DOWN:
+                case KC_UP:
+                case KC_RGHT:
+                    return (hsv_t){27, 218, 228};
+            }
+            break;
+        case LY_SYM:
+            switch (keymap_key_to_keycode(layer, pos)) {
+                case KC_LPRN:
+                case KC_RPRN:
+                case KC_LBRC:
+                case KC_RBRC:
+                case KC_LCBR:
+                case KC_RCBR:
+                case KC_LABK:
+                case KC_RABK:
+                    return (hsv_t){27, 218, 228};
+                case KC_DQUO:
+                case KC_QUOT:
+                case KC_GRV:
+                    return (hsv_t){120, 134, 195};
+                case KC_PLUS:
+                case KC_MINS:
+                case KC_ASTR:
+                case KC_PERC:
+                case KC_EXLM:
+                case KC_AMPR:
+                case KC_PIPE:
+                case KC_CIRC:
+                case KC_TILD:
+                case KC_EQUAL:
+                case KC_SLASH:
+                    return (hsv_t){236, 68, 211};
+            }
+            break;
+        case LY_NUM_FN:
+            switch (keymap_key_to_keycode(layer, pos)) {
+                case KC_0:
+                case KC_1:
+                case KC_2:
+                case KC_3:
+                case MT(MOD_RSFT, KC_4):
+                case MT(MOD_RCTL, KC_5):
+                case MT(MOD_RALT, KC_6):
+                case KC_7:
+                case KC_8:
+                case KC_9:
+                    return (hsv_t){120, 134, 195};
+            }
+            break;
+        case LY_MED:
+            switch (keymap_key_to_keycode(layer, pos)) {
+                case KC_VOLD:
+                case KC_MUTE:
+                case KC_VOLU:
+                case KC_MPRV:
+                case KC_MPLY:
+                case KC_MNXT:
+                    return (hsv_t){184, 61, 215};
+                case QK_BOOT:
+                    return (hsv_t){251, 124, 254};
+            }
+            break;
+    }
+    // Looks through transparent keys, so the outer ring's mods stay lit on every layer
+    uint16_t keycode = keymap_key_to_keycode(layer_switch_get_layer(pos), pos);
+    return IS_MODIFIER_KEYCODE(keycode) || IS_QK_MOD_TAP(keycode) ? (hsv_t){24, 63, 225} : (hsv_t){0, 0, 0};
+}
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    uint8_t layer = get_highest_layer(layer_state | default_layer_state);
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        for (uint8_t col = 0; col < MATRIX_COLS; col++) {
+            uint8_t led = g_led_config.matrix_co[row][col];
+            if (led == NO_LED || led < led_min || led >= led_max) continue;
+            hsv_t hsv = key_highlight(layer, (keypos_t){.col = col, .row = row});
+            if (hsv.v == 0) continue;
+            // rgb_matrix_set_color bypasses the board's brightness cap
+            hsv.v = hsv.v * RGB_MATRIX_MAXIMUM_BRIGHTNESS / UINT8_MAX;
+            rgb_t rgb = hsv_to_rgb(hsv);
+            rgb_matrix_set_color(led, rgb.r, rgb.g, rgb.b);
+        }
+    }
+    return false;
+}

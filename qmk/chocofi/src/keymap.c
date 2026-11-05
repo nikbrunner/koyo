@@ -114,28 +114,3 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_
             return 0;
     }
 }
-
-// RGB LAYER LIGHTING ============================================================================
-// https://getreuer.info/posts/keyboards/palettefx/index.html
-layer_state_t layer_state_set_user(layer_state_t state) {
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-
-    switch (get_highest_layer(state)) {
-        case LY_BAS:
-            rgb_matrix_sethsv_noeeprom(15, 255, 255);   // Orange
-            break;
-        case LY_EXT:
-            rgb_matrix_sethsv_noeeprom(200, 255, 255);  // Purple
-            break;
-        case LY_SYM:
-            rgb_matrix_sethsv_noeeprom(85, 255, 255);   // Green
-            break;
-        case LY_NUM_FN:
-            rgb_matrix_sethsv_noeeprom(170, 255, 255);  // Blue
-            break;
-        case LY_MED:
-            rgb_matrix_sethsv_noeeprom(0, 255, 255);    // Red
-            break;
-    }
-    return state;
-}

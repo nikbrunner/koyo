@@ -78,7 +78,71 @@ def c_rows(rows):
     return ",\n".join(lines)
 
 
-def header(board, layers, combos):
+def lighting_code(names, layers, missing, palette, lighting):
+    """The RGB hooks for one board: a background per layer and highlights per key."""
+    out = [
+        "layer_state_t layer_state_set_user(layer_state_t state) {",
+        "    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);",
+        "    switch (get_highest_layer(state)) {",
+    ]
+    for name in names:
+        hue, sat, _ = palette[layers[name]["background"]]
+        out += [
+            f"        case {name}:",
+            f"            rgb_matrix_sethsv_noeeprom({hue}, {sat}, {lighting['background_v']});",
+            "            break;",
+        ]
+    out += [
+        "    }",
+        "    return state;",
+        "}",
+        "",
+        "static hsv_t key_highlight(uint8_t layer, keypos_t pos) {",
+        "    switch (layer) {",
+    ]
+    for name in names:
+        groups = [
+            (color, [k for k in split_top(keys, ",") if not mentions(k, missing)])
+            for color, keys in layers[name].get("highlights", {}).items()
+        ]
+        groups = [(color, keys) for color, keys in groups if keys]
+        if not groups:
+            continue
+        out += [f"        case {name}:", "            switch (keymap_key_to_keycode(layer, pos)) {"]
+        for color, keys in groups:
+            out += [f"                case {k}:" for k in keys]
+            out.append(f"                    return (hsv_t){{{', '.join(map(str, palette[color]))}}};")
+        out += ["            }", "            break;"]
+    mods = ", ".join(map(str, palette[lighting["mods"]]))
+    out += [
+        "    }",
+        "    // Looks through transparent keys, so the outer ring's mods stay lit on every layer",
+        "    uint16_t keycode = keymap_key_to_keycode(layer_switch_get_layer(pos), pos);",
+        f"    return IS_MODIFIER_KEYCODE(keycode) || IS_QK_MOD_TAP(keycode) ? (hsv_t){{{mods}}} : (hsv_t){{0, 0, 0}};",
+        "}",
+        "",
+        "bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {",
+        "    uint8_t layer = get_highest_layer(layer_state | default_layer_state);",
+        "    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {",
+        "        for (uint8_t col = 0; col < MATRIX_COLS; col++) {",
+        "            uint8_t led = g_led_config.matrix_co[row][col];",
+        "            if (led == NO_LED || led < led_min || led >= led_max) continue;",
+        "            hsv_t hsv = key_highlight(layer, (keypos_t){.col = col, .row = row});",
+        "            if (hsv.v == 0) continue;",
+        "            // rgb_matrix_set_color bypasses the board's brightness cap",
+        "            hsv.v = hsv.v * RGB_MATRIX_MAXIMUM_BRIGHTNESS / UINT8_MAX;",
+        "            rgb_t rgb = hsv_to_rgb(hsv);",
+        "            rgb_matrix_set_color(led, rgb.r, rgb.g, rgb.b);",
+        "        }",
+        "    }",
+        "    return false;",
+        "}",
+        "",
+    ]
+    return out
+
+
+def header(board, layers, combos, palette, lighting):
     names = [n for n, l in layers.items() if board in l.get("boards", BOARDS)]
     missing = [n for n in layers if n not in names]
     out = [
@@ -104,6 +168,7 @@ def header(board, layers, combos):
         out.append(f"const uint16_t PROGMEM {array}[] = {{{', '.join(split_top(combo['keys'], ','))}, COMBO_END}};")
         entries.append(f"    COMBO({array}, {combo['send']}),")
     out += ["", "combo_t key_combos[] = {", *entries, "};", ""]
+    out += lighting_code(names, layers, missing, palette, lighting)
     return "\n".join(out)
 
 
@@ -164,18 +229,30 @@ def main():
     repo, out_dir = Path(sys.argv[1]), Path(sys.argv[2])
     data = json.load(sys.stdin)
     layers, combos = data["layers"], data.get("combos", {})
+    palette, lighting = data["palette"], data["lighting"]
+    if lighting["mods"] not in palette:
+        sys.exit(f"lighting: unknown mods colour {lighting['mods']}")
     for name, layer in layers.items():
         rows = [parse_row(r) for r in layer["rows"]]
         if [len(r) for r in rows] != [12, 12, 12, 12, 4]:
             sys.exit(f"{name}: expected rows of 12, 12, 12, 12 and 4 keys, got {[len(r) for r in rows]}")
         if unknown := set(layer.get("boards", [])) - set(BOARDS):
             sys.exit(f"{name}: unknown boards {sorted(unknown)}, expected some of {list(BOARDS)}")
+        if layer.get("background") not in palette:
+            sys.exit(f"{name}: unknown background colour {layer.get('background')}")
+        on_layer = {k.replace(" ", "") for r in rows for k in r}
+        for color, keys in layer.get("highlights", {}).items():
+            if color not in palette:
+                sys.exit(f"{name}: unknown highlight colour {color}")
+            for key in split_top(keys, ","):
+                if key.replace(" ", "") not in on_layer:
+                    sys.exit(f"{name}: highlight {key} is not on the layer")
     for cname, combo in combos.items():
         if combo["layer"] not in layers:
             sys.exit(f"combo {cname}: unknown layer {combo['layer']}")
     drawing(layers, combos, out_dir)
     for board in BOARDS:
-        (repo / "qmk" / board / "src" / "keymap.generated.h").write_text(header(board, layers, combos))
+        (repo / "qmk" / board / "src" / "keymap.generated.h").write_text(header(board, layers, combos, palette, lighting))
 
 
 if __name__ == "__main__":

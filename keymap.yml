@@ -12,8 +12,29 @@
 # Run `./koyo update keymap` after editing to regenerate the board headers
 # and assets/layout.svg.
 
+# Black Atom JPN Kōyō dark, converted from OKLCH to QMK's HSV.
+palette:
+    amber: [27, 218, 228]
+    copper: [16, 174, 248]
+    cream: [24, 63, 225]
+    cyan: [120, 134, 195]
+    green: [94, 87, 192]
+    pink: [236, 68, 211]
+    red: [251, 124, 254]
+    violet: [184, 61, 215]
+
+# A layer's `background` lights every key at background_v. Its `highlights` paint
+# the listed keys, written exactly as on that layer, in a palette colour. Remaining
+# modifiers and mod-taps, including those showing through from a lower layer, get `mods`.
+lighting:
+    background_v: 70
+    mods: cream
+
 layers:
     LY_BAS: # Base
+        background: violet
+        highlights:
+            amber: KC_H, KC_J, LT(LY_SYM, KC_K), KC_L
         rows:
             - KC_ESC  , KC_1               , KC_2               , KC_3               , KC_4               , KC_5      |   KC_6    , KC_7               , KC_8                   , KC_9                 , KC_0                   , KC_MINS
             - KC_TAB  , KC_Q               , KC_W               , KC_E               , KC_R               , KC_T      |   KC_Y    , KC_U               , KC_I                   , KC_O                 , KC_P                   , KC_EQL
@@ -23,6 +44,9 @@ layers:
 
     LY_GAM: # Gaming
         boards: [voyager]
+        background: cyan
+        highlights:
+            amber: KC_W, KC_A, KC_S, KC_D
         rows:
             - KC_ESC  , KC_1 , KC_2 , KC_3 , KC_4 , KC_5   |   KC_6 , KC_7 , KC_8     , KC_9   , KC_0     , KC_MINS
             - KC_TAB  , KC_Q , KC_W , KC_E , KC_R , KC_T   |   KC_Y , KC_U , KC_I     , KC_O   , KC_P     , KC_EQL
@@ -31,6 +55,9 @@ layers:
             - KC_SPC , LT(LY_NUM_FN, KC_ESC)   |   LT(LY_MED, KC_BSPC) , HYPR_T(KC_ENT)
 
     LY_EXT: # Extended
+        background: pink
+        highlights:
+            amber: KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
         rows:
             - KC_TRNS , KC_TRNS          , KC_TRNS          , KC_TRNS          , KC_TRNS          , KC_TRNS      |   KC_TRNS , KC_TRNS    , KC_TRNS      , KC_TRNS      , KC_TRNS       , KC_TRNS
             - KC_TRNS , LGUI(KC_Q)       , LGUI(KC_W)       , LGUI(KC_E)       , LGUI(KC_R)       , LGUI(KC_T)   |   XXXXXXX , RALT(KC_U) , XXXXXXX      , XXXXXXX      ,XXXXXXX        , KC_TRNS
@@ -39,6 +66,11 @@ layers:
             - XXXXXXX , XXXXXXX   | LGUI(KC_GRV), LGUI(KC_TAB)
 
     LY_SYM: # Symbols
+        background: green
+        highlights:
+            amber: KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_LABK, KC_RABK
+            cyan: KC_DQUO, KC_QUOT, KC_GRV
+            pink: KC_PLUS, KC_MINS, KC_ASTR, KC_PERC, KC_EXLM, KC_AMPR, KC_PIPE, KC_CIRC, KC_TILD, KC_EQUAL, KC_SLASH
         rows:
             - KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS   |   KC_TRNS  , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS  , KC_TRNS
             - KC_TRNS , KC_CIRC , KC_PLUS , KC_HASH , KC_PERC , KC_DLR    |   KC_LABK  , KC_LCBR , KC_DQUO , KC_RCBR , KC_RABK  , KC_TRNS
@@ -47,6 +79,10 @@ layers:
             - XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX
 
     LY_NUM_FN: # Numbers & function keys
+        background: copper
+        highlights:
+            cyan: KC_0, KC_1, KC_2, KC_3, MT(MOD_RSFT, KC_4), MT(MOD_RCTL, KC_5), MT(MOD_RALT, KC_6), KC_7, KC_8, KC_9
+            amber: TG(LY_GAM)
         rows:
             - KC_TRNS    , KC_TRNS             , KC_TRNS             , KC_TRNS             , KC_TRNS             , KC_TRNS   |   KC_TRNS  , KC_TRNS            , KC_TRNS            , KC_TRNS            , KC_TRNS  , KC_TRNS
             - KC_TRNS    , KC_F9               , KC_F10              , KC_F11              , KC_F12              , XXXXXXX   |   KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , KC_TRNS
@@ -55,6 +91,10 @@ layers:
             - XXXXXXX , XXXXXXX   |   C(KC_B) , KC_0
 
     LY_MED: # Media & system
+        background: cream
+        highlights:
+            violet: KC_VOLD, KC_MUTE, KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT
+            red: QK_BOOT
         rows:
             - KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS   |   KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS   , KC_TRNS         , KC_TRNS
             - KC_TRNS , G(C(KC_Q)) , KC_VOLD , KC_MUTE , KC_VOLU , QK_BOOT   |   XXXXXXX , RM_HUED    , RM_TOGG , RM_HUEU   , KC_PRINT_SCREEN , KC_TRNS

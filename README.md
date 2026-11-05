@@ -91,7 +91,7 @@
 koyo update keymap
 ```
 
-This writes `qmk/<board>/src/keymap.generated.h` for every board (Corne and Chocofi use the core and thumbs, Moonlander and Voyager the outer ring too) and redraws the graphic above. Flashing runs it as well. `koyo check` verifies the result and runs as a Git pre-push hook, which `./koyo setup` installs through Lefthook (from `mise.toml`). Each board's `keymap.c` holds only behaviour: mod-tap overrides, chordal hold, tapping terms, RGB and per-board hooks.
+This writes `qmk/<board>/src/keymap.generated.h` for every board (Corne and Chocofi use the core and thumbs, Moonlander and Voyager the outer ring too) and redraws the graphic above. Flashing runs it as well. `koyo check` verifies the result and runs as a Git pre-push hook, which `./koyo setup` installs through Lefthook (from `mise.toml`). `keymap.yml` also sets the lighting: a background colour per layer and highlights for key groups, generated into the same headers. Each board's `keymap.c` holds only behaviour: mod-tap overrides, chordal hold, tapping terms and per-board hooks.
 
 ## CLI Tool
 
