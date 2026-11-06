@@ -108,9 +108,18 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 // Shift and SYM keys stay out: camelCase and symbols need a hold right after a letter
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
     switch (keycode) {
+        case MT(MOD_LCTL, KC_C):
+            // Repeated Ctrl+HJKL presses Ctrl again right after the previous H, J, K or L
+            switch (prev_keycode) {
+                case KC_H:
+                case KC_J:
+                case LT(LY_SYM, KC_K):
+                case KC_L:
+                    return 0;
+            }
+            return is_flow_tap_key(prev_keycode) ? FLOW_TAP_TERM : 0;
         case MT(MOD_LGUI, KC_Z):
         case MT(MOD_LALT, KC_X):
-        case MT(MOD_LCTL, KC_C):
         case MT(MOD_RCTL, KC_COMMA):
         case MT(MOD_LALT, KC_DOT):
         case MT(MOD_RGUI, KC_SLASH):
