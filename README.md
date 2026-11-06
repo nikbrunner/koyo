@@ -43,7 +43,7 @@
 - Extended layer under space bar for frequently used tools
 - Symbol layer with semantic arrangement
 - Unified NUM_FN layer combining numbers and function keys for efficient access
-- Gaming layer on the Voyager, toggled by holding the left outer thumb and pressing the left Shift key
+- Gaming layer on the Voyager, toggled by holding the left outer thumb and pressing G
 
 ### Thumb Cluster Philosophy
 
