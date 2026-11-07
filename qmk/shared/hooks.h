@@ -48,7 +48,15 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
         // Right hand
         case HYPR_T(KC_ENT):
         case LT(LY_MED, KC_BSPC):
+#ifdef GAMING_LAYER
+        case LT(LY_GAM_NUM, KC_ESC):
+#endif
             return true;
+    }
+
+    // One-handed Cmd+Tab: Z held, Tab tapped
+    if (other_keycode == KC_TAB) {
+        return true;
     }
 
     // Otherwise defer to the opposite hands rule (default behavior)
@@ -79,6 +87,11 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case EXT_D:
         case EXT_F:
             return true;
+#ifdef GAMING_LAYER
+        // Binds under the gaming thumb must fire at once in a game
+        case LT(LY_GAM_NUM, KC_ESC):
+            return true;
+#endif
         default:
             return false;
     }

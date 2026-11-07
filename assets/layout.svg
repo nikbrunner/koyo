@@ -378,7 +378,7 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(0, 56)">
 <g transform="translate(45, 81)" class="key keypos-0">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
-<text x="0" y="0" class="key tap">ESC</text>
+<text x="0" y="0" class="key tap">0</text>
 </g>
 <g transform="translate(135, 81)" class="key keypos-1">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -527,10 +527,12 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(135, 351)" class="key keypos-37">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 <text x="0" y="0" class="key tap">Z</text>
+<text x="0" y="41" class="key hold">LGUI</text>
 </g>
 <g transform="translate(225, 333)" class="key keypos-38">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 <text x="0" y="0" class="key tap">X</text>
+<text x="0" y="41" class="key hold">LALT</text>
 </g>
 <g transform="translate(315, 315)" class="key keypos-39">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -559,10 +561,12 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(1170, 333)" class="key keypos-45">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 <text x="0" y="0" class="key tap">.</text>
+<text x="0" y="41" class="key hold">LALT</text>
 </g>
 <g transform="translate(1260, 351)" class="key keypos-46">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 <text x="0" y="0" class="key tap">/</text>
+<text x="0" y="41" class="key hold">RGUI</text>
 </g>
 <g transform="translate(1350, 351)" class="key keypos-47">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -574,10 +578,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(560, 535) rotate(30.0)" class="key keypos-49">
 <rect rx="6" ry="6" x="-43" y="-61" width="86" height="122" class="key"/>
+<text x="0" y="0" class="key tap">ESC</text>
 <a href="#LY_GAM_NUM-Voyager-only">
-<text x="0" y="0" class="key tap layer-activator">
-<tspan x="0" dy="-1.2em" style="font-size: 70%">LY_GAM_NUM</tspan><tspan x="0" dy="1.2em" style="font-size: 70%">(Voyager</tspan><tspan x="0" dy="1.2em" style="font-size: 70%">only)</tspan>
-</text>
+<text x="0" y="59" class="key hold layer-activator"><tspan style="font-size: 64%">LY_GAM_NUM…</tspan></text>
 </a></g>
 <g transform="translate(835, 535) rotate(-30.0)" class="key keypos-50">
 <rect rx="6" ry="6" x="-43" y="-61" width="86" height="122" class="key"/>
