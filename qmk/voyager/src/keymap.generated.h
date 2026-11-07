@@ -7,6 +7,7 @@ enum layers {
     LY_EXT,
     LY_SYM,
     LY_NUM_FN,
+    LY_GAM_NUM,
     LY_MED,
 };
 
@@ -22,9 +23,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LY_GAM] = LAYOUT_voyager(
   KC_ESC  , KC_1 , KC_2 , KC_3 , KC_4 , KC_5 , KC_6 , KC_7 , KC_8     , KC_9   , KC_0     , KC_MINS,
   KC_TAB  , KC_Q , KC_W , KC_E , KC_R , KC_T , KC_Y , KC_U , KC_I     , KC_O   , KC_P     , KC_EQL,
-  KC_LSFT , KC_A , KC_S , KC_D , KC_F , KC_G , KC_H , KC_J , KC_K     , KC_L   , KC_SCLN  , KC_RSFT,
-  KC_LCTL , KC_Z , KC_X , KC_C , KC_V , KC_B , KC_N , KC_M , KC_COMMA , KC_DOT , KC_SLASH , KC_RCTL,
-  KC_SPC , LT(LY_NUM_FN, KC_ESC) , LT(LY_MED, KC_BSPC) , HYPR_T(KC_ENT)
+  KC_LCTL , KC_A , KC_S , KC_D , KC_F , KC_G , KC_H , KC_J , KC_K     , KC_L   , KC_SCLN  , KC_RSFT,
+  KC_LSFT , KC_Z , KC_X , KC_C , KC_V , KC_B , KC_N , KC_M , KC_COMMA , KC_DOT , KC_SLASH , KC_RCTL,
+  KC_SPC , MO(LY_GAM_NUM) , LT(LY_MED, KC_BSPC) , HYPR_T(KC_ENT)
 ),
 
 [LY_EXT] = LAYOUT_voyager(
@@ -48,6 +49,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRNS , KC_F9               , KC_F10              , KC_F11              , KC_F12              , KC_NO      , KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , KC_TRNS,
   KC_TRNS , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6) , MT(MOD_LCTL, KC_F7) , MT(MOD_LSFT, KC_F8) , TG(LY_GAM) , KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , KC_TRNS,
   KC_TRNS , KC_F1               , KC_F2               , KC_F3               , KC_F4               , KC_NO      , KC_MINUS , KC_1               , KC_2               , KC_3               , KC_SLASH , KC_TRNS,
+  KC_NO , KC_NO , C(KC_B) , KC_0
+),
+
+[LY_GAM_NUM] = LAYOUT_voyager(
+  KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS  , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS  , KC_TRNS,
+  KC_TRNS , KC_F9   , KC_F10  , KC_F11  , KC_F12  , KC_NO      , KC_PLUS  , KC_7    , KC_8    , KC_9    , KC_ASTR  , KC_TRNS,
+  KC_TRNS , KC_F5   , KC_F6   , KC_F7   , KC_F8   , TG(LY_GAM) , KC_EQUAL , KC_4    , KC_5    , KC_6    , KC_COLN  , KC_TRNS,
+  KC_TRNS , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_NO      , KC_MINUS , KC_1    , KC_2    , KC_3    , KC_SLASH , KC_TRNS,
   KC_NO , KC_NO , C(KC_B) , KC_0
 ),
 
@@ -88,6 +97,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             rgb_matrix_sethsv_noeeprom(94, 150, 70);
             break;
         case LY_NUM_FN:
+            rgb_matrix_sethsv_noeeprom(16, 215, 70);
+            break;
+        case LY_GAM_NUM:
             rgb_matrix_sethsv_noeeprom(16, 215, 70);
             break;
         case LY_MED:
@@ -164,6 +176,23 @@ static hsv_t key_highlight(uint8_t layer, keypos_t pos) {
                 case MT(MOD_RSFT, KC_4):
                 case MT(MOD_RCTL, KC_5):
                 case MT(MOD_RALT, KC_6):
+                case KC_7:
+                case KC_8:
+                case KC_9:
+                    return (hsv_t){120, 190, 195};
+                case TG(LY_GAM):
+                    return (hsv_t){27, 240, 228};
+            }
+            break;
+        case LY_GAM_NUM:
+            switch (keymap_key_to_keycode(layer, pos)) {
+                case KC_0:
+                case KC_1:
+                case KC_2:
+                case KC_3:
+                case KC_4:
+                case KC_5:
+                case KC_6:
                 case KC_7:
                 case KC_8:
                 case KC_9:

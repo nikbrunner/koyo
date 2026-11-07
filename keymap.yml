@@ -50,9 +50,9 @@ layers:
         rows:
             - KC_ESC  , KC_1 , KC_2 , KC_3 , KC_4 , KC_5   |   KC_6 , KC_7 , KC_8     , KC_9   , KC_0     , KC_MINS
             - KC_TAB  , KC_Q , KC_W , KC_E , KC_R , KC_T   |   KC_Y , KC_U , KC_I     , KC_O   , KC_P     , KC_EQL
-            - KC_LSFT , KC_A , KC_S , KC_D , KC_F , KC_G   |   KC_H , KC_J , KC_K     , KC_L   , KC_SCLN  , KC_RSFT
-            - KC_LCTL , KC_Z , KC_X , KC_C , KC_V , KC_B   |   KC_N , KC_M , KC_COMMA , KC_DOT , KC_SLASH , KC_RCTL
-            - KC_SPC , LT(LY_NUM_FN, KC_ESC)   |   LT(LY_MED, KC_BSPC) , HYPR_T(KC_ENT)
+            - KC_LCTL , KC_A , KC_S , KC_D , KC_F , KC_G   |   KC_H , KC_J , KC_K     , KC_L   , KC_SCLN  , KC_RSFT
+            - KC_LSFT , KC_Z , KC_X , KC_C , KC_V , KC_B   |   KC_N , KC_M , KC_COMMA , KC_DOT , KC_SLASH , KC_RCTL
+            - KC_SPC , MO(LY_GAM_NUM)   |   LT(LY_MED, KC_BSPC) , HYPR_T(KC_ENT)
 
     LY_EXT: # Extended
         background: pink
@@ -88,6 +88,19 @@ layers:
             - KC_TRNS    , KC_F9               , KC_F10              , KC_F11              , KC_F12              , XXXXXXX   |   KC_PLUS  , KC_7               , KC_8               , KC_9               , KC_ASTR  , KC_TRNS
             - KC_TRNS    , MT(MOD_LGUI, KC_F5) , MT(MOD_LALT, KC_F6) , MT(MOD_LCTL, KC_F7) , MT(MOD_LSFT, KC_F8) , TG(LY_GAM)   |   KC_EQUAL , MT(MOD_RSFT, KC_4) , MT(MOD_RCTL, KC_5) , MT(MOD_RALT, KC_6) , KC_COLN  , KC_TRNS
             - KC_TRNS    , KC_F1               , KC_F2               , KC_F3               , KC_F4               , XXXXXXX   |   KC_MINUS , KC_1               , KC_2               , KC_3               , KC_SLASH , KC_TRNS
+            - XXXXXXX , XXXXXXX   |   C(KC_B) , KC_0
+
+    LY_GAM_NUM: # Numbers & function keys for gaming, without mod-taps
+        boards: [voyager]
+        background: copper
+        highlights:
+            cyan: KC_0, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9
+            amber: TG(LY_GAM)
+        rows:
+            - KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS      |   KC_TRNS  , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS  , KC_TRNS
+            - KC_TRNS , KC_F9   , KC_F10  , KC_F11  , KC_F12  , XXXXXXX      |   KC_PLUS  , KC_7    , KC_8    , KC_9    , KC_ASTR  , KC_TRNS
+            - KC_TRNS , KC_F5   , KC_F6   , KC_F7   , KC_F8   , TG(LY_GAM)   |   KC_EQUAL , KC_4    , KC_5    , KC_6    , KC_COLN  , KC_TRNS
+            - KC_TRNS , KC_F1   , KC_F2   , KC_F3   , KC_F4   , XXXXXXX      |   KC_MINUS , KC_1    , KC_2    , KC_3    , KC_SLASH , KC_TRNS
             - XXXXXXX , XXXXXXX   |   C(KC_B) , KC_0
 
     LY_MED: # Media & system

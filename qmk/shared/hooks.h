@@ -79,11 +79,6 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case EXT_D:
         case EXT_F:
             return true;
-#ifdef GAMING_LAYER
-        // Binds under this thumb must fire at once in a game, while typing keeps fast Esc rolls
-        case LT(LY_NUM_FN, KC_ESC):
-            return layer_state_is(GAMING_LAYER);
-#endif
         default:
             return false;
     }
