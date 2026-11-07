@@ -95,9 +95,18 @@ bool get_speculative_hold(uint16_t keycode, keyrecord_t *record) {
     return (mods & (MOD_LCTL | MOD_LSFT)) == (mods & MOD_HYPR);
 }
 
-// A key tapped while the EXT thumb is down settles the thumb as held
+// A key tapped while one of these is down settles it as held
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    return keycode == LT(LY_EXT, KC_SPC);
+    switch (keycode) {
+        case LT(LY_EXT, KC_SPC):
+        // Fast mod+HJKL, released before the tapping term
+        case MT(MOD_LGUI, KC_Z):
+        case MT(MOD_LALT, KC_X):
+        case MT(MOD_LCTL, KC_C):
+            return true;
+        default:
+            return false;
+    }
 }
 
 // Shift and SYM keys stay out: camelCase and symbols need a hold right after a letter

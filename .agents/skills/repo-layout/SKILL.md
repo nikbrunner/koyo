@@ -44,7 +44,7 @@ Pick the mechanism by latency. A mod-tap or layer-tap sends its tap on release. 
 | Hook | Effect | Keys it suits |
 | --- | --- | --- |
 | `get_hold_on_other_key_press` | Settles as held the moment another key goes down, so a chord fires at once. A fast roll also becomes a hold. | Keys mostly chorded with others, on a layer where you are not typing prose (EXT home row) |
-| `get_permissive_hold` | Settles as held when another key is tapped inside it, ending that key's wait for the timer. Rolls stay taps. | Layer thumbs that also type (EXT thumb on space) |
+| `get_permissive_hold` | Settles as held when another key is tapped inside it, ending that key's wait for the timer. Rolls stay taps. | Layer thumbs that also type (EXT thumb on space), and left bottom-row mods for fast shortcuts with the other hand (Alt+H) |
 | `get_chordal_hold` | Returning `true` lets a same-hand chord hold; the default settles it as a tap. | Thumbs, and keys that combine with same-hand keys (EXT home row: F+D, F+C) |
 | `get_speculative_hold` | Sends the modifier on keydown, before the decision. QMK's default covers Ctrl and Shift mod-taps; an override has to repeat that default for the keys it keeps. | Exclude keys mostly tapped for a shortcut, since each tap would flash the modifier first |
 | `get_flow_tap_term` | Settles as tapped when pressed within `FLOW_TAP_TERM` of a typed letter. Returning 0 opts the key out. | Mods rarely held mid-typing (bottom-row Gui, Alt, Ctrl). Not Shift or layer keys, which need a hold right after a letter. `prev_keycode` opts out single sequences: left Ctrl right after HJKL, for repeated Ctrl+HJKL |
