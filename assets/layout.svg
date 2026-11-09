@@ -537,10 +537,12 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(315, 315)" class="key keypos-39">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 <text x="0" y="0" class="key tap">C</text>
+<text x="0" y="41" class="key hold">LCTL</text>
 </g>
 <g transform="translate(405, 342)" class="key keypos-40">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 <text x="0" y="0" class="key tap">V</text>
+<text x="0" y="41" class="key hold">LSFT</text>
 </g>
 <g transform="translate(495, 360)" class="key keypos-41">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
@@ -553,10 +555,12 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(990, 342)" class="key keypos-43">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 <text x="0" y="0" class="key tap">M</text>
+<text x="0" y="41" class="key hold">RSFT</text>
 </g>
 <g transform="translate(1080, 315)" class="key keypos-44">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
 <text x="0" y="0" class="key tap">,</text>
+<text x="0" y="41" class="key hold">RCTL</text>
 </g>
 <g transform="translate(1170, 333)" class="key keypos-45">
 <rect rx="6" ry="6" x="-43" y="-43" width="86" height="86" class="key"/>
