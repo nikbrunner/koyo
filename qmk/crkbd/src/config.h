@@ -37,7 +37,7 @@
 
 // Window after a typed letter in which a tap-hold key settles as tapped (ms)
 // https://docs.qmk.fm/tap_hold#flow-tap
-#define FLOW_TAP_TERM 150
+#define FLOW_TAP_TERM 80
 
 // =============================================================================
 // Combo Configuration

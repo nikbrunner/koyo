@@ -122,8 +122,6 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-#define SHORT_FLOW_TAP_TERM 80
-
 // Shift and SYM keys stay out: camelCase and symbols need a hold right after a letter
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
     switch (keycode) {
@@ -138,13 +136,11 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_
             }
             return is_flow_tap_key(prev_keycode) ? FLOW_TAP_TERM : 0;
         case MT(MOD_RCTL, KC_COMMA):
-            return is_flow_tap_key(prev_keycode) ? FLOW_TAP_TERM : 0;
-        // Gui and Alt are reached for right after typing, so they get a shorter window
         case MT(MOD_LGUI, KC_Z):
         case MT(MOD_LALT, KC_X):
         case MT(MOD_LALT, KC_DOT):
         case MT(MOD_RGUI, KC_SLASH):
-            return is_flow_tap_key(prev_keycode) ? SHORT_FLOW_TAP_TERM : 0;
+            return is_flow_tap_key(prev_keycode) ? FLOW_TAP_TERM : 0;
         default:
             return 0;
     }
