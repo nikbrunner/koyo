@@ -59,11 +59,11 @@ layers:
         highlights:
             amber: KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
         rows:
-            - KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS    , KC_TRNS    , KC_TRNS      |   KC_TRNS , KC_TRNS    , KC_TRNS      , KC_TRNS , KC_TRNS       , KC_TRNS
-            - KC_TRNS , LGUI(KC_Q) , LGUI(KC_W) , LGUI(KC_E) , LGUI(KC_R) , LGUI(KC_T)   |   XXXXXXX , RALT(KC_U) , XXXXXXX      , XXXXXXX , XXXXXXX       , KC_TRNS
-            - KC_TRNS , EXT_A      , EXT_S      , EXT_D      , EXT_F      , LGUI(KC_G)   |   KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT , HYPR(KC_SCLN) , KC_TRNS
-            - KC_TRNS , LGUI(KC_Z) , LGUI(KC_X) , LGUI(KC_C) , LGUI(KC_V) , LGUI(KC_B)   |   XXXXXXX , CW_TOGG    , LSFT(KC_TAB) , KC_TAB  , XXXXXXX       , KC_TRNS
-            -                                                        XXXXXXX , XXXXXXX   |   LGUI(KC_GRV) , LGUI(KC_TAB)
+            - KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS    , KC_TRNS    , KC_TRNS      |   KC_TRNS , KC_TRNS    , KC_TRNS      , KC_TRNS      , KC_TRNS       , KC_TRNS
+            - KC_TRNS , LGUI(KC_Q) , LGUI(KC_W) , LGUI(KC_E) , LGUI(KC_R) , LGUI(KC_T)   |   XXXXXXX , RALT(KC_U) , LGUI(KC_GRV) , LGUI(KC_TAB) , XXXXXXX       , KC_TRNS
+            - KC_TRNS , EXT_A      , EXT_S      , EXT_D      , EXT_F      , LGUI(KC_G)   |   KC_LEFT , KC_DOWN    , KC_UP        , KC_RGHT      , HYPR(KC_SCLN) , KC_TRNS
+            - KC_TRNS , LGUI(KC_Z) , LGUI(KC_X) , LGUI(KC_C) , LGUI(KC_V) , LGUI(KC_B)   |   XXXXXXX , CW_TOGG    , LSFT(KC_TAB) , KC_TAB       , XXXXXXX       , KC_TRNS
+            -                                                        XXXXXXX , XXXXXXX   |   XXXXXXX , XXXXXXX
 
     LY_SYM: # Symbols
         background: green
